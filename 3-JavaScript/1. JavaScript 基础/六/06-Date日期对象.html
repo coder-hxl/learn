@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Data() 日期对象 是一个构造函数 必须使用new 来调用创建日期对象
+        let arr = new Array() //  创建一个数组对象
+        let obj = new Object(); // 创建一个对象实例
+        // 1. 使用Date  如果没有参数 返回当前系统的时间
+        let date = new Date()
+        console.log(date);
+        // 2.参数常用的写法  数字型 2021,7,15  或  字符串型 '2021-7-15 8:8:8'
+        let date1 = new Date(2021, 10, 1)
+        console.log(date1); // 返回的是 11 月，不是 10 月
+        let date2 = new Date('2021-10-1 8:8:8')
+        console.log(date2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

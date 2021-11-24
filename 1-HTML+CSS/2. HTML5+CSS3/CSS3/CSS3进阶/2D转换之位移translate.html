@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D转换之位移translate</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            /* transform: translate(100px, 50px); */
+            /* translate中百分比单位是相对于本身元素的translate(50%, 50%); */
+            /* transform: translate(50%, 50%); */
+        }
+        
+        div p {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+
+</body>
+
+</html>

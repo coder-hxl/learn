@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr = [5, 4, 3, 2, 1]
+            // let arr = [5, 3, 4, 2, 1]
+        for (let i = 1; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i; j++) {
+                // 交换两个变量的值 前面一个和后面一个相比较
+                if (arr[j] > arr[j + 1]) {
+                    let temp = arr[j]
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = temp
+                }
+            }
+            console.log(arr);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单行文字溢出省略号显示</title>
+    <style>
+        div {
+            margin: 50px auto;
+            width: 80px;
+            height: 100px;
+            background-color: aqua;
+            /* 1. 先强制一行内显示文本 */
+            white-space: nowrap;
+            /* 2. 超出部分隐藏 */
+            overflow: hidden;
+            /* 3. 文字用省略号替代超出的部分 */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div>单行文字溢出省略号显示</div>
+
+</body>
+
+</html>

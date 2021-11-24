@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            resize: none;
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+        
+        ul {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        
+        li {
+            margin: 10px 0;
+            padding-left: 10px;
+            width: 300px;
+            height: 25px;
+            background-color: pink;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="" cols="30" rows="8"></textarea>
+    <button>发布</button>
+    <ul>
+    </ul>
+
+    <script>
+        // 1.获取元素
+        let text = document.querySelector('textarea')
+        let btn = text.nextElementSibling
+        let ul = btn.nextElementSibling;
+        // 2. 注册事件 处理程序
+        btn.onclick = function() {
+            if (text.value) {
+                let li = document.createElement('li');
+                li.innerHTML = text.value
+                ul.insertBefore(li, ul.children[0])
+            } else {
+                alert('您没有输入内容')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

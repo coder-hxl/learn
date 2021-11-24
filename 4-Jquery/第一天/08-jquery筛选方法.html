@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="yeye">
+        <div class="father">
+            <div class="son">儿子</div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <p>我是p</p>
+        <div>
+            <p>我是xp</p>
+        </div>
+    </div>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 1. 父 parent()
+            console.log($('.son').parent());
+
+            // 2. 子 
+            // (1) 亲儿子 children()  类似子代选择器
+            // $('.nav').children('p').css('color', 'red')
+            // (2) 所有的孩子 包含儿子和孙子 find() 类似后代选择器
+            // $('.nav').find('p').css('color', 'red')
+
+            // 3. 兄
+            $('.nav p').siblings().css('color', 'pink')
+
+        })
+    </script>
+
+</body>
+
+</html>

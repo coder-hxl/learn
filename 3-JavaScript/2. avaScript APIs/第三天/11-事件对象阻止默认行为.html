@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>123</div>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN</a>
+    <form action="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">
+        <input type="submit" value="提交" name="sub">
+    </form>
+
+    <script>
+        // 1. 返回事件类型
+        let div = document.querySelector('div')
+        div.addEventListener('click', fn)
+        div.addEventListener('mouseover', fn)
+        div.addEventListener('mouseout', fn)
+
+        function fn(e) {
+            console.log(e.type);
+        }
+        // 2. 阻止默认行为（事件）
+        let a = document.querySelector('a')
+        a.addEventListener('click', function(e) {
+            e.preventDefault()
+        })
+    </script>
+
+</body>
+
+</html>

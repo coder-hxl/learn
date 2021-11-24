@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Star {
+
+        }
+        console.log(typeof Star);
+        // 1. 类的本质是函数
+        // (1) 类有原型对象prototype
+        console.log(Star.prototype);
+        // (2) 类有原型对象prototype 里面有constructor 指向类本身
+        console.log(Star.prototype.constructor);
+        // (3) 类可以通过原型对象添加方法
+        Star.prototype.sing = function() {
+            console.log('冰雨');
+        }
+        let ldh = new Star()
+        console.dir(ldh);
+        // (4) 类创建的实例对象有__proto__ 原型指向 类的原型对象
+        console.log(ldh.__proto__ === Star.prototype);
+    </script>
+
+</body>
+
+</html>

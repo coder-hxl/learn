@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡练习</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 40px;
+            border: 1px solid red;
+            border-radius: 20px;
+            box-sizing: border-box;
+        }
+        
+        .box2 {
+            width: calc(100% - 50%);
+            height: 100%;
+            background-color: red;
+            border-radius: 20px 0 0 20px;
+            transition: all 0.8s;
+        }
+        
+        .box1:hover .box2 {
+            width: 100%;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+
+</body>
+
+</html>

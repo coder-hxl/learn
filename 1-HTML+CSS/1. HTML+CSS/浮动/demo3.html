@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 1200px;
+            height: 500px;
+            background-color: rgb(156, 156, 156);
+            margin: 0 auto;
+        }
+        
+        .left {
+            width: 390px;
+            height: 490px;
+            background-color: aqua;
+            float: left;
+            margin: 5px;
+        }
+        
+        .right {
+            width: 790px;
+            height: 490px;
+            background-color: rgb(251, 186, 186);
+            float: left;
+            margin: 5px;
+        }
+        
+        .right ul li {
+            list-style: none;
+            float: left;
+            width: 185px;
+            height: 240px;
+            background-color: rgb(255, 255, 255);
+            margin: 0 16.6px 10px 0;
+        }
+        
+        .right .y {
+            margin-right: 0 !important;
+        }
+        
+        .right .x {
+            margin-bottom: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li class="y">4</li>
+                <li class="x">5</li>
+                <li class="x">6</li>
+                <li class="x">7</li>
+                <li class="y x">8</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

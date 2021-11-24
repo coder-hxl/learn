@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景缩放background-size</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            border: 2px solid red;
+            background: url(./images/dog.jpg) no-repeat;
+            /* 只写一个参数，肯定是宽 高省略 会等比例缩放 */
+            /* background-size: 100%; */
+            /* cover 使背景图像完全覆盖背景区域 */
+            /* background-size: cover; */
+            /* contain 宽高等比例拉伸 可能有空白区域 */
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+</body>
+
+</html>

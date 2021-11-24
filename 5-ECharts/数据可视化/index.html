@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./fonts/icomoon.css">
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/flexible.js"></script>
+    <script src="./js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 父容器 -->
+    <div class="viewport">
+        <div class="column">
+            <!-- 概览区域模块制作 -->
+            <div class="panel overview">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <h4>2,190</h4>
+                            <span>
+                                <i class="icon-dot" style="color: #006cff"></i>
+                                设备总数
+                            </span>
+                        </li>
+                        <li>
+                            <h4>190</h4>
+                            <span>
+                                <i class="icon-dot" style="color:#6acca3"></i>
+                                季度新增
+                            </span>
+                        </li>
+                        <li>
+                            <h4>3,001</h4>
+                            <span>
+                                <i class="icon-dot"style="color:#6acca3"></i>
+                                运营设备
+                            </span>
+                        </li>
+                        <li>
+                            <h4>108</h4>
+                            <span>
+                                <i class="icon-dot"style="color:#ed3f35"></i>
+                                异常设备
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 监控区域模块制作 -->
+            <div class="panel monitor">
+                <div class="inner">
+                    <div class="tabs">
+                        <a href="javascript:;" class="active">故障设备监控</a>
+                        <a href="javascript:;">异常设备监控</a>
+                    </div>
+                    <div class="content" style="display: block;">
+                        <div class="head">
+                            <span class="col">故障时间</span>
+                            <span class="col">设备地址</span>
+                            <span class="col">异常代码</span>
+                        </div>
+                        <div class="marquee-view">
+                            <div class="marquee">
+                                <div class="row">
+                                    <span class="col">20180701</span>
+                                    <span class="col">11北京市昌平西路金燕龙写字楼</span>
+                                    <span class="col">1000001</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190601</span>
+                                    <span class="col">北京市昌平区城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190704</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000003</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20180701</span>
+                                    <span class="col">北京市昌平区建路金燕龙写字楼</span>
+                                    <span class="col">1000004</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000005</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000006</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建西路金燕龙写字楼</span>
+                                    <span class="col">1000007</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000008</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000009</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190710</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000010</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="head">
+                            <span class="col">异常时间</span>
+                            <span class="col">设备地址</span>
+                            <span class="col">异常代码</span>
+                        </div>
+                        <div class="marquee-view">
+                            <div class="marquee">
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000001</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190701</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190703</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190704</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190705</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190706</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190707</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190708</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190709</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20190710</span>
+                                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                                    <span class="col">1000002</span>
+                                    <span class="icon-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 点位分布统计模块制作 -->
+            <div class="point panel">
+                <div class="inner">
+                    <h3>点位分布统计</h3>
+                    <div class="chart">
+                        <div class="pie">
+                        </div>
+                        <div class="data">
+                            <div class="item">
+                                <h4>320,11</h4>
+                                <span>
+                      <i class="icon-dot" style="color: #ed3f35"></i>
+                      点位总数
+                    </span>
+                            </div>
+                            <div class="item">
+                                <h4>418</h4>
+                                <span>
+                      <i class="icon-dot" style="color: #eacf19"></i>
+                      本月新增
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" style="padding: 50px 10px 0 10px;">
+            <!-- 全国用户总量统计模块制作 -->
+            <div class="point panel">
+                <div class="inner">
+                    <h3>全国用户总量统计</h3>
+                    <div class="chart">
+                        <div class="bar">
+                        </div>
+                        <div class="data">
+                            <div class="item">
+                                <h4>120,899</h4>
+                                <span>
+                                  <i class="icon-dot" style="color: #ed3f35"></i>
+                                  用户总数
+                                </span>
+                            </div>
+                            <div class="item">
+                                <h4>248</h4>
+                                <span>
+                                  <i class="icon-dot" style="color: #eacf19"></i>
+                                  本月新增
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">3</div>
+    </div>
+
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

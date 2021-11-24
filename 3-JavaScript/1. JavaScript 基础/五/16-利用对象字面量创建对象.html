@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let obj = {
+                uname: '张三丰',
+                age: 18,
+                sex: '男',
+                sayHi: function() {
+                    console.log('hi');
+                }
+            }
+            // 1.
+        console.log(obj.uname);
+        // 2.
+        console.log(obj['age']);
+        // 3. 调用对象的方法 sayHi 对象名.方法名()
+        obj.sayHi();
+
+        // 练习
+        let keke = {
+            uname: '可可',
+            type: '阿拉斯加犬',
+            age: '5岁',
+            color: '棕红色',
+            jineng: function() {
+                console.log('汪汪汪，演电影');
+            }
+        }
+        console.log(keke.uname);
+        console.log(keke['type']);
+        keke.jineng()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

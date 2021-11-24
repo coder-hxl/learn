@@ -1,0 +1,1097 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 版心 */
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* 清除浮动 */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+/* body {
+    height: 4000px;
+    background-color: rgb(217, 253, 191);
+} */
+
+
+/* 1、头部 */
+
+.head {
+    height: 80px;
+    background-color: #fff;
+}
+
+
+/* 1. logo */
+
+.logo {
+    display: block;
+    float: left;
+    width: 192px;
+    height: 80px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 2. 分类 */
+
+.fenlei {
+    position: relative;
+    float: left;
+    margin: 0 50px;
+    width: 80px;
+    line-height: 80px;
+}
+
+.fenlei>img {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    margin-left: 0px;
+    width: 33px;
+    height: 40px;
+}
+
+.fenlei>a {
+    float: right;
+    font-size: 20px;
+    font-weight: 300;
+    color: black;
+}
+
+.fenlei>a:hover {
+    /* 显示下划线 */
+    text-decoration: underline;
+}
+
+
+/* 3. 搜索 */
+
+.ssk {
+    float: left;
+    position: relative;
+    width: 350px;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 60px;
+}
+
+.ssk a {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: 1px;
+    padding: 0 8px;
+    display: block;
+    width: 60px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(75, 75, 75);
+    border: 1px solid rgb(192, 191, 191);
+    border-right: none;
+}
+
+.ssk img {
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    padding: 0 7px;
+    width: 12px;
+    height: 12px;
+}
+
+.ssk input {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    width: 213px;
+    height: 48px;
+    margin-left: 62px;
+    padding: 0 10px;
+    border: 1px solid rgb(192, 191, 191);
+}
+
+.ssk button {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: 297px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(47, 154, 253);
+    border-left: none;
+    background: url(./img/tb-2.png) center;
+}
+
+
+/* 4. 列表 */
+
+.tblb {
+    float: left;
+    width: 280px;
+    height: 80px;
+    line-height: 80px;
+    margin-left: 30px;
+}
+
+.tblb ul li {
+    float: left;
+    padding: 0 12px;
+}
+
+.tblb ul li a {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+
+
+/* 5. 账号 */
+
+.zhanghao .zh {
+    position: relative;
+    float: right;
+    margin-right: 12px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.zhanghao .zh .tx {
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    float: left;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.zhanghao .zh .qq {
+    position: absolute;
+    bottom: 23px;
+    left: 25px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.zhanghao>.zh>span {
+    position: absolute;
+    left: 45px;
+    float: left;
+    color: black;
+    font-size: 14px;
+}
+
+
+/* 1. 头部部分结束 */
+
+
+/* 2. 第二部分 */
+
+.dier {
+    width: 100%;
+}
+
+
+/*  轮播图 */
+
+.debf {
+    float: left;
+    width: 100%;
+    height: 300px;
+    background-color: rgb(48, 49, 69);
+}
+
+.debf .lbbj {
+    position: relative;
+    display: block;
+    margin: 0 480px;
+    width: 710px;
+    height: 300px;
+}
+
+.debf .lbbj img {
+    width: 100%;
+    height: 100%;
+}
+
+.debf .lbbj .left,
+.right {
+    position: absolute;
+    display: block;
+    /* 隐藏元素 */
+    display: none;
+    top: 50%;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    background: rgba(148, 148, 148, 0.1);
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.debf .lbbj .left {
+    left: -120px;
+}
+
+.debf .lbbj .right {
+    right: -120px;
+}
+
+
+/* 鼠标悬浮指定位置显示元素 */
+
+.debf:hover .lbbj .left {
+    display: block;
+}
+
+.debf:hover .lbbj .right {
+    display: block;
+}
+
+
+/* 鼠标悬浮指定位置显示不同颜色 */
+
+.debf .lbbj .left:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+.debf .lbbj .right:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+
+/* 个人信息 */
+
+.grxx span:hover {
+    color: rgb(0, 174, 255);
+}
+
+.grxx a:hover {
+    color: rgb(0, 174, 255);
+}
+
+.debf .grxx {
+    position: absolute;
+    top: 10%;
+    right: 19%;
+    width: 220px;
+    height: 258px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgb(114, 114, 114);
+    border-radius: 3px;
+}
+
+
+/* 账号 */
+
+.grxx .tou {
+    margin-top: 20px;
+}
+
+.grxx .tou img {
+    float: left;
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.grxx .tou span {
+    float: left;
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: black;
+}
+
+.grxx span .tuichu {
+    margin-right: 20px;
+    float: right;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: rgb(173, 173, 173);
+}
+
+
+/* 课程 */
+
+.grxx .kecheng {
+    float: left;
+    margin-top: 8px;
+    margin-left: 20px;
+    width: 180px;
+    height: 43px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.kecheng span {
+    display: block;
+}
+
+.kecheng .wumen {
+    float: left;
+}
+
+.kecheng .yimen {
+    float: right;
+}
+
+.kecheng span a {
+    color: black;
+    font-size: 14px;
+}
+
+
+/* 直播 */
+
+.grxx .zhibo {
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 180px;
+}
+
+.zhibo a h5 {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+
+.zhibo a span {
+    padding: 0 5px;
+    font-size: 10px;
+    color: rgb(248, 77, 34);
+    border: 1px solid rgb(248, 77, 34);
+}
+
+.zhibo a p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: rgb(165, 165, 165);
+}
+
+.zhibo a span:hover {
+    color: rgb(248, 77, 34);
+}
+
+.grxx .zhibo:hover {
+    background-color: rgba(240, 236, 236, 0.5);
+}
+
+
+/* 课表 */
+
+.grxx .kebiao {
+    position: relative;
+    float: left;
+    margin-top: 8px;
+    margin-left: 20px;
+    width: 180px;
+    height: 50px;
+    background-color: rgba(240, 236, 236, 0.5);
+}
+
+.kebiao a .tp {
+    position: absolute;
+    top: 50%;
+    margin-top: -16.5px;
+    left: 20%;
+    float: left;
+    width: 32px;
+    height: 33px;
+}
+
+.kebiao a .wd {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    left: 45%;
+    float: left;
+    font-size: 14px;
+    color: black;
+    line-height: 25px;
+}
+
+.kebiao a span:hover {
+    color: rgb(0, 174, 255);
+}
+
+.grxx .kebiao:hover {
+    background-color: rgb(235, 232, 232);
+}
+
+
+/* 2. 第二部分结束 */
+
+
+/* 3. 第三部分 */
+
+
+/* 列表 */
+
+.dsbf {
+    float: left;
+    width: 100%;
+    height: 67px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.liebiao {
+    width: 1200px;
+}
+
+.liebiao ul {
+    margin: 0 300px;
+}
+
+.liebiao ul li {
+    float: left;
+    padding: 0 30px;
+    height: 63px;
+    line-height: 63px;
+    font-size: 20px;
+}
+
+.liebiao ul li a {
+    color: black;
+}
+
+.liebiao ul li a:active {
+    color: rgb(0, 174, 255);
+}
+
+.liebiao ul li:active {
+    border-bottom: 4px solid rgb(0, 174, 255);
+}
+
+
+/* 兴趣 */
+
+.xgxq {
+    float: right;
+    line-height: 63px;
+}
+
+.xgxq a {
+    padding: 5px 10px;
+    width: 78px;
+    height: 29px;
+    font-size: 14px;
+    color: rgb(90, 90, 90);
+    border: 1px solid rgb(139, 139, 139);
+}
+
+.xgxq a:hover {
+    border: 1px solid rgb(78, 78, 78);
+}
+
+
+/* 3. 第三部分结束  */
+
+
+/* 4.第四部分精选直播课 */
+
+
+/* 第四部分版心 */
+
+.disibanxin {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.disibanxin>.jxzbk {
+    float: left;
+    margin-top: 40px;
+    height: 410px;
+}
+
+
+/* 标题 */
+
+.jxzbk>h1 {
+    text-align: center;
+    font-weight: 400;
+}
+
+
+/* 直播 */
+
+.jxzbk>.tupian {
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    background: url(./img/d2-1.png) center;
+    width: 620px;
+    height: 348px;
+}
+
+.tupian>.zuti {
+    margin-top: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.zuti>h2 {
+    font-weight: 300;
+}
+
+.zuti>span {
+    display: block;
+    margin: 20px auto;
+    width: 280px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10%;
+}
+
+.zuti>a {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    background-color: rgb(61, 166, 252);
+    border-radius: 3px;
+}
+
+.zuti>a:hover {
+    background-color: rgb(46, 159, 252);
+}
+
+.tupian>.geren {
+    position: absolute;
+    bottom: -50px;
+    float: left;
+    margin-bottom: 50px;
+    width: 620px;
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.geren>.ls>img {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.geren>.ls>span {
+    margin-left: 15px;
+    float: left;
+}
+
+.geren .laizi {
+    float: right;
+    margin-right: 15px;
+    color: #fff;
+}
+
+
+/* 课表时间 */
+
+.jxzbk>.kbsj {
+    float: left;
+    margin-top: 20px;
+    background-color: rgb(243, 243, 243);
+}
+
+.kbsj>ul>li {
+    border: 1px solid rgb(243, 243, 243);
+    border-left: 0;
+}
+
+.kbsj>ul>li>a {
+    display: block;
+    width: 573px;
+    height: 47.7px;
+    line-height: 49.7px;
+    color: black;
+    border-left: 6px solid rgb(243, 243, 243);
+}
+
+.kbsj>ul>li>a>.dian {
+    float: left;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(149, 149, 149);
+    border-radius: 50%;
+}
+
+.kbsj>ul>li>a>.zhibo {
+    float: left;
+    margin-left: 45px;
+    margin-right: 20px;
+    margin-top: 15px;
+    width: 24px;
+    height: 24px;
+    background: url(./img/4-2.png) center;
+}
+
+.kbsj>ul>li>a>.sj {
+    margin: 0 20px;
+}
+
+.kbsj>ul>li:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.kbsj>ul>li>a:hover {
+    color: rgb(0, 174, 255);
+    border-left: 6px solid rgb(0, 174, 255);
+}
+
+.kbsj>ul>li>a:hover .dian {
+    background-color: rgb(0, 174, 255);
+}
+
+
+/* 4.第四部分精选直播课结束 */
+
+
+/* 5.第五部分 腾讯课堂官方推荐 */
+
+.gftuijian {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* 标题 */
+
+.gftuijian>.biaoti {
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 1200px;
+    height: 65px;
+    text-align: center;
+    border-bottom: 3px solid rgb(238, 238, 238);
+}
+
+.biaoti>h2 {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+/* 内容 */
+
+.gftuijian>.neirong>ul>li {
+    float: left;
+    padding-right: 20px;
+}
+
+.gftuijian>.neirong>ul>.disi {
+    padding-right: 0;
+}
+
+.gftuijian>.neirong>ul>li>.tupian {
+    position: relative;
+    width: 285px;
+    height: 160px;
+}
+
+.neirong>ul>li>.tupian>img {
+    width: 100%;
+    height: 100%;
+}
+
+.neirong>ul>li>.tupian>.text {
+    position: absolute;
+    top: 50%;
+    margin-top: -41.5px;
+    left: 20px;
+    color: #fff;
+}
+
+.neirong>ul>li>.tupian>.text>h2 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.neirong>ul>li>.tupian>.text>p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+
+/* 实训项目 */
+
+.gftuijian>.neirong>ul>li>.sxxm {
+    height: 158px;
+    background-color: #Fff;
+    border: 1px solid rgb(219, 219, 219);
+}
+
+.neirong>ul>li>.sxxm>a>h4 {
+    padding: 18px 10px;
+    font-size: 14px;
+    color: rgb(195, 195, 195);
+}
+
+.neirong>ul>li>.sxxm>a>p {
+    padding: 0 10px 10px 10px;
+    color: rgb(195, 195, 195);
+}
+
+.neirong>ul>li>.sxxm>a>p span {
+    margin-left: 5px;
+    color: rgb(110, 110, 110);
+}
+
+.neirong>ul>li>.sxxm:hover {
+    box-shadow: 0 0 10px rgb(177, 177, 177);
+}
+
+
+/* 5.第五部分 腾讯课堂官方推荐结束 */
+
+
+/* 6.第六部分 精选公开课 */
+
+
+/* 标题 */
+
+.diliu>.biaoti {
+    float: left;
+    width: 1200px;
+    height: 96px;
+    margin-top: 80px;
+    text-align: center;
+    border-bottom: 4px solid rgb(238, 233, 233);
+}
+
+.diliu>.biaoti>div>a:hover {
+    color: rgb(0, 174, 255);
+}
+
+.biaoti>div>h2 {
+    position: relative;
+    display: inline;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.biaoti>div>a {
+    position: absolute;
+    right: 18.5%;
+    line-height: 40px;
+    font-size: 16px;
+    color: black;
+}
+
+.biaoti>span {
+    font-size: 17px;
+    color: rgb(136, 136, 136);
+}
+
+
+/* 选课 */
+
+.diliu>.xuanke {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    /* background-color: #fff; */
+}
+
+.xuanke .t {
+    float: left;
+    margin-right: 50px;
+    line-height: 40px;
+    color: rgb(192, 192, 192);
+    font-size: 20px;
+}
+
+.xuanke .x {
+    line-height: 40px;
+}
+
+.xuanke ul li {
+    float: left;
+    margin-right: 50px;
+}
+
+.xuanke ul li a {
+    font-size: 18px;
+    color: black;
+}
+
+.xuanke ul li a:hover {
+    color: rgb(0, 174, 255);
+    border-bottom: 3px solid rgb(0, 174, 255);
+}
+
+
+/* 课 */
+
+.diliu>.xk-ke {
+    width: 1400px;
+    margin-left: -7px;
+}
+
+.diliu>.xk-ke ul li {
+    float: left;
+    width: 220px;
+    padding: 7px 7px;
+    margin-right: 11px;
+    margin-bottom: 10px;
+}
+
+.diliu>.xk-ke ul li:hover {
+    box-shadow: 0 0 1.5px rgb(102, 102, 102);
+}
+
+.diliu>.xk-ke ul li>a>img {
+    width: 100%;
+    height: 124px;
+}
+
+.xk-ke ul li .biaoti a h4 {
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+
+.xk-ke ul li .biaoti a h4:hover {
+    color: rgb(0, 174, 255);
+}
+
+.xk-ke ul li .jieshu {
+    position: relative;
+    padding-left: 5px;
+}
+
+.xk-ke>ul>li>.jieshu>span,
+.jiaoyu {
+    font-size: 12px;
+    color: rgb(136, 136, 136);
+}
+
+.xk-ke ul li .jieshu>.dengji>a>img {
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    left: 40%;
+    width: 16px;
+    height: 16px;
+}
+
+.xk-ke ul li .jieshu>a:hover {
+    color: rgb(0, 174, 255);
+}
+
+.xk-ke ul li>.diwen {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.xk-ke ul li>.diwen>.mf {
+    font-size: 15px;
+    color: rgb(218, 70, 26);
+}
+
+.xk-ke ul li>.diwen>.rs {
+    margin-left: 5px;
+    font-size: 13px;
+    color: rgb(138, 138, 138);
+}
+
+
+/* 6.第六部分 精选公开课结束 */
+
+
+/* 7.第七部分 更多课程 */
+
+.diqibf {
+    margin-top: 50px;
+    height: 70px;
+    text-align: center;
+    /* background-color: #fff; */
+    border: 5px solid rgb(236, 236, 236);
+}
+
+.diqibf>a {
+    font-size: 19px;
+    color: black;
+    line-height: 70px;
+}
+
+.diqibf>a>b {
+    margin: 0 5px;
+}
+
+.diqibf>a>span {
+    margin-left: 5px;
+}
+
+.diqibf>a:hover {
+    color: rgb(0, 174, 255);
+}
+
+
+/* 7.第七部分 更多课程结束 */
+
+
+/* 8. 第八部分 合作链接 */
+
+.dibabf {
+    margin-top: 100px;
+    width: 100%;
+    height: 240px;
+    background-color: rgb(63, 63, 63);
+}
+
+.dibabf>.bx {
+    width: 1200px;
+    height: 209px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(80, 80, 80);
+}
+
+
+/* 标题 */
+
+.dibabf>.bx>h3 {
+    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 500;
+    color: rgb(139, 139, 139);
+}
+
+.dibabf>.bx>ul>li {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.dibabf>.bx>ul>li>a {
+    color: rgb(139, 139, 139);
+}
+
+.dibabf>.bx>ul>li>a:hover {
+    text-decoration: underline;
+}
+
+
+/* 8. 第八部分 合作链接结束 */
+
+
+/* 9. 第九部分 结尾 */
+
+.dijiubf {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(63, 63, 63);
+    text-align: center;
+}
+
+.dijiubf>.w>.tupian {
+    position: relative;
+    padding-top: 15px;
+}
+
+.dijiubf>.w>p {
+    font-size: 13px;
+    color: rgb(139, 139, 139);
+}
+
+.dijiubf>.w>.qita {
+    margin-top: 5px;
+    /* margin-left: 20%; */
+}
+
+.dijiubf>.w>.qita>ul {
+    position: absolute;
+    left: 50%;
+    margin-left: -325px;
+}
+
+.dijiubf>.w>.qita>ul>li {
+    float: left;
+    font-size: 12px;
+}
+
+.dijiubf>.w>.qita>ul>li>span {
+    margin-left: 4px;
+    margin-right: 2px;
+}
+
+.dijiubf>.w>.qita>ul>li>span,
+a {
+    color: rgb(139, 139, 139);
+}
+
+.dijiubf>.w>.qita>ul>li>a:hover {
+    text-decoration: underline;
+}
+
+
+/* 9. 第九部分 结尾结束 */
+
+
+/* 完结 5.3-5.11*/

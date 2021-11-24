@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 改变函数内this指向
+
+        // apply() 应用 运用的意思
+        let o = {
+            name: 'fh',
+        }
+
+        function fn(arr) {
+            console.log(this);
+            console.log(arr); // 'pink'
+        }
+        fn.apply(o, ['pink'])
+
+        // 1. 也是调用函数，改变函数内部this指向
+        // 2. 参数必须是数组（伪数组）
+        // 3. apply 主要应用 利用apply借助数学内置对象求最大值
+        // Math.max()
+        let arr = [1, 66, 3, 99, 4]
+        let max = Math.max.apply(Math, arr)
+        let min = Math.min.apply(Math, arr)
+        console.log(max, min);
+    </script>
+
+</body>
+
+</html>

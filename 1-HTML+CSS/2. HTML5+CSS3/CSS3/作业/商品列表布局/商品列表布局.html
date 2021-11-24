@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 283px;
+        }
+        
+        .box>p {
+            color: rgb(107, 107, 107);
+            font-size: 15px;
+        }
+        
+        .box>.jiage span:first-child {
+            font-size: 22px;
+            color: red;
+        }
+        
+        .box>.jiage span:last-child {
+            text-decoration: line-through;
+            font-size: 15px;
+            font-weight: 600;
+            color: rgb(155, 155, 155);
+        }
+        
+        .box>.xiaoshou {
+            margin-left: 5px;
+        }
+        
+        .box>.xiaoshou div {
+            display: inline-block;
+            font-size: 14px;
+            color: rgb(58, 58, 58);
+        }
+        
+        .box>.xiaoshou div span {
+            color: red;
+        }
+        
+        .box>.xiaoshou div:nth-child(2) {
+            width: 150px;
+            height: 12px;
+            line-height: 6px;
+            border: 1px solid red;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        
+        .box>.xiaoshou div:nth-child(2) div {
+            width: calc(100% - 13%);
+            height: 100%;
+            background-color: red;
+            border-radius: 6px 0 0 6px;
+            transition: all .5s;
+        }
+        
+        .box>.xiaoshou div:nth-child(2):hover div {
+            width: 100%;
+            border-radius: 6px;
+        }
+        
+        .box>button {
+            outline: none;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            height: 50px;
+            color: #fff;
+            font-size: 22px;
+            background-color: rgb(185, 3, 3);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./images/mobile.jpg">
+        <p>Apple苹果iphone 6s Plus（A1699）32G金色 移动联通电信4G手机</p>
+        <div class="jiage">
+            <span>￥6088</span>
+            <span>￥6988</span>
+        </div>
+        <div class="xiaoshou">
+            <div>已售<span>87%</span></div>
+            <div>
+                <div></div>
+            </div>
+            <div>剩余<span>29</span>件</div>
+        </div>
+        <button>立即抢购</button>
+    </div>
+
+</body>
+
+</html>

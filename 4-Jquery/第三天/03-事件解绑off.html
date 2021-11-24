@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        
+        .current {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+    </ul>
+    <p>我是p</p>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $("div").on({
+            mouseenter: function() {
+                console.log("我经过了");
+            },
+            click: function() {
+                console.log("我点击了");
+            }
+        })
+        $("ul").on("click", "li", function() {
+            alert(11)
+        })
+
+        // 1. 事件解绑 off
+        // $("div").off() // 解除了div身上的所有事件
+        $("div").off("click") // 解除了div身上的点击事件
+        $("ul").off("click", "li")
+
+        // 2. one() 让事件触发一次
+        $("p").one("click", function() {
+            alert(11)
+        })
+    </script>
+
+</body>
+
+</html>

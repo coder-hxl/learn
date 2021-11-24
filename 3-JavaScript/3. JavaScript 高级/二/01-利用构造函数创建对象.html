@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. 利用 new Object() 创建对象
+        let obj1 = new Object()
+            // 2. 利用 对象字面量创建对象
+        let obj2 = {}
+            // 3. 利用 构造函数创建对象
+        function Obj(uname, age) {
+            this.uname = uname
+            this.age = age
+            this.sing = function() {
+                console.log(666);
+            }
+        }
+        let yi = new Obj('一', 18)
+        let er = new Obj('二', 18)
+        console.log(yi)
+        console.log(er);
+        yi.sing()
+        er.sing()
+    </script>
+
+</body>
+
+</html>

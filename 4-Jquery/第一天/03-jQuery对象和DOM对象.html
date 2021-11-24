@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+
+    <script>
+        // 1. DOM 对象：原生js获取过来的对象就是DOM对象
+        let myDIV = document.querySelector('div')
+        let mySPAN = document.querySelector('span')
+        console.dir(myDIV);
+        // 2. jQuery 对象：用jQuery方式获取过来的对象是jQuery对象。 本质：通过$把DON元素进行了包装
+        $('div')
+        $('span')
+        console.dir($('div'))
+        console.dir($('span'))
+
+        // 3. 不能混用
+        // myDIV.style.display = 'none'
+        // $('div').style.display = 'none' jQuery对象不能使用原生js的属性和方法
+    </script>
+</body>
+
+</html>

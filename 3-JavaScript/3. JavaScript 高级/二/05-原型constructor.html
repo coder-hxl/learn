@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Obj(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        // Obj.prototype.zuo = function() {
+        //     console.log('打代码');
+        // }
+        // Obj.prototype.wan = function() {
+        //     console.log('玩游戏');
+        // }
+        Obj.prototype = {
+            constructor: Obj,
+            zuo: function() {
+                console.log('打代码');
+            },
+            wam: function() {
+                console.log('玩游戏');
+            }
+        }
+        let fh = new Obj('浮幻', 17)
+        let pink = new Obj('pink老师', 18)
+        console.log(Obj.prototype);
+        console.log(fh.__proto__);
+        console.log(Obj.prototype.constructor);
+        console.log(fh.__proto__.constructor);
+    </script>
+
+</body>
+
+</html>

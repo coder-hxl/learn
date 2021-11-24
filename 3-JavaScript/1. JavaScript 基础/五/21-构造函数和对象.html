@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 构造函数 泛指某一大类
+        function Star(uname, age, sex) {
+            this.name = uname
+            this.age = age
+            this.sex = sex
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+        // 2. 对象 特指一个具体事物
+        let ldh = new Star('刘德华', 18, '男');
+        console.log(ldh);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

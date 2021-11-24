@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 电脑对象
+        // function Computer(color, weight, brand, type) {
+        //     this.color = color
+        //     this.weight = weight
+        //     this.brand = brand
+        //     this.type = type
+        //     this.way = function(way) {
+        //         console.log(way);
+        //     }
+        // }
+        // let hupu = new Computer('白', '1g', '惠普', '战66')
+        // for (let k in hupu) {
+        //     console.log(k);
+        //     console.log(hupu[k]);
+        // }
+        // hupu.way('看电影、听音乐、打游戏和敲代码')
+
+        // 2. 按钮对象
+        // let buttom = {
+        //     weight: '20px',
+        //     height: '15px',
+        //     color: 'pink',
+        //     way: function() {
+        //         console.log('弹出提示框');
+        //     }
+        // }
+        // for (let k in buttom) {
+        //     console.log(k);
+        //     console.log(buttom[k]);
+        // }
+        // console.log(buttom.color);
+        // console.log(buttom['height']);
+        // buttom.way()
+
+        // 3. 车的对象
+        // let vehicle = new Object
+        // vehicle.weight = '1g'
+        // vehicle.color = '白色'
+        // vehicle.plate = '法拉利'
+        // vehicle.way = function() {
+        //     console.log('载人、拉货和耕田');
+        // }
+        // for (let k in vehicle) {
+        //     console.log(k);
+        //     console.log(vehicle[k]);
+        // }
+        // vehicle.way()
+
+        // 4. 通过函数 实现翻转任意数组
+        // function turn(shu) {
+        //     let fan = []
+        //     for (let i = 0; i < shu.length; i++) {
+        //         fan[i] = shu[shu.length - i - 1]
+        //     }
+        //     return fan
+        // }
+        // let wu = turn([5, 4, 3, 2, 1])
+        // console.log(wu);
+        // wu = turn([8, 7, 6, 5, 4, 3, 2, 1])
+        // console.log(wu);
+
+        // 5. 通过函数 实现对数字数组的排序
+        // function sort(shu) {
+        //     for (let i = 0; i < shu.length - 1; i++) {
+        //         for (let j = 0; j < shu.length - i - 1; j++) {
+        //             if (shu[j] > shu[j + 1]) {
+        //                 let cun
+        //                 cun = shu[j]
+        //                 shu[j] = shu[j + 1]
+        //                 shu[j + 1] = cun
+        //             }
+        //         }
+        //     }
+        //     return shu
+        // }
+        // let s1 = sort([4, 3, 5, 2, 1])
+        // console.log(s1);
+
+        // 6. 简易计算器
+        let popup;
+        do {
+            popup = prompt('欢迎使用简易计算器：\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.退出\n请输入您的选项：')
+            if (popup < 5) {
+                let num1 = parseFloat(prompt('请输入第一个数'))
+                let num2 = parseFloat(prompt('请输入第二个数'))
+                switch (popup) {
+                    case '1':
+                        alert(num1 + num2)
+                        break
+                    case '2':
+                        alert(num1 - num2)
+                        break
+                    case '3':
+                        alert(num1 * num2)
+                        break
+                    case '4':
+                        alert(num1 / num2)
+                        break
+                }
+            }
+        } while (popup != 5)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

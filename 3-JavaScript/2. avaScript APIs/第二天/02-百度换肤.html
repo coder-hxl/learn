@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background: url(./images/1.jpg) no-repeat;
+            background-size: 100%;
+        }
+        
+        div {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 420px;
+            height: 65px;
+            background-color: #fff;
+            margin: 100px auto;
+        }
+        
+        div img {
+            width: 100px;
+            height: 60px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./images/1.jpg" alt="">
+        <img src="./images/2.jpg" alt="">
+        <img src="./images/3.jpg" alt="">
+        <img src="./images/4.jpg" alt="">
+    </div>
+
+    <script>
+        // 1. 获取元素
+        let bd = document.body
+        let img = document.querySelector('div').querySelectorAll('img');
+        // 2. 循环注册事件 处理程序
+        for (let i = 0; i < img.length; i++) {
+            img[i].onclick = function() {
+                // bd.style.background = `url(./images/${i +1}.jpg) no-repeat`
+                bd.style.background = `url(${this.src})`
+                bd.style.backgroundSize = `100%`
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

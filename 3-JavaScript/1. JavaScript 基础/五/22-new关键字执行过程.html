@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. new 构造函数可以在内存中创建了一个空的对象
+        // 2. this 就会指向刚才创建的空对象
+        function Star(uname, age, sex) {
+            this.name = uname
+            this.age = age
+            this.sex = sex
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+        let ldh = new Star('刘德华', 18, '男');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

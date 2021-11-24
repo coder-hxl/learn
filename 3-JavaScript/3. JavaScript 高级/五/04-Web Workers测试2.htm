@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>计算</button>
+    <script>
+        let input = document.querySelector('input')
+        let btn = document.querySelector('button')
+        btn.onclick = function() {
+            let num = input.value
+                // 创建一个Worker对象
+            let worker = new Worker('worker.js')
+                // 向分线程发送消息
+            console.log('主线程向分线程发送数据' + num);
+            worker.postMessage(num)
+                // 绑定接收消息的监听
+            worker.onmessage = function(e) {
+                console.log('主线程接收分线程' + e.data);
+                alert(e.data)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

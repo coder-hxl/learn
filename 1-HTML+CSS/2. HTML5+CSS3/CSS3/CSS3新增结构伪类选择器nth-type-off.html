@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3新增结构伪类选择器nth-type-off</title>
+    <style>
+        ul li:first-of-type {
+            background-color: blue;
+        }
+        
+        ul li:last-of-type {
+            background-color: blue;
+        }
+        
+        ul li:nth-of-type(even) {
+            background-color: rgb(143, 143, 200);
+        }
+        /* nth-child 会把所有的盒子排列序号 */
+        /* 执行的时候首先看:nth-child(1) 之后回去看 前面 div */
+        
+        section div:nth-child(1) {
+            background-color: red;
+        }
+        /* nth-of-type 会把指定元素的盒子排列序号 */
+        /* 执行的时候首先看 div指定的元素 之后回去看 :nth-of-type(1) 第几个 */
+        
+        section div:nth-of-type(1) {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是1</li>
+        <li>我是2</li>
+        <li>我是3</li>
+        <li>我是4</li>
+        <li>我是5</li>
+        <li>我是6</li>
+        <li>我是7</li>
+        <li>我是8</li>
+    </ul>
+    <!-- 区别 -->
+    <section>
+        <p>第3</p>
+        <div>第1</div>
+        <div>第2</div>
+    </section>
+
+</body>
+
+</html>

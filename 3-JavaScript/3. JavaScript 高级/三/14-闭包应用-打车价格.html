@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fn() {}
+        // fn()
+        let car = (function() {
+            let start = 13 // 起步价
+            let total = 0 // 总价
+            return {
+                price: function(n) {
+                    if (n <= 3) {
+                        total = start
+                    } else {
+                        total = start + (n - 3) * 5
+                    }
+                    return total // 正常的总价
+                },
+                yd: function(flag) {
+                    return flag ? total + 10 : total // 拥堵之后的费用
+                }
+            }
+        })()
+
+        console.log(car.price(5));
+        console.log(car.yd(true));
+        console.log(car.price(1));
+        console.log(car.yd(false));
+    </script>
+
+</body>
+
+</html>

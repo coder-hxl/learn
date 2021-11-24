@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        console.log(location.search); // ?uname=fh
+        let params = location.search.substr(1)
+        console.log(params);
+        // 2. 利用=把字符串分割为数组
+        let arr = params.split('=')
+        console.log(arr);
+        let div = document.querySelector('div');
+        // 3. 把数据写进div
+        div.innerHTML = `${arr[1]}欢迎您`
+    </script>
+
+</body>
+
+</html>

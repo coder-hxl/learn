@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>榴莲</li>
+        <li>臭豆腐</li>
+        <li>鲱鱼罐头</li>
+        <li>大猪蹄子</li>
+    </ul>
+
+    <script>
+        let lis = document.querySelectorAll('li')
+            // for (let i = 0; i < lis.length; i++) {
+            //     lis[i].index = i
+            //     lis[i].onclick = function() {
+            //         console.log(this.index);
+            //     }
+            // }
+
+        // 2. 闭包
+        for (let i = 0; i < lis.length; i++) {
+            // 利用for循环创建4个立即执行函数
+            (function(i) {
+                // console.log(i);
+                lis[i].onclick = function() {
+                    console.log(i);
+                }
+            })(i)
+        }
+    </script>
+
+</body>
+
+</html>

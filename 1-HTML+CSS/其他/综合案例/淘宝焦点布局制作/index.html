@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝轮播图做法</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .tb-promo {
+            position: relative;
+            margin: 100px auto;
+            width: 520px;
+            height: 280px;
+        }
+        
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .prev {
+            left: 0;
+            border-radius: 0 15px 15px 0;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        
+        .tb-promo a {
+            color: #fff;
+        }
+        
+        .promo-nav {
+            float: left;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 7px;
+        }
+        
+        .promo-nav ul li {
+            float: left;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+        }
+        
+        .promo-nav ul .g {
+            background-color: rgb(251, 128, 21);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <!-- 图片 -->
+        <img src="./images/tb.jpg" alt="">
+        <!-- 左按钮 -->
+        <div class="prev">
+            <a href="#">&lt;</a>
+        </div>
+        <!-- 右按钮 -->
+        <div class="next">
+            <a href="#">&gt;</a>
+        </div>
+        <!-- 圆点 -->
+        <div class="promo-nav">
+            <ul>
+                <li class="g"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

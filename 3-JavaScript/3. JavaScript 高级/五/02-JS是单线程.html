@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(function() {
+            console.log(222);
+            alert('222')
+        }, 2000)
+
+        setTimeout(function() {
+            console.log(111);
+            alert('111')
+        }, 1000)
+        setTimeout(function() {
+            console.log(000);
+        }, 0)
+
+        function fn() {
+            console.log('fn()');
+        }
+        fn()
+
+        console.log('alter()前');
+        alert('-----------------') // 停止当前主线程的执行，同时停止计时
+        console.log('alter()后');
+    </script>
+
+</body>
+
+</html>
