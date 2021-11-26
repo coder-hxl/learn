@@ -9,6 +9,21 @@
 </head>
 
 <body>
+    <script>
+        class Person {
+            static[Symbol.hasInstance](param) {
+                console.log(param);
+                console.log('检测类型');
+            }
+        }
+        let o = {}
+        console.log(o instanceof Person); // {}     检测类型    false
+
+        let arr = [1, 2, 3]
+        let arr2 = [4, 5, 6]
+        arr2[Symbol.isConcatSpreadable] = false
+        console.log(arr.concat(arr2)); // concat可以合并数组    [1, 2, 3, Array(3)]
+    </script>
 
 </body>
 
