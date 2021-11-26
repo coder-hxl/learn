@@ -20,17 +20,17 @@
         }
 
         // 1. 写法1
-        // let methods = {
-        //     up: Symbol(),
-        //     down: Symbol()
-        // }
-        // gname[methods.up] = function() {
-        //     console.log('改变形状');
-        // }
-        // gname[methods.down] = function() {
-        //     console.log('快速下降');
-        // }
-        // console.log(gname); // {name: '浮幻', up: ƒ, down: ƒ, Symbol(): ƒ, Symbol(): ƒ}
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        }
+        gname[methods.up] = function() {
+            console.log('改变形状');
+        }
+        gname[methods.down] = function() {
+            console.log('快速下降');
+        }
+        console.log(gname); // {name: '浮幻', up: ƒ, down: ƒ, Symbol(): ƒ, Symbol(): ƒ}
 
         // 2. 写法2
         let youxi = {
