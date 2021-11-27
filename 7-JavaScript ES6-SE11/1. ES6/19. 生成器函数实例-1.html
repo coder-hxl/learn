@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //异步编程
+        // 1s 后控制台输出111 2s后输出 222 3s后输出 333
+
+        // 回调地狱
+        // setTimeout(() => {
+        //     console.log(111);
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         setTimeout(() => {
+        //             console.log(333);
+
+        //         }, (3000))
+        //     }, (2000))
+        // }, (1000))
+
+        function set(shu, shi) {
+            setTimeout(() => {
+                console.log(shu);
+                iterator.next() // 再次调用
+            }, (shi))
+        }
+
+        function* gen() {
+            yield set(111, 1000)
+            yield set(222, 2000)
+            yield set(333, 3000)
+        }
+        let iterator = gen()
+        iterator.next()
+    </script>
+
+</body>
+
+</html>
