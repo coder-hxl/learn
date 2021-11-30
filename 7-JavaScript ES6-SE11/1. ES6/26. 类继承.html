@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES5
+        function Phone(brand, price) {
+            this.brand = brand
+            this.price = price
+        }
+        Phone.prototype.cal = function() {
+            console.log('打电话');
+        }
+
+        // 智能手机
+        function SmartPhone(brand, price, color, size) {
+            Phone.call(this, brand, price)
+            this.color = color
+            this.size = size
+        }
+        // 设置子级构造函数的原型
+        SmartPhone.prototype = new Phone
+        SmartPhone.prototype.construtor = SmartPhone
+
+        // 声明子类的方法
+        SmartPhone.prototype.photo = function() {
+            console.log('拍照');
+        }
+        SmartPhone.prototype.palyGame = function() {
+            console.log('玩游戏');
+        }
+
+        let HuaWei = new SmartPhone('华为', 5999, '白色', '5.5nch')
+        console.log(HuaWei);
+    </script>
+
+</body>
+
+</html>
