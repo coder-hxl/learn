@@ -27,11 +27,11 @@
             Father.call(this, uname, age)
             this.score = score
         }
-        // Son.prototype = Father.prototype
+        // 将 Son的__proto__成员 指向 Father.prototype 
         Son.prototype = new Father()
-            // 如果利用对象的形式修改了原型对象，要利用constructor 指回原来对的构造函数
+        // 如果利用对象的形式修改了原型对象，要利用constructor 指回原来对的构造函数
         Son.prototype.constructor = Son
-            // 子构造函数专有的方法
+        // 子构造函数专有的方法
         Son.prototype.exam = function() {
             console.log('考试');
         }
