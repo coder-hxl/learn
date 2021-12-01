@@ -25,8 +25,8 @@
             this.color = color
             this.size = size
         }
-        // 设置子级构造函数的原型
-        SmartPhone.prototype = new Phone
+        // 设置子级构造函数的原型 将 SmartPhone的__proto__成员 指向 Phone.prototype 
+        SmartPhone.prototype = new Phone // 要知道new关键字做了什么
         SmartPhone.prototype.construtor = SmartPhone
 
         // 声明子类的方法
