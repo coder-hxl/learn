@@ -12,5 +12,5 @@ import * as m3  from "./m3.js"
 // m3.default.change()
 
 // 修改背景颜色为粉色
-import $ from 'jquery'
-$('body').css('background','pink')
+import $ from 'jquery';// const $ = require("jquery");
+$('body').css('background','pink');
