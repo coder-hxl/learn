@@ -35,10 +35,12 @@
         //     console.log(reason);
         // })
 
+        // async 与 await 测试
         async function main() {
             // 发送 AJAX请求
             let result = await sendAJAX('https://api.apiopen.top/getJoke')
-            console.log(result);
+            let tianqi = await sendAJAX('http://api.k780.com/?app=weather.today&weaId=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json')
+            console.log(tianqi);
         }
         main()
     </script>
