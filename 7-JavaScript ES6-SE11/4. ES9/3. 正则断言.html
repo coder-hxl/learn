@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 提取555
+        let str = 'JS5201314你知道么555啦啦啦';
+        // 正向断言
+        // const reg = /\d+(?=啦)/
+        // const result = reg.exec(str)
+
+
+        // 反向断言
+        const reg = /(?<=么)\d+/
+        const result = reg.exec(str)
+        console.log(result); // ['555', index: 13, input: 'JS5201314你知道么555啦啦啦', groups: undefined]0: "555"groups: undefinedindex: 13input: "JS5201314你知道么555啦啦啦"length: 1[[Prototype]]: Array(0)
+    </script>
+
+</body>
+
+</html>
