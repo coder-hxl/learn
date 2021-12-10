@@ -19,5 +19,4 @@ module.exports = {
     - 而使用 module.exports 既可以通过. 也可以直接赋值
         module.exports = xxx
         module.exports = {}
-        
 */
