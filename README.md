@@ -5,4 +5,4 @@
 前端开发学习
 
 #### 过程
-HTML —— CSS —— HTML5 —— CSS3 —— Bootstrap —— JavaScript —— Jquery —— ECharts —— AJAX —— JavaScript ES6-ES11 —— node.js 
+HTML —— CSS —— HTML5 —— CSS3 —— Bootstrap —— JavaScript —— Jquery —— ECharts —— AJAX —— JavaScript ES6-ES11 —— Node.js 
