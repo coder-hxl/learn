@@ -1,6 +1,6 @@
 {
-  "name": "fh-modules",
-  "version": "1.0.2",
+  "name": "modules",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
+    "fh-modules": "^1.0.2",
     "lodash": "^4.17.21"
   }
 }

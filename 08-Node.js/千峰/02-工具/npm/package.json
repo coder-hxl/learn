@@ -4,7 +4,12 @@
   "description": "",
   "main": "01.require-jquery-global.js",
   "scripts": {
-    "dev": "gulp -v"
+    "dev": "gulp -v",
+    "greeting": "echo hello",
+    "runjs": "node ./03.script/script1.js && node ./03.script/script2.js",
+    "start": "node ./03.script/script.js",
+    "test": "node ./03.script/test.js",
+    "build": "echo %npm_package_config_env%"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +20,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1"
+  },
+  "config":{
+    "env": "hello"
   }
 }
