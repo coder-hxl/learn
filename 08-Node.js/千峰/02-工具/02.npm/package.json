@@ -1,0 +1,30 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01.require-jquery-global.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp -f gulp.config.js",
+    "prod": "cross-env NODE_ENV=production gulp -f gulp.config.js",
+    "greeting": "echo hello",
+    "runjs": "node ./03.script/script1.js && node ./03.script/script2.js",
+    "start": "node ./03.script/script.js",
+    "test": "node ./03.script/test.js",
+    "build": "echo %npm_package_config_env%"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-quick-start": "git+ssh://git@gitee.com:lurongtao/felixlu-course-electron.git",
+    "jquery": "*",
+    "underscore": "^1.13.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2"
+  },
+  "config": {
+    "env": "hello"
+  }
+}
