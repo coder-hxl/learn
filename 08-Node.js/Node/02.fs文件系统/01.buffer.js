@@ -20,7 +20,7 @@ let buf = Buffer.from(str)
 // - 打印：8
 
 
-// 创建一个指定大小的Buffer
+// 开辟一个指定大小空的Buffer
 let buf2 = Buffer.alloc(10) // 10个字节的Buffer
 // console.log(buf2.length);
 // - 打印：10
@@ -36,7 +36,7 @@ buf2[10] = 15 // 无效
 // console.log(buf2[2].toString(16));
 
 
-// Buffer.allocUnsafe(size) 创建一个指定大小的Buffer，但是里面中可能含有敏感数据
+// Buffer.allocUnsafe(size) 开辟一个指定大小的Buffer，但是里面中可能含有敏感数据
 let buf3 = Buffer.allocUnsafe(10)
 // console.log(buf3);
 
