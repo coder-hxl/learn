@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.事件调用的方法没有参数 -->
+    <button @click='btn1click()'>按钮1</button>
+    <button @click='btn1click'>按钮1</button>
+
+    <!-- 2.在事件定义时，如果方法里使用形参，但是调用方法时省略了小括号，
+			这时Vue会默认将浏览器产生的event事件对象当成第一个形参 -->
+    <button @click='btn2click(123)'>按钮2</button>
+    <button @click='btn2click()'>按钮2</button>
+    <button @click='btn2click'>按钮2</button>
+
+    <!-- 3.定义方法时，既需要其他参数，又需要event对象 -->
+    <!-- 在调用方法时，可以手动获取到浏览器产生的event事件对象：$event -->
+    <button @click='btn3click(123, $event)'>按钮3</button>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+      },
+      methods: {
+        btn1click() {
+          console.log('btn1click');
+        },
+        btn2click(e) {
+          console.log(e);
+        },
+        btn3click(abc, e) {
+          console.log(abc, e);
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
