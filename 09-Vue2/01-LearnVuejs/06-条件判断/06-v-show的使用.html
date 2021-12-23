@@ -10,15 +10,11 @@
 
 <body>
   <div id="app">
-    <span v-if='isUser'>
-      <label for="uname">用户账号</label> 
-      <input  type="text" id="uname" placeholder="用户账号">
-    </span>
-    <span v-else>
-      <label for="email">邮箱账号</label>
-      <input type="email" id="email" placeholder="邮箱账号">
-    </span>
-    <button @click='isUser = !isUser'>切换类型</button>
+    <!-- v-if: 当条件为false时，包含v-if指令的元素，根本不会存在DOM中 -->
+    <h2 v-if='isShow' id="a">{{message}}</h2>
+
+    <!-- v-show: 当条件为false时，v-show只是给我们的元素添加行内样式：display: none -->
+    <h2 v-show='isShow' id="b">{{message}}</h2>
   </div>
 
 
@@ -27,8 +23,10 @@
     const app = new Vue({
       el: '#app',
       data: {
-        isUser: true
-      }
+        message: '你好',
+        isShow: true,
+      },
+      methods: {}
     });
   </script>
 
