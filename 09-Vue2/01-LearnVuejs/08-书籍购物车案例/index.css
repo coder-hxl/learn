@@ -1,0 +1,24 @@
+#app[v-cloak] {
+  display: none;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  padding: 8px 16px;
+  border: 1px solid rgb(206, 206, 206);
+}
+
+th {
+  background-color: rgb(238, 238, 238);
+  font-weight: 600;
+}
