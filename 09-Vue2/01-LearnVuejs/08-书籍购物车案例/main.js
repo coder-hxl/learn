@@ -40,11 +40,14 @@ const app = new Vue({
   },
   computed: {
     totalPrice() {
-      let totalPrice = 0
-      for (const v of this.boots) {
-        totalPrice += v.price * v.count
-      }
-      return totalPrice
+      // let totalPrice = 0
+      // for (const v of this.boots) {
+      //   totalPrice += v.price * v.count
+      // }
+      // return totalPrice
+
+      // reduce
+      return this.boots.reduce((pre, v) => pre + v.price * v.count , 0)
     }
   },
   filters: {
