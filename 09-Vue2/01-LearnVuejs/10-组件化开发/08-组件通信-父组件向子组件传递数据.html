@@ -17,21 +17,27 @@
 
 
   <template id="cpn">
-			<div>
-				<h2>{{cmessage}}</h2>
-				<ul>
-					<li v-for='item in cmovies'>{{item}}</li>
-				</ul>
-			</div>
+		<div>
+			<h2>{{cmessage}}</h2>
+			<ul>
+				<li v-for='item in cmovies'>{{item}}</li>
+			</ul>
+		</div>
 	</template>
   <script src="../js/vue.js"></script>
   <script>
-    // 在组件实例中通过v-bind获取到父组件的数据，然后放到子组件的props，二者的名字要相同
+    /*
+      父传子步骤：
+        - 实例绑定：在子组件实例中将父组件的变量通过v-bind绑定给子组件props里的变量
+        - 声明：在子组件构造器中使用props声明该组件中将要被使用的变量
+        - 模板使用：在子组件模板中使用子组件props里的变量
+    */
+
     /* 
 			父传子：props
     	props的值有两种方式：
-    		- 字符串数组，数组中的字符串就是接收传递的数据
-    		- 对象，对象可以设置传递的类型，也可以设置默认值等 
+    		- 字符串数组：数组中的字符串就是接收传递的数据
+    		- 对象：对象可以设置传递的类型，也可以设置默认值等 
 		*/
 
     const cpn = {
