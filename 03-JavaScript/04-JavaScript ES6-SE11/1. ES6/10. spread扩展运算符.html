@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // [...] 扩展运算符能将[数组]转换为逗号分隔的[参数序列]
+        let arr = ['a', 'b', 'c']
+
+        function fn() {
+            console.log(arguments); // Arguments(3) ['a', 'b', 'c', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        }
+        fn(...arr) // 转换为fn('a', 'b', 'c')
+    </script>
+
+</body>
+
+</html>

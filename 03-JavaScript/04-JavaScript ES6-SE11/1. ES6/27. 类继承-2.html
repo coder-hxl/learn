@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Phone {
+            // 构造方法
+            constructor(brand, price) {
+                this.brand = brand
+                this.price = price
+            }
+            call() {
+                console.log('打电话');
+            }
+        }
+        class SmartPhone extends Phone {
+            constructor(brand, price, color, size) {
+                super(brand, price)
+                this.color = color
+                this.size = size
+            }
+            photo() {
+                console.log('拍照');
+            }
+            playGame() {
+                console.log('玩游戏');
+            }
+
+            // 子类能重构
+            call() {
+                console.log('视频通话');
+            }
+        }
+        let XM = new SmartPhone('小米', 3999, '蓝色', '5.5')
+        console.log(XM); // SmartPhone {brand: '小米', price: 3999, color: '蓝色', size: '5.5'}
+        XM.photo() // 拍照
+        XM.call() // 视频通话
+    </script>
+
+</body>
+
+</html>

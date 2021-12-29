@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成器是一个特殊函数 在function和()中多了一个*，返回结果不会直接返回，通过next方法来返回
+        // 异步编程 纯回调函数 node fs ajax
+        // yield 是函数代码的分割符
+
+        function* gen() {
+            // console.log(111);
+            yield '1'
+            // console.log(222);
+            yield '2'
+            // console.log(333);
+            yield '3'
+            // console.log(444);
+        }
+
+        let iterator = gen()
+        console.log(iterator.next()); // {value: '1', done: false}
+        console.log(iterator.next()); // {value: '2', done: false}
+        console.log(iterator.next()); // {value: '2', done: false}
+        console.log(iterator.next()); // {value: undefined, done: true}
+
+        for (let v of gen()) {
+            console.log(v); // 1    2     3
+        }
+    </script>
+
+</body>
+
+</html>

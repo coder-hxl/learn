@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        // import命令用于输入其他模块提供的功能。
+        // 1. 通用的导入方式 
+        // import * as ... from ...  *表示引入对象所有值 as可以改名
+        // 引入 m1.js 模块内容 
+        // import * as m1 from './src/js/m1.js'
+        // 引入 m2.js 模块内容 
+        // import * as m2 from './src/js/m2.js'
+        // 引入 m3.js 模块内容 
+        // import * as m3 from './src/js/m3.js'
+        // m3.default.change() // 改变
+
+ 
+        // 2. 结构赋值形式  import {...} from ...
+        // import {name,xq} from './src/js/m1.js'
+        // import {name as fh,xq as qd} from './src/js/m2.js'
+        // import {default as m3} from './src/js/m3.js'
+        // console.log(fh,qd);
+        // console.log(m3); // {name: 'FUHUAN', change: ƒ}
+
+        // 3. 简便形式 针对默认暴露
+        // import m33 from './src/js/m3.js'
+        // console.log(m33); // {name: 'FUHUAN', change: ƒ}
+    </script>
+
+    <script src="./src/js/app.js" type="module"></script>
+
+</body>
+
+</html>

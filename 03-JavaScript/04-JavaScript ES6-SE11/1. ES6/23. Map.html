@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明 Map
+        let m = new Map()
+
+        // 添加元素
+        m.set('name', '浮幻')
+        m.set('chang', function() {
+            console.log('改变');
+        })
+        let key = {
+            name: 'fh'
+        }
+        m.set(key, [1, 2, 3])
+
+        // size 元素个数
+        console.log(m.size); // 3
+
+        // 删除 返回布尔值
+        console.log(m.delete(key));
+
+        // 获取
+        console.log(m.get('name')); // 浮幻
+
+        // 清空
+        m.clear() // Map(0) {size: 0}
+
+        console.log(m); // Map(2) {'name' => '浮幻', 'chang' => ƒ}
+    </script>
+
+</body>
+
+</html>
