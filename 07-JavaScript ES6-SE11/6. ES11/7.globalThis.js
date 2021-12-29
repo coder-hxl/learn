@@ -1,1 +1,0 @@
-console.log(globalThis); // 在 node.js 环境指向 Object [global]
