@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<cpn :pnum1='num1' :pnum2='num2' @num1change='num1change' @num2change='num2change'></cpn>
+	</div>
+
+	<template id="cpn">
+		<div>
+			<h2>props：{{pnum1}}</h2>
+			<h2>data：{{dnum1}}</h2>
+			<!-- <input type="text" v-model='dnum1' -->
+			<input type="text" :value='dnum1' @input='num1Input'>
+			<h2>props：{{pnum2}}</h2>
+			<h2>data：{{dnum2}}</h2>
+			<!-- <input type="text" v-model='dnum1' -->
+			<input type="text" :value='dnum2' @input='num2Input'>
+		</div>
+	</template>
+
+	<script src="../js/vue.js"></script>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				num1: 1,
+				num2: 0,
+			},
+			methods:{
+				num1change(cnum1) {
+					this.num1 = cnum1
+				},
+				num2change(cnum2){
+					this.num2 = cnum2
+				}
+			},
+			components: {
+				cpn: {
+					template: '#cpn',
+					props: {
+						pnum1: Number,
+						pnum2: Number
+					},
+					data() {
+						return {
+							dnum1: this.pnum1,
+							dnum2: this.pnum2
+						}
+					},
+					methods: {
+						num1Input(event) {
+							this.dnum1 = parseFloat(event.target.value) // 表单的值是字符串类型，需要进行转换再发射
+							// 发射自定义事件
+							this.$emit('num1change', this.dnum1)
+							this.dnum2 = this.dnum1 * 100
+							this.$emit('num2change', this.dnum2)
+						},
+						num2Input(event) {
+							this.dnum2 = parseFloat(event.target.value)
+							this.$emit('num2change', this.dnum2)
+							this.dnum1 = this.dnum2 / 100
+							this.$emit('num1change', this.dnum1)
+						}
+					}
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>
