@@ -39,6 +39,11 @@
         },
         decrement() {
           this.counter--
+        },
+        btnClick: () => {
+          // 写成箭头函数是，this指向window
+          // 箭头函数中是不绑定this
+          console.log(this);
         }
       }
     }).mount('#app')

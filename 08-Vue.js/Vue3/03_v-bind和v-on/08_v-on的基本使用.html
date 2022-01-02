@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .pink {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+
+  <template id="my-app">
+		<!-- 完整写法：v-on:监听的事件='methods中的方法' -->
+		<button v-on:click='btnClick'>按钮</button>
+		<div class="pink" v-on:mousemove='onMousemove'>div</div>
+
+		<!-- 语法糖：@监听的事件='methods中的方法' -->
+		<button v-on:click='btnClick'>按钮</button>
+
+		<!-- 绑定表达式 -->
+		<button @click='couter++'>{{couter}}</button>
+
+		<!-- 绑定一个对象：v-on='{监听的事件1: 方法1, 监听的事件2: 方法2}' -->
+		<div class="pink" v-on="{click: btnClick, mousemove: onMousemove}">div2</div>
+		<div class="pink" @="{click: btnClick, mousemove: onMousemove}">div2</div>
+	</template>
+
+  <script src="../js/Vue.js"></script>
+  <script>
+    const app = {
+      template: '#my-app',
+      data() {
+        return {
+          message: 'Hello World',
+          couter: 100,
+        }
+      },
+      methods: {
+        btnClick() {
+          console.log('按钮发生了点击');
+        },
+        onMousemove() {
+          console.log('鼠标在div移动');
+        }
+      }
+    }
+
+    Vue.createApp(app).mount('#app')
+  </script>
+
+</body>
+
+</html>
