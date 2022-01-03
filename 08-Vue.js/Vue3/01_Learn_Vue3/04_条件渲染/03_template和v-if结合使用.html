@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+
+  <template id="my-app">
+    <!-- template元素可以当成看不见的包裹元素，不会被渲染出来 -->
+		<template v-if='isShow'>
+  		<h2>哈哈哈</h2>
+  		<h2>哈哈哈</h2>
+  		<h2>哈哈哈</h2>
+  	</template>
+
+   <template v-else>
+  	  <h2>呵呵呵</h2>
+  	  <h2>呵呵呵</h2>
+  	  <h2>呵呵呵</h2>
+  	</template>
+  </template>
+
+  <script src="../js/Vue.js"></script>
+  <script>
+    const app = {
+      template: '#my-app',
+      data() {
+        return {
+          message: 'Hello World',
+          isShow: true
+        }
+      }
+    }
+
+    Vue.createApp(app).mount('#app')
+  </script>
+
+</body>
+
+</html>
