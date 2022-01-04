@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!-- 使用lodash库 -->
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+	<!-- 1.对象的引用赋值 -->
+	<script>
+		// 对象是引用类型
+		// const info = {name: '浮幻', age: 17}
+		// const obj = info
+		// info.name = '王红元'
+		// console.log(obj.name);
+	</script>
+
+	<!-- 2.对象的浅拷贝 -->
+	<script>
+		// const info = {name: '浮幻', age: 17, friend: {name: '小明'}}
+		// // 浅拷贝只拷贝第一层
+		// const obj = Object.assign({}, info)
+
+		// 使用 lodash
+		// const obj =  _.clone(info)
+
+		// info.name = '王红元'
+		// console.log(obj.name);
+
+		// info.friend.name = 'pink'
+		// console.log(obj.friend.name);
+	</script>
+
+	<!-- 3.对象的深拷贝 -->
+	<script>
+		// const info = {name: '浮幻', age: 17, friend: {name: '小明'}}
+		// // 先把info转换成字符串后，再转成对象
+		// const obj = JSON.parse(JSON.stringify(info))
+
+		// 使用 lodash
+		// const obj = _.cloneDeep(info)
+
+		// info.name = '王红元'
+		// console.log(obj.name);
+
+		// info.friend.name = 'pink'
+		// console.log(obj.friend.name);
+	</script>
+
+	
+</body>
+
+</html>
