@@ -8,7 +8,7 @@
 			- filename：打包后的文件名
 
 		- module模块：
-			- rules规则属性，属性值是一个数组，里面可以存放多个对象，对象里面存放要规定类型的文件配置
+			- rules规则，属性值是一个数组，可以存放多个对象，对象里通过特定的loader进行配置特定的模块
 */
 
 const path = require('path')
