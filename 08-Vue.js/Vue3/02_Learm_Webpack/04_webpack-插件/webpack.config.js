@@ -93,7 +93,7 @@ module.exports = {
 			template: 'public/index.html', // 使用自定义html模板
 			title: '哈哈哈哈'
 		}), 
-		// 定义html模板里的变量插件
+		// 定义标识
 		new DefinePlugin({
 			BASE_URL: '"./"' // 给要打包的html模板的BASE_URL变量
 		}),
