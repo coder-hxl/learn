@@ -7,7 +7,7 @@ module.exports = merge(commonConfig, {
 	mode: 'development',
 	devtool: 'source-map',
 	devServer: {
-		static: '../public', 
+		static: './public', 
 		hot: true, 
 		// host: '0.0.0.0',
 		port: 8888, 
