@@ -40,3 +40,6 @@ Vue 是渐进式 JavaScript 框架
 
 #### - Webpack
 webpack 是一个用于现代 JavaScript 应用程序的 静态模块打包工具。
+
+#### - vite
+vite 下一代前端开发与构建工具
