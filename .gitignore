@@ -7,5 +7,5 @@
 #   - 以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
 
 
-node_modules/
-vue-next-3.0.11/
+node_modules
+vue-next-3.0.11
