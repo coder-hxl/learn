@@ -4,7 +4,7 @@ import axios from 'axios'
 import {sum} from 'js/math'
 const {priceFormat} = require('./js/format')
 
-import App from '@/vue/App'
+import App from '@/vue/App' // 会解析成./src/vue/App，这跟webpack配置里的resolve路径配置有关
 
 import 'js/element'
 

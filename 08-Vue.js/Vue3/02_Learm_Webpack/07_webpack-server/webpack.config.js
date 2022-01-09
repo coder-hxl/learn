@@ -43,7 +43,7 @@ module.exports = {
 		extensions: ['.js', '.json', '.mjs', '.vue', '.ts', ],
 		// alias是配置别名
 		alias: {
-			'@': path.resolve(__dirname, './src'), // 引入@开头的文件路径会把@当成./src前缀，相当于别名
+			'@': path.resolve(__dirname, './src'), // 在依赖图里，引入路径有@符号就会把@当成./src，如@/vue/App会解析成./src/vue/App
 			'js': path.resolve(__dirname, './src/js')
 		}
 	},

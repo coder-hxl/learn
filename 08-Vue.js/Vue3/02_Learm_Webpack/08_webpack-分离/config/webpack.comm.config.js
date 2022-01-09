@@ -7,7 +7,7 @@ module.exports = {
 	target: 'web',
 	entry: './src/main.js',
 	output: {
-		path: path.resolve(__dirname, './build'),
+		path: path.resolve(__dirname, '../build'),
 		filename: 'js/bundle.js',
 	},
 	resolve: {
