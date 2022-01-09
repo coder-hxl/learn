@@ -1,0 +1,5 @@
+root = true
+
+[*]
+charset = uft-8
+index_size = 2
