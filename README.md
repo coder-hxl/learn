@@ -32,7 +32,7 @@ ECharts 一个基于 JavaScript 的开源可视化图表库
 #### - AJAX
 AJAX 是网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载（刷新）整个页面。
 
-#### - Node
+#### - Node（基础）
 Node 是一个基于 Chrome V8 引擎 的 JavaScript 运行时环境。
 
 #### - Vue
