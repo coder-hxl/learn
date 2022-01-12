@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/12_异步组件的使用/utils/math.js"],"names":["sum","num1","num2"],"mappings":"kHAAQ,SAASA,EAAIC,EAAMC,GAC1B,OAAOD,EAAOC,EADf","file":"js/chunk-2d0d2ec7.6310fa16.js","sourcesContent":["export  function sum(num1, num2) {\r\n\treturn num1 + num2\r\n} "],"sourceRoot":""}
