@@ -24,7 +24,7 @@
 		},
 		computed: {
 			value: {
-				// 内容改变时会调用set方法，将原先的值当成实参
+				// 内容改变时会调用set方法，并将当前的value值当成实参
 				set(value) {
 					this.$emit('update:modelValue', value)
 				},
