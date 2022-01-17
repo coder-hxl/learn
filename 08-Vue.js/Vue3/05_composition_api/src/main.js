@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './04_computed和watch/App.vue'
+import App from './07_compostionAPI练习/App.vue'
 
 const app = createApp(App)
 
