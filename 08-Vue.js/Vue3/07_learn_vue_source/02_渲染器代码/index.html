@@ -22,17 +22,14 @@
 		mount(vnode, document.querySelector('#app'))
 
 		// 3.创建新的vnode
-		// setTimeout(() => {
+		setTimeout(() => {
 			const vnode1 = h('div', {class: 'fuhuan', id: 'aaa'}, [
 			h('h2', null, '当前计数：-100'),
 			h('button', {onClick: function() {}}, '-1'),			
 		])
 			patch(vnode, vnode1)
-		// }, 2000);
+		}, 2000);
 	
-	
-		console.log(vnode, vnode1);
-
 	</script>
 	
 </body>
