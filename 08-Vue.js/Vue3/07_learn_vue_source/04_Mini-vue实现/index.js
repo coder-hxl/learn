@@ -1,0 +1,5 @@
+function createApp(rootComponent) {
+	return {
+		
+	}
+}
