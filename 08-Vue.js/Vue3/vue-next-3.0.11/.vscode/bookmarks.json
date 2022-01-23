@@ -1,0 +1,109 @@
+{
+	"files": [
+		{
+			"path": "packages/runtime-dom/src/index.ts",
+			"bookmarks": [
+				{
+					"line": 56,
+					"column": 40,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/apiCreateApp.ts",
+			"bookmarks": [
+				{
+					"line": 123,
+					"column": 42,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/renderer.ts",
+			"bookmarks": [
+				{
+					"line": 438,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 473,
+					"column": 26,
+					"label": ""
+				},
+				{
+					"line": 741,
+					"column": 24,
+					"label": ""
+				},
+				{
+					"line": 1282,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 1323,
+					"column": 44,
+					"label": ""
+				},
+				{
+					"line": 1439,
+					"column": 50,
+					"label": ""
+				},
+				{
+					"line": 2378,
+					"column": 67,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/component.ts",
+			"bookmarks": [
+				{
+					"line": 526,
+					"column": 31,
+					"label": ""
+				},
+				{
+					"line": 548,
+					"column": 32,
+					"label": ""
+				},
+				{
+					"line": 637,
+					"column": 34,
+					"label": ""
+				},
+				{
+					"line": 695,
+					"column": 30,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/errorHandling.ts",
+			"bookmarks": [
+				{
+					"line": 60,
+					"column": 38,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/componentOptions.ts",
+			"bookmarks": [
+				{
+					"line": 479,
+					"column": 29,
+					"label": ""
+				}
+			]
+		}
+	]
+}
