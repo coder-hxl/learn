@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "vue-next-3.0.11"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules/typescript/lib"
+	}
+}
