@@ -1,5 +1,6 @@
 root = true
 
 [*]
-charset = uft-8
+indent_style = space
 index_size = 2
+charset = uft-8
