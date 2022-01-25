@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app">
+		<a href="/home">home</a>
+		<a href="/about">about</a>
+
+		<div class="content">Default</div>
+	</div>
+
+	<script>
+		// history模式：当路径发生改变，不再向服务器发送请求资源，而是由前端来控制；
+		
+		const contentEl = document.querySelector('.content')
+		const aEls = document.querySelectorAll('a')
+
+		const changeContent = () => {
+			switch (location.pathname) {
+				case '/home':
+					contentEl.innerHTML = 'home'
+					break
+				case '/about': 
+					contentEl.innerHTML = 'about'
+					break
+				default: 
+					contentEl.innerHTML = 'Default'
+			}
+		}
+
+		for (const aEl of aEls) {
+			aEl.addEventListener('click', e => {
+				e.preventDefault();
+
+				const href = aEl.getAttribute('href')
+
+				// 使用新的路径，进栈操作
+				// history.pushState({}, '', href)
+				// 替换原来的路径
+				history.replaceState({}, '', href)
+
+				changeContent()
+			})
+		}
+
+		// 出栈操作
+		window.addEventListener('popstate', changeContent)
+
+	</script>
+	
+</body>
+</html>
