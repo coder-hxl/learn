@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<h2>about</h2>
+		<!-- $route.query可以获取传递过来的参数 -->
+		<h2>about：{{$route.query.name}} - {{$route.query.age}}</h2>
 	</div>
 </template>
 

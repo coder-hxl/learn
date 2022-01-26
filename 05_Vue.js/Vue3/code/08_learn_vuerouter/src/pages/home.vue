@@ -8,6 +8,13 @@
 			<li>内容4</li>
 			<li>内容5</li>
 		</ul>
+
+		<router-link to='/home/message'>消息</router-link>
+		<router-link to='/home/goods'>货物</router-link>
+		<router-link to='moment'>动态</router-link>
+
+		<router-view />
+
 	</div>
 </template>
 
