@@ -50,7 +50,7 @@ const routes = [
 	},
 	{ 
 		// 动态路由匹配
-		// 匹配规则：通过 : 可以给一个路径参数，自己决定:路径参数的值
+		// 匹配规则：通过 : 给一个路径参数，由路径决定:路径参数的值
 	  path: '/user/:username/id/:id', 
 		component: () => import('../pages/user.vue')
 	},
@@ -76,7 +76,7 @@ const router = createRouter({
 })
 
 
-// 动态添加路由
+// 动态添加路由addRoute()
 const categoryRoute = {
 	path: '/category',
 	component: () => import('../pages/Category.vue')
@@ -84,8 +84,8 @@ const categoryRoute = {
 
 // 添加顶级路由
 router.addRoute(categoryRoute)
-// 添加二级路由，参数一是上一级路由name属性值，参数二是路由对象
 
+// 添加二级路由，参数一是上一级路由name属性值，参数二是路由对象
 router.addRoute('home', {
 	path: 'moment',
 	component: () => import('../pages/homeMoment.vue')
