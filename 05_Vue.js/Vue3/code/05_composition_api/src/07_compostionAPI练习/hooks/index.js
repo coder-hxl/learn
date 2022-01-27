@@ -5,9 +5,9 @@ import useMousePosition from './useMousePosition.js'
 import useLocalStorage from './useLocalStorage.js'
 
 export {
-	useCounter,
-	useTitle,
-	useScrollPosition,
-	useMousePosition,
-	useLocalStorage
+  useCounter,
+  useTitle,
+  useScrollPosition,
+  useMousePosition,
+  useLocalStorage
 }
