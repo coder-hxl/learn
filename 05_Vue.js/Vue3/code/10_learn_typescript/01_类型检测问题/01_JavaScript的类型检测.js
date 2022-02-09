@@ -12,4 +12,4 @@ getLength() // 错误的调用（IDE并不会报错）
 
 
 // 永远执行不到
-console.log('成千上万行的JavaScript代码');
+console.log('成千上万行的JavaScript代码')
