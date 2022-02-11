@@ -39,18 +39,26 @@ ECharts 一个基于 JavaScript 的开源可视化图表库
 #### - Bootstrap
 Bootstrap 一个用于快速开发 Web 应用程序和网站的前端框架。
 
-#### - Vue（学习中）
+#### - Vue
 Vue 渐进式 JavaScript 框架
 
 
 ### 构建工具
 
 #### - Webpack
+
 webpack 一个用于现代 JavaScript 应用程序的 静态模块打包工具。
 
 #### - vite
+
 vite 下一代前端开发与构建工具
 
+
+### 其他
+
+#### - TypeScript（学习中）
+
+TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干净、完整的 JavaScript 代码。
 
 ### 服务端
 
