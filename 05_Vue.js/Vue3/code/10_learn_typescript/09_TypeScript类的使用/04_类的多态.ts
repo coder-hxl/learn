@@ -16,7 +16,7 @@ class Fish extends Animal {
   }
 }
 
-class Preson extends Animal {
+class Person extends Animal {
 
 }
 
@@ -29,4 +29,4 @@ function makeActions(animals: Animal[]) {
   })
 }
 
-makeActions([new Dog, new Fish, new Preson])
+makeActions([new Dog, new Fish, new Person])
