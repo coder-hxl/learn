@@ -56,7 +56,7 @@ vite 下一代前端开发与构建工具
 
 ### 其他
 
-#### - TypeScript（学习中）
+#### - TypeScript
 
 TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干净、完整的 JavaScript 代码。
 
