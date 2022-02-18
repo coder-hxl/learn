@@ -1,11 +1,5 @@
-import { defineStore } from 'pinia'
+import { createPinia } from 'pinia'
 
-const useStore = defineStore('main', {
-  state: () => {
-    return {
-      name: '浮幻'
-    }
-  }
-})
+const store = createPinia()
 
-export { useStore }
+export default store

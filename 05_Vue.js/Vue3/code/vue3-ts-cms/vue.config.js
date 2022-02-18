@@ -1,16 +1,19 @@
-const path = require('path')
+// const path = require('path')
 
 module.exports = {
   // 1.配置方式一：CLI提供的属性
   outputDir: 'build',
+  publicPath: './',
   // 2.配置方式二：和webpack属性完全一致，最后会进行合并
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       component: '@/components'
-  //     }
-  //   }
-  // }
+  configureWebpack: {
+    resolve: {
+      alias: {
+        component: '@/components'
+      }
+    },
+    // 为 Element Plus 按需引入样式
+    plugins: [require('unplugin-element-plus/webpack')()]
+  }
   // configureWebpack: (config) => {
   //   config.resolve.alias = {
   //     '@': path.resolve(__dirname, 'src'),
@@ -18,9 +21,9 @@ module.exports = {
   //   }
   // }
   // 3.配置方式三：
-  chainWebpack: (config) => {
-    config.resolve.alias
-      .set('@', path.resolve(__dirname, 'src'))
-      .set('component', '@/components')
-  }
+  // chainWebpack: (config) => {
+  //   config.resolve.alias
+  //     .set('@', path.resolve(__dirname, 'src'))
+  //     .set('component', '@/components')
+  // }
 }
