@@ -19,7 +19,23 @@ app.mount('#app')
 console.log(process.env.VUE_APP_BASE_URL)
 console.log(process.env.VUE_APP_BASE_NAME)
 
+// fhRequest.request({
+//   url: '/home/multidata',
+//   method: 'GET',
+//   interceptors: {
+//     requestInterceptor: (config) => {
+//       console.log('单独请求成功')
+//       return config
+//     },
+//     responseInterceptor: (res) => {
+//       console.log('单独响应成功')
+//       return res
+//     }
+//   }
+// })
+
 fhRequest.request({
   url: '/home/multidata',
   method: 'GET'
+  // showLoading: false
 })

@@ -1,4 +1,6 @@
 // const path = require('path')
+// 为 Element Plus 按需引入样式
+const unpluginElementPlus = require('unplugin-element-plus/webpack')
 
 module.exports = {
   // 1.配置方式一：CLI提供的属性
@@ -11,8 +13,7 @@ module.exports = {
         component: '@/components'
       }
     },
-    // 为 Element Plus 按需引入样式
-    plugins: [require('unplugin-element-plus/webpack')()]
+    plugins: [unpluginElementPlus()]
   }
   // configureWebpack: (config) => {
   //   config.resolve.alias = {
