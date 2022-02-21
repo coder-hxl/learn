@@ -13,11 +13,15 @@ class FHRequest {
   loading?: any
 
   constructor(config: FHRequestConfig) {
+    // 创建axios实例
     this.instance = axios.create(config)
+
+    // 保存基本信息
     this.interceptors = config.interceptors
     this.showLoading = config.showLoading ?? DEAFULT_LOADING
 
-    // 从config中取出的拦截器是对应的实例的拦截器
+    // 使用拦截器
+    // 1.从config中取出的拦截器是对应的实例的拦截器
     this.instance.interceptors.request.use(
       this.interceptors?.requestInterceptor,
       this.interceptors?.requestInterceptorCatch
@@ -27,7 +31,7 @@ class FHRequest {
       this.interceptors?.responseInterceptorCatch
     )
 
-    // 添加所有的实例都有的拦截器
+    // 2.添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
         console.log('添加所有的实例都有的拦截器: 请求成功拦截')
@@ -46,6 +50,7 @@ class FHRequest {
         return err
       }
     )
+
     this.instance.interceptors.response.use(
       (res) => {
         console.log('添加所有的实例都有的拦截器: 响应成功拦截')
@@ -75,33 +80,54 @@ class FHRequest {
     )
   }
 
-  request(config: FHRequestConfig) {
-    // 1.单个请求对config的处理
-    if (config.interceptors?.requestInterceptor) {
-      config = config.interceptors.requestInterceptor(config)
-    }
+  request<T>(config: FHRequestConfig<T>): Promise<T> {
+    return new Promise((resolve, reject) => {
+      // 1.单个请求对config的处理
+      if (config.interceptors?.requestInterceptor) {
+        config = config.interceptors.requestInterceptor(config)
+      }
 
-    // 2.判断是否需要显示loading
-    if (config.showLoading === false) {
-      this.showLoading = config.showLoading
-    }
+      // 2.判断是否需要显示loading
+      if (config.showLoading === false) {
+        this.showLoading = config.showLoading
+      }
 
-    this.instance
-      .request(config)
-      .then((res) => {
-        // 1.单个请求对数据的处理
-        if (config.interceptors?.responseInterceptor) {
-          res = config.interceptors.responseInterceptor(res)
-        }
-        // 2.将showLoading设置为true, 这样不会影响下一个请求
-        this.showLoading = DEAFULT_LOADING
-        console.log(res)
-      })
-      .catch((err) => {
-        // 将showLoading设置为true, 这样不会影响下一个请求
-        this.showLoading = DEAFULT_LOADING
-        return err
-      })
+      this.instance
+        .request<any, T>(config)
+        .then((res) => {
+          // 1.单个请求对数据的处理
+          if (config.interceptors?.responseInterceptor) {
+            res = config.interceptors.responseInterceptor(res)
+          }
+          // 2.将showLoading设置为true, 这样不会影响下一个请求
+          this.showLoading = DEAFULT_LOADING
+
+          // 3.将结果resolve返回出去
+          resolve(res)
+        })
+        .catch((err) => {
+          // 将showLoading设置为true, 这样不会影响下一个请求
+          this.showLoading = DEAFULT_LOADING
+          reject(err)
+          return err
+        })
+    })
+  }
+
+  get<T>(config: FHRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'GET' })
+  }
+
+  post<T>(config: FHRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'POST' })
+  }
+
+  delete<T>(config: FHRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
+  }
+
+  patch<T>(config: FHRequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
 

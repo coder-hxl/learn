@@ -1,14 +1,14 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-interface FHRequestInterceptors {
+interface FHRequestInterceptors<T = AxiosResponse> {
   requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig
   requestInterceptorCatch?: (error: any) => any
-  responseInterceptor?: (res: AxiosResponse) => AxiosResponse
+  responseInterceptor?: (res: T) => T
   responseInterceptorCatch?: (error: any) => any
 }
 
-interface FHRequestConfig extends AxiosRequestConfig {
-  interceptors?: FHRequestInterceptors
+interface FHRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
+  interceptors?: FHRequestInterceptors<T>
   showLoading?: boolean
 }
 

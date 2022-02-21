@@ -34,8 +34,19 @@ console.log(process.env.VUE_APP_BASE_NAME)
 //   }
 // })
 
-fhRequest.request({
-  url: '/home/multidata',
-  method: 'GET'
-  // showLoading: false
-})
+interface DataType {
+  data: any
+  returnCode: string
+  success: boolean
+}
+
+fhRequest
+  .get<DataType>({
+    url: '/home/multidata',
+    showLoading: false
+  })
+  .then((res) => {
+    console.log(res.data)
+    console.log(res.returnCode)
+    console.log(res.success)
+  })
