@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import { globalRegisterApp } from './global'
 
-// import './service/axios_demo'
+import 'normalize.css'
+import './assets/css/index.less'
+
 import fhRequest from './service'
 
 import App from './App.vue'

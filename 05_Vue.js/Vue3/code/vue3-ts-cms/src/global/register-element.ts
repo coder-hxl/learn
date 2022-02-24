@@ -1,11 +1,34 @@
 import { App } from 'vue'
 
-import { ElButton, ElForm, ElInput } from 'element-plus'
+import {
+  ElButton,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElTabs,
+  ElTabPane,
+  ElIcon
+} from 'element-plus'
 
-const components = [ElButton, ElForm, ElInput]
+import { UserFilled, Iphone } from '@element-plus/icons-vue'
+
+const components = [
+  ElButton,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElTabs,
+  ElTabPane,
+  ElIcon
+]
+const componentsIcons = [UserFilled, Iphone]
 
 export default function (app: App) {
   for (const component of components) {
+    app.component(component.name, component)
+  }
+
+  for (const component of componentsIcons) {
     app.component(component.name, component)
   }
 }
