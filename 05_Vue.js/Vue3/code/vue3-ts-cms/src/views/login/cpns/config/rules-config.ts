@@ -24,20 +24,18 @@ export const rules = {
       trigger: 'blur'
     }
   ],
-  phoneNum: [
-    { required: true, message: '手机号是必填内容~', trigger: 'blur' },
+  num: [
     {
-      pattern: /^1[3-9]\d{9}$/,
-      message: '手机号不符合规则~',
-      trigger: true
+      required: true,
+      message: '手机号是必填内容~',
+      trigger: 'blur'
     }
   ],
-  phoneCode: [
-    { required: true, message: '验证码是必填内容~', trigger: 'blur' },
+  code: [
     {
-      pattern: /^[0-9]{6}$/,
-      message: '验证码错误~',
-      trigger: true
+      required: true,
+      message: '验证码是必填内容~',
+      trigger: 'blur'
     }
   ]
 }

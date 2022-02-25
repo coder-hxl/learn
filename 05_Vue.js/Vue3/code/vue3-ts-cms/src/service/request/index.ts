@@ -34,8 +34,6 @@ class FHRequest {
     // 2.添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('添加所有的实例都有的拦截器: 请求成功拦截')
-
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -46,15 +44,12 @@ class FHRequest {
         return config
       },
       (err) => {
-        console.log('添加所有的实例都有的拦截器: 请求失败拦截')
         return err
       }
     )
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('添加所有的实例都有的拦截器: 响应成功拦截')
-
         // 将loading移除
         this.loading?.close()
 
@@ -66,8 +61,6 @@ class FHRequest {
         }
       },
       (err) => {
-        console.log('添加所有的实例都有的拦截器: 相应失败拦截')
-
         // 将loading移除
         this.loading?.close()
 

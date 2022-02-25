@@ -12,19 +12,15 @@ const fhRequest = new FHRequest({
         config.headers ? (config.headers.Authorization = `Bearer ${token}`) : ''
       }
 
-      console.log('请求成功的拦截')
       return config
     },
     requestInterceptorCatch: (error) => {
-      console.log('请求失败的拦截')
       return error
     },
     responseInterceptor: (res) => {
-      console.log('响应成功的拦截')
       return res
     },
     responseInterceptorCatch: (error) => {
-      console.log('响应失败的拦截')
       return error
     }
   }
