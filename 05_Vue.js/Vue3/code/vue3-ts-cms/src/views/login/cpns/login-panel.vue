@@ -1,8 +1,8 @@
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch>
-      <el-tab-pane>
+    <el-tabs type="border-card" stretch v-model="currentTap">
+      <el-tab-pane name="account">
         <template #label>
           <span class="label">
             <el-icon><user-filled /></el-icon>账号登录
@@ -10,19 +10,22 @@
         </template>
         <login-account ref="accountRef" />
       </el-tab-pane>
-      <el-tab-pane>
+      <el-tab-pane name="phone">
         <template #label>
           <span class="label">
             <el-icon><iphone /></el-icon>手机登录
           </span>
         </template>
-        <login-phone />
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
 
     <div class="account-control">
-      <el-checkbox label="记住密码" v-model="isKeepPassword" />
-      <el-link type="primary">忘记密码</el-link>
+      <el-checkbox label="记住我" v-model="isKeepPassword" />
+      <div class="account-control-other">
+        <el-link type="primary">无法验证？</el-link>
+        <el-link type="primary">忘记密码？</el-link>
+      </div>
     </div>
 
     <el-button type="primary" class="login-btn" @click="handleloginClick"
@@ -33,15 +36,23 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import LoginAccount from './login-account.vue'
 import LoginPhone from './login-phone.vue'
 
+// 1.定义属性
 const isKeepPassword = ref(true)
-
+const currentTap = ref('account')
 const accountRef = ref<InstanceType<typeof LoginAccount>>()
+const phoneRef = ref<InstanceType<typeof LoginPhone>>()
 
+// 2.定义方法
 const handleloginClick = () => {
-  accountRef.value?.loginAction(isKeepPassword.value)
+  if (currentTap.value === 'account') {
+    accountRef.value?.loginAction(isKeepPassword.value)
+  } else {
+    phoneRef.value?.loginAction(isKeepPassword.value)
+  }
 }
 </script>
 
@@ -57,6 +68,11 @@ const handleloginClick = () => {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+
+    .account-control-other {
+      height: 32px;
+      line-height: 32px;
+    }
   }
 
   .login-btn {
