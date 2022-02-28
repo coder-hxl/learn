@@ -4,7 +4,8 @@ import { IAccount, IDataType, ILoginResult } from './type'
 
 enum LoginAPI {
   accountLogin = '/login',
-  LoginUserInfo = '/users/'
+  loginUserInfo = '/users/',
+  userMenu = '/role/'
 }
 
 export function accountLoginRequest(account: IAccount) {
@@ -14,8 +15,16 @@ export function accountLoginRequest(account: IAccount) {
   })
 }
 
-export function userInfoRequest(id: number) {
+export function requestUserInfoById(id: number) {
   return fhRequest.get<IDataType>({
-    url: LoginAPI.LoginUserInfo + id
+    url: LoginAPI.loginUserInfo + id,
+    showLoading: false
+  })
+}
+
+export function requestUserMenuByRoleId(id: number) {
+  return fhRequest.get<IDataType>({
+    url: LoginAPI.userMenu + id + '/menu',
+    showLoading: false
   })
 }

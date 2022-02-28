@@ -10,7 +10,15 @@ import {
   ElIcon,
   ElCheckbox,
   ElLink,
-  ElUpload
+  ElUpload,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElMenu,
+  ElMenuItemGroup,
+  ElMenuItem,
+  ElSubMenu
 } from 'element-plus'
 
 import { UserFilled, Iphone } from '@element-plus/icons-vue'
@@ -25,7 +33,15 @@ const components = [
   ElIcon,
   ElCheckbox,
   ElLink,
-  ElUpload
+  ElUpload,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElMenu,
+  ElMenuItemGroup,
+  ElMenuItem,
+  ElSubMenu
 ]
 const componentsIcons = [UserFilled, Iphone]
 
