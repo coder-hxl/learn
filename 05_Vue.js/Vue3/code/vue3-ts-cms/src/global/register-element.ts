@@ -1,5 +1,6 @@
 import { App } from 'vue'
 
+// 组件
 import {
   ElButton,
   ElForm,
@@ -21,7 +22,15 @@ import {
   ElSubMenu
 } from 'element-plus'
 
-import { UserFilled, Iphone } from '@element-plus/icons-vue'
+// icon
+import {
+  UserFilled,
+  Iphone,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound
+} from '@element-plus/icons-vue'
 
 const components = [
   ElButton,
@@ -43,7 +52,14 @@ const components = [
   ElMenuItem,
   ElSubMenu
 ]
-const componentsIcons = [UserFilled, Iphone]
+const componentsIcons = [
+  UserFilled,
+  Iphone,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound
+]
 
 export default function (app: App) {
   for (const component of components) {

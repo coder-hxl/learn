@@ -25,6 +25,15 @@ export function requestUserInfoById(id: number) {
 export function requestUserMenuByRoleId(id: number) {
   return fhRequest.get<IDataType>({
     url: LoginAPI.userMenu + id + '/menu',
-    showLoading: false
+    showLoading: false,
+    interceptors: {
+      responseInterceptor(config) {
+        // 对服务器返回的data里的icon进行截取, 原因: 此版本element-plus的icon改版了
+        for (const item of config.data) {
+          item.icon = item.icon.slice(8)
+        }
+        return config
+      }
+    }
   })
 }
