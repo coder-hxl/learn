@@ -29,7 +29,9 @@ import {
   Monitor,
   Setting,
   Goods,
-  ChatLineRound
+  ChatLineRound,
+  Expand,
+  Fold
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -58,7 +60,9 @@ const componentsIcons = [
   Monitor,
   Setting,
   Goods,
-  ChatLineRound
+  ChatLineRound,
+  Expand,
+  Fold
 ]
 
 export default function (app: App) {

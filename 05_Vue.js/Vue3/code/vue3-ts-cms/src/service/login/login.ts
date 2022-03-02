@@ -28,10 +28,21 @@ export function requestUserMenuByRoleId(id: number) {
     showLoading: false,
     interceptors: {
       responseInterceptor(config) {
-        // 对服务器返回的data里的icon进行截取, 原因: 此版本element-plus的icon改版了
-        for (const item of config.data) {
-          item.icon = item.icon.slice(8)
+        // 对服务器返回的data里的icon进行递归截取, 原因: 此版本element-plus的icon改版了
+        function setIcon(data: any) {
+          for (const item of data) {
+            if (item.icon) {
+              item.icon = item.icon.slice(8)
+            }
+
+            if (item.children) {
+              setIcon(item.children)
+            }
+          }
         }
+
+        setIcon(config.data)
+
         return config
       }
     }

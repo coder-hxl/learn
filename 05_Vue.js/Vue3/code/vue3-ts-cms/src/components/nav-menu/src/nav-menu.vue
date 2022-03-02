@@ -2,13 +2,20 @@
   <div class="nav-menu">
     <div class="logo">
       <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
-      <span class="title">Vue3+TS</span>
+      <span class="title" v-if="!collapse">Vue3+TS</span>
     </div>
-    <el-menu default-active="2" class="el-menu-vertical-demo">
+    <el-menu
+      default-active="2"
+      class="el-menu-vertical"
+      background-color="#001529"
+      text-color="#b7bdc3"
+      active-text-color="#0a60bd"
+      :collapse="collapse"
+    >
       <template v-for="item in menus" :key="item.id">
         <!-- 二级菜单 -->
         <template v-if="item.type === 1">
-          <el-sub-menu>
+          <el-sub-menu :index="item.id + ''">
             <!-- 二级菜单的标题 -->
             <template #title>
               <el-icon v-if="item.icon"
@@ -18,7 +25,7 @@
             </template>
             <!-- 二级菜单的children -->
             <template v-for="subItem in item.children" :key="subItem.id">
-              <el-menu-item>
+              <el-menu-item :index="subItem.id + ''">
                 <el-icon v-if="subItem.icon">
                   <component :is="subItem.icon"></component>
                 </el-icon>
@@ -30,7 +37,7 @@
 
         <!-- 一级菜单 -->
         <template v-else-if="item.type === 2">
-          <el-menu-item>
+          <el-menu-item :index="item.id + ''">
             <el-icon v-if="item.icon">
               <component :is="item.icon"></component>
             </el-icon>
@@ -43,8 +50,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineProps } from 'vue'
 import { useLoginStore } from '@/store'
+
+defineProps({
+  collapse: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const loginStore = useLoginStore()
 const menus = computed(() => loginStore.userMenus)
@@ -75,28 +89,21 @@ const menus = computed(() => loginStore.userMenus)
   }
 
   .el-menu {
+    width: 100%;
+    height: calc(100% - 48px);
     border-right: none;
-  }
+    background-color: #0c2135;
 
-  // 目录
-  .el-sub-menu {
-    background-color: #001529 !important;
-    // 二级菜单 ( 默认背景 )
+    // 二级菜单内 ( 默认背景 )
     .el-menu-item {
-      color: rgb(183, 189, 195);
       padding-left: 50px !important;
       background-color: #0c2135 !important;
     }
-  }
 
-  ::v-deep .el-sub-menu__title {
-    color: rgb(183, 189, 195);
-    background-color: #001529 !important;
-  }
-
-  // hover 高亮
-  .el-menu-item:hover {
-    color: #fff !important; // 菜单
+    // hover 高亮
+    .el-menu-item:hover {
+      color: #fff !important; // 菜单
+    }
   }
 }
 </style>
