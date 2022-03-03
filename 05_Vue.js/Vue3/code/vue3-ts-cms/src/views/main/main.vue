@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? '60px' : '210px'">
+      <el-aside :width="isCollapse ? '64px' : '210px'">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -48,7 +48,6 @@ const handleFoldChange = (isFold: boolean) => {
 .el-footer {
   display: flex;
   color: #333;
-  text-align: center;
   align-items: center;
 }
 
