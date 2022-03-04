@@ -6,7 +6,7 @@
     </div>
     <el-menu
       default-active="1"
-      class="el-menu-vertical-demo"
+      class="el-menu-vertical"
       background-color="#001529"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
@@ -23,7 +23,10 @@
             </template>
             <!-- 二级菜单的children -->
             <template v-for="subItem in item.children" :key="subItem.id">
-              <el-menu-item :index="subItem.id + ''">
+              <el-menu-item
+                :index="subItem.id + ''"
+                @click="handleMenuItemClick(subItem)"
+              >
                 <el-icon v-if="subItem.icon">
                   <component :is="subItem.icon" />
                 </el-icon>
@@ -50,6 +53,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 import { useLoginStore } from '@/store'
+import router from '@/router'
 
 defineProps({
   collapse: {
@@ -60,6 +64,12 @@ defineProps({
 
 const loginStore = useLoginStore()
 const menus = computed(() => loginStore.userMenus)
+
+const handleMenuItemClick = (subItem: any) => {
+  router.push({
+    path: subItem.url ?? '/un-found'
+  })
+}
 </script>
 
 <style scoped lang="less">
@@ -88,7 +98,6 @@ const menus = computed(() => loginStore.userMenus)
   }
 
   .el-menu {
-    color: red;
     border-right: none;
     background-color: #0c2135;
 
@@ -106,6 +115,18 @@ const menus = computed(() => loginStore.userMenus)
     .el-menu-item:hover {
       color: #fff !important; // 菜单
     }
+  }
+
+  .is-active .el-sub-menu__title {
+    .el-icon,
+    span {
+      color: #0a60bd !important;
+    }
+  }
+
+  .is-active .is-active {
+    color: #fff !important;
+    background-color: #0a60bd !important;
   }
 }
 
