@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2 v-if='isShow'>
+      <div>abc</div>
+      <div>abc</div>
+      <div>abc</div>
+      {{message}}
+    </h2>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    /* v-if 判断语句 */
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+        isShow: true
+      },
+      methods: {}
+    });
+  </script>
+
+</body>
+
+</html>

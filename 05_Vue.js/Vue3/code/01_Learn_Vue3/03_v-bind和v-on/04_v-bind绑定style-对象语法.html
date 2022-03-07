@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+
+  <template id="my-app">
+    <!-- 
+      :style="{cssProperty: cssPropertyValue}" 
+        - cssProperty：加或不加引号都会被当成字符串，不加引号需使用驼峰命名
+        - cssPropertyValue：加引号则当成字符串，不加则当成data中的属性
+    -->
+    <div :style="{color: finalColor, 'font-size': '30px'}">{{message}}</div>
+    <div :style="{color: finalColor, fontSize: '30px'}">{{message}}</div>
+    <div :style="{color: finalColor, fontSize: finalFontSize + 'px'}">{{message}}</div>
+    
+    <!-- 绑定data中的属性值，并且是一个对象 -->
+    <div :style="finalStyleObj">{{message}}</div>
+    <!-- 调用methods中的方法 -->
+    <div :style="getFinalStyle()">{{message}}</div>
+  </template>
+
+  <script src="../js/Vue.js"></script>
+  <script>
+    const app = {
+      template: '#my-app',
+      data() {
+        return {
+          message: 'Hello World',
+          finalColor: 'red',
+          finalFontSize: 50,
+          finalStyleObj: {
+            'font-size': '50px',
+            backgroundColor: 'red'
+          },
+        }
+      },
+      methods: {
+        getFinalStyle() {
+          return {
+            'font-size': '50px',
+            backgroundColor: 'red'
+          }
+        }
+      }
+    }
+
+    Vue.createApp(app).mount('#app')
+  </script>
+
+</body>
+
+</html>
