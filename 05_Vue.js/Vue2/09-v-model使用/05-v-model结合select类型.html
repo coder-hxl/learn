@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- select的v-model绑定字符串或数组都是获取value值  -->
+
+    <!-- 1.选择一个 -->
+    <select name="a" v-model='fruit'>
+			<option v-for='item in optionHobbies' :value="item">{{item}}</option>
+		</select>
+    <h2>您选择的水果是：{{fruit}}</h2>
+
+    <!-- 2.选择多个multiple -->
+    <select name="a" v-model='fruits' multiple>
+			<option v-for='item in optionHobbies' :value="item">{{item}}</option>
+		</select>
+    <h2>您选择的水果是：{{fruits}}</h2>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+        fruit: '香蕉',
+        fruits: [],
+        optionHobbies: ['苹果', '香蕉', '橘子', '葡萄']
+      },
+      methods: {}
+    });
+  </script>
+
+</body>
+
+</html>
