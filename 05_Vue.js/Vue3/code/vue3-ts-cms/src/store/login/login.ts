@@ -5,24 +5,24 @@ import {
   requestUserInfoById,
   requestUserMenuByRoleId
 } from '@/service/login/login'
-import localCache from '@/utils/cache'
-import { mapMenusToRouter } from '@/utils/map-menus'
 import router from '@/router'
 
-import { IAccount } from '@/service/login/type'
+import localCache from '@/utils/cache'
+import { mapMenusToRouter } from '@/utils/map-menus'
+
 import { ILoginState, IloginActions } from './type'
 
 export function loadLocalLogin() {
   const loginStore = useLoginStore()
 
   const token = localCache.getCache('token')
-  token && loginStore.setToken(token)
+  token && loginStore.setToken(token, false)
 
   const userInfo = localCache.getCache('userInfo')
-  userInfo && loginStore.setUserInfo(userInfo)
+  userInfo && loginStore.setUserInfo(userInfo, false)
 
   const userMenus = localCache.getCache('userMenus')
-  userMenus && loginStore.setUserMenus(userMenus)
+  userMenus && loginStore.setUserMenus(userMenus, false)
 }
 
 export const useLoginStore = defineStore<
@@ -39,17 +39,17 @@ export const useLoginStore = defineStore<
   }),
   getters: {},
   actions: {
-    setToken(token: string) {
+    setToken(token, storeLocal = true) {
       this.token = token
-      localCache.setCache('token', token)
+      storeLocal && localCache.setCache('token', token)
     },
-    setUserInfo(userInfo: any) {
+    setUserInfo(userInfo, storeLocal = true) {
       this.userInfo = userInfo
-      localCache.setCache('userInfo', userInfo)
+      storeLocal && localCache.setCache('userInfo', userInfo)
     },
-    setUserMenus(userMenus: any) {
+    setUserMenus(userMenus, storeLocal = true) {
       this.userMenus = userMenus
-      localCache.setCache('userMenus', userMenus)
+      storeLocal && localCache.setCache('userMenus', userMenus)
 
       // userMenus => routes
       const routes = mapMenusToRouter(userMenus)
@@ -59,7 +59,7 @@ export const useLoginStore = defineStore<
         router.addRoute('main', route)
       })
     },
-    async accountLoginAction(payload: IAccount) {
+    async accountLoginAction(payload) {
       // 1.实现登录逻辑
       const loginResult = await accountLoginRequest(payload)
       const { id, token } = loginResult.data
@@ -78,7 +78,7 @@ export const useLoginStore = defineStore<
       // 4.跳转到首页
       router.push('/main')
     },
-    async phoneLoginAction(payload: any) {
+    async phoneLoginAction(payload) {
       console.log('执行phoneLoginAction', payload)
     }
   }

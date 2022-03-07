@@ -1,3 +1,5 @@
+import { IAccount } from '@/service/login/type'
+
 interface ILoginState {
   token: string
   userInfo: any
@@ -5,10 +7,10 @@ interface ILoginState {
 }
 
 interface IloginActions {
-  setToken(token: string): void
-  setUserInfo(userInfo: any): void
-  setUserMenus(userMenus: any): void
-  accountLoginAction(payload: any): void
+  setToken(token: string, storeLocal?: boolean): void
+  setUserInfo(userInfo: any, storeLocal?: boolean): void
+  setUserMenus(userMenus: any, storeLocal?: boolean): void
+  accountLoginAction(payload: IAccount): void
   phoneLoginAction(payload: any): void
 }
 

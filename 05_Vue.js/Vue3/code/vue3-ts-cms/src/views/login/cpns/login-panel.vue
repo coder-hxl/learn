@@ -64,6 +64,11 @@ const handleloginClick = () => {
     text-align: center;
   }
 
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .account-control {
     margin-top: 10px;
     display: flex;

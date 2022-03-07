@@ -5,12 +5,13 @@
       <span class="title" v-if="!collapse">Vue3+TS</span>
     </div>
     <el-menu
-      default-active="1"
+      default-active="/main/analysis/overview"
       class="el-menu-vertical"
       background-color="#001529"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
       :collapse="collapse"
+      :router="true"
     >
       <template v-for="item in menus" :key="item.id">
         <!-- 二级菜单 -->
@@ -23,10 +24,7 @@
             </template>
             <!-- 二级菜单的children -->
             <template v-for="subItem in item.children" :key="subItem.id">
-              <el-menu-item
-                :index="subItem.id + ''"
-                @click="handleMenuItemClick(subItem)"
-              >
+              <el-menu-item :index="subItem.url">
                 <el-icon v-if="subItem.icon">
                   <component :is="subItem.icon" />
                 </el-icon>
@@ -53,7 +51,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 import { useLoginStore } from '@/store'
-import router from '@/router'
+// import router from '@/router'
 
 defineProps({
   collapse: {
@@ -64,12 +62,6 @@ defineProps({
 
 const loginStore = useLoginStore()
 const menus = computed(() => loginStore.userMenus)
-
-const handleMenuItemClick = (subItem: any) => {
-  router.push({
-    path: subItem.url ?? '/un-found'
-  })
-}
 </script>
 
 <style scoped lang="less">
