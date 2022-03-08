@@ -19,7 +19,11 @@ import {
   ElMenu,
   ElMenuItemGroup,
   ElMenuItem,
-  ElSubMenu
+  ElSubMenu,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElAvatar
 } from 'element-plus'
 
 // icon
@@ -31,7 +35,9 @@ import {
   Goods,
   ChatLineRound,
   Expand,
-  Fold
+  Fold,
+  Avatar,
+  CircleCloseFilled
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -52,7 +58,11 @@ const components = [
   ElMenu,
   ElMenuItemGroup,
   ElMenuItem,
-  ElSubMenu
+  ElSubMenu,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
+  ElAvatar
 ]
 const componentsIcons = [
   UserFilled,
@@ -62,7 +72,9 @@ const componentsIcons = [
   Goods,
   ChatLineRound,
   Expand,
-  Fold
+  Fold,
+  CircleCloseFilled,
+  Avatar
 ]
 
 export default function (app: App) {
