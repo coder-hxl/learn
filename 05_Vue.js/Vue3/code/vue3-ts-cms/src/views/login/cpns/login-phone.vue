@@ -14,48 +14,41 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
+<script setup lang="ts">
+import { reactive, ref, defineExpose } from 'vue'
 import { ElForm } from 'element-plus'
 
 import { useLoginStore } from '@/store'
 import { rules } from '../config/rules-config'
 import localCache from '@/utils/cache'
 
-export default defineComponent({
-  setup() {
-    const loginStore = useLoginStore()
+const loginStore = useLoginStore()
 
-    const phone = reactive({
-      num: localCache.getCache('phone_num') ?? '',
-      code: localCache.getCache('phone_code') ?? ''
-    })
+const phone = reactive({
+  num: localCache.getCache('phone_num') ?? '',
+  code: localCache.getCache('phone_code') ?? ''
+})
 
-    const formRef = ref<InstanceType<typeof ElForm>>()
+const formRef = ref<InstanceType<typeof ElForm>>()
 
-    const loginAction = (isKeepPassword: boolean) => {
-      formRef.value?.validate((valid) => {
-        if (valid) {
-          if (isKeepPassword) {
-            localCache.setCache('phone_num', phone.num)
-            localCache.setCache('phone_code', phone.code)
-          } else {
-            localCache.deleteCache('phone_num')
-            localCache.deleteCache('phone_code')
-          }
+const loginAction = (isKeepPassword: boolean) => {
+  formRef.value?.validate((valid) => {
+    if (valid) {
+      if (isKeepPassword) {
+        localCache.setCache('phone_num', phone.num)
+        localCache.setCache('phone_code', phone.code)
+      } else {
+        localCache.deleteCache('phone_num')
+        localCache.deleteCache('phone_code')
+      }
 
-          loginStore.phoneLoginAction({ ...phone })
-        }
-      })
+      loginStore.phoneLoginAction({ ...phone })
     }
+  })
+}
 
-    return {
-      phone,
-      rules,
-      formRef,
-      loginAction
-    }
-  }
+defineExpose({
+  loginAction
 })
 </script>
 
