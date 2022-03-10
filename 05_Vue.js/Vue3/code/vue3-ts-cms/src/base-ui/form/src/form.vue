@@ -1,10 +1,10 @@
 <template>
   <div class="form">
-    <el-form label-width="100px">
+    <el-form :label-width="labelWidth">
       <el-row>
         <template v-for="item in fromItems" :key="item.label">
-          <el-col :span="8">
-            <el-form-item :label="item.label">
+          <el-col v-bind="colLayout">
+            <el-form-item :label="item.label" :style="itemLayout">
               <template
                 v-if="item.type === 'input' || item.type === 'password'"
               >
@@ -47,9 +47,34 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 defineProps({
   fromItems: {
-    type: Array as PropType<IFormItem[]>
+    type: Array as PropType<IFormItem[]>,
+    default: () => []
+  },
+  labelWidth: {
+    type: String,
+    default: '100px'
+  },
+  itemLayout: {
+    type: Object,
+    default: () => ({
+      padding: '10px 50px'
+    })
+  },
+  colLayout: {
+    type: Object,
+    default: () => ({
+      xl: 6,
+      lg: 8,
+      md: 12,
+      sm: 24,
+      xs: 24
+    })
   }
 })
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.form {
+  padding-top: 18px;
+}
+</style>

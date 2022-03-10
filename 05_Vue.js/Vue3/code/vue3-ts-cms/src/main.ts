@@ -12,7 +12,8 @@ import store, { setupStore } from './store'
 const app = createApp(App)
 
 app.use(globalRegisterApp)
-app.use(router)
 app.use(store)
 setupStore()
+app.use(router)
+
 app.mount('#app')

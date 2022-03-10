@@ -1,3 +1,5 @@
-import fhForm from './src/form.vue'
+import FhForm from './src/form.vue'
 
-export { fhForm }
+export * from './type'
+
+export { FhForm }

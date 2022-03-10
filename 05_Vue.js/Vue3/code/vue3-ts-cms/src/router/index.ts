@@ -35,6 +35,9 @@ router.beforeEach((to) => {
     if (!token) {
       return '/login'
     }
+
+    console.log(router.getRoutes())
+    console.log(to)
   }
 })
 
