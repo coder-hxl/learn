@@ -10,7 +10,7 @@ import router from '@/router'
 import localCache from '@/utils/cache'
 import { mapMenusToRouter } from '@/utils/map-menus'
 
-import { ILoginState, IloginActions } from './type'
+import { ILoginState, IloginActions } from './types'
 
 export function loadLocalLogin() {
   const loginStore = useLoginStore()

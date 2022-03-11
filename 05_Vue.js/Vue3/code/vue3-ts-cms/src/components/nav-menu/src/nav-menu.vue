@@ -5,7 +5,7 @@
       <span class="title" v-if="!collapse">Vue3+TS</span>
     </div>
     <el-menu
-      default-active="/main/analysis/overview"
+      :default-active="routePath"
       class="el-menu-vertical"
       background-color="#001529"
       text-color="#b7bdc3"
@@ -36,7 +36,7 @@
 
         <!-- 一级菜单 -->
         <template v-else-if="item.type === 2">
-          <el-menu-item :index="item.id + ''">
+          <el-menu-item :index="item.url">
             <el-icon v-if="item.icon">
               <component :is="item.icon" />
             </el-icon>
@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 import { useLoginStore } from '@/store'
-// import router from '@/router'
+import { useRoute } from 'vue-router'
 
 defineProps({
   collapse: {
@@ -60,8 +60,13 @@ defineProps({
   }
 })
 
+// store
 const loginStore = useLoginStore()
 const menus = computed(() => loginStore.userMenus)
+
+// router
+const route = useRoute()
+const routePath = route.path
 </script>
 
 <style scoped lang="less">

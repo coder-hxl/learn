@@ -42,8 +42,9 @@
 
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import { IFormItem } from '../type'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+
+import { IFormItem } from '../type'
 
 defineProps({
   fromItems: {
