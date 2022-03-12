@@ -29,7 +29,9 @@ import {
   ElSelect,
   ElOption,
   ElDatePicker,
-  ElConfigProvider
+  ElConfigProvider,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 } from 'element-plus'
 
 // icon
@@ -74,7 +76,9 @@ const components = [
   ElSelect,
   ElOption,
   ElDatePicker,
-  ElConfigProvider
+  ElConfigProvider,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 ]
 const componentsIcons = [
   UserFilled,

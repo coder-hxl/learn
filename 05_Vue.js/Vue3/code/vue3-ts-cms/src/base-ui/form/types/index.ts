@@ -1,6 +1,7 @@
 type IFormType = 'input' | 'password' | 'select' | 'picker'
 
 export interface IFormItem {
+  field: string
   type: IFormType
   label: string
   rules?: any[]
@@ -12,7 +13,7 @@ export interface IFormItem {
 }
 
 export interface IForm {
-  fromItems: IFormItem[]
+  formItems: IFormItem[]
   labelWidth?: string
   colLayout: any
   itemLayout: any

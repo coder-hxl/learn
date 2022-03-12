@@ -4,15 +4,20 @@
       <component :is="icon" @click="changeIcon"></component>
     </el-icon>
     <div class="content">
-      <span>面包屑</span>
+      <Fhbreadcrumb :breadcrumbs="breadcrumbs" />
       <user-info />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue'
+import { ref, defineEmits, computed } from 'vue'
+import { useLoginStore } from '@/store'
+import { useRoute } from 'vue-router'
 import userInfo from './cpns/user-info.vue'
+import { Fhbreadcrumb } from '@/base-ui/breadcrumb'
+
+import { pathMapBreadcrumbs } from '@/utils/map-menus'
 
 let isFold = false
 const icon = ref('Expand')
@@ -28,6 +33,16 @@ const changeIcon = () => {
 
   emit('foldChange', isFold)
 }
+
+// 面包屑数据: [{name: , path: }]
+const loginStore = useLoginStore()
+const route = useRoute()
+const breadcrumbs = computed(() => {
+  const userMenus = loginStore.userMenus
+  const routePath = route.path
+
+  return pathMapBreadcrumbs(userMenus, routePath)
+})
 </script>
 
 <style scoped lang="less">

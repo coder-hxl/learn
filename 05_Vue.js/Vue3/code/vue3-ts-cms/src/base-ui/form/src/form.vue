@@ -2,7 +2,7 @@
   <div class="form">
     <el-form :label-width="labelWidth">
       <el-row>
-        <template v-for="item in fromItems" :key="item.label">
+        <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="colLayout">
             <el-form-item :label="item.label" :style="itemLayout">
               <template
@@ -12,10 +12,15 @@
                   :placeholder="item.placeholder"
                   v-bind="item.otherOptions"
                   :show-password="item.type === 'password'"
+                  v-model="formData[item.field]"
                 ></el-input>
               </template>
               <template v-else-if="item.type === 'select'">
-                <el-select style="width: 100%" v-bind="item.otherOptions">
+                <el-select
+                  style="width: 100%"
+                  v-bind="item.otherOptions"
+                  v-model="formData[item.field]"
+                >
                   <el-option
                     v-for="option in item.options"
                     :key="option.value"
@@ -29,6 +34,7 @@
                   <el-date-picker
                     v-bind="item.otherOptions"
                     style="width: 100%"
+                    v-model="formData[item.field]"
                   ></el-date-picker>
                 </el-config-provider>
               </template>
@@ -41,13 +47,17 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from 'vue'
+import { ref, defineProps, defineEmits, PropType, watch } from 'vue'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
-import { IFormItem } from '../type'
+import { IFormItem } from '../types'
 
-defineProps({
-  fromItems: {
+const props = defineProps({
+  modelValue: {
+    type: Object,
+    required: true
+  },
+  formItems: {
     type: Array as PropType<IFormItem[]>,
     default: () => []
   },
@@ -72,6 +82,19 @@ defineProps({
     })
   }
 })
+
+const emits = defineEmits(['update:modelValue'])
+
+const formData = ref({ ...props.modelValue })
+watch(
+  formData,
+  (newValue) => {
+    emits('update:modelValue', newValue)
+  },
+  {
+    deep: true
+  }
+)
 </script>
 
 <style scoped lang="less">
