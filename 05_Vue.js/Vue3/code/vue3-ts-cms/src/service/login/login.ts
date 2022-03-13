@@ -1,6 +1,7 @@
 import fhRequest from '../index'
 
-import { IAccount, IDataType, ILoginResult } from './type'
+import { IDataType } from '../types'
+import { IAccount, ILoginResult } from './type'
 
 enum LoginAPI {
   accountLogin = '/login',

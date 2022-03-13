@@ -12,19 +12,6 @@ import { mapMenusToRouter } from '@/utils/map-menus'
 
 import { ILoginState, IloginActions } from './types'
 
-export function loadLocalLogin() {
-  const loginStore = useLoginStore()
-
-  const token = localCache.getCache('token')
-  token && loginStore.setToken(token, false)
-
-  const userInfo = localCache.getCache('userInfo')
-  userInfo && loginStore.setUserInfo(userInfo, false)
-
-  const userMenus = localCache.getCache('userMenus')
-  userMenus && loginStore.setUserMenus(userMenus, false)
-}
-
 export const useLoginStore = defineStore<
   string,
   ILoginState,
@@ -39,17 +26,14 @@ export const useLoginStore = defineStore<
   }),
   getters: {},
   actions: {
-    setToken(token, storeLocal = true) {
+    changeToken(token) {
       this.token = token
-      storeLocal && localCache.setCache('token', token)
     },
-    setUserInfo(userInfo, storeLocal = true) {
+    changeUserInfo(userInfo) {
       this.userInfo = userInfo
-      storeLocal && localCache.setCache('userInfo', userInfo)
     },
-    setUserMenus(userMenus, storeLocal = true) {
+    changeUserMenus(userMenus) {
       this.userMenus = userMenus
-      storeLocal && localCache.setCache('userMenus', userMenus)
 
       // userMenus => routes
       const routes = mapMenusToRouter(userMenus)
@@ -59,21 +43,35 @@ export const useLoginStore = defineStore<
         router.addRoute('main', route)
       })
     },
+    loadLocalLogin() {
+      // 将本地缓存的用户数据保存到state中
+      const token = localCache.getCache('token')
+      token && this.changeToken(token)
+
+      const userInfo = localCache.getCache('userInfo')
+      userInfo && this.changeUserInfo(userInfo)
+
+      const userMenus = localCache.getCache('userMenus')
+      userMenus && this.changeUserMenus(userMenus)
+    },
     async accountLoginAction(payload) {
       // 1.实现登录逻辑
       const loginResult = await accountLoginRequest(payload)
       const { id, token } = loginResult.data
-      this.setToken(token)
+      this.changeToken(token)
+      localCache.setCache('token', token)
 
       // 2.请求用户信息
       const userInfoResult = await requestUserInfoById(id)
       const userInfo = userInfoResult.data
-      this.setUserInfo(userInfo)
+      this.changeUserInfo(userInfo)
+      localCache.setCache('userInfo', userInfo)
 
       // 3.请求用户菜单
       const userMenuResult = await requestUserMenuByRoleId(userInfo.role.id)
       const userMenus = userMenuResult.data
-      this.setUserMenus(userMenus)
+      this.changeUserMenus(userMenus)
+      localCache.setCache('userMenus', userMenus)
 
       // 4.跳转到首页
       router.push('/main')

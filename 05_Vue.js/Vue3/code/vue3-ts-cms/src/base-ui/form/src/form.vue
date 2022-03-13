@@ -1,6 +1,9 @@
 <template>
   <div class="form">
-    <el-form :label-width="labelWidth">
+    <div class="header">
+      <slot name="header"></slot>
+    </div>
+    <el-form :label-width="labelWidth" size="large">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="colLayout">
@@ -43,6 +46,9 @@
         </template>
       </el-row>
     </el-form>
+    <div class="foot">
+      <slot name="foot"></slot>
+    </div>
   </div>
 </template>
 

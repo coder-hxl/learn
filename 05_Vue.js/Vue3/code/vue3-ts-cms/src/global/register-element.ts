@@ -31,7 +31,9 @@ import {
   ElDatePicker,
   ElConfigProvider,
   ElBreadcrumb,
-  ElBreadcrumbItem
+  ElBreadcrumbItem,
+  ElTable,
+  ElTableColumn
 } from 'element-plus'
 
 // icon
@@ -45,7 +47,9 @@ import {
   Expand,
   Fold,
   Avatar,
-  CircleCloseFilled
+  CircleCloseFilled,
+  Refresh,
+  Search
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -78,7 +82,9 @@ const components = [
   ElDatePicker,
   ElConfigProvider,
   ElBreadcrumb,
-  ElBreadcrumbItem
+  ElBreadcrumbItem,
+  ElTable,
+  ElTableColumn
 ]
 const componentsIcons = [
   UserFilled,
@@ -90,7 +96,9 @@ const componentsIcons = [
   Expand,
   Fold,
   CircleCloseFilled,
-  Avatar
+  Avatar,
+  Refresh,
+  Search
 ]
 
 export default function (app: App) {

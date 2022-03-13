@@ -1,12 +1,13 @@
 import { createPinia } from 'pinia'
 
-import { useLoginStore, loadLocalLogin } from './login/login'
+import { useLoginStore } from './login/login'
+import { useSystemStore } from './main/system/system'
 
 const store = createPinia()
 
 export function setupStore() {
-  loadLocalLogin()
+  useLoginStore().loadLocalLogin()
 }
 
 export default store
-export { useLoginStore }
+export { useLoginStore, useSystemStore }

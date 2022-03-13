@@ -7,9 +7,10 @@ interface ILoginState {
 }
 
 interface IloginActions {
-  setToken(token: string, storeLocal?: boolean): void
-  setUserInfo(userInfo: any, storeLocal?: boolean): void
-  setUserMenus(userMenus: any, storeLocal?: boolean): void
+  changeToken(token: string, storeLocal?: boolean): void
+  changeUserInfo(userInfo: any, storeLocal?: boolean): void
+  changeUserMenus(userMenus: any, storeLocal?: boolean): void
+  loadLocalLogin(): void
   accountLoginAction(payload: IAccount): void
   phoneLoginAction(payload: any): void
 }

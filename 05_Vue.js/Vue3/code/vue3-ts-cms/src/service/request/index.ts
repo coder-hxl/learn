@@ -73,7 +73,7 @@ class FHRequest {
     )
   }
 
-  request<T>(config: FHRequestConfig<T>): Promise<T> {
+  request<T = any>(config: FHRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 1.单个请求对config的处理
       if (config.interceptors?.requestInterceptor) {
@@ -107,19 +107,19 @@ class FHRequest {
     })
   }
 
-  get<T>(config: FHRequestConfig<T>): Promise<T> {
+  get<T = any>(config: FHRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T>(config: FHRequestConfig<T>): Promise<T> {
+  post<T = any>(config: FHRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 
-  delete<T>(config: FHRequestConfig<T>): Promise<T> {
+  delete<T = any>(config: FHRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T>(config: FHRequestConfig<T>): Promise<T> {
+  patch<T = any>(config: FHRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }

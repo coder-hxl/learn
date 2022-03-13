@@ -35,8 +35,8 @@ export const searchFormConfig: IForm = {
       label: '喜欢的运动',
       placeholder: '请选择喜欢的运动',
       options: [
-        { title: '篮球', value: 'basketball' },
-        { title: '羽毛球', value: 'football' }
+        { title: '篮球', value: '篮球' },
+        { title: '羽毛球', value: '羽毛球' }
       ]
     },
     {
