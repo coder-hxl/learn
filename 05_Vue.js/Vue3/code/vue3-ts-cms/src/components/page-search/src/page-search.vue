@@ -4,7 +4,7 @@
       <template #header>
         <h1 class="header">高级检索</h1>
       </template>
-      <template #foot>
+      <template #footer>
         <div class="handle-btns">
           <el-button size="large">
             <el-icon>

@@ -1,15 +1,40 @@
 <template>
   <div class="fu-tabel">
-    <el-table :data="listData" border size="large" style="width: 100%">
+    <el-table
+      :data="listData"
+      border
+      size="large"
+      style="width: 100%"
+      @selection-change="handleSelectionChange"
+    >
+      <el-table-column
+        v-if="showSelectColumn"
+        type="selection"
+        align="center"
+        width="60"
+      ></el-table-column>
+      <el-table-column
+        v-if="showIndexColumn"
+        type="index"
+        label="序列"
+        align="center"
+        width="70"
+      ></el-table-column>
       <template v-for="propItem in propList" :key="propItem.prop">
-        <el-table-column v-bind="propItem" align="center" />
+        <el-table-column v-bind="propItem" align="center">
+          <template #default="scope">
+            <slot :name="propItem.slotName" :row="scope.row">
+              {{ scope.row[propItem.prop] }}
+            </slot>
+          </template>
+        </el-table-column>
       </template>
     </el-table>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, defineEmits, PropType } from 'vue'
 
 defineProps({
   listData: {
@@ -17,10 +42,24 @@ defineProps({
     required: true
   },
   propList: {
-    type: Array,
+    type: Array as PropType<any[]>,
     required: true
+  },
+  showIndexColumn: {
+    type: Boolean,
+    default: false
+  },
+  showSelectColumn: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emits = defineEmits(['selectionChange'])
+
+const handleSelectionChange = (value: any) => {
+  emits('selectionChange', value)
+}
 </script>
 
 <style scoped lang="less"></style>

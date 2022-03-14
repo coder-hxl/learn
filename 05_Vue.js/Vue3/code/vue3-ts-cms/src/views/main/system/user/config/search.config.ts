@@ -20,8 +20,8 @@ export const searchFormConfig: IForm = {
     {
       field: 'name',
       type: 'input',
-      label: '账号',
-      placeholder: '请输入账号'
+      label: '用户名',
+      placeholder: '请输入用户名'
     },
     {
       field: 'password',

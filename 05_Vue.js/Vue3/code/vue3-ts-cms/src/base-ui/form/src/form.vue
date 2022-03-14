@@ -20,9 +20,10 @@
               </template>
               <template v-else-if="item.type === 'select'">
                 <el-select
-                  style="width: 100%"
+                  :placeholder="item.placeholder"
                   v-bind="item.otherOptions"
                   v-model="formData[item.field]"
+                  style="width: 100%"
                 >
                   <el-option
                     v-for="option in item.options"
@@ -47,7 +48,7 @@
       </el-row>
     </el-form>
     <div class="foot">
-      <slot name="foot"></slot>
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>

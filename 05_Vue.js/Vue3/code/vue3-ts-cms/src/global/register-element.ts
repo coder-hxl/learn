@@ -49,7 +49,9 @@ import {
   Avatar,
   CircleCloseFilled,
   Refresh,
-  Search
+  Search,
+  EditPen,
+  Delete
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -98,7 +100,9 @@ const componentsIcons = [
   CircleCloseFilled,
   Avatar,
   Refresh,
-  Search
+  Search,
+  EditPen,
+  Delete
 ]
 
 export default function (app: App) {
