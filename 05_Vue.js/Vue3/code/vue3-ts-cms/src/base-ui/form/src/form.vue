@@ -34,20 +34,18 @@
                 </el-select>
               </template>
               <template v-else-if="item.type === 'picker'">
-                <el-config-provider :locale="zhCn">
-                  <el-date-picker
-                    v-bind="item.otherOptions"
-                    style="width: 100%"
-                    v-model="formData[item.field]"
-                  ></el-date-picker>
-                </el-config-provider>
+                <el-date-picker
+                  v-bind="item.otherOptions"
+                  style="width: 100%"
+                  v-model="formData[item.field]"
+                ></el-date-picker>
               </template>
             </el-form-item>
           </el-col>
         </template>
       </el-row>
     </el-form>
-    <div class="foot">
+    <div class="footer">
       <slot name="footer"></slot>
     </div>
   </div>
@@ -55,8 +53,6 @@
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits, PropType, watch } from 'vue'
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-
 import { IFormItem } from '../types'
 
 const props = defineProps({

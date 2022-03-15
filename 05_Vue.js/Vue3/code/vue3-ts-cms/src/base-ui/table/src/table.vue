@@ -1,5 +1,14 @@
 <template>
   <div class="fu-tabel">
+    <div class="header">
+      <slot name="header">
+        <div class="title">{{ title }}</div>
+        <div class="handle">
+          <slot name="headerHandle"></slot>
+        </div>
+      </slot>
+    </div>
+
     <el-table
       :data="listData"
       border
@@ -30,6 +39,23 @@
         </el-table-column>
       </template>
     </el-table>
+
+    <div class="footer">
+      <slot name="footer">
+        <el-pagination
+          v-model:currentPage="currentPage4"
+          v-model:page-size="pageSize4"
+          :page-sizes="[100, 200, 300, 400]"
+          :small="small"
+          :disabled="disabled"
+          :background="background"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="400"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -52,6 +78,10 @@ defineProps({
   showSelectColumn: {
     type: Boolean,
     default: false
+  },
+  title: {
+    type: String,
+    default: ''
   }
 })
 
@@ -62,4 +92,25 @@ const handleSelectionChange = (value: any) => {
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.header {
+  display: flex;
+  padding: 0 5px;
+  height: 45px;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+.footer {
+  margin-top: 18px;
+
+  .el-pagination {
+    justify-content: flex-end;
+  }
+}
+</style>

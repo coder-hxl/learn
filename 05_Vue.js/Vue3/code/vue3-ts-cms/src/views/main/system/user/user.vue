@@ -6,10 +6,17 @@
       <fh-table
         :listData="userList"
         :propList="propList"
+        :title="title"
         :showIndexColumn="showIndexColumn"
         :showSelectColumn="showSelectColumn"
         @selectionChange="contentTableConfig"
       >
+        <!-- 1.header中的插槽 -->
+        <template #headerHandle>
+          <el-button type="primary">新增用户</el-button>
+        </template>
+
+        <!-- 2.列表中的插槽 -->
         <template #status="scope">
           <el-button
             plain
@@ -26,9 +33,9 @@
           <span>{{ $filter.formatTime(scope.row.updateAt) }}</span>
         </template>
         <template #handle>
-          <div class="handle">
+          <div class="handle-btns">
             <el-button size="small" type="text">
-              <el-icon> <EditPen /></el-icon> 编辑
+              <el-icon><EditPen /></el-icon> 编辑
             </el-button>
             <el-button size="small" type="text">
               <el-icon><Delete /></el-icon> 删除
@@ -104,6 +111,8 @@ const propList = [
 const showIndexColumn = true
 const showSelectColumn = true
 
+const title = '用户列表'
+
 const contentTableConfig = (value: any) => {
   console.log(value)
 }
@@ -113,5 +122,9 @@ const contentTableConfig = (value: any) => {
 .content {
   padding: 20px;
   border-top: 20px solid #f0f2f5;
+}
+
+.el-icon {
+  margin-right: 4px;
 }
 </style>

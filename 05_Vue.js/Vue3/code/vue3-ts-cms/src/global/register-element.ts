@@ -29,11 +29,11 @@ import {
   ElSelect,
   ElOption,
   ElDatePicker,
-  ElConfigProvider,
   ElBreadcrumb,
   ElBreadcrumbItem,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElPagination
 } from 'element-plus'
 
 // icon
@@ -82,11 +82,11 @@ const components = [
   ElSelect,
   ElOption,
   ElDatePicker,
-  ElConfigProvider,
   ElBreadcrumb,
   ElBreadcrumbItem,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElPagination
 ]
 const componentsIcons = [
   UserFilled,
