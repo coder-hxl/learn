@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, defineExpose } from 'vue'
+import { reactive, ref } from 'vue'
 import { ElForm } from 'element-plus'
 
 import { useLoginStore } from '@/store'

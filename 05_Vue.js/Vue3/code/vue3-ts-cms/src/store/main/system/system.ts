@@ -12,26 +12,51 @@ export const useSystemStore = defineStore<
 >({
   id: 'system',
   state: () => ({
-    userList: [],
-    userCount: 0
+    usersList: [],
+    usersCount: 0,
+    roleList: [],
+    roleCount: 0
   }),
-  getters: {},
+  getters: {
+    getList(state: any) {
+      return function (pageName: string) {
+        return state[`${pageName}List`]
+      }
+    }
+  },
   actions: {
-    changeUserList(userList) {
-      this.userList = userList
+    changeUsersList(usersList) {
+      this.usersList = usersList
     },
-    changeUserCount(userCount) {
-      this.userCount = userCount
+    changeUsersCount(usersCount) {
+      this.usersCount = usersCount
+    },
+    changeRoleList(roleList) {
+      this.roleList = roleList
+    },
+    changeRoleCount(roleCount) {
+      this.roleCount = roleCount
     },
     async getPageListAction(payload) {
-      // 1.在页面发送请求
-      const pageResult = await getPageListData(
-        payload.pageUrl,
-        payload.queryInfo
-      )
+      // 1.获取pageUrl
+      const pageName = payload.pageName
+      const pageUrl = `/${pageName}/list`
+
+      // 2.在页面发送请求
+      const pageResult = await getPageListData(pageUrl, payload.queryInfo)
       const { list, totalCount } = pageResult.data
-      this.changeUserList(list)
-      this.changeUserCount(totalCount)
+
+      // 3.将结果存储到state中
+      switch (pageName) {
+        case 'users':
+          this.changeUsersList(list)
+          this.changeUsersCount(totalCount)
+          break
+        case 'role':
+          this.changeRoleList(list)
+          this.changeRoleCount(totalCount)
+          break
+      }
     }
   }
 })

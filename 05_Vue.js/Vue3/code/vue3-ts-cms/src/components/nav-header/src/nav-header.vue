@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useLoginStore } from '@/store'
 import { useRoute } from 'vue-router'
 import userInfo from './cpns/user-info.vue'

@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="fh-form">
     <div class="header">
       <slot name="header"></slot>
     </div>
@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, defineEmits, PropType, watch } from 'vue'
+import { ref, PropType, watch } from 'vue'
 import { IFormItem } from '../types'
 
 const props = defineProps({

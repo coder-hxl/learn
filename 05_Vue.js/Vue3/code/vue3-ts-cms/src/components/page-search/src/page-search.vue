@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 import { FhForm } from '@/base-ui/form'
 
 defineProps({
@@ -46,6 +46,7 @@ const formData = ref({
 
 <style scoped lang="less">
 .page-search {
+  display: flow-root;
   .header {
     color: red;
   }

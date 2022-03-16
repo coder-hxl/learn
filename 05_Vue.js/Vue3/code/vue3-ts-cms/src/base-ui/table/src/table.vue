@@ -1,5 +1,5 @@
 <template>
-  <div class="fu-tabel">
+  <div class="fh-tabel">
     <div class="header">
       <slot name="header">
         <div class="title">{{ title }}</div>
@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, PropType } from 'vue'
+import { PropType } from 'vue'
 
 defineProps({
   listData: {
@@ -69,7 +69,7 @@ defineProps({
   },
   propList: {
     type: Array as PropType<any[]>,
-    required: true
+    default: () => []
   },
   showIndexColumn: {
     type: Boolean,
