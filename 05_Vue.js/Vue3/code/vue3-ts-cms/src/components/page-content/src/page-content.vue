@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <fh-table :listData="listData" v-bind="contentTableConfig">
+    <fh-table :listData="dataList" v-bind="contentTableConfig">
       <!-- 1.header中的插槽 -->
       <template #headerHandle>
         <el-button type="primary">新增用户</el-button>
@@ -63,7 +63,7 @@ systemStore.getPageListAction({
   }
 })
 
-const listData = computed(() => systemStore.getList(prop.pageName))
+const dataList = computed(() => systemStore.pageListData(prop.pageName))
 </script>
 
 <style scoped lang="less">

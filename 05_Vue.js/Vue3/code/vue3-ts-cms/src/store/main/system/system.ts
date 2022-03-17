@@ -1,43 +1,38 @@
-import { defineStore, StateTree } from 'pinia'
+import { defineStore } from 'pinia'
 
 import { getPageListData } from '@/service/main/system/system'
 
-import { ISystemState, ISystemActions } from './types'
+import { ISystemState } from './types'
 
-export const useSystemStore = defineStore<
-  string,
-  ISystemState,
-  StateTree,
-  ISystemActions
->({
+export const useSystemStore = defineStore({
   id: 'system',
-  state: () => ({
+  state: (): ISystemState => ({
     usersList: [],
     usersCount: 0,
     roleList: [],
     roleCount: 0
   }),
   getters: {
-    getList(state: any) {
-      return function (pageName: string) {
+    pageListData(state: any) {
+      return (pageName: string) => {
         return state[`${pageName}List`]
       }
     }
   },
   actions: {
-    changeUsersList(usersList) {
+    changeUsersList(usersList: any[]) {
       this.usersList = usersList
     },
-    changeUsersCount(usersCount) {
+    changeUsersCount(usersCount: number) {
       this.usersCount = usersCount
     },
-    changeRoleList(roleList) {
+    changeRoleList(roleList: any[]) {
       this.roleList = roleList
     },
-    changeRoleCount(roleCount) {
+    changeRoleCount(roleCount: number) {
       this.roleCount = roleCount
     },
-    async getPageListAction(payload) {
+    async getPageListAction(payload: any) {
       // 1.获取pageUrl
       const pageName = payload.pageName
       const pageUrl = `/${pageName}/list`
@@ -46,7 +41,7 @@ export const useSystemStore = defineStore<
       const pageResult = await getPageListData(pageUrl, payload.queryInfo)
       const { list, totalCount } = pageResult.data
 
-      // 3.将结果存储到state中
+      // 3.将数据存储到state中
       switch (pageName) {
         case 'users':
           this.changeUsersList(list)

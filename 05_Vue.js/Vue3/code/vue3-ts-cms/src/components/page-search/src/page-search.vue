@@ -6,7 +6,7 @@
       </template>
       <template #footer>
         <div class="handle-btns">
-          <el-button size="large">
+          <el-button size="large" @click="handleResetClick">
             <el-icon>
               <Refresh />
             </el-icon>
@@ -28,20 +28,26 @@
 import { ref } from 'vue'
 import { FhForm } from '@/base-ui/form'
 
-defineProps({
+const props = defineProps({
   searchFormConfig: {
     type: Object,
     required: true
   }
 })
 
-const formData = ref({
-  id: '',
-  name: '',
-  password: '',
-  sport: '',
-  createTime: ''
-})
+// 双向绑定的属性应该是由配置文件的field来决定
+// 1.优化一: formData中属性应该动态来决定
+const formItems = props.searchFormConfig.formItems ?? []
+const formOriginalData: any = {}
+for (const item of formItems) {
+  formOriginalData[item.field] = ''
+}
+const formData = ref(formOriginalData)
+
+// 2.优化二: 当用户点击重置
+const handleResetClick = () => {
+  formData.value = formOriginalData
+}
 </script>
 
 <style scoped lang="less">

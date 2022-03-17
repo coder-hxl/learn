@@ -1,4 +1,4 @@
-import { defineStore, StateTree } from 'pinia'
+import { defineStore } from 'pinia'
 
 import {
   accountLoginRequest,
@@ -10,29 +10,25 @@ import router from '@/router'
 import localCache from '@/utils/cache'
 import { mapMenusToRouter } from '@/utils/map-menus'
 
-import { ILoginState, IloginActions } from './types'
+import { ILoginState } from './types'
+import { IAccount } from '@/service/login/type'
 
-export const useLoginStore = defineStore<
-  string,
-  ILoginState,
-  StateTree,
-  IloginActions
->({
+export const useLoginStore = defineStore({
   id: 'login',
-  state: () => ({
+  state: (): ILoginState => ({
     token: '',
     userInfo: {},
     userMenus: []
   }),
   getters: {},
   actions: {
-    changeToken(token) {
+    changeToken(token: string) {
       this.token = token
     },
-    changeUserInfo(userInfo) {
+    changeUserInfo(userInfo: any) {
       this.userInfo = userInfo
     },
-    changeUserMenus(userMenus) {
+    changeUserMenus(userMenus: any[]) {
       this.userMenus = userMenus
 
       // userMenus => routes
@@ -54,7 +50,7 @@ export const useLoginStore = defineStore<
       const userMenus = localCache.getCache('userMenus')
       userMenus && this.changeUserMenus(userMenus)
     },
-    async accountLoginAction(payload) {
+    async accountLoginAction(payload: IAccount) {
       // 1.实现登录逻辑
       const loginResult = await accountLoginRequest(payload)
       const { id, token } = loginResult.data
@@ -76,7 +72,7 @@ export const useLoginStore = defineStore<
       // 4.跳转到首页
       router.push('/main')
     },
-    async phoneLoginAction(payload) {
+    async phoneLoginAction(payload: any) {
       console.log('执行phoneLoginAction', payload)
     }
   }
