@@ -1,12 +1,17 @@
 <template>
   <div class="page-content">
-    <fh-table :listData="dataList" v-bind="contentTableConfig">
-      <!-- 1.header中的插槽 -->
+    <fh-table
+      :listData="dataList"
+      v-bind="contentTableConfig"
+      :listCount="dataCount"
+      v-model:page="pageInfo"
+    >
+      <!-- header中的插槽 -->
       <template #headerHandle>
         <el-button type="primary">新增用户</el-button>
       </template>
 
-      <!-- 2.列表中的插槽 -->
+      <!-- 列表中的插槽 -->
       <template #status="scope">
         <el-button
           plain
@@ -32,17 +37,30 @@
           </el-button>
         </div>
       </template>
+
+      <!-- 在page-content中动态插入剩余的插槽 -->
+      <template
+        v-for="item in otherPropSlots"
+        :key="item.prop"
+        #[item.slotName]="scope"
+      >
+        <slot
+          v-if="item.slotName"
+          :name="item.slotName"
+          :row="scope.row"
+        ></slot>
+      </template>
     </fh-table>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useSystemStore } from '@/store'
 
 import FhTable from '@/base-ui/table'
 
-const prop = defineProps({
+const props = defineProps({
   contentTableConfig: {
     type: Object,
     required: true
@@ -55,15 +73,45 @@ const prop = defineProps({
 
 const systemStore = useSystemStore()
 
-systemStore.getPageListAction({
-  pageName: prop.pageName,
-  queryInfo: {
-    offset: 0,
-    size: 10
-  }
-})
+// 1.双向绑定pageInfo
+const pageInfo = ref({ currentPage: 1, pageSize: 10 })
+watch(
+  () => pageInfo.value,
+  () => getPageData()
+)
 
-const dataList = computed(() => systemStore.pageListData(prop.pageName))
+// 2.发送网络请求
+const getPageData = (queryInfo: any = {}) => {
+  systemStore.getPageListAction({
+    pageName: props.pageName,
+    queryInfo: {
+      offset: (pageInfo.value.currentPage - 1) * pageInfo.value.pageSize,
+      size: pageInfo.value.pageSize,
+      ...queryInfo
+    }
+  })
+}
+
+getPageData()
+
+// 3.从systemStore中获取数据
+const dataList = computed(() => systemStore.pageListData(props.pageName))
+const dataCount = computed(() => systemStore.pageListCount(props.pageName))
+
+// 4.获取其他的动态插槽名称
+const otherPropSlots = props.contentTableConfig?.propList.filter(
+  (item: any) => {
+    if (item.slotName === 'status') return false
+    if (item.slotName === 'createAt') return false
+    if (item.slotName === 'updateAt') return false
+    if (item.slotName === 'handle') return false
+    return true
+  }
+)
+
+defineExpose({
+  getPageData
+})
 </script>
 
 <style scoped lang="less">

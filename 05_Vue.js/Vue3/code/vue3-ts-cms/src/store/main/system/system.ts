@@ -10,12 +10,19 @@ export const useSystemStore = defineStore({
     usersList: [],
     usersCount: 0,
     roleList: [],
-    roleCount: 0
+    roleCount: 0,
+    goodsList: [],
+    goodsCount: 0
   }),
   getters: {
     pageListData(state: any) {
       return (pageName: string) => {
         return state[`${pageName}List`]
+      }
+    },
+    pageListCount(state: any) {
+      return (pageName: string) => {
+        return state[`${pageName}Count`]
       }
     }
   },
@@ -31,6 +38,12 @@ export const useSystemStore = defineStore({
     },
     changeRoleCount(roleCount: number) {
       this.roleCount = roleCount
+    },
+    changeGoodsList(goodsList: any[]) {
+      this.goodsList = goodsList
+    },
+    changeGoodsCount(goodsCount: number) {
+      this.goodsCount = goodsCount
     },
     async getPageListAction(payload: any) {
       // 1.获取pageUrl
@@ -50,6 +63,10 @@ export const useSystemStore = defineStore({
         case 'role':
           this.changeRoleList(list)
           this.changeRoleCount(totalCount)
+          break
+        case 'goods':
+          this.changeGoodsList(list)
+          this.changeGoodsCount(totalCount)
           break
       }
     }
