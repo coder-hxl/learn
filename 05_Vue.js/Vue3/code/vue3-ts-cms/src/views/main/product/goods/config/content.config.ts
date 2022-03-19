@@ -6,18 +6,18 @@ export const contentTableConfig = {
     {
       label: '商品名称',
       prop: 'name',
-      minWidth: '100'
+      minWidth: '80'
     },
     {
       label: '原价格',
       prop: 'oldPrice',
-      minWidth: '100',
+      minWidth: '80',
       slotName: 'oldPrice'
     },
     {
       label: '现价格',
       prop: 'newPrice',
-      minWidth: '100',
+      minWidth: '80',
       slotName: 'newPrice'
     },
     {
@@ -27,21 +27,30 @@ export const contentTableConfig = {
       slotName: 'img'
     },
     {
-      label: '状态',
-      prop: 'status',
-      minWidth: '100',
-      slotName: 'status'
+      label: '库存',
+      prop: 'inventoryCount',
+      minWidth: '80'
+    },
+    {
+      label: '收藏',
+      prop: 'favorCount',
+      minWidth: '80'
+    },
+    {
+      label: '地址',
+      prop: 'address',
+      minWidth: '80'
     },
     {
       label: '创建时间',
       prop: 'createAt',
-      minWidth: '250',
+      minWidth: '180',
       slotName: 'createAt'
     },
     {
       label: '更新时间',
       prop: 'updateAt',
-      minWidth: '250',
+      minWidth: '180',
       slotName: 'updateAt'
     },
     {

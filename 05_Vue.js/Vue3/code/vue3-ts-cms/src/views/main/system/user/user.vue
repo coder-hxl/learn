@@ -21,7 +21,7 @@ import pageContent from '@/components/page-content'
 import { searchFormConfig } from './config/search.config'
 import { contentTableConfig } from './config/content.config'
 
-import usePageSearch from '@/hooks/usePageSearch'
+import { usePageSearch } from '@/hooks/use-page-search'
 
 const { pageContentRef, handleResetClick, handleQueryClick } = usePageSearch()
 </script>

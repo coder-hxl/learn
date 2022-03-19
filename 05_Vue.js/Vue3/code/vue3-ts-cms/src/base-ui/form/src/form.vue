@@ -74,16 +74,14 @@ const props = defineProps({
   itemLayout: {
     type: Object,
     default: () => ({
-      padding: '10px 50px'
+      padding: '10px 40px'
     })
   },
   colLayout: {
     type: Object,
     default: () => ({
-      xl: 6,
       lg: 8,
       md: 12,
-      sm: 24,
       xs: 24
     })
   }

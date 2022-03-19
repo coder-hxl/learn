@@ -8,7 +8,7 @@
     >
       <!-- header中的插槽 -->
       <template #headerHandle>
-        <el-button type="primary">新增用户</el-button>
+        <el-button v-if="isCreate" type="primary">新增用户</el-button>
       </template>
 
       <!-- 列表中的插槽 -->
@@ -29,10 +29,10 @@
       </template>
       <template #handle>
         <div class="handle-btns">
-          <el-button size="small" type="text">
+          <el-button v-if="isUpdate" size="small" type="text">
             <el-icon><EditPen /></el-icon> 编辑
           </el-button>
-          <el-button size="small" type="text">
+          <el-button v-if="isDelete" size="small" type="text">
             <el-icon><Delete /></el-icon> 删除
           </el-button>
         </div>
@@ -56,9 +56,12 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+
 import { useSystemStore } from '@/store'
 
 import FhTable from '@/base-ui/table'
+
+import { usePermissions } from '@/hooks/use-permission'
 
 const props = defineProps({
   contentTableConfig: {
@@ -73,6 +76,12 @@ const props = defineProps({
 
 const systemStore = useSystemStore()
 
+// 0.获取操作的权限
+const isCreate = usePermissions(props.pageName, 'create')
+const isDelete = usePermissions(props.pageName, 'delete')
+const isUpdate = usePermissions(props.pageName, 'update')
+const isQuery = usePermissions(props.pageName, 'query')
+
 // 1.双向绑定pageInfo
 const pageInfo = ref({ currentPage: 1, pageSize: 10 })
 watch(
@@ -82,6 +91,7 @@ watch(
 
 // 2.发送网络请求
 const getPageData = (queryInfo: any = {}) => {
+  if (!isQuery) return
   systemStore.getPageListAction({
     pageName: props.pageName,
     queryInfo: {

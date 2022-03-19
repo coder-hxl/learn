@@ -12,9 +12,10 @@
     <el-table
       :data="listData"
       border
+      v-bind="childrenProps"
       size="large"
-      style="width: 100%"
       @selection-change="handleSelectionChange"
+      style="width: 100%"
     >
       <el-table-column
         v-if="showSelectColumn"
@@ -25,16 +26,13 @@
       <el-table-column
         v-if="showIndexColumn"
         type="index"
-        label="序列"
+        label="序号"
         align="center"
         width="70"
       ></el-table-column>
+
       <template v-for="propItem in propList" :key="propItem.prop">
-        <el-table-column
-          v-bind="propItem"
-          align="center"
-          :show-overflow-tooltip="true"
-        >
+        <el-table-column v-bind="propItem" align="center" show-overflow-tooltip>
           <template #default="scope">
             <slot :name="propItem.slotName" :row="scope.row">
               {{ scope.row[propItem.prop] }}
@@ -44,15 +42,15 @@
       </template>
     </el-table>
 
-    <div class="footer">
+    <div class="footer" v-if="showFooter">
       <slot name="footer">
         <el-pagination
           :small="true"
-          :currentPage="page.currentPage"
-          :page-size="page.pageSize"
-          :page-sizes="[10, 20, 30]"
-          layout="total, sizes, prev, pager, next, jumper"
           :total="listCount"
+          :page-sizes="[10, 20, 30]"
+          :page-size="page.pageSize"
+          :current-page="page.currentPage"
+          layout="total, sizes, prev, pager, next, jumper"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
         />
@@ -92,6 +90,14 @@ const props = defineProps({
   page: {
     type: Object,
     default: () => ({ currentPage: 0, pageSize: 10 })
+  },
+  childrenProps: {
+    type: Object,
+    default: () => ({})
+  },
+  showFooter: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -110,24 +116,26 @@ const handleSizeChange = (pageSize: number) => {
 </script>
 
 <style scoped lang="less">
-.header {
-  display: flex;
-  padding: 0 5px;
-  height: 45px;
-  justify-content: space-between;
-  align-items: center;
+.fh-tabel {
+  .header {
+    display: flex;
+    padding: 0 5px;
+    height: 45px;
+    justify-content: space-between;
+    align-items: center;
 
-  .title {
-    font-size: 22px;
-    font-weight: 700;
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+    }
   }
-}
 
-.footer {
-  margin-top: 18px;
+  .footer {
+    margin-top: 18px;
 
-  .el-pagination {
-    justify-content: flex-end;
+    .el-pagination {
+      justify-content: flex-end;
+    }
   }
 }
 </style>

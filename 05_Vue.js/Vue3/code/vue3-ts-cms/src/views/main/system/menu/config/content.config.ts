@@ -1,16 +1,25 @@
 export const contentTableConfig = {
-  title: '角色列表',
-  showIndexColumn: true,
-  showSelectColumn: true,
+  title: '菜单列表',
+  showFooter: false,
   propList: [
     {
-      label: '角色名',
+      label: '菜单名称',
       prop: 'name',
       minWidth: '100'
     },
     {
-      label: '权限介绍',
-      prop: 'intro',
+      label: '类型',
+      prop: 'type',
+      minWidth: '100'
+    },
+    {
+      label: '菜单url',
+      prop: 'url',
+      minWidth: '100'
+    },
+    {
+      label: '按钮权限',
+      prop: 'permission',
       minWidth: '100'
     },
     {
@@ -30,5 +39,9 @@ export const contentTableConfig = {
       minWidth: '100',
       slotName: 'handle'
     }
-  ]
+  ],
+  childrenProps: {
+    rowKey: 'id',
+    treeProps: { children: 'children' }
+  }
 }

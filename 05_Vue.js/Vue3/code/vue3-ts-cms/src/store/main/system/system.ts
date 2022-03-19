@@ -12,7 +12,9 @@ export const useSystemStore = defineStore({
     roleList: [],
     roleCount: 0,
     goodsList: [],
-    goodsCount: 0
+    goodsCount: 0,
+    menuList: [],
+    menuCount: 0
   }),
   getters: {
     pageListData(state: any) {
@@ -27,23 +29,29 @@ export const useSystemStore = defineStore({
     }
   },
   actions: {
-    changeUsersList(usersList: any[]) {
-      this.usersList = usersList
+    changeUsersList(list: any[]) {
+      this.usersList = list
     },
-    changeUsersCount(usersCount: number) {
-      this.usersCount = usersCount
+    changeUsersCount(count: number) {
+      this.usersCount = count
     },
-    changeRoleList(roleList: any[]) {
-      this.roleList = roleList
+    changeRoleList(list: any[]) {
+      this.roleList = list
     },
-    changeRoleCount(roleCount: number) {
-      this.roleCount = roleCount
+    changeRoleCount(count: number) {
+      this.roleCount = count
     },
-    changeGoodsList(goodsList: any[]) {
-      this.goodsList = goodsList
+    changeGoodsList(list: any[]) {
+      this.goodsList = list
     },
-    changeGoodsCount(goodsCount: number) {
-      this.goodsCount = goodsCount
+    changeGoodsCount(count: number) {
+      this.goodsCount = count
+    },
+    changeMenuList(list: any[]) {
+      this.menuList = list
+    },
+    changeMenuCount(count: number) {
+      this.menuCount = count
     },
     async getPageListAction(payload: any) {
       // 1.获取pageUrl
@@ -67,6 +75,10 @@ export const useSystemStore = defineStore({
         case 'goods':
           this.changeGoodsList(list)
           this.changeGoodsCount(totalCount)
+          break
+        case 'menu':
+          this.changeMenuList(list)
+          this.changeMenuCount(totalCount)
           break
       }
     }

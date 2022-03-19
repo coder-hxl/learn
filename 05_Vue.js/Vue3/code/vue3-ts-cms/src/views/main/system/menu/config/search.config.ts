@@ -2,31 +2,33 @@ import { IForm } from '@/base-ui/form'
 
 export const searchFormConfig: IForm = {
   labelWidth: '120px',
-  itemLayout: {
-    padding: '10px 40px'
-  },
-  colLayout: {
-    lg: 8,
-    md: 12,
-    xs: 24
-  },
   formItems: [
+    {
+      field: 'id',
+      type: 'input',
+      label: 'id',
+      placeholder: '请输入id'
+    },
     {
       field: 'name',
       type: 'input',
-      label: '角色名',
-      placeholder: '请输入角色名'
-    },
-    {
-      field: 'intro',
-      type: 'input',
-      label: '权限介绍',
-      placeholder: '请输入权限介绍'
+      label: '菜单名称',
+      placeholder: '请输入菜单名称'
     },
     {
       field: 'createAt',
       type: 'picker',
       label: '创建时间',
+      otherOptions: {
+        type: 'daterange',
+        startPlaceholder: '开始时间',
+        endPlaceholder: '结束时间'
+      }
+    },
+    {
+      field: 'updateAt',
+      type: 'picker',
+      label: '更新时间',
       otherOptions: {
         type: 'daterange',
         startPlaceholder: '开始时间',

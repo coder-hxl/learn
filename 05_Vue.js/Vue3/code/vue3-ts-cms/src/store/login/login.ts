@@ -8,7 +8,7 @@ import {
 import router from '@/router'
 
 import localCache from '@/utils/cache'
-import { mapMenusToRouter } from '@/utils/map-menus'
+import { mapMenusToRouter, mapMenusToPermissions } from '@/utils/map-menus'
 
 import { ILoginState } from './types'
 import { IAccount } from '@/service/login/type'
@@ -18,7 +18,8 @@ export const useLoginStore = defineStore({
   state: (): ILoginState => ({
     token: '',
     userInfo: {},
-    userMenus: []
+    userMenus: [],
+    permissions: []
   }),
   getters: {},
   actions: {
@@ -38,6 +39,8 @@ export const useLoginStore = defineStore({
       routes.forEach((route) => {
         router.addRoute('main', route)
       })
+
+      this.permissions = mapMenusToPermissions(userMenus)
     },
     loadLocalLogin() {
       // 将本地缓存的用户数据保存到state中
