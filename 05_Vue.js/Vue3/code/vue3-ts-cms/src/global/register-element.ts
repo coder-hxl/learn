@@ -52,7 +52,9 @@ import {
   Refresh,
   Search,
   EditPen,
-  Delete
+  Delete,
+  Bell,
+  CollectionTag
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -104,7 +106,9 @@ const componentsIcons = [
   Refresh,
   Search,
   EditPen,
-  Delete
+  Delete,
+  Bell,
+  CollectionTag
 ]
 
 export default function (app: App) {

@@ -1,10 +1,15 @@
 <template>
   <div class="user-info">
+    <div class="button-icon">
+      <el-icon :size="20"><CollectionTag /></el-icon>
+      <el-icon :size="20"><Bell /></el-icon>
+    </div>
+
     <el-dropdown>
       <span class="el-dropdown-link">
         <el-avatar
           :size="32"
-          src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg"
+          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
         ></el-avatar>
       </span>
       <template #dropdown>
@@ -32,6 +37,21 @@ const name = computed(() => loginStore.userInfo.name)
 
 <style scoped lang="less">
 .user-info {
+  display: flex;
+  align-items: center;
+
+  .button-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    .el-icon {
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .el-icon:hover {
+      background: #f6f6f6;
+    }
+  }
   .el-dropdown-link {
     cursor: pointer;
   }

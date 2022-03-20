@@ -1,20 +1,26 @@
 import { defineStore } from 'pinia'
 
-import { getPageListData } from '@/service/main/system/system'
+import { getPageListData } from '@/service/main/list/list'
 
-import { ISystemState } from './types'
+import { IListState } from './types'
 
-export const useSystemStore = defineStore({
-  id: 'system',
-  state: (): ISystemState => ({
+export const useListStore = defineStore({
+  id: 'list',
+  state: (): IListState => ({
+    // 系统管理
     usersList: [],
     usersCount: 0,
+    departmentList: [],
+    departmentCount: 0,
+    menuList: [],
+    menuCount: 0,
     roleList: [],
     roleCount: 0,
+    // 商品中心
+    categoryList: [],
+    categoryCount: 0,
     goodsList: [],
-    goodsCount: 0,
-    menuList: [],
-    menuCount: 0
+    goodsCount: 0
   }),
   getters: {
     pageListData(state: any) {
@@ -29,23 +35,18 @@ export const useSystemStore = defineStore({
     }
   },
   actions: {
+    // 系统管理
     changeUsersList(list: any[]) {
       this.usersList = list
     },
     changeUsersCount(count: number) {
       this.usersCount = count
     },
-    changeRoleList(list: any[]) {
-      this.roleList = list
+    changeDepartmentList(list: any[]) {
+      this.departmentList = list
     },
-    changeRoleCount(count: number) {
-      this.roleCount = count
-    },
-    changeGoodsList(list: any[]) {
-      this.goodsList = list
-    },
-    changeGoodsCount(count: number) {
-      this.goodsCount = count
+    changedepartmentCount(count: number) {
+      this.departmentCount = count
     },
     changeMenuList(list: any[]) {
       this.menuList = list
@@ -53,6 +54,26 @@ export const useSystemStore = defineStore({
     changeMenuCount(count: number) {
       this.menuCount = count
     },
+    changeRoleList(list: any[]) {
+      this.roleList = list
+    },
+    changeRoleCount(count: number) {
+      this.roleCount = count
+    },
+    // 商品中心
+    changeCategoryList(list: any[]) {
+      this.categoryList = list
+    },
+    changeCategoryCount(count: number) {
+      this.categoryCount = count
+    },
+    changeGoodsList(list: any[]) {
+      this.goodsList = list
+    },
+    changeGoodsCount(count: number) {
+      this.goodsCount = count
+    },
+
     async getPageListAction(payload: any) {
       // 1.获取pageUrl
       const pageName = payload.pageName
@@ -64,21 +85,31 @@ export const useSystemStore = defineStore({
 
       // 3.将数据存储到state中
       switch (pageName) {
+        // 系统管理
         case 'users':
           this.changeUsersList(list)
           this.changeUsersCount(totalCount)
+          break
+        case 'department':
+          this.changeDepartmentList(list)
+          this.changedepartmentCount(totalCount)
+          break
+        case 'menu':
+          this.changeMenuList(list)
+          this.changeMenuCount(totalCount)
           break
         case 'role':
           this.changeRoleList(list)
           this.changeRoleCount(totalCount)
           break
+        // 商品中心
+        case 'category':
+          this.changeCategoryList(list)
+          this.changeCategoryCount(totalCount)
+          break
         case 'goods':
           this.changeGoodsList(list)
           this.changeGoodsCount(totalCount)
-          break
-        case 'menu':
-          this.changeMenuList(list)
-          this.changeMenuCount(totalCount)
           break
       }
     }

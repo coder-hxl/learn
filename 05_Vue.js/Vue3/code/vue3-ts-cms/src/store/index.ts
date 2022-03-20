@@ -1,7 +1,7 @@
 import { createPinia } from 'pinia'
 
 import { useLoginStore } from './login/login'
-import { useSystemStore } from './main/system/system'
+import { useListStore } from './main/list/list'
 
 const store = createPinia()
 
@@ -10,4 +10,4 @@ export function setupStore() {
 }
 
 export default store
-export { useLoginStore, useSystemStore }
+export { useLoginStore, useListStore }

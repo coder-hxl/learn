@@ -57,7 +57,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
-import { useSystemStore } from '@/store'
+import { useListStore } from '@/store'
 
 import FhTable from '@/base-ui/table'
 
@@ -74,7 +74,7 @@ const props = defineProps({
   }
 })
 
-const systemStore = useSystemStore()
+const listStore = useListStore()
 
 // 0.获取操作的权限
 const isCreate = usePermissions(props.pageName, 'create')
@@ -92,7 +92,7 @@ watch(
 // 2.发送网络请求
 const getPageData = (queryInfo: any = {}) => {
   if (!isQuery) return
-  systemStore.getPageListAction({
+  listStore.getPageListAction({
     pageName: props.pageName,
     queryInfo: {
       offset: (pageInfo.value.currentPage - 1) * pageInfo.value.pageSize,
@@ -105,8 +105,8 @@ const getPageData = (queryInfo: any = {}) => {
 getPageData()
 
 // 3.从systemStore中获取数据
-const dataList = computed(() => systemStore.pageListData(props.pageName))
-const dataCount = computed(() => systemStore.pageListCount(props.pageName))
+const dataList = computed(() => listStore.pageListData(props.pageName))
+const dataCount = computed(() => listStore.pageListCount(props.pageName))
 
 // 4.获取其他的动态插槽名称
 const otherPropSlots = props.contentTableConfig?.propList.filter(
