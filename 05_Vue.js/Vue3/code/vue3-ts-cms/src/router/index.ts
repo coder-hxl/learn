@@ -37,9 +37,6 @@ router.beforeEach((to) => {
       return '/login'
     }
 
-    // console.log(router.getRoutes())
-    // console.log(to)
-
     if (to.path == '/main') {
       return firstMenu.url
     }

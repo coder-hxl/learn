@@ -8,27 +8,24 @@ export function mapMenusToRouter(userMenus: any[]): RouteRecordRaw[] {
 
   // 1.先去加载默认所有的routes
   const allRoutes: RouteRecordRaw[] = []
-  const routeFiles = require.context('../router/main', true, /\.ts/)
-  routeFiles.keys().forEach((item) => {
-    const route = require('../router/main' + item.split('.')[1])
-    allRoutes.push(route.default)
-  })
+  const routeFiles = import.meta.globEager('../router/main/*/*/*.ts')
+  for (const key in routeFiles) {
+    const route = routeFiles[key].default
+    allRoutes.push(route)
+  }
 
   // 2.根据菜单获取需要添加的routes
-  const _recurseGetRoute = (menus: any[]) => {
-    for (const menu of menus) {
-      if (menu.type === 2) {
-        const route = allRoutes.find((route) => route.path === menu.url)
-        if (route) routes.push(route)
-        if (!firstMenu) {
-          firstMenu = menu
-        }
-      } else {
+  function _recurseGetRoute(userMenus: any[]) {
+    for (const menu of userMenus) {
+      if (menu.type === 1) {
         _recurseGetRoute(menu.children ?? [])
+      } else if (menu.type === 2) {
+        const route = allRoutes.find((item) => item.path === menu.url)
+        if (route) routes.push(route)
+        if (!firstMenu) firstMenu = menu
       }
     }
   }
-
   _recurseGetRoute(userMenus)
 
   return routes

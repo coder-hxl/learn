@@ -11,7 +11,7 @@ import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 .app {
   height: 100%;
 }
