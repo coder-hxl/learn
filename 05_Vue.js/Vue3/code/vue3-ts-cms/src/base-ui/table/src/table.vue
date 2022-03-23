@@ -14,8 +14,8 @@
       border
       v-bind="childrenProps"
       size="large"
-      @selection-change="handleSelectionChange"
       style="width: 100%"
+      @selection-change="handleSelectionChange"
     >
       <el-table-column
         v-if="showSelectColumn"
@@ -42,7 +42,7 @@
       </template>
     </el-table>
 
-    <div class="footer" v-if="showFooter">
+    <div v-if="showFooter" class="footer">
       <slot name="footer">
         <el-pagination
           :small="true"

@@ -1,7 +1,7 @@
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch v-model="currentTap">
+    <el-tabs v-model="currentTap" type="border-card" stretch>
       <el-tab-pane name="account">
         <template #label>
           <span class="label">
@@ -21,7 +21,7 @@
     </el-tabs>
 
     <div class="account-control">
-      <el-checkbox label="记住我" v-model="isKeepPassword" />
+      <el-checkbox v-model="isKeepPassword" label="记住我" />
       <div class="account-control-other">
         <el-link type="primary">无法验证？</el-link>
         <el-link type="primary">忘记密码？</el-link>

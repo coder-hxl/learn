@@ -1,9 +1,16 @@
 <template>
   <div class="list">
-    <h2>list</h2>
+    <page-content
+      :contentTableConfig="contentTableConfig"
+      pageName="users"
+    ></page-content>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import pageContent from '@/components/page-content'
 
-<style scoped></style>
+import { contentTableConfig } from './config/content.config'
+</script>
+
+<style scoped lang="less"></style>

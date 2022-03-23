@@ -14,9 +14,8 @@
   align-items: center;
 
   .img {
-    width: 50%;
+    width: 60%;
     height: auto;
-    margin-bottom: 150px;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="login-account">
-    <el-form label-width="65px" :rules="rules" :model="account" ref="formRef">
+    <el-form ref="formRef" label-width="65px" :rules="rules" :model="account">
       <el-form-item label="账号" prop="name">
         <el-input v-model="account.name" />
       </el-form-item>

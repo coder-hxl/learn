@@ -1,10 +1,10 @@
 <template>
   <div class="page-content">
     <fh-table
+      v-model:page="pageInfo"
       :listData="dataList"
       v-bind="contentTableConfig"
       :listCount="dataCount"
-      v-model:page="pageInfo"
     >
       <!-- header中的插槽 -->
       <template #headerHandle>

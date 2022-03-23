@@ -24,8 +24,8 @@
                   :placeholder="item.placeholder"
                   v-bind="item.otherOptions"
                   :modelValue="modelValue[item.field]"
-                  @update:modelValue="handleValueChange($event, item.field)"
                   style="width: 100%"
+                  @update:modelValue="handleValueChange($event, item.field)"
                 >
                   <el-option
                     v-for="option in item.options"
