@@ -27,12 +27,17 @@
       <template #updateAt="scope">
         <span>{{ $filter.formatTime(scope.row.updateAt) }}</span>
       </template>
-      <template #handle>
+      <template #handle="scope">
         <div class="handle-btns">
           <el-button v-if="isUpdate" size="small" type="text">
             <el-icon><EditPen /></el-icon> 编辑
           </el-button>
-          <el-button v-if="isDelete" size="small" type="text">
+          <el-button
+            v-if="isDelete"
+            size="small"
+            type="text"
+            @click="handleDeleteClick(scope.row)"
+          >
             <el-icon><Delete /></el-icon> 删除
           </el-button>
         </div>
@@ -118,6 +123,14 @@ const otherPropSlots = props.contentTableConfig?.propList.filter(
     return true
   }
 )
+
+// 5.删除/编辑/新建操作
+const handleDeleteClick = (item: any) => {
+  listStore.deletePageDataAction({
+    pageName: props.pageName,
+    id: item.id
+  })
+}
 
 defineExpose({
   getPageData

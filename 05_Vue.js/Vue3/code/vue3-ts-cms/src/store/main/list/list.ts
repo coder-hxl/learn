@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { getPageListData } from '@/service/main/list/list'
+import { getPageListData, deletePageData } from '@/service/main/list/list'
 
 import { IListState } from './types'
 
@@ -112,6 +112,23 @@ export const useListStore = defineStore({
           this.changeGoodsCount(totalCount)
           break
       }
+    },
+    async deletePageDataAction(payload: any) {
+      // 1.获取url
+      const { pageName, id } = payload
+      const url = `${pageName}/${id}`
+
+      // 2.发送删除网络请求
+      await deletePageData(url)
+
+      // 3.重新发送请求
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10
+        }
+      })
     }
   }
 })
