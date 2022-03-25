@@ -8,7 +8,9 @@
     >
       <!-- header中的插槽 -->
       <template #headerHandle>
-        <el-button v-if="isCreate" type="primary">新增用户</el-button>
+        <el-button v-if="isCreate" type="primary" @click="handleNewClick">
+          新增用户
+        </el-button>
       </template>
 
       <!-- 列表中的插槽 -->
@@ -29,7 +31,12 @@
       </template>
       <template #handle="scope">
         <div class="handle-btns">
-          <el-button v-if="isUpdate" size="small" type="text">
+          <el-button
+            v-if="isUpdate"
+            size="small"
+            type="text"
+            @click="handleEditClick(scope.row)"
+          >
             <el-icon><EditPen /></el-icon> 编辑
           </el-button>
           <el-button
@@ -78,6 +85,8 @@ const props = defineProps({
     required: true
   }
 })
+
+const emit = defineEmits(['editBtnClick', 'newBtnClick'])
 
 const listStore = useListStore()
 
@@ -130,6 +139,14 @@ const handleDeleteClick = (item: any) => {
     pageName: props.pageName,
     id: item.id
   })
+}
+
+const handleEditClick = (item: any) => {
+  emit('editBtnClick', item)
+}
+
+const handleNewClick = () => {
+  emit('newBtnClick')
 }
 
 defineExpose({

@@ -24,13 +24,13 @@ export const searchFormConfig: IForm = {
       placeholder: '请输入用户名'
     },
     {
-      field: 'realName',
+      field: 'realname',
       type: 'input',
       label: '真实姓名',
       placeholder: '请输入真实姓名'
     },
     {
-      field: 'cellPhone',
+      field: 'cellphone',
       type: 'input',
       label: '电话号码',
       placeholder: '请输入电话号码'
