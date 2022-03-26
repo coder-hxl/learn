@@ -16,13 +16,17 @@
 
     <page-modal
       ref="pageModalRef"
-      :modalConfig="modalConfig"
-      :formData="formData"
+      :modalConfig="modalConfigRef"
+      pageName="users"
+      :defaultInfo="defaultInfo"
     ></page-modal>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useInitializeStore } from '@/store'
+
 import pageSearch from '@/components/page-search'
 import pageContent from '@/components/page-content'
 import pageModal from '@/components/page-modal'
@@ -37,6 +41,7 @@ import { usePageModal } from '@/hooks/use-page-modal'
 const { pageContentRef, handleResetClick, handleQueryClick } = usePageSearch()
 
 // pageModal相关的逻辑
+// 1.处理密码框的逻辑
 const editCallback = () => {
   const password = modalConfig.formItems.find(
     (item) => item.field === 'password'
@@ -50,10 +55,27 @@ const newCallback = () => {
   password!.isHidden = false
 }
 
-const { pageModalRef, formData, handleEditData, handleNewData } = usePageModal(
-  editCallback,
-  newCallback
-)
+// 2.动态添加部门和角色选项
+const initializeStore = useInitializeStore()
+const modalConfigRef = computed(() => {
+  const department = modalConfig.formItems.find(
+    (item) => item.field === 'departmentId'
+  )
+  department!.options = initializeStore.entireDepartmentList.map((item) => {
+    return { title: item.name, value: item.id }
+  })
+
+  const role = modalConfig.formItems.find((item) => item.field === 'roleId')
+  role!.options = initializeStore.entireRoleList.map((item) => {
+    return { title: item.name, value: item.id }
+  })
+
+  return modalConfig
+})
+
+// 3.调用hook获取公共变量和函数
+const { pageModalRef, defaultInfo, handleEditData, handleNewData } =
+  usePageModal(editCallback, newCallback)
 </script>
 
 <style scoped lang="less"></style>

@@ -6,22 +6,22 @@ type callbackFn = () => void
 
 export function usePageModal(editCb?: callbackFn, newCb?: callbackFn) {
   const pageModalRef = ref<InstanceType<typeof pageModal>>()
-  const formData = ref({})
+  const defaultInfo = ref({})
 
   const handleEditData = (item: any) => {
-    formData.value = { ...item }
+    defaultInfo.value = { ...item }
     if (pageModalRef.value) {
       pageModalRef.value.dialogVisible = true
     }
     editCb && editCb()
   }
   const handleNewData = () => {
-    formData.value = {}
+    defaultInfo.value = {}
     if (pageModalRef.value) {
       pageModalRef.value.dialogVisible = true
     }
     newCb && newCb()
   }
 
-  return { pageModalRef, formData, handleEditData, handleNewData }
+  return { pageModalRef, defaultInfo, handleEditData, handleNewData }
 }

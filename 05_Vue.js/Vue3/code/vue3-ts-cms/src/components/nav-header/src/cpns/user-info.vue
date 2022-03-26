@@ -18,9 +18,13 @@
           <el-dropdown-item divided>系统管理</el-dropdown-item>
           <el-dropdown-item>帮助</el-dropdown-item>
           <el-dropdown-item>设置</el-dropdown-item>
-          <el-dropdown-item divided icon="CircleCloseFilled"
-            >退出登录</el-dropdown-item
+          <el-dropdown-item
+            divided
+            icon="CircleCloseFilled"
+            @click="handleExitClick"
           >
+            退出登录
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -30,9 +34,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useLoginStore } from '@/store'
+import router from '@/router'
+
+import localCache from '@/utils/cache'
 
 const loginStore = useLoginStore()
 const name = computed(() => loginStore.userInfo.name)
+
+const handleExitClick = () => {
+  localCache.deleteCache('token')
+  router.push('/main')
+}
 </script>
 
 <style scoped lang="less">

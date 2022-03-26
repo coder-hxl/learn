@@ -1,6 +1,11 @@
 import { defineStore } from 'pinia'
 
-import { getPageListData, deletePageData } from '@/service/main/list/list'
+import {
+  getPageListData,
+  deletePageData,
+  editPageData,
+  newPageData
+} from '@/service/main/list/list'
 
 import { IListState } from './types'
 
@@ -122,6 +127,34 @@ export const useListStore = defineStore({
       await deletePageData(url)
 
       // 3.重新发送请求
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10
+        }
+      })
+    },
+    async editPageDataAction(payload: any) {
+      const { pageName, editData, id } = payload
+      const url = `/${pageName}/${id}`
+
+      await editPageData(url, editData)
+
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10
+        }
+      })
+    },
+    async createPageDataAction(payload: any) {
+      const { pageName, newData } = payload
+      const url = `/${pageName}`
+
+      await newPageData(url, newData)
+
       this.getPageListAction({
         pageName,
         queryInfo: {

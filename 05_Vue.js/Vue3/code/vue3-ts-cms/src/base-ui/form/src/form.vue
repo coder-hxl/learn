@@ -10,7 +10,7 @@
             <el-form-item
               v-if="!item.isHidden"
               :label="item.label"
-              :style="itemLayout"
+              :style="itemStyle"
             >
               <template
                 v-if="item.type === 'input' || item.type === 'password'"
@@ -75,7 +75,7 @@ const props = defineProps({
     type: String,
     default: '100px'
   },
-  itemLayout: {
+  itemStyle: {
     type: Object,
     default: () => ({
       padding: '10px 40px'

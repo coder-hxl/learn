@@ -1,7 +1,7 @@
 import { IForm } from '@/base-ui/form'
 
 export const modalConfig: IForm = {
-  itemLayout: {},
+  itemStyle: {},
   colLayout: {},
   formItems: [
     {
@@ -18,7 +18,7 @@ export const modalConfig: IForm = {
     },
     {
       field: 'password',
-      type: 'input',
+      type: 'password',
       label: '用户密码',
       placeholder: '请输入用户密码',
       isHidden: false
@@ -30,14 +30,14 @@ export const modalConfig: IForm = {
       placeholder: '请输入电话号码'
     },
     {
-      field: 'departments',
+      field: 'departmentId',
       type: 'select',
       label: '部门',
       placeholder: '请选择部门',
       options: []
     },
     {
-      field: 'role',
+      field: 'roleId',
       type: 'select',
       label: '角色',
       placeholder: '请选择角色',

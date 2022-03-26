@@ -35,7 +35,8 @@ import {
   ElTableColumn,
   ElPagination,
   ElImage,
-  ElDialog
+  ElDialog,
+  ElTree
 } from 'element-plus'
 
 // icon
@@ -92,7 +93,8 @@ const components = [
   ElTableColumn,
   ElPagination,
   ElImage,
-  ElDialog
+  ElDialog,
+  ElTree
 ]
 const componentsIcons = [
   UserFilled,

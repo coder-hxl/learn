@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+import { useInitializeStore } from '../main/initialize/initialize'
+
 import {
   accountLoginRequest,
   requestUserInfoById,
@@ -45,7 +47,11 @@ export const useLoginStore = defineStore({
     loadLocalLogin() {
       // 将本地缓存的用户数据保存到state中
       const token = localCache.getCache('token')
-      token && this.changeToken(token)
+      if (token) {
+        this.changeToken(token)
+        // 发起初始化的请求(完整的departemts/role)
+        useInitializeStore().getInitializeAction()
+      }
 
       const userInfo = localCache.getCache('userInfo')
       userInfo && this.changeUserInfo(userInfo)
@@ -59,6 +65,9 @@ export const useLoginStore = defineStore({
       const { id, token } = loginResult.data
       this.changeToken(token)
       localCache.setCache('token', token)
+
+      // 发起初始化的请求(完整的departemts/role)
+      useInitializeStore().getInitializeAction()
 
       // 2.请求用户信息
       const userInfoResult = await requestUserInfoById(id)

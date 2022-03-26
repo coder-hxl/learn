@@ -13,3 +13,17 @@ export function deletePageData(url: string) {
     url
   })
 }
+
+export function editPageData(url: string, editData: any) {
+  return fhRequest.patch<IDataType>({
+    url,
+    data: editData
+  })
+}
+
+export function newPageData(url: string, newData: any) {
+  return fhRequest.post<IDataType>({
+    url,
+    data: newData
+  })
+}

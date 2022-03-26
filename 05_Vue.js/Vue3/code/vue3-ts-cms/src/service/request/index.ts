@@ -54,7 +54,7 @@ class FHRequest {
         this.loading?.close()
 
         const data = res.data
-        if (data.returnCode == '-1001') {
+        if (data.code == '-1001') {
           console.log('请求失败~, 错误信息')
         } else {
           return data
