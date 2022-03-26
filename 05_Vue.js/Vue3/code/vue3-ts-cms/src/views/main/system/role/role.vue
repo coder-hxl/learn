@@ -62,7 +62,10 @@ const outerInfoRef = ref({})
 const handleCheckChange = (data1: any, data2: any) => {
   const checkedKeys = data2.checkedKeys
   const halfCheckedKeys = data2.halfCheckedKeys
-  const menuList = [...checkedKeys, halfCheckedKeys]
+
+  const menuList = [...checkedKeys, ...halfCheckedKeys]
+  console.log(menuList)
+
   outerInfoRef.value = { menuList }
 }
 </script>
