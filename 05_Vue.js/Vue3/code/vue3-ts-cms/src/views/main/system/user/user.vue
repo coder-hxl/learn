@@ -61,12 +61,12 @@ const modalConfigRef = computed(() => {
   const department = modalConfig.formItems.find(
     (item) => item.field === 'departmentId'
   )
-  department!.options = initializeStore.entireDepartmentList.map((item) => {
+  department!.options = initializeStore.entireDepartment.map((item) => {
     return { title: item.name, value: item.id }
   })
 
   const role = modalConfig.formItems.find((item) => item.field === 'roleId')
-  role!.options = initializeStore.entireRoleList.map((item) => {
+  role!.options = initializeStore.entireRole.map((item) => {
     return { title: item.name, value: item.id }
   })
 
