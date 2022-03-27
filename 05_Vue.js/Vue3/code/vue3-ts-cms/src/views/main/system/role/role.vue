@@ -23,6 +23,7 @@
     >
       <div class="menu-terr">
         <el-tree
+          ref="elTreeRef"
           :data="menus"
           show-checkbox
           node-key="id"
@@ -36,9 +37,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useInitializeStore } from '@/store'
 
+import { ElTree } from 'element-plus'
 import pageSearch from '@/components/page-search'
 import pageContent from '@/components/page-content'
 import pageModal from '@/components/page-modal'
@@ -50,10 +52,21 @@ import { modalConfig } from './config/modal.config'
 import { usePageSearch } from '@/hooks/use-page-search'
 import { usePageModal } from '@/hooks/use-page-modal'
 
+import { mapMenusLeafKeys } from '@/utils/map-menus'
+
 const { pageContentRef, handleResetClick, handleQueryClick } = usePageSearch()
 
+// 处理pageModal的逻辑
+const elTreeRef = ref<InstanceType<typeof ElTree>>()
+const editCallback = (item: any) => {
+  const leafKeys = mapMenusLeafKeys(item.menuList)
+  nextTick(() => {
+    elTreeRef.value?.setCheckedKeys(leafKeys)
+  })
+}
+
 const { pageModalRef, defaultInfo, handleEditData, handleNewData } =
-  usePageModal()
+  usePageModal(editCallback)
 
 const initializeStore = useInitializeStore()
 const menus = computed(() => initializeStore.entireMenu)
