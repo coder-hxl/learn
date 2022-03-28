@@ -1,5 +1,7 @@
-export const contentTableConfig = {
-  title: '用户列表',
+import { ITable } from '@/base-ui/table'
+
+export const contentTableConfig: ITable = {
+  title: { text: '用户列表', btnText: '创建用户' },
   showIndexColumn: true,
   showSelectColumn: true,
   propList: [

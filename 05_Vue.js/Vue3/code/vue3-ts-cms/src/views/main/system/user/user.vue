@@ -43,13 +43,13 @@ const { pageContentRef, handleResetClick, handleQueryClick } = usePageSearch()
 // pageModal相关的逻辑
 // 1.处理密码框的逻辑
 const editCallback = () => {
-  const password = modalConfig.formItems.find(
+  const password = modalConfig.formConfig!.formItems.find(
     (item) => item.field === 'password'
   )
   password!.isHidden = true
 }
 const newCallback = () => {
-  const password = modalConfig.formItems.find(
+  const password = modalConfig.formConfig!.formItems.find(
     (item) => item.field === 'password'
   )
   password!.isHidden = false
@@ -58,14 +58,16 @@ const newCallback = () => {
 // 2.动态添加部门和角色选项
 const initializeStore = useInitializeStore()
 const modalConfigRef = computed(() => {
-  const department = modalConfig.formItems.find(
+  const department = modalConfig.formConfig!.formItems.find(
     (item) => item.field === 'departmentId'
   )
   department!.options = initializeStore.entireDepartment.map((item) => {
     return { title: item.name, value: item.id }
   })
 
-  const role = modalConfig.formItems.find((item) => item.field === 'roleId')
+  const role = modalConfig.formConfig!.formItems.find(
+    (item) => item.field === 'roleId'
+  )
   role!.options = initializeStore.entireRole.map((item) => {
     return { title: item.name, value: item.id }
   })

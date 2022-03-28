@@ -9,7 +9,7 @@
       <!-- header中的插槽 -->
       <template #headerHandle>
         <el-button v-if="isCreate" type="primary" @click="handleNewClick">
-          新增用户
+          {{ contentTableConfig.title.btnText }}
         </el-button>
       </template>
 

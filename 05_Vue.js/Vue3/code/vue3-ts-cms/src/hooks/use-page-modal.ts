@@ -6,7 +6,7 @@ type callbackFn = (item?: any) => void
 
 export function usePageModal(editCb?: callbackFn, newCb?: callbackFn) {
   const pageModalRef = ref<InstanceType<typeof pageModal>>()
-  const defaultInfo = ref<any>({})
+  const defaultInfo = ref({})
 
   const handleEditData = (item: any) => {
     defaultInfo.value = { ...item }

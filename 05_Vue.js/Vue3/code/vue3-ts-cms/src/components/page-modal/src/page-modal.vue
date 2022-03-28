@@ -2,12 +2,12 @@
   <div class="page-modal">
     <el-dialog
       v-model="dialogVisible"
-      title="新建用户"
       width="30%"
+      :title="modalConfig.title"
       destroy-on-close
       center
     >
-      <fh-form v-bind="modalConfig" v-model="formItems"></fh-form>
+      <fh-form v-bind="modalConfig.formConfig" v-model="formItems"></fh-form>
       <slot></slot>
       <template #footer>
         <span class="dialog-footer">
@@ -54,7 +54,7 @@ const formItems = ref<any>({})
 watch(
   () => props.defaultInfo,
   (newValue) => {
-    for (const item of props.modalConfig.formItems) {
+    for (const item of props.modalConfig.formConfig.formItems) {
       formItems.value[item.field] = newValue[item.field]
     }
   }

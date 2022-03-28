@@ -2,7 +2,7 @@
   <div class="fh-tabel">
     <div class="header">
       <slot name="header">
-        <div class="title">{{ title }}</div>
+        <div class="title">{{ title.text }}</div>
         <div class="handle">
           <slot name="headerHandle"></slot>
         </div>
@@ -84,8 +84,8 @@ const props = defineProps({
     default: false
   },
   title: {
-    type: String,
-    default: ''
+    type: Object,
+    default: () => ({})
   },
   page: {
     type: Object,

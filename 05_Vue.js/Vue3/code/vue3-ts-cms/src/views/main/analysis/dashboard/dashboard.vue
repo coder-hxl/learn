@@ -1,40 +1,64 @@
 <template>
   <div class="dashboard">
-    <div ref="divRef" :style="{ width: '600px', height: '500px' }"></div>
+    <el-row :gutter="10">
+      <el-col :span="7">
+        <fh-card title="分类商品数量(饼图)">
+          <base-echarts :options="options"></base-echarts>
+        </fh-card>
+      </el-col>
+      <el-col :span="10">
+        <fh-card title="不同城市商品销量"></fh-card>
+      </el-col>
+      <el-col :span="7"
+        ><fh-card title="分类商品数量(玫瑰图)"></fh-card
+      ></el-col>
+    </el-row>
+
+    <el-row :gutter="10" class="two-row">
+      <el-col :span="12">
+        <fh-card title="分类商品的销量"></fh-card>
+      </el-col>
+      <el-col :span="12">
+        <fh-card title="分类商品的收藏"></fh-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { fhCard } from '@/base-ui/card'
+import baseEcharts from '@/base-ui/echarts'
 
-import * as echarts from 'echarts'
+import { useDashboardStore } from '@/store'
 
-const divRef = ref<HTMLElement>()
-onMounted(() => {
-  const echartsInstance = echarts.init(divRef.value!)
-  const option = {
-    title: {
-      text: 'ECharts 入门示例'
-    },
-    tooltip: {},
-    legend: {
-      data: ['销量']
-    },
-    xAxis: {
-      data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-    },
-    yAxis: {},
-    series: [
-      {
-        name: '销量',
-        type: 'bar',
-        data: [5, 20, 36, 10, 10, 20]
+const dashboardStore = useDashboardStore()
+dashboardStore.getDashboardDataActions()
+
+const options = {
+  xAxis: {
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [120, 200, 150, 80, 70, 110, 130],
+      type: 'bar',
+      showBackground: true,
+      backgroundStyle: {
+        color: 'rgba(180, 180, 180, 0.2)'
       }
-    ]
-  }
-
-  echartsInstance.setOption(option)
-})
+    }
+  ]
+}
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.dashboard {
+  .two-row {
+    margin-top: 15px;
+  }
+}
+</style>
