@@ -14,8 +14,9 @@
 import { ref, computed } from 'vue'
 import { useLoginStore } from '@/store'
 import { useRoute } from 'vue-router'
+
 import userInfo from './cpns/user-info.vue'
-import { Fhbreadcrumb } from '@/base-ui/breadcrumb'
+import Fhbreadcrumb from '@/base-ui/breadcrumb'
 
 import { pathMapBreadcrumbs } from '@/utils/map-menus'
 

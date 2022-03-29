@@ -25,7 +25,7 @@
 import { ref, watch } from 'vue'
 import { useListStore } from '@/store'
 
-import { FhForm } from '@/base-ui/form'
+import FhForm from '@/base-ui/form'
 
 const props = defineProps({
   modalConfig: {

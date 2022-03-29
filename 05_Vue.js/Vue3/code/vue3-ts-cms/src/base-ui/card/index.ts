@@ -1,3 +1,3 @@
 import fhCard from './src/card.vue'
 
-export { fhCard }
+export default fhCard
