@@ -13,7 +13,7 @@ import { EChartsOption } from 'echarts'
 import { IDataType } from '../types'
 
 const props = defineProps<{
-  areaData: IDataType[]
+  roseData: IDataType[]
 }>()
 
 const options = computed<EChartsOption>(() => {
@@ -37,7 +37,7 @@ const options = computed<EChartsOption>(() => {
         itemStyle: {
           borderRadius: 8
         },
-        data: props.areaData
+        data: props.roseData
       }
     ]
   }

@@ -23,7 +23,6 @@ const options = computed<EChartsOption>(() => {
       trigger: 'item'
     },
     legend: {
-      top: '5%',
       left: 'center'
     },
     series: [
