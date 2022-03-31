@@ -1,6 +1,12 @@
 <template>
   <div class="dashboard">
-    <el-row :gutter="10">
+    <el-row>
+      <el-col v-for="item in amountGoodsList" :key="item.title" :span="6">
+        <fh-page-statistical :data="amountGoodsList"></fh-page-statistical>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="10" class="two-row">
       <el-col :span="7">
         <fh-card title="分类商品数量(饼图)">
           <pie-echart :pieData="categoryGoodsCount"></pie-echart>
@@ -18,7 +24,7 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="10" class="two-row">
+    <el-row :gutter="10" class="three-row">
       <el-col :span="12">
         <fh-card title="分类商品的销量">
           <line-echart v-bind="categoryGoodsSale"></line-echart>
@@ -38,6 +44,7 @@ import { computed } from 'vue'
 import { useDashboardStore } from '@/store'
 
 import FhCard from '@/base-ui/card'
+import FhPageStatistical from '@/components/page-statistical'
 import {
   pieEchart,
   roseEchart,
@@ -49,6 +56,10 @@ import LineEchart from '@/components/page-echarts/src/line-echart.vue'
 
 const dashboardStore = useDashboardStore()
 dashboardStore.getDashboardDataActions()
+
+const amountGoodsList = computed(() => {
+  return dashboardStore.amountGoodsList
+})
 
 const categoryGoodsCount = computed(() => {
   return dashboardStore.categoryGoodsCount.map((item) => {
@@ -87,7 +98,8 @@ const addressGoodsSale = computed(() => {
 
 <style scoped lang="less">
 .dashboard {
-  .two-row {
+  .two-row,
+  .three-row {
     margin-top: 15px;
   }
 }

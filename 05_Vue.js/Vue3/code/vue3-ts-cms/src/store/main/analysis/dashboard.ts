@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 import {
+  getAmountGoodsList,
   getCategoryGoodsCount,
   getCategoryGoodsSale,
   getCategoryGoodsFavor,
@@ -12,6 +13,7 @@ import { IDashboard } from './types'
 export const useDashboardStore = defineStore({
   id: 'dashboard',
   state: (): IDashboard => ({
+    amountGoodsList: [],
     categoryGoodsCount: [],
     categoryGoodsSale: [],
     categoryGoodsFavor: [],
@@ -19,6 +21,9 @@ export const useDashboardStore = defineStore({
   }),
   getters: {},
   actions: {
+    changeAmountGoodsList(data: any[]) {
+      this.amountGoodsList = data
+    },
     changeCategoryGoodsCount(data: any[]) {
       this.categoryGoodsCount = data
     },
@@ -32,6 +37,8 @@ export const useDashboardStore = defineStore({
       this.addressGoodsSale = data
     },
     async getDashboardDataActions() {
+      const amountListResult = await getAmountGoodsList()
+      this.changeAmountGoodsList(amountListResult.data)
       const categoryCountResult = await getCategoryGoodsCount()
       this.changeCategoryGoodsCount(categoryCountResult.data)
       const categorySaleResult = await getCategoryGoodsSale()

@@ -1,5 +1,5 @@
 <template>
-  <div class="line-echart">
+  <div class="map-echart">
     <base-echart :options="options"></base-echart>
   </div>
 </template>
@@ -26,7 +26,7 @@ const options = computed<EChartsOption>(() => {
   return {
     backgroundColor: '#fff',
     title: {
-      text: '全国销量统计',
+      text: props.title,
       left: 'center',
       textStyle: {
         color: '#fff'

@@ -3,12 +3,18 @@ import fhRequest from '../../index'
 import { IDataType } from '../../types'
 
 enum dashboardAPI {
+  amountGoodsList = '/goods/amount/list',
   categoryGoodsCount = '/goods/category/count',
   categoryGoodsSale = '/goods/category/sale',
   categoryGoodsFavor = '/goods/category/favor',
   addressGoodsSale = '/goods/address/sale'
 }
 
+export function getAmountGoodsList() {
+  return fhRequest.get<IDataType>({
+    url: dashboardAPI.amountGoodsList
+  })
+}
 export function getCategoryGoodsCount() {
   return fhRequest.get<IDataType>({
     url: dashboardAPI.categoryGoodsCount

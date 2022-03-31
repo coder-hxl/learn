@@ -35,6 +35,7 @@ const options = computed<EChartsOption>(() => {
         }
       }
     },
+    legend: {},
     toolbox: {
       feature: {
         saveAsImage: {}
