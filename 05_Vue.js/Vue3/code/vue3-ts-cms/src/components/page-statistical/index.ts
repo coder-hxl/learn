@@ -1,3 +1,3 @@
-import fhPageStatistical from './src/statistical.vue'
+import fhPageStatistical from './src/page-statistical.vue'
 
 export default fhPageStatistical

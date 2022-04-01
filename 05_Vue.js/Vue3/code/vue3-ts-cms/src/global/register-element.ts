@@ -37,7 +37,8 @@ import {
   ElImage,
   ElDialog,
   ElTree,
-  ElCard
+  ElCard,
+  ElTooltip
 } from 'element-plus'
 
 // icon
@@ -57,7 +58,8 @@ import {
   EditPen,
   Delete,
   Bell,
-  CollectionTag
+  CollectionTag,
+  MoreFilled
 } from '@element-plus/icons-vue'
 
 const components = [
@@ -96,7 +98,8 @@ const components = [
   ElImage,
   ElDialog,
   ElTree,
-  ElCard
+  ElCard,
+  ElTooltip
 ]
 const componentsIcons = [
   UserFilled,
@@ -114,7 +117,8 @@ const componentsIcons = [
   EditPen,
   Delete,
   Bell,
-  CollectionTag
+  CollectionTag,
+  MoreFilled
 ]
 
 export default function (app: App) {

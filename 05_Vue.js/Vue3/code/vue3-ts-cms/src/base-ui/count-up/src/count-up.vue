@@ -1,7 +1,7 @@
 <template>
   <div class="fh-count-up">
     <slot>
-      <div :id="target"></div>
+      <div :id="targetId"></div>
     </slot>
   </div>
 </template>
@@ -12,9 +12,9 @@ import { CountUp, CountUpOptions } from 'countup.js'
 
 const props = withDefaults(
   defineProps<{
-    target: string
+    targetId: string
     endVal: number
-    options?: CountUpOptions
+    options: CountUpOptions
   }>(),
   {
     options: () => ({})
@@ -22,7 +22,7 @@ const props = withDefaults(
 )
 
 const countInstance = computed(() => {
-  return new CountUp(props.target, props.endVal, props.options)
+  return new CountUp(props.targetId, props.endVal, props.options)
 })
 nextTick(() => {
   countInstance.value.start()

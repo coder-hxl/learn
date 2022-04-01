@@ -1,36 +1,36 @@
 <template>
   <div class="dashboard">
-    <el-row>
-      <el-col v-for="item in amountGoodsList" :key="item.title" :span="6">
-        <fh-page-statistical :data="amountGoodsList"></fh-page-statistical>
-      </el-col>
+    <el-row class="statistical">
+      <template v-for="item in amountGoodsList" :key="item.title">
+        <fh-page-statistical v-bind="item"></fh-page-statistical>
+      </template>
     </el-row>
 
-    <el-row :gutter="10" class="two-row">
-      <el-col :span="7">
+    <el-row :gutter="10" class="dashboard-chart">
+      <el-col :xs="24" :md="6">
         <fh-card title="分类商品数量(饼图)">
           <pie-echart :pieData="categoryGoodsCount"></pie-echart>
         </fh-card>
       </el-col>
-      <el-col :span="10">
+      <el-col :xs="24" :md="12">
         <fh-card title="不同城市商品销量">
           <map-echart :mapData="addressGoodsSale"></map-echart>
         </fh-card>
       </el-col>
-      <el-col :span="7">
+      <el-col :xs="24" :md="6">
         <fh-card title="分类商品数量(玫瑰图)">
           <rose-echart :roseData="categoryGoodsCount"></rose-echart>
         </fh-card>
       </el-col>
     </el-row>
 
-    <el-row :gutter="10" class="three-row">
-      <el-col :span="12">
+    <el-row :gutter="10" class="dashboard-chart">
+      <el-col :xs="24" :md="12">
         <fh-card title="分类商品的销量">
           <line-echart v-bind="categoryGoodsSale"></line-echart>
         </fh-card>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :md="12">
         <fh-card title="分类商品的收藏">
           <bar-echart v-bind="categoryGoodsFavor"></bar-echart>
         </fh-card>
@@ -58,7 +58,14 @@ const dashboardStore = useDashboardStore()
 dashboardStore.getDashboardDataActions()
 
 const amountGoodsList = computed(() => {
-  return dashboardStore.amountGoodsList
+  return dashboardStore.amountGoodsList.map((item) => {
+    return {
+      title: item.title,
+      tooltip: item.tips,
+      targetId: item.amount,
+      targetData: item.number1
+    }
+  })
 })
 
 const categoryGoodsCount = computed(() => {
@@ -97,9 +104,21 @@ const addressGoodsSale = computed(() => {
 </script>
 
 <style scoped lang="less">
+@media (max-width: 768px) {
+  .dashboard {
+    .statistical {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
 .dashboard {
-  .two-row,
-  .three-row {
+  .statistical {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+  }
+  .dashboard-chart {
     margin-top: 15px;
   }
 }
