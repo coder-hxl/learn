@@ -70,8 +70,9 @@ const countUpData = computed(() => {
     justify-content: center;
     align-items: center;
     height: @h;
-    padding: 8px 0;
-    font-size: 20px;
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: 600;
   }
 }
 </style>

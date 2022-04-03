@@ -11,15 +11,12 @@ export default function (el: HTMLElement) {
     echartInstance.setOption(options)
   }
 
-  const upDataSize = () => echartInstance.resize()
-
   window.addEventListener('resize', () => {
     echartInstance.resize()
   })
 
   return {
     echartInstance,
-    setOptions,
-    upDataSize
+    setOptions
   }
 }

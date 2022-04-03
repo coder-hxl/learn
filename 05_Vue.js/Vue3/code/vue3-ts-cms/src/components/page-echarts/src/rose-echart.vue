@@ -31,7 +31,7 @@ const options = computed<EChartsOption>(() => {
       {
         name: 'Nightingale Chart',
         type: 'pie',
-        radius: [10, 120],
+        radius: [10, 110],
         center: ['50%', '50%'],
         roseType: 'area',
         itemStyle: {
