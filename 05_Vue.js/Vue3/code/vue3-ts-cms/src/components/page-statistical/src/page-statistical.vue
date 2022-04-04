@@ -1,5 +1,5 @@
 <template>
-  <div class="fh-page-statistical">
+  <div class="xl-page-statistical">
     <div class="header">
       <slot name="header">
         <div>{{ title }}</div>
@@ -13,7 +13,7 @@
 
     <div class="content">
       <slot name="content">
-        <count-up v-bind="countUpData"></count-up>
+        <xl-count-up v-bind="countUpData"></xl-count-up>
       </slot>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import countUp from '@/base-ui/count-up'
+import XlCountUp from '@/base-ui/count-up'
 
 const props = withDefaults(
   defineProps<{
@@ -53,7 +53,7 @@ const countUpData = computed(() => {
 <style scoped lang="less">
 @h: 40px;
 
-.fh-page-statistical {
+.xl-page-statistical {
   padding: 0 20px;
   border: 1px solid #e4e7ed;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

@@ -1,9 +1,11 @@
 <template>
   <div class="chat">
-    <h2>chat</h2>
+    <xl-editor editorId="chat"></xl-editor>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import XlEditor from '@/base-ui/editor'
+</script>
 
 <style scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="fh-count-up">
+  <div class="xl-count-up">
     <slot>
       <div :id="targetId"></div>
     </slot>

@@ -1,28 +1,28 @@
-import fhRequest from '../../index'
+import xlRequest from '../../index'
 import { IDataType } from '../../types'
 
 export function getPageListData(url: string, queryInfo: any) {
-  return fhRequest.post<IDataType>({
+  return xlRequest.post<IDataType>({
     url,
     data: queryInfo
   })
 }
 
 export function deletePageData(url: string) {
-  return fhRequest.delete<IDataType>({
+  return xlRequest.delete<IDataType>({
     url
   })
 }
 
 export function editPageData(url: string, editData: any) {
-  return fhRequest.patch<IDataType>({
+  return xlRequest.patch<IDataType>({
     url,
     data: editData
   })
 }
 
 export function newPageData(url: string, newData: any) {
-  return fhRequest.post<IDataType>({
+  return xlRequest.post<IDataType>({
     url,
     data: newData
   })

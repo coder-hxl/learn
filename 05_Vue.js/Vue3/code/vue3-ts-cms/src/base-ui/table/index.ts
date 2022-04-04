@@ -1,5 +1,5 @@
-import FhTable from './src/table.vue'
+import XlTable from './src/table.vue'
 
 export * from './types'
 
-export default FhTable
+export default XlTable

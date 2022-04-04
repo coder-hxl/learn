@@ -1,4 +1,4 @@
-import fhRequest from '../index'
+import xlRequest from '../index'
 
 import { IDataType } from '../types'
 import { IAccount, ILoginResult } from './type'
@@ -10,21 +10,21 @@ enum LoginAPI {
 }
 
 export function accountLoginRequest(account: IAccount) {
-  return fhRequest.post<IDataType<ILoginResult>>({
+  return xlRequest.post<IDataType<ILoginResult>>({
     url: LoginAPI.accountLogin,
     data: account
   })
 }
 
 export function requestUserInfoById(id: number) {
-  return fhRequest.get<IDataType>({
+  return xlRequest.get<IDataType>({
     url: LoginAPI.loginUserInfo + id,
     showLoading: false
   })
 }
 
 export function requestUserMenuByRoleId(id: number) {
-  return fhRequest.get<IDataType>({
+  return xlRequest.get<IDataType>({
     url: LoginAPI.userMenu + id + '/menu',
     showLoading: false,
     interceptors: {

@@ -1,6 +1,6 @@
 <template>
   <div class="page-search">
-    <fh-form v-bind="searchFormConfig" v-model="formData">
+    <xl-form v-bind="searchFormConfig" v-model="formData">
       <template #header>
         <h1 class="header">高级检索</h1>
       </template>
@@ -20,14 +20,14 @@
           >
         </div>
       </template>
-    </fh-form>
+    </xl-form>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import FhForm from '@/base-ui/form'
+import XlForm from '@/base-ui/form'
 
 const props = defineProps({
   searchFormConfig: {

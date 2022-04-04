@@ -4,7 +4,7 @@
       <component :is="icon" @click="changeIcon"></component>
     </el-icon>
     <div class="content">
-      <Fhbreadcrumb :breadcrumbs="breadcrumbs" />
+      <xl-breadcrumb :breadcrumbs="breadcrumbs" />
       <user-info />
     </div>
   </div>
@@ -16,7 +16,7 @@ import { useLoginStore } from '@/store'
 import { useRoute } from 'vue-router'
 
 import userInfo from './cpns/user-info.vue'
-import Fhbreadcrumb from '@/base-ui/breadcrumb'
+import XlBreadcrumb from '@/base-ui/breadcrumb'
 
 import { pathMapBreadcrumbs } from '@/utils/map-menus'
 

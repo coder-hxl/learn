@@ -7,7 +7,7 @@
       destroy-on-close
       center
     >
-      <fh-form v-bind="modalConfig.formConfig" v-model="formItems"></fh-form>
+      <xl-form v-bind="modalConfig.formConfig" v-model="formItems"></xl-form>
       <slot></slot>
       <template #footer>
         <span class="dialog-footer">
@@ -25,7 +25,7 @@
 import { ref, watch } from 'vue'
 import { useListStore } from '@/store'
 
-import FhForm from '@/base-ui/form'
+import XlForm from '@/base-ui/form'
 
 const props = defineProps({
   modalConfig: {

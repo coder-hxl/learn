@@ -1,5 +1,5 @@
 <template>
-  <div class="fh-card">
+  <div class="xl-card">
     <el-card class="box-card">
       <template #header>
         <div class="card-header">{{ title }}</div>
@@ -21,10 +21,9 @@ defineProps({
 </script>
 
 <style scoped lang="less">
-.fh-card {
+.xl-card {
   .card-header {
     text-align: left;
-    font-size: 16px;
   }
 }
 </style>

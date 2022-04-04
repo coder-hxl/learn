@@ -1,3 +1,3 @@
-import fhCard from './src/card.vue'
+import XlCard from './src/card.vue'
 
-export default fhCard
+export default XlCard

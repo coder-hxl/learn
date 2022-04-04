@@ -1,67 +1,38 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-statistical">
-      <template v-for="item in amountGoodsList" :key="item.title">
-        <fh-page-statistical v-bind="item"></fh-page-statistical>
-      </template>
+      <xl-page-statistical
+        v-for="item in amountGoodsList"
+        :key="item.title"
+        v-bind="item"
+      ></xl-page-statistical>
     </div>
-
-    <!-- <el-row :gutter="10" class="dashboard-chart">
-      <el-col :xs="24" :md="6">
-        <fh-card title="分类商品数量(饼图)">
-          <pie-echart :pieData="categoryGoodsCount"></pie-echart>
-        </fh-card>
-      </el-col>
-      <el-col :xs="24" :md="12">
-        <fh-card title="不同城市商品销量">
-          <map-echart :mapData="addressGoodsSale"></map-echart>
-        </fh-card>
-      </el-col>
-      <el-col :xs="24" :md="6">
-        <fh-card title="分类商品数量(玫瑰图)">
-          <rose-echart :roseData="categoryGoodsCount"></rose-echart>
-        </fh-card>
-      </el-col>
-    </el-row> -->
-
-    <!-- <el-row :gutter="10" class="dashboard-chart">
-      <el-col :xs="24" :md="12">
-        <fh-card title="分类商品的销量">
-          <line-echart v-bind="categoryGoodsSale"></line-echart>
-        </fh-card>
-      </el-col>
-      <el-col :xs="24" :md="12">
-        <fh-card title="分类商品的收藏">
-          <bar-echart v-bind="categoryGoodsFavor"></bar-echart>
-        </fh-card>
-      </el-col>
-    </el-row> -->
 
     <div class="dashboard-echarts">
       <div class="pie">
-        <fh-card title="分类商品数量(饼图)">
+        <xl-card title="分类商品数量(饼图)">
           <pie-echart :pieData="categoryGoodsCount"></pie-echart>
-        </fh-card>
+        </xl-card>
       </div>
       <div class="map">
-        <fh-card title="不同城市商品销量">
+        <xl-card title="不同城市商品销量">
           <map-echart :mapData="addressGoodsSale"></map-echart>
-        </fh-card>
+        </xl-card>
       </div>
       <div class="rose">
-        <fh-card title="分类商品数量(玫瑰图)">
+        <xl-card title="分类商品数量(玫瑰图)">
           <rose-echart :roseData="categoryGoodsCount"></rose-echart>
-        </fh-card>
+        </xl-card>
       </div>
       <div class="line">
-        <fh-card title="分类商品的销量">
+        <xl-card title="分类商品的销量">
           <line-echart v-bind="categoryGoodsSale"></line-echart>
-        </fh-card>
+        </xl-card>
       </div>
       <div class="bar">
-        <fh-card title="分类商品的收藏">
+        <xl-card title="分类商品的收藏">
           <bar-echart v-bind="categoryGoodsFavor"></bar-echart>
-        </fh-card>
+        </xl-card>
       </div>
     </div>
   </div>
@@ -71,8 +42,8 @@
 import { computed } from 'vue'
 import { useDashboardStore } from '@/store'
 
-import FhCard from '@/base-ui/card'
-import FhPageStatistical from '@/components/page-statistical'
+import XlCard from '@/base-ui/card'
+import XlPageStatistical from '@/components/page-statistical'
 import {
   pieEchart,
   roseEchart,
@@ -134,9 +105,6 @@ const addressGoodsSale = computed(() => {
 <style scoped lang="less">
 @media (max-width: 768px) {
   .dashboard {
-    .dashboard-statistical {
-      row-gap: 10px;
-    }
     .dashboard-echarts {
       grid-template-areas:
         'pie'
@@ -144,7 +112,6 @@ const addressGoodsSale = computed(() => {
         'rose'
         'line'
         'bar';
-      row-gap: 10px;
     }
   }
 }
@@ -153,8 +120,6 @@ const addressGoodsSale = computed(() => {
   .dashboard {
     .dashboard-statistical {
       grid-template-columns: 1fr 1fr;
-      row-gap: 10px;
-      column-gap: 10px;
     }
 
     .dashboard-echarts {
@@ -163,8 +128,6 @@ const addressGoodsSale = computed(() => {
         'rose line'
         'bar bar';
       grid-template-columns: 1fr 1fr;
-      row-gap: 10px;
-      column-gap: 10px;
     }
   }
 }
@@ -173,15 +136,12 @@ const addressGoodsSale = computed(() => {
   .dashboard {
     .dashboard-statistical {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      column-gap: 10px;
     }
     .dashboard-echarts {
       grid-template-areas:
         'pie map map rose'
         'line line bar bar ';
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      row-gap: 10px;
-      column-gap: 10px;
     }
   }
 }
@@ -189,10 +149,14 @@ const addressGoodsSale = computed(() => {
 .dashboard {
   .dashboard-statistical {
     display: grid;
+    column-gap: 10px;
+    row-gap: 20px;
   }
   .dashboard-echarts {
     display: grid;
-    margin-top: 15px;
+    column-gap: 10px;
+    row-gap: 20px;
+    margin-top: 20px;
 
     .pie {
       grid-area: pie;

@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <fh-table
+    <xl-table
       v-model:page="pageInfo"
       :listData="dataList"
       v-bind="contentTableConfig"
@@ -62,7 +62,7 @@
           :row="scope.row"
         ></slot>
       </template>
-    </fh-table>
+    </xl-table>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ import { computed, ref, watch } from 'vue'
 
 import { useListStore } from '@/store'
 
-import FhTable from '@/base-ui/table'
+import XlTable from '@/base-ui/table'
 
 import { usePermissions } from '@/hooks/use-permission'
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="fh-form">
+  <div class="xl-form">
     <div class="header">
       <slot name="header"></slot>
     </div>
@@ -99,7 +99,7 @@ const handleValueChange = (value: any, field: string) => {
 </script>
 
 <style scoped lang="less">
-.form {
+.xl-form {
   padding-top: 18px;
 }
 </style>

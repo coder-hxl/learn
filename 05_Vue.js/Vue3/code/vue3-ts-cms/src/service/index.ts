@@ -1,9 +1,9 @@
-import FHRequest from './request'
+import XlRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
 
 import localCache from '@/utils/cache'
 
-const fhRequest = new FHRequest({
+const xlRequest = new XlRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
   interceptors: {
@@ -28,4 +28,4 @@ const fhRequest = new FHRequest({
   }
 })
 
-export default fhRequest
+export default xlRequest

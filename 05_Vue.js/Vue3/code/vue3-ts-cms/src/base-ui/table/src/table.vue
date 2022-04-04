@@ -1,5 +1,5 @@
 <template>
-  <div class="fh-tabel">
+  <div class="xl-tabel">
     <div class="header">
       <slot name="header">
         <div class="title">{{ title.text }}</div>
@@ -116,7 +116,7 @@ const handleSizeChange = (pageSize: number) => {
 </script>
 
 <style scoped lang="less">
-.fh-tabel {
+.xl-tabel {
   .header {
     display: flex;
     padding: 0 5px;

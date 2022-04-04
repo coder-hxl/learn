@@ -1,18 +1,18 @@
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 
-import { FHRequestInterceptors, FHRequestConfig } from './type'
+import { XLRequestInterceptors, XLRequestConfig } from './type'
 import { ElLoading } from 'element-plus'
 
 const DEAFULT_LOADING = true
 
-class FHRequest {
+class XLRequest {
   instance: AxiosInstance
-  interceptors?: FHRequestInterceptors
+  interceptors?: XLRequestInterceptors
   showLoading: boolean
   loading?: any
 
-  constructor(config: FHRequestConfig) {
+  constructor(config: XLRequestConfig) {
     // 创建axios实例
     this.instance = axios.create(config)
 
@@ -73,7 +73,7 @@ class FHRequest {
     )
   }
 
-  request<T = any>(config: FHRequestConfig<T>): Promise<T> {
+  request<T = any>(config: XLRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 1.单个请求对config的处理
       if (config.interceptors?.requestInterceptor) {
@@ -107,21 +107,21 @@ class FHRequest {
     })
   }
 
-  get<T = any>(config: FHRequestConfig<T>): Promise<T> {
+  get<T = any>(config: XLRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T = any>(config: FHRequestConfig<T>): Promise<T> {
+  post<T = any>(config: XLRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 
-  delete<T = any>(config: FHRequestConfig<T>): Promise<T> {
+  delete<T = any>(config: XLRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T = any>(config: FHRequestConfig<T>): Promise<T> {
+  patch<T = any>(config: XLRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
 
-export default FHRequest
+export default XLRequest
