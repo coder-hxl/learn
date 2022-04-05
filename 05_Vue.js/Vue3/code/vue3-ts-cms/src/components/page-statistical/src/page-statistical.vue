@@ -3,11 +3,14 @@
     <div class="header">
       <slot name="header">
         <div>{{ title }}</div>
-        <div v-if="tooltip">
-          <el-tooltip :content="tooltip" placement="top" effect="light">
-            <el-icon><more-filled /></el-icon>
-          </el-tooltip>
-        </div>
+        <el-tooltip
+          v-if="tooltip"
+          :content="tooltip"
+          placement="top"
+          effect="light"
+        >
+          <el-icon><more-filled /></el-icon>
+        </el-tooltip>
       </slot>
     </div>
 
