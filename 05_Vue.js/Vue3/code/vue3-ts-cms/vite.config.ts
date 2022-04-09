@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+const path = require('path')
 
 // ElementPlus按需导入样式
 import ElementPlus from 'unplugin-element-plus/vite'
@@ -19,7 +19,7 @@ export default defineConfig({
     ]
   },
   server: {
-    port: 3001,
+    port: 3000,
     host: '0.0.0.0',
     proxy: {
       '/api': {
