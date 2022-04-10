@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 方法1
+        let arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7]
+        let aee = []
+        let j = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                // 新数组索引号应该从0开始 依次递增
+                aee[j] = arr[i]
+                j++
+            }
+        }
+        console.log(aee);
+        // 方法2
+        let arr2 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7]
+        let aee3 = []
+            // 刚开始aee.length 就是0
+        for (let i = 0; i < arr2.length; i++) {
+            if (arr2[i] >= 10) {
+                // 新数组索引号应该从0开始 依次递增
+                aee3[aee3.length] = arr2[i]
+            }
+        }
+        console.log(aee);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

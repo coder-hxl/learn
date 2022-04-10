@@ -1,0 +1,137 @@
+.zc-logo {
+    margin-top: 20px;
+    border-bottom: 2px solid rgb(177, 25, 26);
+}
+
+.zcym {
+    margin-top: 20px;
+    height: 500px;
+    border: 1px solid rgb(194, 194, 194);
+}
+
+.zcym .header {
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(194, 194, 194);
+}
+
+.zcym .header h2 {
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.zcym .header span {
+    font-size: 14px;
+}
+
+.zcym .header span a {
+    padding-right: 10px;
+    color: rgb(200, 22, 35);
+}
+
+.zcym .biaodan {
+    width: 600px;
+    margin: 50px auto;
+}
+
+.zcym .biaodan form li {
+    margin: 20px 0;
+    line-height: 35px;
+}
+
+.zcym .biaodan form li label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.zcym .biaodan form li:nth-child(-n+5) input {
+    width: 240px;
+    height: 35px;
+    outline: none;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.zcym .biaodan form li span i {
+    /* 让图片垂直居中对齐 */
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -5px;
+    width: 20px;
+    height: 20px;
+}
+
+.zcym .biaodan form li:nth-child(1) span i {
+    background: url(../images/error.png) no-repeat;
+}
+
+.zcym .biaodan form li:nth-child(3) span i {
+    background: url(../images/error.png) no-repeat;
+}
+
+.zcym .biaodan form li:nth-child(5) span i {
+    background: url(../images/error.png) no-repeat;
+}
+
+.zcym .biaodan form li:nth-child(2) span i {
+    /* 样式层叠 */
+    background: url(../images/success.png) no-repeat;
+}
+
+
+/* 安全程度 */
+
+.zcym .biaodan form .anquan {
+    margin: -10px 0;
+    margin-left: 175px;
+}
+
+.zcym .biaodan form .anquan h5 {
+    display: inline-block;
+    font-weight: 500;
+}
+
+.zcym .biaodan form .anquan span {
+    display: inline-block;
+    width: 37px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.zcym .biaodan form .anquan span:nth-of-type(1) {
+    background-color: rgb(212, 0, 0);
+}
+
+.zcym .biaodan form .anquan span:nth-of-type(2) {
+    background-color: rgb(0, 185, 15);
+}
+
+.zcym .biaodan form .anquan span:nth-of-type(3) {
+    background-color: rgb(255, 115, 0);
+}
+
+
+/* 协议 */
+
+.zcym .biaodan form li:nth-child(6) {
+    margin-left: 125px;
+    margin-top: -10px;
+}
+
+.zcym .biaodan form li:nth-child(6) input {
+    vertical-align: middle;
+}
+
+.zcym .biaodan form li:nth-child(6) span a {
+    color: rgb(0, 132, 255);
+}
+
+.zcym .biaodan form li:nth-child(7) button {
+    margin-left: 120px;
+    width: 200px;
+    height: 35px;
+    background-color: rgb(200, 22, 35);
+}

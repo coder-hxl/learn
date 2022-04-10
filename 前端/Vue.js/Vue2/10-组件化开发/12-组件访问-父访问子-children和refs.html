@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn ref="a"></cpn>
+      <cpn></cpn>
+      <button @click="btnClick">按钮</button>
+    </div>
+
+    <template id="cpn">
+      <div>我是子组件</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      /* 
+			得到子组件对象
+				1.this.$children：
+					数组类型，里面存放全部子组件对象（很少使用）
+
+				2.this.$refs：
+					对象类型，默认是一个空的对象
+					在子组件实例中添加 ref='对象键名' 属性，才能将子组件添加到对象中
+		 */
+
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好'
+        },
+        methods: {
+          btnClick() {
+            // 1.this.$children
+            // console.log(this.$children);
+            // for (const v of this.$children) {
+            // 	console.log(v.name);
+            // 	v.showMessage()
+            // }
+
+            // 2.this.$refs
+            console.log(this.$refs.a.name)
+          }
+        },
+        components: {
+          cpn: {
+            template: '#cpn',
+            data() {
+              return {
+                name: '我是子组件'
+              }
+            },
+            methods: {
+              showMessage() {
+                console.log('showMessage')
+              }
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

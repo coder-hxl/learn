@@ -1,0 +1,701 @@
+/* 导航栏区域 */
+
+.shortcut {
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(241, 241, 241);
+}
+
+.shortcut .fl ul li {
+    float: left;
+}
+
+.shortcut .fl ul li:last-of-type a {
+    color: #c81623;
+}
+
+.shortcut .fr ul li {
+    float: left;
+    margin-left: 15px;
+}
+
+.shortcut .fr ul li:nth-child(2n) {
+    width: 1px;
+    height: 12px;
+    margin-top: 9.5px;
+    background-color: rgb(105, 105, 105);
+}
+
+
+/* 下箭头字体图标 */
+
+.icon-cheveron-down::after {
+    content: '\e91e';
+    font-family: 'icomoon';
+    margin-left: 7px;
+}
+
+.fr ul li a:hover {
+    color: #c81623;
+}
+
+
+/* 导航栏区域结束 */
+
+
+/*  header头部区域 */
+
+.header {
+    position: relative;
+    height: 105px;
+}
+
+.header .logo a img {
+    position: absolute;
+    top: 50%;
+    margin-top: -30.5px;
+    height: 61px;
+}
+
+.header .sousuo {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-left: -265px;
+}
+
+.header .sousuo input {
+    float: left;
+    width: 450px;
+    height: 36px;
+    border: 2px solid rgb(177, 25, 26);
+    outline: none;
+    text-indent: 1em;
+}
+
+.header .sousuo button {
+    float: right;
+    width: 80px;
+    height: 36px;
+    font-size: 16px;
+    color: #fff;
+    background: rgb(177, 25, 26);
+    border: 2px solid rgb(177, 25, 26);
+    outline: none;
+}
+
+.header .resou {
+    position: absolute;
+    top: 65%;
+    left: 335px;
+}
+
+.header .resou a {
+    margin: 0 10px;
+}
+
+.header .resou a:first-child {
+    color: #c81623;
+}
+
+.header .gouwuche {
+    position: absolute;
+    top: 25%;
+    right: 70px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid #e7e7e7;
+    cursor: pointer;
+}
+
+.gouwuche i {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    padding: 0 5px;
+    width: 17px;
+    height: 14px;
+    line-height: 14px;
+    color: #fff;
+    background: #ec202d;
+    border-radius: 7px 7px 7px 0;
+}
+
+.gouwuche::before {
+    content: '\e93a';
+    font-family: 'icomoon';
+    color: #c81623;
+    margin-left: 20px;
+}
+
+.gouwuche::after {
+    content: '\e920';
+    font-family: 'icomoon';
+    padding-left: 10px;
+}
+
+
+/* header头部区域结束 */
+
+
+/* 分类导航区域 */
+
+.fenlei {
+    height: 45px;
+    font-size: 16px;
+    border-bottom: 2px solid rgb(177, 25, 26);
+}
+
+.fenlei .fl .quanbu {
+    line-height: 45px;
+    width: 210px;
+    height: 45px;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(177, 25, 26);
+}
+
+.fl .shangpin {
+    width: 210px;
+    height: 465px;
+    background-color: rgb(200, 22, 35);
+}
+
+.fl .shangpin ul li {
+    float: right;
+    width: 208px;
+    height: 31px;
+    font-size: 14px;
+    line-height: 31px;
+    background-color: rgb(200, 22, 35);
+    transition: all .5s;
+}
+
+.fl .shangpin ul li::after {
+    content: '\e920';
+    font-family: 'icomoon';
+    float: right;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.fl .shangpin ul li a {
+    margin-left: 5px;
+    color: #fff;
+}
+
+.fl .shangpin ul li:hover {
+    background-color: #fff;
+    padding-left: 10px;
+}
+
+.fl .shangpin ul li:hover a {
+    color: rgb(200, 22, 35);
+}
+
+.fl .shangpin ul li:hover::after {
+    color: rgb(200, 22, 35);
+}
+
+.fenlei .qita {
+    float: left;
+}
+
+.qita ul li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 25px;
+}
+
+
+/* 分类导航区域结束 */
+
+
+/* 首页上中区域 */
+
+.zhsh .dt img {
+    float: left;
+    margin: 10px 9px;
+}
+
+.zhsh .rb {
+    float: right;
+    margin-top: 10px;
+}
+
+.rb .kuaibao div {
+    padding: 0 10px;
+    width: 250px;
+    border: 1px solid #d8d8d8;
+}
+
+
+/* 选择第一个元素 */
+
+.zhsh .rb .kuaibao div:first-child {
+    height: 33px;
+    line-height: 33px;
+}
+
+.kuaibao div:first-child h3 {
+    float: left;
+}
+
+.kuaibao div:first-child a {
+    float: right;
+}
+
+.kuaibao div:first-child a::after {
+    content: '\e920';
+    font-family: 'icomoon';
+}
+
+
+/* 选择第二个元素 */
+
+.zhsh .rb .kuaibao div:nth-child(2) {
+    margin-top: -1px;
+}
+
+.kuaibao div:nth-child(2) a {
+    margin: 7px 0;
+    display: block;
+}
+
+.kuaibao div:nth-child(2) a span {
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.rb .goneng {
+    width: 250px;
+}
+
+.rb .goneng ul li {
+    margin-left: -1px;
+    margin-top: -1px;
+    float: left;
+    width: 63.2px;
+    height: 71px;
+    text-align: center;
+    border: 1px solid #d8d8d8;
+}
+
+.rb .goneng ul .q {
+    margin-left: 0;
+}
+
+
+/* .rb .goneng ul li i::before {
+    content: '\e958';
+    font-family: 'icomoon';
+    font-size: 30px;
+    color: rgb(200, 22, 35);
+    top: -5px;
+} */
+
+
+/* 精灵图技术 */
+
+.rb .goneng ul li:nth-child(1) a i {
+    display: block;
+    margin: 1px auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/icons.png) no-repeat -9px -6px;
+}
+
+.rb .goneng ul li:nth-child(2) a i {
+    display: block;
+    margin: 1px auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/icons.png) no-repeat -70px -6px;
+}
+
+.rb .goneng ul li:nth-child(3) a i {
+    display: block;
+    margin: 1px auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/icons.png) no-repeat -135px -6px;
+}
+
+.rb .goneng ul li:nth-child(4) a i {
+    display: block;
+    margin: 1px auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/icons.png) no-repeat -198px -6px;
+}
+
+.rb .goneng ul li:nth-child(n+5) a i {
+    display: block;
+    margin: 1px auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/icons.png) no-repeat -9px -76px;
+}
+
+
+/* 底部图片 */
+
+.zhsh .rb .dbtp img {
+    margin-top: 4px;
+}
+
+
+/* 首页上中区域结束 */
+
+
+/* 今日推荐 */
+
+.tj .jr {
+    float: left;
+    width: 205px;
+    height: 163px;
+    line-height: 163px;
+    text-align: center;
+    background-color: rgb(92, 82, 81);
+}
+
+.tj ul {
+    height: 163px;
+    background: rgb(235, 235, 235);
+}
+
+.tj ul li {
+    float: left;
+}
+
+.tj ul li:nth-child(-n+3)::after {
+    content: '';
+    position: absolute;
+    margin-top: 10px;
+    width: 1px;
+    height: 145px;
+    background-color: rgb(212, 212, 212);
+}
+
+
+/* 今日推荐结束 */
+
+
+/* 家用电器区域 */
+
+.dianqi .zl {
+    margin-top: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 2px solid rgb(200, 22, 35);
+}
+
+.dianqi .zl h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: #c81623;
+}
+
+.dianqi .zl .dq {
+    float: right;
+}
+
+.zl .dq ul li:nth-child(1) a {
+    color: #c81623;
+}
+
+.zl .dq ul li {
+    padding: 0 10px;
+    float: left;
+}
+
+.zl .dq ul li:nth-child(9) {
+    padding: 0 20px;
+}
+
+.zl .dq ul li:nth-child(-n+8)::after {
+    content: '';
+    padding: 0 10px;
+    height: 15px;
+    border-right: 1.5px solid #a3a3a3;
+}
+
+.dianqi .shangpin .tou {
+    float: left;
+    width: 210px;
+    height: 361px;
+    text-align: center;
+    background-color: rgb(251, 251, 251);
+}
+
+.shangpin .tou ul li {
+    margin: 0 10px;
+    float: left;
+    width: 85px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-bottom: 1px solid #a3a3a3;
+}
+
+
+/* .dianqi .chanpin {
+    position: relative;
+}
+
+.dianqi .chanpin ul li:nth-child(1) {
+    float: left;
+}
+
+.dianqi .chanpin ul li:nth-child(2) {
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.dianqi .chanpin ul li:nth-child(4) {
+    position: absolute;
+    top: 0;
+    right: 18.27%;
+    border-left: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+    z-index: 1;
+}
+
+.dianqi .chanpin ul li:nth-child(5) {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dianqi .chanpin ul li:nth-child(6) {
+    position: absolute;
+    top: 50.5%;
+    right: 0;
+} */
+
+.dianqi .chanpin div {
+    float: left;
+}
+
+.dianqi .chanpin div img {
+    display: block;
+}
+
+.dianqi .chanpin div:nth-child(3) {
+    border-left: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+}
+
+.dianqi .chanpin div:nth-child(2n) a:nth-child(1) img {
+    border-bottom: 1px solid #a3a3a3;
+}
+
+
+/* 家用电器区域结束 */
+
+
+/* 手机通讯区域 */
+
+
+/* 手机通讯区域与家用电器一致 */
+
+.shouji .zl {
+    margin-top: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 2px solid rgb(200, 22, 35);
+}
+
+.zl h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: #c81623;
+}
+
+.shouji .zl .dq {
+    float: right;
+}
+
+.zl .dq ul li:nth-child(1) a {
+    color: #c81623;
+}
+
+.zl .dq ul li {
+    padding: 0 10px;
+    float: left;
+}
+
+.zl .dq ul li:nth-child(9) {
+    padding: 0 20px;
+}
+
+.zl .dq ul li:nth-child(-n+8)::after {
+    content: '';
+    padding: 0 10px;
+    height: 15px;
+    border-right: 1.5px solid #a3a3a3;
+}
+
+.shouji .shangpin .tou {
+    float: left;
+    width: 210px;
+    height: 361px;
+    text-align: center;
+    background-color: rgb(251, 251, 251);
+}
+
+.shouji .tou ul li {
+    margin: 0 10px;
+    float: left;
+    width: 85px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.shouji .chanpin div {
+    float: left;
+}
+
+.shouji .chanpin div img {
+    display: block;
+}
+
+.shouji .chanpin div:nth-child(3) {
+    border-left: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+}
+
+.shouji .chanpin div:nth-child(2n) a:nth-child(1) img {
+    border-bottom: 1px solid #a3a3a3;
+}
+
+
+/* 手机通讯区域结束 */
+
+.buttom {
+    padding-top: 15px;
+    width: 100%;
+    height: 420px;
+    background-color: #f3f3f3;
+}
+
+.buttom .baozhang ul {
+    height: 80px;
+    margin: 20px 0;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.baozhang ul li {
+    float: left;
+    margin-left: 40px;
+    width: 200px;
+    height: 50px;
+}
+
+
+/* 精灵图技术 */
+
+.baozhang ul li:nth-child(1) span {
+    margin-right: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -253px -2px;
+}
+
+.baozhang ul li:nth-child(2) span {
+    margin-right: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -253px -53px;
+}
+
+.baozhang ul li:nth-child(3) span {
+    margin-right: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -256px -106px;
+}
+
+.baozhang ul li:nth-child(4) span {
+    margin-right: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -258px -156px;
+}
+
+.baozhang ul li:nth-child(5) span {
+    margin-right: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -256px -208px;
+}
+
+.buttom .zhinan {
+    padding-left: 60px;
+    height: 165px;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.zhinan dl {
+    float: left;
+    margin-right: 120px;
+}
+
+.zhinan dl dt {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.buttom .ewm {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.ewm h4 {
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.buttom .dibu .dibu-lx {
+    position: relative;
+    margin-top: 20px;
+    height: 20px;
+}
+
+.dibu .dibu-lx ul {
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+}
+
+.dibu .dibu-lx ul li {
+    float: left;
+    margin-right: 14px;
+}
+
+.dibu .dibu-lx ul li:nth-child(-n+11):after {
+    content: '';
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 6px;
+    width: 1px;
+    height: 12px;
+    background-color: #575757;
+}
+
+.buttom .dibu-dizhi {
+    margin-top: 12px;
+    text-align: center;
+}

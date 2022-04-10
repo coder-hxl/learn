@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 发送AJAX请求，返回Promise对象
+        function sendAJAX(url) {
+            return new Promise((resolve, reject) => {
+                const x = new XMLHttpRequest()
+                x.open('GET', url)
+                x.send()
+                x.onreadystatechange = function() {
+                    if (x.readyState === 4) {
+                        if (x.status === 200) {
+                            resolve(x.response)
+                        } else {
+                            reject(x.status)
+                        }
+
+                    }
+                }
+            })
+        }
+
+        // promise then 方法测试
+        // const result = sendAJAX('https://api.apiopen.top/getJoke').then((val) => {
+        //     console.log(val);
+        // }, (reason) => {
+        //     console.log(reason);
+        // })
+
+        // async 与 await 测试
+        async function main() {
+            // 发送 AJAX请求
+            let result = await sendAJAX('https://api.apiopen.top/getJoke')
+            let tianqi = await sendAJAX('http://api.k780.com/?app=weather.today&weaId=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json')
+            console.log(tianqi);
+        }
+        main()
+    </script>
+
+</body>
+
+</html>

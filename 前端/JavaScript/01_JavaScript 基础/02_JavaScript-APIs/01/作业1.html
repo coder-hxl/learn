@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: rgb(131, 131, 131);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="邮箱/ID/手机号">
+
+    <script>
+        let input = document.querySelector('input')
+        input.onfocus = function() {
+            if (this.value === '邮箱/ID/手机号') {
+                this.value = ''
+                this.style.outlineColor = 'pink'
+            }
+        }
+        input.onblur = function() {
+            if (this.value === '') {
+                this.value = '邮箱/ID/手机号'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- .stop修饰符：禁止事件冒泡 -->
+      <div @click="divClick">
+        <button @click.stop="btnClick">按钮</button>
+      </div>
+
+      <!-- @keyup.特定的键：当事件从特定的键触发时才回调 -->
+      <input type="text" @keyup.enter="enterKeyup" />
+    </template>
+
+    <script src="../js/Vue.js"></script>
+    <script>
+      const app = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello World'
+          }
+        },
+        methods: {
+          divClick() {
+            console.log('divClick')
+          },
+          btnClick() {
+            console.log('btnClick')
+          },
+          enterKeyup(event) {
+            // 获取表单的value值
+            console.log(event.target.value)
+          }
+        }
+      }
+
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

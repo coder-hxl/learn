@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        th {
+            height: 40px;
+            background-color: #ccc;
+        }
+        
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        let datas = [{
+            name: '魏璎珞',
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: '风力',
+            subject: 'JavaScript',
+            score: 98
+        }, {
+            name: '傅恒',
+            subject: 'JavaScript',
+            score: 99
+        }, {
+            name: '明玉',
+            subject: 'JavaScript',
+            score: 88
+        }];
+        // 2. 往tbody 里面创建行
+        let tbody = document.querySelector('tbody')
+        for (let i = 0; i < datas.length; i++) {
+            // 1. 创建 tr行
+            let tr = document.createElement('tr')
+            tbody.appendChild(tr);
+            // 2. 行里面创建单元素 td
+            for (let k in datas[i]) {
+                let td = document.createElement('td')
+                td.innerHTML = datas[i][k]
+                tr.appendChild(td)
+            }
+            // 3. 创建有删除2个字的单元格
+            let td = document.createElement('td')
+            td.innerHTML = `<a href="javascript:;">删除</a>`
+            tr.appendChild(td);
+        }
+        let a = document.querySelectorAll('a')
+        for (let i = 0; i < a.length; i++) {
+            a[i].onclick = function() {
+                tbody.removeChild(this.parentNode.parentNode)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

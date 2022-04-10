@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 
+		父组件替换插槽的标签，但是内容由子组件来提供
+			在子组件模板中的slot定义 :属性名='内容' 
+			在父组件模板中使用子组件实例用 slot-scope='接收变量' ，然后通过 接收变量名.子组件模板属性名 进行替换操作
+	 -->
+
+    <div id="app">
+      <cpn></cpn>
+
+      <cpn>
+        <div slot-scope="slot">
+          <!-- <span v-for='item in slot.data'>{{item}}</span> -->
+          <span>{{slot.data.join(' - ')}}</span>
+        </div>
+      </cpn>
+
+      <cpn>
+        <div slot-scope="slot">
+          <!-- <span v-for='item in slot.data'>{{item}} * </span> -->
+          <span>{{slot.data.join(' * ')}}</span>
+        </div>
+      </cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+        <slot :data="PLanguages">
+          <ul>
+            <li v-for="item in PLanguages">{{item}}</li>
+          </ul>
+        </slot>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好'
+        },
+        components: {
+          cpn: {
+            template: '#cpn',
+            data() {
+              return {
+                PLanguages: [
+                  'JavaScript',
+                  'C++',
+                  'Java',
+                  'C#',
+                  'Python',
+                  'Go',
+                  'Swift'
+                ]
+              }
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

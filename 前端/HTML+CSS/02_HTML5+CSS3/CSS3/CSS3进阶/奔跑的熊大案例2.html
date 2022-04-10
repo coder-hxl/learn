@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奔跑的熊大案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            position: relative;
+            width: 1920px;
+            height: 569px;
+            background: url(./media/bg2.png) no-repeat;
+            animation: dbj 100s linear infinite;
+        }
+        
+        @keyframes dbj {
+            0% {}
+            100% {
+                background-position: -1920px, 0;
+            }
+        }
+        
+        .box2 {
+            position: absolute;
+            bottom: 0;
+            width: 1920px;
+            height: 336px;
+            background: url(./media/bg1.png) no-repeat;
+            animation: xbj 25s linear infinite;
+        }
+        
+        @keyframes xbj {
+            0% {
+                background-position: 0, 0;
+            }
+            100% {
+                background-position: -1920px, 0;
+            }
+        }
+        
+        .x {
+            position: absolute;
+            bottom: 20px;
+            width: 200px;
+            height: 100px;
+            background: url(./media/bear.png) no-repeat;
+            /* 我们元素可以添加多个动画，用逗号分隔 */
+            animation: bear 1s steps(8) infinite, move 5s forwards;
+        }
+        
+        @keyframes bear {
+            0% {
+                background-position: 0, 0;
+            }
+            100% {
+                background-position: -1600px, 0;
+            }
+        }
+        
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box2">
+            <div class="x"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn() {
+            // console.log(arguments) // 里面存储了所有存过来的实参
+            // console.log(arguments.length)
+            // console.log(arguments[2]);
+            // 我们可以按照数据的方式遍历 arguments
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn(1, 2, 3)
+        fn(1, 2, 3, 4, 5)
+            //
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

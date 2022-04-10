@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. setTimeout
+        // setTimeout(function() {
+        //     console.log('时间到了');
+        // }, 2000)
+
+        function callback() {
+            console.log('爆炸了');
+        }
+        let time1 = setTimeout(callback, 3000)
+        let time2 = setTimeout(callback, 5000)
+            // setTimeout('callback()', 3000) // 不提倡
+    </script>
+
+</body>
+
+</html>

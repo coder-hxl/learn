@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1 计算器
+        // let get = prompt('1. 加法运算\n2. 减法运算\n3. 乘法运算\n4. 除法运算')
+        // function getOperation(sum1, sum2) {
+        //     switch (get) {
+        //         case '1':
+        //             return parseFloat(sum1) + parseFloat(sum2)
+        //             break
+        //         case '2':
+        //             return sum1 - sum2
+        //             break
+        //         case '3':
+        //             return sum1 * sum2
+        //             break
+        //         case '4':
+        //             return sum1 / sum2
+        //             break
+        //         default:
+        //             return '啥也没输'
+        //     }
+        // }
+        // let op = getOperation(prompt('请输入数字1'), prompt('请输入数字2'))
+        // alert(op);
+
+        // 2. 两个数最大值
+        // function getMax(num1, num2) {
+        //     if (num1 > num2) {
+        //         return num1
+        //     } else {
+        //         return num2
+        //     }
+        // }
+        // let max = getMax(prompt('请输入数字1'), prompt('请输入数字2'))
+        // alert(max)
+
+        // 3.1 方法1
+        // function getMax(num1, num2, num3) {
+        //     let h
+        //     h = num1 > num2 ? num1 : num2
+        //     return h > num3 ? h : num3
+        // }
+        // let max = getMax(parseFloat(prompt('数字1')), parseFloat(prompt('数字2')), parseFloat(prompt('数字3')))
+        // alert(max);
+        // 3.2 方法2
+        // function getMax(num1) {
+        //     let h = num1[0]
+        //     for (let i = 1; i < num1.length; i++) {
+        //         h >= num1[i] ? h : h = num1[i]
+        //     }
+        //     return h
+        // }
+        // let max = getMax([parseFloat(prompt('数字1')), parseFloat(prompt('数字2')), parseFloat(prompt('数字3'))])
+        // alert(max);
+
+        // 4.
+        function getZhishu(num) {
+            if (num % 1 == 0 && num % num == 0) {
+                num = true
+            } else {
+                num = false
+            }
+            return num
+        }
+        let zhi = getZhishu(parseFloat(prompt('请输入数字')))
+        alert(zhi)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

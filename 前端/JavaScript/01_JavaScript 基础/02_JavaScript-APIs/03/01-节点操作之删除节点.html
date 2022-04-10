@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>删除</button>
+    <ul>
+        <li>熊大</li>
+        <li>熊二</li>
+        <li>光头强</li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector('button')
+        let ul = btn.nextElementSibling;
+        btn.onclick = function() {
+            if (ul.children.length == 0) {
+                this.disabled = true
+            } else {
+                ul.removeChild(ul.children[0])
+            }
+        }
+    </script>
+
+</body>
+
+</html>

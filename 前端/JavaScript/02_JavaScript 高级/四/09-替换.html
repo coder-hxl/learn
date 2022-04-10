@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="message"></textarea><button>提交</button>
+    <div></div>
+    <script>
+        // 替换 replace
+        // let str = 'andy和red'
+        // // let newStr = str.replace('andy', 'body')
+        // let newStr = str.replace(/andy/, 'body')
+        // console.log(newStr);
+        let text = document.querySelector('textarea')
+        let btn = document.querySelector('button')
+        let div = document.querySelector('div')
+        btn.onclick = function() {
+            div.innerHTML = text.value.replace(/激情|鸡/g, '**')
+        }
+    </script>
+
+</body>
+
+</html>

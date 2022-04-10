@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="ipt">
+    <input type="checkbox" class="ck"> 记住用户名
+
+    <script>
+        let username = document.querySelector('.ipt')
+        let remember = document.querySelector('.ck')
+        if (localStorage.getItem('uname')) {
+            username.value = localStorage.getItem('uname')
+            remember.checked = true
+        }
+
+        remember.addEventListener('change', function() {
+            if (this.checked) {
+                localStorage.setItem('uname', username.value)
+            } else {
+                localStorage.removeItem('uname')
+            }
+        })
+    </script>
+
+</body>
+
+</html>

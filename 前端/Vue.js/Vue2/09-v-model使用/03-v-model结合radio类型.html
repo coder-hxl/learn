@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+      radio的v-model绑定相同变量时，会通过绑定的变量跟value值来进行对比是否被选中
+      手动改变选项，被选中的则会把value值的更新到变量中
+      绑定相同变量的v-model不需要再添加相同的name来互斥选中
+    -->
+      <label for="male">
+        <input type="radio" id="male" value="男" v-model="sex" /> 男
+      </label>
+      <label for="female">
+        <input type="radio" id="female" value="女" v-model="sex" /> 女
+      </label>
+      <h2>您选择的性别是：{{sex}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+          sex: '男' // 默认选中value为男的选项
+        },
+        methods: {}
+      })
+    </script>
+  </body>
+</html>

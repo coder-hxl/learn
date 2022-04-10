@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=a, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 未访问链接 */
+        
+        a:link {
+            color: red;
+            text-decoration: none;
+        }
+        /* 以访问链接 */
+        
+        a:visited {
+            color: blue;
+        }
+        /* 鼠标移动到链接上 */
+        
+        a:hover {
+            color: yellow;
+        }
+        /* 鼠标点击时 */
+        
+        a:active {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="1" target="_blank">链接</a>
+    <p><b>注意：</b> a:hover 必须在a:link和a:visited之后,需要严格按照顺序才能看到效果。</p>
+    <p><b>注意：</b> a:active必须在a:hover之后。</p>
+</body>
+
+</html>

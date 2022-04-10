@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏遮罩案例</title>
+    <style>
+        div {
+            position: relative;
+            margin: 30px auto;
+            width: 300px;
+            height: 300px;
+        }
+        
+        div img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        div::before {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0, 0.5) url(./img/arr.png) no-repeat center;
+        }
+        /* 当我们鼠标经过了 图片这个盒子，就让里面before遮罩层显示出来 */
+        
+        div:hover::before {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./img/1.jpg">
+    </div>
+    <div>
+        <img src="./img/1.jpg">
+    </div>
+    <div>
+        <img src="./img/1.jpg">
+    </div>
+
+</body>
+
+</html>

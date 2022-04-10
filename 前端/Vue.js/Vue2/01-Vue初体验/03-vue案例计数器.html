@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>当前计数：{{counter }}</h2>
+      <!-- <button v-on:click='counter++'>+</button>
+        <button v-on:click='counter--'>-</button> -->
+      <button v-on:click="add">+</button>
+      <button v-on:click="sub">-</button>
+      <!-- 下面这句是语法糖 -->
+      <!-- <button @click='sub'>-</button> -->
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      // proxy
+      const obj = {
+        counter: 0
+      }
+      const app = new Vue({
+        el: '#app',
+        data: obj,
+        methods: {
+          add: function () {
+            this.counter++
+            console.log('add被执行')
+          },
+          sub: function () {
+            this.counter--
+            console.log('sub被执行')
+          }
+        },
+        beforeCreate: function () {},
+        created: function () {
+          console.log('created')
+        }
+      })
+
+      // 1.拿到button元素
+      // 2.添加监听事件
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = 'andy'
+        console.log(str.length)
+            // 基本包装类型：简单数据类型 包装成了 复杂数据类型
+            // (1) 把简单数据类型包装称复杂数据类型
+        let temp = new String('andy')
+            // (2) 把临时变量的值 给str
+        str = temp
+            // (3) 销毁这个临时变量
+        temp = null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

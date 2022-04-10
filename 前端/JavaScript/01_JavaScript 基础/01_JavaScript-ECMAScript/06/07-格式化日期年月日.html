@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 格式化日期 年月日
+        let date = new Date()
+        console.log(date.getFullYear()); // 返回当前日期的年 2021
+        console.log(date.getMonth() + 1); // 月份 返回的月份小1个月 月份+1
+        console.log(date.getDate()); // 返回几号
+        console.log(date.getDay()); // 4 周一返回1 周日返回0
+        // 2021年 7月 15日 星期四
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let dates = date.getDate()
+        let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        let day = date.getDay()
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日 ' + arr[day]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

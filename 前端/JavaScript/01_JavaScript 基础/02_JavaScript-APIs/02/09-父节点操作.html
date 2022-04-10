@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">x</span>
+        </div>
+    </div>
+
+    <script>
+        // 1. 父节点 parentNode
+        let erweima = document.querySelector('.erweima')
+            // let box = document.querySelector('.box')
+            // 得到元素最近的父级节点 找不到父节点返回空
+        console.log(erweima.parentNode);
+    </script>
+
+</body>
+
+</html>

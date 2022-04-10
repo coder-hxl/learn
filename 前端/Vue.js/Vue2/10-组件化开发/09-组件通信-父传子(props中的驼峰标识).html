@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- HTML属性是不区分大小写的，要是有大写要通过-隔开 -->
+      <cpn :c-Info="info"></cpn>
+    </div>
+
+    <template id="cpn">
+      <!-- 组件模板应该用一个元素包含起来，应该有一个根元素 -->
+      <div>
+        <h2>{{cInfo}}</h2>
+        <h2>{{childMyMessage}}</h2>
+      </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+      const cpn = {
+        template: '#cpn',
+        props: {
+          cInfo: {
+            type: Object,
+            default() {
+              return {}
+            }
+          },
+          childMyMessage: {
+            type: String,
+            default: ''
+          }
+        }
+      }
+
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+          info: {
+            name: '浮幻',
+            age: 17
+          }
+        },
+        components: {
+          cpn
+        }
+      })
+    </script>
+  </body>
+</html>

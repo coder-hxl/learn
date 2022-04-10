@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 立即执行函数：不需要调用，立马能够自己执行的函数
+        function fn() {
+            console.log(1);
+        }
+        fn();
+        // 2. 写法 也可以传递参数
+        // (function() {})() 或者 (function(){}())
+        (function(a, b) {
+            console.log(a + b);
+        })(1, 2);
+        (function sum(a, b) {
+            console.log(a + b);
+        }(2, 3))
+    </script>
+
+</body>
+
+</html>

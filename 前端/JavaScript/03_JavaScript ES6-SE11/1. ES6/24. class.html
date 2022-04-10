@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES5
+        // function Phone(brand, price) {
+        //     this.brand = brand
+        //     this.price = price
+        // }
+        // Phone.prototype.call = function() {
+        //     console.log('打电话');
+        // }
+
+        // let HuaWei = new Phone('华为', '5999')
+        // HuaWei.call() // 打电话
+        // console.log(HuaWei); // Phone {brand: '华为', price: '5999'}
+
+        class Phone {
+            // 构造方法 函数名不能变
+            constructor(brand, price) {
+                this.brand = brand
+                this.price = price
+            }
+
+            // 自定义方法格式不能错，不能像 ES5 那样
+            call() {
+                console.log('打电话');
+            }
+        }
+
+        let XiaoMi = new Phone('小米', 1999)
+        XiaoMi.call() // 打电话
+        console.log(XiaoMi); // Phone {brand: '小米', price: 1999}
+    </script>
+
+</body>
+
+</html>

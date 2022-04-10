@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Obj(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        Obj.prototype.zuo = function() {
+            console.log('打代码');
+        }
+        let fh = new Obj('浮幻', 17)
+        let pink = new Obj('pink老师', 18)
+        fh.zuo()
+        console.log(fh); // 对象身上自己添加一个 __proto__ 指向我们构造函数的原型 prototype
+        console.log(fh.__proto__ === Obj.prototype);
+        // 先查找fh 对象身上是否有 zuo 方法，有就执行这个对象的zuo
+        // 如果没有 zuo 这个方法，因为有 __proto__ 的存在，就能去构造函数原型对象 prototype 身上查找 zuo方法
+    </script>
+
+</body>
+
+</html>

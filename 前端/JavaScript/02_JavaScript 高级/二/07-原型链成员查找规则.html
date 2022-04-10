@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Obj(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        Obj.prototype.zuo = function() {
+            console.log('打代码');
+        }
+
+        Obj.prototype.sex = '女'
+            // Object.prototype.sex = '男'
+        let fh = new Obj('浮幻', 17)
+        fh.sex = '男'
+        console.log(fh.sex);
+        console.log(Object.prototype);
+        console.log(fh);
+        console.log(Obj.prototype);
+        console.log(fh.toString());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+        
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 19px;
+            color: #fff;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">00</span>
+        <span class="minute">00</span>
+        <span class="second">00</span>
+    </div>
+
+    <script>
+        // 1. 获取元素
+        let hour = document.querySelector('.hour') //小时黑色盒子
+        let minute = document.querySelector('.minute') //分钟黑色盒子
+        let second = document.querySelector('.second'); //秒数黑色盒子
+        let inputTime = +new Date('2021-7-26 15:00:00') // 结束的时间
+        callback(); // 先调用一次这个函数，防止第一次刷新页面有空白
+        // 2. 开启定时
+        setInterval(callback, 1000)
+
+        function callback() {
+            // 时间
+            let nowTime = +new Date() // 返回当前总毫秒数
+            let times = (inputTime - nowTime) / 1000 // 剩余总毫秒数
+            let h = parseInt(times / 60 / 60 % 24) // 时
+            h = h < 10 ? '0' + h : h
+            hour.innerHTML = h // 把剩余的小时给黑色盒子
+            let m = parseInt(times / 60 % 60) // 分
+            m = m < 10 ? '0' + m : m
+            minute.innerHTML = m // 把剩余的分钟给黑色盒子
+            let s = parseInt(times % 60) // 秒
+            s = s < 10 ? '0' + s : s
+            second.innerHTML = s // 把剩余的秒数给黑色盒子
+        }
+    </script>
+
+</body>
+
+</html>

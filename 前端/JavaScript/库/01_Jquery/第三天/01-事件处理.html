@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        
+        .current {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+        <li>我们</li>
+    </ul>
+    <ol>
+
+    </ol>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 1. 单个事件注册
+            // $("div").click(function() {
+            //     $(this).css("background", "blue")
+            // })
+            // $("div").mouseenter(function() {
+            //     $(this).css("background", "skyblue")
+            // })
+
+            // 2. 事件处理on
+            // $("div").on({
+            //     mouseenter: function() {
+            //         $(this).css("background", "skyblue")
+            //     },
+            //     click: function() {
+            //         $(this).css("background", "blue")
+            //     },
+            //     mouseleave: function() {
+            //         $(this).css("background", "pink")
+            //     }
+            // })
+            $("div").on("mouseenter mouseleave", function() {
+                $(this).toggleClass("current")
+            })
+
+            // 2. on可以实现事件委托
+            $("ul").on("click", "li", function() {
+                alert(11)
+            })
+
+            // 3. on可以给动态创建的元素绑定事件
+            // $("ol li").click(function() {
+            //     alert(11)
+            // })
+            $("ol").on("click", "li", function() {
+                alert(11)
+            })
+            let li = $("<li>我是后来创建的</li>")
+            $("ol").append(li)
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位叠放顺序</title>
+    <style>
+        .box {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .box1 {
+            z-index: 1;
+            background-color: red;
+        }
+        
+        .box2 {
+            z-index: 2;
+            background-color: green;
+            top: 80px;
+            left: 80px;
+        }
+        
+        .box3 {
+            background-color: blue;
+            top: 150px;
+            left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+
+</body>
+
+</html>

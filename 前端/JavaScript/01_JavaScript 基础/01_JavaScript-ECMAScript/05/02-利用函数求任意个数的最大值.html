@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getMax() { // arguments = [1,2,3]
+            let da = arguments[0]
+            for (let i = 1; i < arguments.length; i++) {
+                da > arguments[i] ? da : da = arguments[i]
+            }
+            return da
+        }
+        let max = getMax(1, 2, 3)
+        console.log(max);
+        max = getMax(10, 2, 5, 1, 50, 100)
+        console.log(max);
+        max = getMax(10, 2, 5, 1, 50, 80)
+        console.log(max);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+			key的作用是为了更高效的更新虚拟DOM，这跟Vue的虚拟DOM的Diff算法有关
+			如果要在数组中插入一个元素：
+				- 不加key：Vue则会重新修改虚拟DOM里li原先的内容，效率低些
+				- 加key并绑定item：Vue则会在虚拟DOM里指定的位置直接插入li并添加内容
+		 -->
+      <ul>
+        <li v-for="item in letters" :key="item">{{item}}</li>
+      </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          letters: ['a', 'b', 'c', 'd', 'e']
+        },
+        methods: {}
+      })
+    </script>
+  </body>
+</html>

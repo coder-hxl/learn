@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 错误的做法：这里不可以使用mustache语法 -->
+      <!-- <img src="{{ingURL}}" alt=""> -->
+      <!-- <h2>{{}}</h2> -->
+      <!-- 正确的做法：使用v-bind指令 -->
+      <img v-bind:src="imgURL" alt="" />
+      <a v-bind:href="aHref">百度一下</a>
+
+      <!-- 语法糖 -->
+      <img :src="imgURL" alt="" />
+      <a :href="aHref">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      /* v-bind 动态绑定属性 */
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+          imgURL: 'https://cn.vuejs.org/images/logo.svg',
+          aHref: 'https://baidu.com'
+        }
+      })
+    </script>
+  </body>
+</html>
