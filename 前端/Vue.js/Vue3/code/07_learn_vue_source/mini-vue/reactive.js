@@ -48,13 +48,13 @@ function getDep(target, key) {
 function reactive(raw) {
   return new Proxy(raw, {
     get(target, key) {
-      const dep = new getDep(target, key)
+      const dep = getDep(target, key)
       dep.depend()
       return target[key]
     },
     set(target, key, newValue) {
       if (target[key] !== newValue) {
-        const dep = new getDep(target, key)
+        const dep = getDep(target, key)
         target[key] = newValue
         dep.notify()
       }
