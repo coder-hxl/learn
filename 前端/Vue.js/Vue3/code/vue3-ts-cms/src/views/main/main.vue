@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? collapseWidth : '210px'" class="menu">
+      <el-aside :width="isCollapse ? collapseWidth : '210px'" class="main-menu">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -24,30 +24,19 @@ import { ref } from 'vue'
 import navMenu from '@/components/nav-menu'
 import navHeader from '@/components/nav-header'
 
+import { reactiveWidth } from '@/utils/reactive-width'
+
 const isCollapse = ref(false)
-const collapseWidth = ref('64px')
+const collapseWidth = reactiveWidth('0', '64px')
 
 const handleFoldChange = (isFold: boolean) => {
   isCollapse.value = isFold
 }
-function changeCollapseWidth() {
-  if (window.innerWidth <= 768) {
-    collapseWidth.value = '0'
-  } else {
-    collapseWidth.value = '64px'
-  }
-}
-
-changeCollapseWidth()
-
-window.addEventListener('resize', () => {
-  changeCollapseWidth()
-})
 </script>
 
 <style scoped lang="less">
 @media (max-width: 768px) {
-  .menu {
+  .main-menu {
     position: fixed;
     top: 50px;
     left: 0;
