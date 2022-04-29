@@ -10,5 +10,4 @@
 node_modules/
 
 # Vue
-vue-next-3.0.11(源码精读)/
-core/
+源码/
