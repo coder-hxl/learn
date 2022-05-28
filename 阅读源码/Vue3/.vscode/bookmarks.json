@@ -1,0 +1,109 @@
+{
+	"files": [
+		{
+			"path": "packages/runtime-core/src/vnode.ts",
+			"bookmarks": [
+				{
+					"line": 400,
+					"column": 25,
+					"label": ""
+				},
+				{
+					"line": 490,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 494,
+					"column": 22,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/apiCreateApp.ts",
+			"bookmarks": [
+				{
+					"line": 147,
+					"column": 48,
+					"label": ""
+				},
+				{
+					"line": 178,
+					"column": 42,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-dom/src/index.ts",
+			"bookmarks": [
+				{
+					"line": 41,
+					"column": 27,
+					"label": ""
+				},
+				{
+					"line": 65,
+					"column": 40,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/renderer.ts",
+			"bookmarks": [
+				{
+					"line": 291,
+					"column": 31,
+					"label": ""
+				},
+				{
+					"line": 320,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 353,
+					"column": 26,
+					"label": ""
+				},
+				{
+					"line": 1175,
+					"column": 28,
+					"label": ""
+				},
+				{
+					"line": 1213,
+					"column": 44,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/component.ts",
+			"bookmarks": [
+				{
+					"line": 448,
+					"column": 40,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/runtime-core/src/componentPublicInstance.ts",
+			"bookmarks": [
+				{
+					"line": 225,
+					"column": 55,
+					"label": ""
+				},
+				{
+					"line": 519,
+					"column": 77,
+					"label": ""
+				}
+			]
+		}
+	]
+}
