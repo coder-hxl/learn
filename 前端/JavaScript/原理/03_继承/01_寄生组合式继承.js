@@ -5,7 +5,7 @@ function createObject(o) {
 }
 
 function inheritPrototype(SubType, SuperType) {
-  SubType.prototype = Object.create(SuperType.prototype)
+  SubType.prototype = createObject(SuperType.prototype)
   Object.defineProperty(SubType.prototype, 'constructor', {
     enumerable: false,
     configurable: true,
