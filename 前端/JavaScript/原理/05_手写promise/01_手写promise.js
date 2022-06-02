@@ -31,7 +31,7 @@ class XLPromise {
         if (this.status === PROMISE_STATUS_PENDING) {
           this.status = PROMISE_STATUS_FULFILLED
           this.value = value
-          this.onFulfilledFns.forEach((fn) => fn(this.value))
+          this.onFulfilledFns.forEach((fn) => fn())
         }
       })
     }
@@ -75,12 +75,12 @@ class XLPromise {
 
       // 2.状态未确定, 放入数组中回调
       if (this.status === PROMISE_STATUS_PENDING) {
-        this.onFulfilledFns.push((value) => {
-          execFunctionWithCatchError(onFulfilled, value, resolve, reject)
+        this.onFulfilledFns.push(() => {
+          execFunctionWithCatchError(onFulfilled, this.value, resolve, reject)
         })
 
-        this.onRejectedFns.push((value) => {
-          execFunctionWithCatchError(onRejected, value, resolve, reject)
+        this.onRejectedFns.push(() => {
+          execFunctionWithCatchError(onRejected, this.reason, resolve, reject)
         })
       }
     })
@@ -104,23 +104,18 @@ class XLPromise {
 
   static all(promises) {
     return new XLPromise((resolve, reject) => {
-      const result = []
+      const values = []
 
       promises.forEach((promise) => {
         if (promise instanceof XLPromise) {
-          promise.then(
-            (res) => {
-              result.push(res)
-              executeResolve(result, promises, resolve)
-            },
-            (err) => {
-              reject(err)
-            }
-          )
+          promise.then((res) => {
+            values.push(res)
+            executeResolve(values, promises, resolve)
+          }, reject)
         } else {
           XLPromise.resolve(promise).then((res) => {
-            result.push(res)
-            executeResolve(result, promises, resolve)
+            values.push(res)
+            executeResolve(values, promises, resolve)
           })
         }
       })
@@ -189,7 +184,7 @@ const p1 = new XLPromise((resolve, reject) => {
   setTimeout(() => {
     // resolve(1111)
     reject('aaa')
-  }, 1000)
+  }, 2000)
 })
 
 const p2 = new XLPromise((resolve, reject) => {
@@ -203,14 +198,13 @@ const p3 = new XLPromise((resolve, reject) => {
   setTimeout(() => {
     // resolve(333)
     reject('cccc')
-  }, 2000)
+  }, 1000)
 })
 
-XLPromise.any([p1, p2, p3]).then(
-  (res) => {
+XLPromise.any([p1, p2, p3])
+  .then((res) => {
     console.log('res:', res)
-  },
-  (err) => {
+  })
+  .catch((err) => {
     console.log('err:', err.errors)
-  }
-)
+  })
