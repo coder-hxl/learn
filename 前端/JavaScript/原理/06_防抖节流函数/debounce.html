@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>取消</button>
+
+    <script src="https://unpkg.com/underscore@1.13.4/underscore-umd-min.js"></script>
+    <script src="./01_debounce.js"></script>
+    <script>
+      const inputEl = document.querySelector('input')
+      const cancelBtn = document.querySelector('button')
+
+      let counter = 0
+      function inputChange(event) {
+        console.log(`第${++counter}次网络请求~`, this, event)
+
+        return 'coderhxl'
+      }
+
+      // 防抖处理
+      const debounceChange = debounce(inputChange, 500, false, (result) => {
+        console.log('真正执行函数的结果:', result)
+      })
+      const tempCallback = function (...args) {
+        debounceChange.apply(this, args).then((res) => {
+          console.log('Promise:', res)
+        })
+      }
+
+      // inputEl.oninput = _.debounce(inputChange, 500)
+      // inputEl.oninput = debounceChange
+      inputEl.oninput = tempCallback
+
+      // 取消处理
+      cancelBtn.onclick = debounceChange.cancel
+    </script>
+  </body>
+</html>
