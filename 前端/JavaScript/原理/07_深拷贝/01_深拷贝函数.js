@@ -6,7 +6,7 @@ function isObject(value) {
 function deepClone(originValue) {
   if (Array.isArray(originValue)) {
     // 数组类型
-    return [...originValue]
+    return originValue.map((item) => deepClone(item))
   } else if (typeof originValue === 'function') {
     // 函数类型
     return originValue
@@ -54,7 +54,7 @@ const obj = {
     name: 'coderwhy',
     age: 18
   },
-  hobbies: ['abc', 'cba', 'nba'],
+  hobbies: [{}, 'cba', 'nba'],
   foo() {
     console.log('foo')
   },
@@ -74,6 +74,7 @@ const newObj = deepClone(obj)
 // console.log(obj === newObj)
 // console.log(obj.friend === newObj.friend)
 // console.log(obj.hobbies === newObj.hobbies)
+// console.log(obj.hobbies[0] === newObj.hobbies[0])
 // console.log(newObj[s1])
 // console.log(obj.s2 === newObj.s2)
 // console.log(obj.set === newObj.set)
