@@ -4,21 +4,28 @@ function isObject(value) {
 }
 
 function deepClone(originValue) {
-  // 其他类型
-  if (originValue instanceof Set) {
+  if (Array.isArray(originValue)) {
+    // 数组类型
+    return [...originValue]
+  } else if (typeof originValue === 'function') {
+    // 函数类型
+    return originValue
+  } else if (typeof originValue === 'symbol') {
+    // Symbol类型
+    return Symbol(originValue.description)
+  } else if (originValue instanceof Set) {
+    // Set类型
     return new Set([...originValue])
   } else if (originValue instanceof Map) {
+    // Map类型
     return new Map([...originValue])
-  } else if (originValue instanceof Symbol) {
-    return Symbol(originValue.description)
-  } else if (typeof originValue === 'function') {
-    return originValue
   } else if (!isObject(originValue)) {
+    // 其他类型
     return originValue
   }
 
-  // 处理对象类型或数组类型
-  const newObject = Array.isArray(originValue) ? [] : {}
+  // 处理对象类型
+  const newObject = {}
   for (const key in originValue) {
     if (originValue[key] === originValue) {
       newObject[key] = newObject
@@ -62,8 +69,13 @@ const obj = {
 
 obj.info = obj
 
-const newObject = deepClone(obj)
+const newObj = deepClone(obj)
 
-// console.log(obj === newObject)
-// console.log(obj.friend === newObject.friend)
-console.log(newObject.info.info.info)
+// console.log(obj === newObj)
+// console.log(obj.friend === newObj.friend)
+// console.log(obj.hobbies === newObj.hobbies)
+// console.log(newObj[s1])
+// console.log(obj.s2 === newObj.s2)
+// console.log(obj.set === newObj.set)
+// console.log(obj.map === newObj.map)
+console.log(newObj.info.info.info)
