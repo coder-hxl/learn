@@ -46,6 +46,6 @@ TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干
 
 ## 后端
 
-#### - Node(基础)
+#### - Node(学习中)
 
 Node 一个基于 Chrome V8 引擎 的 JavaScript 运行时环境。
