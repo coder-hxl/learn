@@ -24,7 +24,19 @@ const writeToFile = (path, content) => {
   return fs.promises.writeFile(path, content)
 }
 
+function createDirSync(pathName) {
+  if (fs.existsSync(pathName)) {
+    return true
+  } else {
+    if (createDirSync(path.dirname(pathName))) {
+      fs.mkdirSync(pathName)
+      return true
+    }
+  }
+}
+
 module.exports = {
   compile,
-  writeToFile
+  writeToFile,
+  createDirSync
 }

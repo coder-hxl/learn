@@ -1,15 +1,15 @@
 <script setup>
   import { ref } from 'vue'
-  const message = ref('Hello World')
+  const name = ref('<%= data.name %>')
 </script>
 
 <template>
   <div class="<%= data.lowerName %>">
-    <h1>{{ message }}</h1>
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
-<style lang="less" scoped>
+<style scoped>
   .<%= data.lowerName %> {
   }
 </style>
