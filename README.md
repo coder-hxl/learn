@@ -36,10 +36,6 @@ Vite 下一代前端开发与构建工具。
 
 ### 其他
 
-#### - AJAX
-
-AJAX 网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载整个页面。
-
 #### - TypeScript
 
 TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干净、完整的 JavaScript 代码。
