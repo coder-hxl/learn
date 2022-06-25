@@ -1,0 +1,1 @@
+import{a as r}from"./index.38f45ce1.js";function o(i,n){const e=r();function t(){window.innerWidth<=768?e.value=i:window.innerWidth>=768&&(e.value=n)}return t(),window.addEventListener("resize",()=>{t()}),e}export{o as r};

@@ -1,0 +1,1 @@
+import{_ as o,o as s,c as t,p as _,i as c,g as a}from"./index.38f45ce1.js";var n="/assets/not-found.121ec21c.svg";const d={},r=e=>(_("data-v-4642ef5a"),e=e(),c(),e),p={class:"not-found"},i=r(()=>a("img",{src:n},null,-1)),u=[i];function f(e,l){return s(),t("div",p,u)}var h=o(d,[["render",f],["__scopeId","data-v-4642ef5a"]]);export{h as default};
