@@ -1,6 +1,7 @@
+# DDL
+
 # 查看所有的数据库
 SHOW DATABASES;
-
 
 # 选择某一个数据库
 USE bili;
