@@ -40,11 +40,11 @@ Node 一个基于 Chrome V8 引擎 的 JavaScript 运行时环境。
 
 #### - Express
 
-Express 用于 Node.js 的快速、无主见、简约的 Web 框架
+Express 用于 Node.js 的快速、无主见、简约的 Web 框架。
 
 #### - Koa
 
-Koa 是 Node.js 的下一代 Web 框架 。
+Koa 是 Node.js 的下一代 Web 框架。
 
 
 #### - MySQL
