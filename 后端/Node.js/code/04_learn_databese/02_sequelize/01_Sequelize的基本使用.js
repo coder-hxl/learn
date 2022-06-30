@@ -5,8 +5,11 @@ const sequelize = new Sequelize('coderhub', 'root', 'root', {
   dialect: 'mysql'
 })
 
-sequelize.authenticate().then((res) => {
-  console.log('连接成功~');
-}).catch(err => {
-  console.log('连接失败~');
-})
+sequelize
+  .authenticate()
+  .then((res) => {
+    console.log('连接成功~')
+  })
+  .catch((err) => {
+    console.log('连接失败~')
+  })
