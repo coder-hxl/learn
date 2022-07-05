@@ -1,4 +1,6 @@
 import app from '@/app'
+import '@/app/database'
+
 import config from '@/app/config'
 
 app.listen(config.APP_PORT, () => {

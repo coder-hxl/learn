@@ -1,10 +1,7 @@
-import type Application from 'koa'
+import type { Middleware } from 'koa'
 
-interface IUsersController {
-  create(
-    ctx: Application.ParameterizedContext,
-    next: Application.Next
-  ): Promise<void>
+interface IUserController {
+  create: Middleware
 }
 
-export { IUsersController }
+export { IUserController }
