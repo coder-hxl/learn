@@ -4,4 +4,8 @@ interface IUserController {
   create: Middleware
 }
 
-export { IUserController }
+interface IAuthController {
+  login: Middleware
+}
+
+export { IUserController, IAuthController }

@@ -5,32 +5,32 @@ import errorType from '@/constants/error-type'
 
 import type { Middleware } from 'koa'
 
-const verifyUser: Middleware = async (ctx, next) => {
+const verifyLogin: Middleware = async (ctx, next) => {
   // 1.获取用户名和密码
   const { name, password } = ctx.request.body
 
-  // 2.判断用户名和密码不能为空
+  // 2.判断用户名和密码是否为空
   if (!name || !password) {
     const error = new Error(errorType.NAME_OR_PASSWORD_IS_REQUIRED)
     return ctx.app.emit('error', error, ctx)
   }
 
-  // 3.判断用户名是否已被注册
+  // 3.判断用户是否存在
   const result = await userService.getUserByName(name)
-  if (result.length) {
-    const error = new Error(errorType.USER_ALREADY_EXISTS)
+  const user = result[0]
+  if (!user) {
+    const error = new Error(errorType.USER_DOES_NOT_EXISTS)
     return ctx.app.emit('error', error, ctx)
   }
 
-  // 4.调用 next
+  // 4.验证密码
+  if (md5Password(password) !== user.password) {
+    const error = new Error(errorType.PASSWORD_IS_INCORRENT)
+    return ctx.app.emit('error', error, ctx)
+  }
+
+  // 5.调用next
   await next()
 }
 
-const handlePassword: Middleware = async (ctx, next) => {
-  const { password } = ctx.request.body
-  ctx.request.body.password = md5Password(password)
-
-  await next()
-}
-
-export { verifyUser, handlePassword }
+export { verifyLogin }

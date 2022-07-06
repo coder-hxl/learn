@@ -1,6 +1,6 @@
 import { userService } from '@/service/index'
 
-import { IUserController } from '../types'
+import { IUserController } from './types'
 
 const userController: IUserController = {
   async create(ctx, next) {

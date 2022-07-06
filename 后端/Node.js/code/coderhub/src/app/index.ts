@@ -1,13 +1,16 @@
 import Koa from 'koa'
 import koaBody from 'koa-body'
 
-import { userRouter } from '@/router'
+import useRoutes from '@/router'
 import errorHandle from './error-handle'
 
-const app = new Koa()
+import { IApp } from './app.types'
+
+const app: IApp = new Koa()
+app.useRoutes = useRoutes
 
 app.use(koaBody())
-app.use(userRouter.routes())
+app.useRoutes()
 
 app.on('error', errorHandle)
 
