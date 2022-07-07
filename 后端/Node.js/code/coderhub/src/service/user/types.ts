@@ -4,8 +4,8 @@ interface IUserInfo {
 }
 
 interface IUserService {
-  create(userInfo: IUserInfo): Promise<any>
-  getUserByName(userName: string): Promise<any>
+  create(userInfo: IUserInfo): any
+  getUserByName(userName: string): any
 }
 
 export { IUserService }

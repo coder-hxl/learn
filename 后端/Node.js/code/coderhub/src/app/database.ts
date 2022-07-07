@@ -1,13 +1,19 @@
 import mysql from 'mysql2'
 
-import config from './config'
+import {
+  MYSQL_HOST,
+  MYSQL_PORT,
+  MYSQL_USER,
+  MYSQL_PASSWORD,
+  MYSQL_DATABASE
+} from './config'
 
 const pool = mysql.createPool({
-  host: config.MYSQL_HOST,
-  port: config.MYSQL_PORT as unknown as number,
-  user: config.MYSQL_USER,
-  password: config.MYSQL_PASSWORD,
-  database: config.MYSQL_DATABASE
+  host: MYSQL_HOST,
+  port: MYSQL_PORT as unknown as number,
+  user: MYSQL_USER,
+  password: MYSQL_PASSWORD,
+  database: MYSQL_DATABASE
 })
 
 pool.getConnection((err) => {

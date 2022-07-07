@@ -1,8 +1,8 @@
 import app from '@/app'
 import '@/app/database'
 
-import config from '@/app/config'
+import { APP_PORT } from '@/app/config'
 
-app.listen(config.APP_PORT, () => {
-  console.log(`服务器在 ${config.APP_PORT} 端口启动成功~`)
+app.listen(APP_PORT, () => {
+  console.log(`服务器在 ${APP_PORT} 端口启动成功~`)
 })

@@ -1,3 +1,4 @@
-import userService from './user/user.service'
+import userService from './user'
+import momentService from './moment/index'
 
-export { userService }
+export { userService, momentService }

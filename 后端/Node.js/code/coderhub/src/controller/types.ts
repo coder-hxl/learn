@@ -6,6 +6,13 @@ interface IUserController {
 
 interface IAuthController {
   login: Middleware
+  success: Middleware
 }
 
-export { IUserController, IAuthController }
+interface IMomentController {
+  create: Middleware
+  detail: Middleware
+  list: Middleware
+}
+
+export { IUserController, IAuthController, IMomentController }

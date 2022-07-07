@@ -26,6 +26,11 @@ const errorHandle = (error: Error, ctx: ParameterizedContext) => {
       message = '密码是错误的~'
       break
 
+    case errorType.UNAUTHORIZATION:
+      status = 401 // 未授权
+      message = '无效的token~'
+      break
+
     default:
       status = 404
       message = 'NOT FOUND~'

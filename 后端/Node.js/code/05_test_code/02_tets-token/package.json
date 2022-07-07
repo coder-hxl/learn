@@ -1,0 +1,17 @@
+{
+  "name": "02_tets-token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^11.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4"
+  }
+}
