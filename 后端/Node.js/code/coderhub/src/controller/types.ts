@@ -13,6 +13,20 @@ interface IMomentController {
   create: Middleware
   detail: Middleware
   list: Middleware
+  update: Middleware
+  remove: Middleware
 }
 
-export { IUserController, IAuthController, IMomentController }
+interface ICommentController {
+  create: Middleware
+  reply: Middleware
+  update: Middleware
+  remove: Middleware
+}
+
+export {
+  IUserController,
+  IAuthController,
+  IMomentController,
+  ICommentController
+}

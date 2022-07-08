@@ -23,7 +23,7 @@ const momentService: IMomentService = {
       WHERE m.id = ?;
     `
 
-    const [result] = (await pool.execute(statement, [momentId])) as any[]
+    const [result]: any = await pool.execute(statement, [momentId])
 
     return result[0]
   },
@@ -34,6 +34,20 @@ const momentService: IMomentService = {
     `
 
     const [result] = await pool.execute(statement, [offset, size])
+
+    return result
+  },
+  async update(momentId, content) {
+    const statement = `UPDATE moments SET content = ? WHERE id = ?;`
+
+    const [result] = await pool.execute(statement, [content, momentId])
+
+    return result
+  },
+  async remove(momentId) {
+    const statement = 'DELETE FROM moments where id = ?'
+
+    const [result] = await pool.execute(statement, [momentId])
 
     return result
   }

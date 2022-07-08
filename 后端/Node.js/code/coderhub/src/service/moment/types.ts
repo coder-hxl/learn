@@ -1,9 +1,11 @@
-type identify = number | string
+import { numAndStr } from '../types'
 
 interface IMomentService {
-  create: (userId: identify, content: string) => any
-  getMomentById: (momentId: identify) => any
-  getMomentList: (offset: identify, size: identify) => any
+  create(userId: numAndStr, content: string): any
+  getMomentById(momentId: numAndStr): any
+  getMomentList(offset: numAndStr, size: numAndStr): any
+  update(momentId: numAndStr, content: string): any
+  remove(momentId: numAndStr): any
 }
 
 export { IMomentService }

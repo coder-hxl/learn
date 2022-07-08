@@ -31,6 +31,11 @@ const errorHandle = (error: Error, ctx: ParameterizedContext) => {
       message = '无效的token~'
       break
 
+    case errorType.NOT_PERMISSION:
+      status = 403 // 权限不够
+      message = '操作权限不够~'
+      break
+
     default:
       status = 404
       message = 'NOT FOUND~'

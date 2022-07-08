@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import { userService } from '@/service'
+import { userService, authService } from '@/service'
 import md5Password from '@/utils/passwordHandle'
 import errorType from '@/constants/error-type'
 import { PUBLIC_KEY } from '@/app/config'
@@ -53,4 +53,31 @@ const verifyAuth: Middleware = async (ctx, next) => {
   }
 }
 
-export { verifyLogin, verifyAuth }
+/**
+ * 1.很多的内容都需要验证权限: 修改/删除动态, 修改/删除评论
+ * 2.接口: 业务接口系统/后台管理系统
+ *   一对一: user -> role
+ *   多对多: role -> menu(删除动态/修改动态)
+ */
+const verifyPermission: Middleware = async (ctx, next) => {
+  const resourceKey = Object.keys(ctx.params)[0]
+
+  const tableName = resourceKey.replace('Id', 's')
+  const resourceId = ctx.params[resourceKey]
+  const { id } = ctx.user
+
+  // 验证权限
+  const result: boolean = await authService.checkResource(
+    tableName,
+    resourceId,
+    id
+  )
+  if (!result) {
+    const error = new Error(errorType.NOT_PERMISSION)
+    return ctx.app.emit('error', error, ctx)
+  }
+
+  await next()
+}
+
+export { verifyLogin, verifyAuth, verifyPermission }
