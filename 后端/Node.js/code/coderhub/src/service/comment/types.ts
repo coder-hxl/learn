@@ -10,6 +10,7 @@ interface ICommentService {
   ): void
   update(content: numAndStr, id: numAndStr): void
   remove(id: numAndStr): void
+  getCommentByMomentId(momentId: numAndStr): void
 }
 
 export { ICommentService }

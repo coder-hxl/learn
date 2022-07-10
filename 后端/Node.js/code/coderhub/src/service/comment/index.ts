@@ -35,6 +35,20 @@ const commentService: ICommentService = {
     const [result] = await pool.execute(statement, [id])
 
     return result
+  },
+  async getCommentByMomentId(momentId) {
+    const statement = `
+      SELECT
+        c.id, c.content, c.moment_id momentId,c.createAt createTime, c.updateAt updateTime,
+        JSON_OBJECT('id', u.id, 'name', u.name) author
+      FROM comments c
+      LEFT JOIN users u ON u.id = c.user_id
+      WHERE c.moment_id = ?;
+    `
+
+    const [result] = await pool.execute(statement, [momentId])
+
+    return result
   }
 }
 

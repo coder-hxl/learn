@@ -33,6 +33,13 @@ const commentController: ICommentController = {
     const result = await commentService.remove(commentId)
 
     ctx.body = result
+  },
+  async list(ctx, next) {
+    const { momentId }: any = ctx.query
+
+    const result = await commentService.getCommentByMomentId(momentId)
+
+    ctx.body = result
   }
 }
 

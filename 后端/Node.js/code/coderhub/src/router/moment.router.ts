@@ -2,6 +2,7 @@ import Router from '@koa/router'
 
 import { momentController } from '@/controller'
 import { verifyAuth, verifyPermission } from '@/middleware/auth.middleware'
+import { verifyLabelExists } from '@/middleware/label.middeware'
 
 const momentRouter = new Router({ prefix: '/moments' })
 
@@ -21,6 +22,15 @@ momentRouter.delete(
   verifyAuth,
   verifyPermission,
   momentController.remove
+)
+
+// 添加标签
+momentRouter.post(
+  '/:momentId/labels',
+  verifyAuth,
+  verifyPermission,
+  verifyLabelExists,
+  momentController.addLabels
 )
 
 export default momentRouter

@@ -15,6 +15,7 @@ interface IMomentController {
   list: Middleware
   update: Middleware
   remove: Middleware
+  addLabels: Middleware
 }
 
 interface ICommentController {
@@ -22,11 +23,18 @@ interface ICommentController {
   reply: Middleware
   update: Middleware
   remove: Middleware
+  list: Middleware
+}
+
+interface ILabelController {
+  create: Middleware
+  list: Middleware
 }
 
 export {
   IUserController,
   IAuthController,
   IMomentController,
-  ICommentController
+  ICommentController,
+  ILabelController
 }

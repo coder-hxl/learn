@@ -20,5 +20,6 @@ commentRouter.delete(
   verifyPermission,
   commentController.remove
 )
+commentRouter.get('/', commentController.list)
 
 export default commentRouter
