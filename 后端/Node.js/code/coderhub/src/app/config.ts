@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 const {
+  APP_HOST,
   APP_PORT,
   MYSQL_HOST,
   MYSQL_PORT,
@@ -19,6 +20,7 @@ const PRIVATE_KEY = fs.readFileSync(
 const PUBLIC_KEY = fs.readFileSync(path.resolve(__dirname, './keys/public.key'))
 
 export {
+  APP_HOST,
   APP_PORT,
   MYSQL_HOST,
   MYSQL_PORT,

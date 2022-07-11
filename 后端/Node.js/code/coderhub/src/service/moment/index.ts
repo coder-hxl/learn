@@ -13,20 +13,20 @@ const momentService: IMomentService = {
     const statement = `
       SELECT
         m.id id, m.content content, m.createAt createaTime, m.updateAt updateTime,
-        JSON_OBJECT('id', u.id, 'name', u.name) author,
+        JSON_OBJECT('id', u.id, 'name', u.name, 'avatarUrl', u.avatar_url) author,
       	IF(COUNT(l.id), JSON_ARRAYAGG(
       	  JSON_OBJECT('id', l.id, 'name', l.name)
       	), NULL) labels,
       	(SELECT
       	  IF(COUNT(c.id), JSON_ARRAYAGG(
       			JSON_OBJECT(
-      				'id', c.id, 'content', c.content, 'createTime', c.createAt,       'updateTime', c.updateAt,
-      				'author', JSON_OBJECT('id', cu.id, 'name', cu.name)
+      				'id', c.id, 'content', c.content, 'commentId', c.comment_id,'createTime', c.createAt, 'updateTime', c.updateAt,
+      				'author', JSON_OBJECT('id', cu.id, 'name', cu.name, 'avatarUrl', cu.avatar_url)
       			)
       		), NULL)
       	FROM comments c LEFT JOIN users cu ON cu.id = c.user_id
         WHERE c.moment_id = m.id
-      	) moments
+      	) comments
       FROM moments m
       LEFT JOIN users u ON m.user_id = u.id
       LEFT JOIN moments_labels ml ON ml.moment_id = m.id
@@ -62,7 +62,9 @@ const momentService: IMomentService = {
     return result
   },
   async remove(momentId) {
-    const statement = 'DELETE FROM moments where id = ?;'
+    const statement = 'DELETE FROM moments WHERE id = ?;'
+
+    console.log(momentId)
 
     const [result] = await pool.execute(statement, [momentId])
 

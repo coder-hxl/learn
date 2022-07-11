@@ -1,34 +1,39 @@
-import type { Middleware } from '@koa/router'
+import type { Middleware as RMiddleware } from '@koa/router'
 
 interface IUserController {
-  create: Middleware
+  create: RMiddleware
+  avatarInfo: RMiddleware
 }
 
 interface IAuthController {
-  login: Middleware
-  success: Middleware
+  login: RMiddleware
+  success: RMiddleware
 }
 
 interface IMomentController {
-  create: Middleware
-  detail: Middleware
-  list: Middleware
-  update: Middleware
-  remove: Middleware
-  addLabels: Middleware
+  create: RMiddleware
+  detail: RMiddleware
+  list: RMiddleware
+  update: RMiddleware
+  remove: RMiddleware
+  addLabels: RMiddleware
 }
 
 interface ICommentController {
-  create: Middleware
-  reply: Middleware
-  update: Middleware
-  remove: Middleware
-  list: Middleware
+  create: RMiddleware
+  reply: RMiddleware
+  update: RMiddleware
+  remove: RMiddleware
+  list: RMiddleware
 }
 
 interface ILabelController {
-  create: Middleware
-  list: Middleware
+  create: RMiddleware
+  list: RMiddleware
+}
+
+interface IFileController {
+  saveAvatarInfo: RMiddleware
 }
 
 export {
@@ -36,5 +41,6 @@ export {
   IAuthController,
   IMomentController,
   ICommentController,
-  ILabelController
+  ILabelController,
+  IFileController
 }

@@ -16,6 +16,20 @@ const userService: IUserService = {
     const result = await pool.execute(statement, [userName])
 
     return result[0]
+  },
+  async getAvatarById(id) {
+    const statement = `SELECT * FROM avatars WHERE user_id = ?;`
+
+    const [result]: any = await pool.execute(statement, [id])
+
+    return result[0]
+  },
+  async updateAvatarUrlById(avatarUrl, id) {
+    const statement = 'UPDATE users SET avatar_url = ? WHERE id = ?;'
+
+    const [result] = await pool.execute(statement, [avatarUrl, id])
+
+    return result
   }
 }
 

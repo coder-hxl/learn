@@ -1,6 +1,6 @@
 import pool from '@/app/database'
 
-import { ILabelService } from './type'
+import { ILabelService } from './types'
 
 const labelService: ILabelService = {
   async create(name) {
