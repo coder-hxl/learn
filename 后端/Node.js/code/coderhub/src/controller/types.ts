@@ -1,4 +1,4 @@
-import type { Middleware } from 'koa'
+import type { Middleware } from '@koa/router'
 
 interface IUserController {
   create: Middleware

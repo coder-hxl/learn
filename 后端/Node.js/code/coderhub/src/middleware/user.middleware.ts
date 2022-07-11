@@ -3,7 +3,7 @@ import md5Password from '@/utils/passwordHandle'
 
 import errorType from '@/constants/error-type'
 
-import type { Middleware } from 'koa'
+import type { Middleware } from '@koa/router'
 
 const verifyUser: Middleware = async (ctx, next) => {
   // 1.获取用户名和密码

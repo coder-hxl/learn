@@ -1,6 +1,6 @@
 import { labelService } from '@/service/index'
 
-import type { Middleware } from 'koa'
+import type { Middleware } from '@koa/router'
 
 type label = {
   id?: number
