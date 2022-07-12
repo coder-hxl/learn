@@ -1,6 +1,9 @@
-import { momentService } from '@/service'
+import fs from 'node:fs'
+
+import { momentService, fileService } from '@/service'
 
 import { IMomentController } from './types'
+import { PICTURE_PATH } from '@/constants/file-path'
 
 const momentController: IMomentController = {
   async create(ctx, next) {
@@ -63,6 +66,20 @@ const momentController: IMomentController = {
     }
 
     ctx.body = '成功给动态添加标签~'
+  },
+  async fileInfo(ctx, next) {
+    let { filename } = ctx.params
+
+    const fileInfoResult = await fileService.getFileByFilename(filename)
+
+    const { type } = ctx.query
+    const types = ['large', 'middle', 'small']
+    if (types.some((item) => item === type)) {
+      filename += '-' + type
+    }
+
+    ctx.response.set('Content-Type', fileInfoResult.mimetype)
+    ctx.body = fs.createReadStream(`${PICTURE_PATH}/${filename}`)
   }
 }
 

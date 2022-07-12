@@ -1,6 +1,7 @@
 import pool from '@/app/database'
 
 import { IMomentService } from './types'
+import { APP_HOST, APP_PORT } from '@/app/config'
 
 const momentService: IMomentService = {
   async create(userId, content) {
@@ -13,20 +14,24 @@ const momentService: IMomentService = {
     const statement = `
       SELECT
         m.id id, m.content content, m.createAt createaTime, m.updateAt updateTime,
-        JSON_OBJECT('id', u.id, 'name', u.name, 'avatarUrl', u.avatar_url) author,
+        JSON_OBJECT('id', u.id, 'name', u.name, 'avatarUrl',u.avatar_url) author,
       	IF(COUNT(l.id), JSON_ARRAYAGG(
       	  JSON_OBJECT('id', l.id, 'name', l.name)
       	), NULL) labels,
       	(SELECT
       	  IF(COUNT(c.id), JSON_ARRAYAGG(
       			JSON_OBJECT(
-      				'id', c.id, 'content', c.content, 'commentId', c.comment_id,'createTime', c.createAt, 'updateTime', c.updateAt,
-      				'author', JSON_OBJECT('id', cu.id, 'name', cu.name, 'avatarUrl', cu.avatar_url)
+      				'id', c.id, 'content', c.content, 'commentId', c.comment_id,      'createTime', c.createAt, 'updateTime', c.updateAt,
+      				'author', JSON_OBJECT('id', cu.id, 'name', cu.name, 'avatarUrl',cu.avatar_url)
       			)
       		), NULL)
-      	FROM comments c LEFT JOIN users cu ON cu.id = c.user_id
-        WHERE c.moment_id = m.id
-      	) comments
+      	FROM comments c LEFT JOIN users cu ON cu.id = c.user_id WHERE c.moment_id = m.id
+      	) comments,
+      	(SELECT
+          JSON_ARRAYAGG(
+            CONCAT('${APP_HOST}:${APP_PORT}/moments/images/', f.filename)
+          )
+        FROM files f WHERE f.moment_id = m.id) images
       FROM moments m
       LEFT JOIN users u ON m.user_id = u.id
       LEFT JOIN moments_labels ml ON ml.moment_id = m.id

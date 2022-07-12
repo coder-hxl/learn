@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-import { userService } from '@/service'
+import { userService, fileService } from '@/service'
 
 import { AVATAR_PATH } from '@/constants/file-path'
 
@@ -22,7 +22,7 @@ const userController: IUserController = {
     const { userId } = ctx.params
 
     // 2.通过id获取头像信息
-    const result = await userService.getAvatarById(userId)
+    const result = await fileService.getAvatarById(userId)
 
     // 3.返回内容
     ctx.response.set('Content-Type', result.mimetype)

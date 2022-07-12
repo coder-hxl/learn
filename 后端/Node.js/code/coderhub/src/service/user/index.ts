@@ -10,17 +10,9 @@ const userService: IUserService = {
 
     return result[0]
   },
-
   async getUserByName(userName) {
     const statement = `SELECT * FROM users WHERE name = ?`
     const result = await pool.execute(statement, [userName])
-
-    return result[0]
-  },
-  async getAvatarById(id) {
-    const statement = `SELECT * FROM avatars WHERE user_id = ?;`
-
-    const [result]: any = await pool.execute(statement, [id])
 
     return result[0]
   },

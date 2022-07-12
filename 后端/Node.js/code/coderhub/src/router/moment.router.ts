@@ -33,4 +33,7 @@ momentRouter.post(
   momentController.addLabels
 )
 
+// 获取动态图像
+momentRouter.get('/images/:filename', momentController.fileInfo)
+
 export default momentRouter

@@ -17,6 +17,7 @@ interface IMomentController {
   update: RMiddleware
   remove: RMiddleware
   addLabels: RMiddleware
+  fileInfo: RMiddleware
 }
 
 interface ICommentController {
@@ -34,6 +35,7 @@ interface ILabelController {
 
 interface IFileController {
   saveAvatarInfo: RMiddleware
+  savePictureInfo: RMiddleware
 }
 
 export {
