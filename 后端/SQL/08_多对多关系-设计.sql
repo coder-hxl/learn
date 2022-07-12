@@ -54,26 +54,26 @@ INSERT INTO `students_select_courses` (students_id, courses_id) VALUES (4, 4);
 # 4.查询需求
 # 4.1. 查询所有以选课的学生
 SELECT stu.id id, stu.name stuName, stu.age stuAge, cs.id csID, cs.name csName, cs.price csPrice
-FROM `students` stu 
+FROM `students` stu
 JOIN `students_select_courses` ssc ON stu.id = ssc.students_id
 JOIN `courses` cs ON ssc.courses_id = cs.id;
 
 # 4.2. 查询所有学生的选课情况
 SELECT stu.id id, stu.name stuName, stu.age stuAge, cs.id csID, cs.name csName, cs.price csPrice
-FROM `students` stu 
+FROM `students` stu
 LEFT JOIN `students_select_courses` ssc ON stu.id = ssc.students_id
 LEFT JOIN `courses` cs ON ssc.courses_id = cs.id;
 
 # 4.3. 查询没有选课的学生
 SELECT stu.id id, stu.name stuName, stu.age stuAge, cs.id csID, cs.name csName, cs.price csPrice
-FROM `students` stu 
+FROM `students` stu
 LEFT JOIN `students_select_courses` ssc ON stu.id = ssc.students_id
 LEFT JOIN `courses` cs ON ssc.courses_id = cs.id
 WHERE cs.id IS NULL;
 
 # 4.4. 查询哪些课程是没被选的
 SELECT stu.id id, stu.name stuName, stu.age stuAge, cs.id csID, cs.name csName, cs.price csPrice
-FROM `students` stu 
+FROM `students` stu
 RIGHT JOIN `students_select_courses` ssc ON stu.id = ssc.students_id
 RIGHT JOIN `courses` cs ON ssc.courses_id = cs.id
 WHERE stu.id IS NULL;
@@ -83,7 +83,7 @@ SELECT stu.id id, stu.name stuName, stu.age stuAge, cs.id csId, cs.name csName, 
 FROM `students` stu
 LEFT JOIN `students_select_courses` ssc ON stu.id = ssc.students_id
 LEFT JOIN `courses` cs ON ssc.courses_id = cs.id
-WHERE stu.id = 1;  
+WHERE stu.id = 1;
 
 
 

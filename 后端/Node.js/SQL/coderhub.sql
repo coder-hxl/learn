@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `moments` (
 	user_id INT NOT NULL,
 	createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	FOREIGN KEY(user_id) REFERENCES users(id) 
+	FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
 
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 	comment_id INT DEFAULT NULL,
 	createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	
+
 	FOREIGN KEY (moment_id) REFERENCES moments(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (comment_id) REFERENCES comments(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -127,7 +127,7 @@ SELECT
   m.id id, m.content content, m.createAt createaTime, m.updateAt updateTime,
   JSON_OBJECT('id', u.id, 'name', u.name, 'avatarUrl',u.avatar_url) author,
 	IF(COUNT(l.id), JSON_ARRAYAGG(JSON_OBJECT('id', l.id, 'name', l.name)), NULL) labels,
-	(SELECT 
+	(SELECT
 	  IF(COUNT(c.id), JSON_ARRAYAGG(
 			JSON_OBJECT(
 				'id', c.id, 'content', c.content, 'commentId', c.comment_id, 'createTime', c.createAt, 'updateTime', c.updateAt,

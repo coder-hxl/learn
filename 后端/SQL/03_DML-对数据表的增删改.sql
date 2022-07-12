@@ -1,7 +1,7 @@
 # DML
 
 # 插入数据
-INSERT INTO `user` VALUES (100, 'hxl', '123456', '2022-06-25', '2022-06-26'); 
+INSERT INTO `user` VALUES (100, 'hxl', '123456', '2022-06-25', '2022-06-26');
 INSERT INTO `user` (name, tplPhone, createTime, updateTime) VALUES ('why', '654321', '2022-06-25', '2022-06-26');
 
 INSERT INTO `user` (name, tplPhone) VALUES ('lilei', '15626');
