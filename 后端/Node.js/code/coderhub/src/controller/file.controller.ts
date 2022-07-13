@@ -10,10 +10,14 @@ const fileController: IFileController = {
   async saveAvatarInfo(ctx, next) {
     // 1.获取图像信息
     const { filename, mimetype, size } = ctx.request.file
-    const { id } = ctx.user
+    const { id, hasOldAvatar } = ctx.user
 
     // 2.将图像信息保存到数据库中
-    await fileService.createAvatar(filename, mimetype, size, id)
+    if (hasOldAvatar) {
+      await fileService.updateAvatarById(filename, mimetype, size, id)
+    } else {
+      await fileService.createAvatar(filename, mimetype, size, id)
+    }
 
     // 3.添加图像url到用户表中
     const avatarUrl = `${APP_HOST}:${APP_PORT}/users/${id}/avatar`

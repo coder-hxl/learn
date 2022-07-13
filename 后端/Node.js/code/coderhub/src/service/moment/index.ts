@@ -36,7 +36,8 @@ const momentService: IMomentService = {
       LEFT JOIN users u ON m.user_id = u.id
       LEFT JOIN moments_labels ml ON ml.moment_id = m.id
       LEFT JOIN labels l ON l.id = ml.label_id
-      WHERE m.id = ?;
+      WHERE m.id = ?
+      GROUP BY m.id;
     `
 
     const [result]: any = await pool.execute(statement, [momentId])

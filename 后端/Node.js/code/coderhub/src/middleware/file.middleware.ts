@@ -16,10 +16,10 @@ const avatarHandler = avatarUpload.single('avatar')
 const verifyAvatarExists: RMiddleware = async (ctx, next) => {
   const { id } = ctx.user
 
-  // 删除旧的头像
+  // 处理旧的头像
   const oldAvatar = await fileService.getAvatarById(id)
   if (oldAvatar) {
-    await fileService.deleteAvatarById(id)
+    ctx.user.hasOldAvatar = true
     await fs.unlink(`${AVATAR_PATH}/${oldAvatar.filename}`)
   }
 

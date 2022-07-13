@@ -6,7 +6,12 @@ interface IFileService {
     userId: number
   ): any
   getAvatarById(id: string): any
-  deleteAvatarById(id: string): any
+  updateAvatarById(
+    filename: string,
+    mimetype: string,
+    size: number,
+    userId: string
+  ): any
   createfile(
     filename: string,
     mimetype: string,

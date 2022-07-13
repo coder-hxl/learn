@@ -3,7 +3,7 @@ import { IFileService } from './types'
 
 const fileService: IFileService = {
   async createAvatar(filename, mimetype, size, userId) {
-    const statement = `INSERT INTO avatars (filename, mimetype, size, user_id) VALUES (?, ?, ?, ?)`
+    const statement = `INSERT INTO avatars (filename, mimetype, size, user_id) VALUES (?, ?, ?, ?);`
 
     const [result] = await pool.execute(statement, [
       filename,
@@ -21,10 +21,16 @@ const fileService: IFileService = {
 
     return result[0]
   },
-  async deleteAvatarById(id) {
-    const statement = 'DELETE FROM avatars WHERE user_id = ?;'
+  async updateAvatarById(filename, mimetype, size, userId) {
+    const statement =
+      'UPDATE avatars SET filename = ?, mimetype = ?, size = ? WHERE user_id = ?;'
 
-    const [result] = await pool.execute(statement, [id])
+    const [result] = await pool.execute(statement, [
+      filename,
+      mimetype,
+      size,
+      userId
+    ])
 
     return result
   },
