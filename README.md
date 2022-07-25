@@ -34,9 +34,9 @@ Vite 下一代前端开发与构建工具。
 
 ## 后端
 
-#### - Node
+#### - Node.js
 
-Node 一个基于 Chrome V8 引擎 的 JavaScript 运行时环境。
+Node.js 一个基于 Chrome V8 引擎 的 JavaScript 运行时环境。
 
 #### - Express
 
