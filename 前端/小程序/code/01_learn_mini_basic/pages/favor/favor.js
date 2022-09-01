@@ -1,66 +1,25 @@
 // pages/favor/favor.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    message: 'Hello World',
+    movies: ['明日战记', '流浪地球', '新封神'],
+    count: 0
   },
+  // 监听的事件方法
+  increament() {
+    console.log('+1')
+    // 直接修改不会引起页面的刷新
+    // this.data.count++
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+    // 修改 data 后, 想要页面重新渲染, 必须使用 this.setData()
+    this.setData({
+      count: this.data.count + 1
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  decrement() {
+    console.log('-1')
+    this.setData({
+      count: this.data.count - 1
+    })
   }
 })

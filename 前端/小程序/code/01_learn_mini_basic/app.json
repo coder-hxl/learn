@@ -1,13 +1,44 @@
 {
-  "pages":[
+  "pages": [
+    "pages/favor/favor",
     "pages/index/index",
-    "pages/favor/favor"
+    "pages/category/category",
+    "pages/profile/profile"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "哈哈哈",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#ff8189",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/index/index",
+        "iconPath": "./assets/tabbar/home.png",
+        "selectedIconPath": "./assets/tabbar/home_active.png"
+      },
+      {
+        "text": "收藏",
+        "pagePath": "pages/favor/favor",
+        "iconPath": "./assets/tabbar/cart.png",
+        "selectedIconPath": "./assets/tabbar/cart_active.png"
+      },
+      {
+        "text": "分类",
+        "pagePath": "pages/category/category",
+        "iconPath": "./assets/tabbar/category.png",
+        "selectedIconPath": "./assets/tabbar/home_active.png"
+      },
+      {
+        "text": "个人",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "./assets/tabbar/profile.png",
+        "selectedIconPath": "./assets/tabbar/profile_active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
