@@ -4,7 +4,9 @@
     "pages/category/category",
     "pages/shopCart/shopCart",
     "pages/profile/profile",
-    "pages/01_register-page/index"
+    "pages/01_register-page/index",
+    "pages/02_common-cpns/index",
+    "pages/03_learn_wxss/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -33,7 +35,6 @@
         "iconPath": "./assets/tabbar/cart.png",
         "selectedIconPath": "./assets/tabbar/cart_active.png"
       },
-
       {
         "text": "个人",
         "pagePath": "pages/profile/profile",

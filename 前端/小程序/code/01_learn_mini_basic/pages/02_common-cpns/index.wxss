@@ -1,0 +1,29 @@
+/* pages/02_common-cpns/index.wxss */
+.bg-orange {
+  background-color: orange;
+}
+
+.image {
+  width: 100%;
+}
+
+.sv-container {
+  height: 200px;
+  background-color: orange;
+}
+
+.scroll-x {
+  display: flex;
+}
+
+.sv-item {
+  width: 120px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid orange;
+}
