@@ -1,3 +1,4 @@
 .index .btn {
-  margin-top: 5px;
+  margin-top: 6px;
+  background-color: orange;
 }

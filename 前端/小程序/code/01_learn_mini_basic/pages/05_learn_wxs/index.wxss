@@ -1,0 +1,17 @@
+/* pages/05_learn_wxs/index.wxss */
+.all-price {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: red;
+}
+
+.play-count {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: orange;
+}
+
+.time {
+  font-size: 40rpx;
+  font-weight: 600;
+}

@@ -1,0 +1,36 @@
+/* pages/06_learn_event/index.wxss */
+.outer {
+  height: 100rpx;
+  background-color: orange;
+}
+
+.outer .inner {
+  width: 100rpx;
+  height: 80rpx;
+  background-color: orangered;
+}
+
+.toches {
+  height: 100rpx;
+  background-color: palegoldenrod;
+}
+
+.arguments {
+  height: 100rpx;
+  background-color: cadetblue;
+}
+
+.tab-control {
+  display: flex;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.tab-control .tab-title {
+  flex: 1;
+}
+
+.tab-control .activate {
+  color: orange;
+}

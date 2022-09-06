@@ -1,0 +1,24 @@
+<!--pages/06_learn_event/index.wxml-->
+<!-- 1. event 中 tagert 和 currentTarget 的区别 -->
+<view id="outer" class="outer" data-name="outer" bindtap="onOuterTap">
+  <view id="inner" class="inner"></view>
+</view>
+
+<!-- 2. event 中 touches 和 changeTouches 的区别 -->
+<view class="toches" bindtap="onTouchesTap" bindtouchend="onTouchend" bindlongpress="onLongpress">
+  多指触摸
+</view>
+
+<!-- 3. event 中传递参数 -->
+<view class="arguments" bindtap="onArgumentsTap" data-name="hxl" data-age="{{18}}">
+  参数传递
+</view>
+
+<!-- 4. tab-control 案例 -->
+<view class="tab-control" bindtap="onTabTap">
+  <block wx:for="{{tabTitle}}" wx:key="*this">
+    <view class="tab-title">
+      {{item}}
+    </view>
+  </block>
+</view>

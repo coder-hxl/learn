@@ -1,0 +1,32 @@
+<!--pages/05_learn_wxs/index.wxml-->
+<!-- 1.方式一: 标签 -->
+<!-- <wxs module="format">
+  function formatPrice(price) {
+    return '￥' + price
+  }
+
+  module.exports = {
+    formatPrice: formatPrice
+  }
+</wxs> -->
+
+<!-- 2.方式二: 独立文件, 通过 src 引入 -->
+<wxs module="format" src="/utils/format.wxs"></wxs>
+
+<view>
+  <block wx:for="{{books}}" wx:key="id">
+    <view>name: {{ item.name }} - price: {{ format.formatPrice(item.price) }}</view>
+  </block>
+</view>
+
+<view class="all-price">总价格: {{ format.formatCalcPrice(books) }}</view>
+
+
+<view> ----------------- 练习 ----------------- </view>
+<view class="play-count">
+  播放量: {{ format.formatCount(playCount) }}
+</view>
+
+<view class="time">
+  {{ format.formatTime(currentTiem) }}/{{ format.formatTime(duration) }}
+</view>

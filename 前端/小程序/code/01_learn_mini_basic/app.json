@@ -6,7 +6,10 @@
     "pages/profile/profile",
     "pages/01_register-page/index",
     "pages/02_common-cpns/index",
-    "pages/03_learn_wxss/index"
+    "pages/03_learn_wxss/index",
+    "pages/04_learn_wxml/index",
+    "pages/05_learn_wxs/index",
+    "pages/06_learn_event/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
