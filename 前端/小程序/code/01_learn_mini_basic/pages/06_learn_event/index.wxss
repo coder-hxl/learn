@@ -33,4 +33,5 @@
 
 .tab-control .activate {
   color: orange;
+  border-bottom: 2px solid orange;
 }

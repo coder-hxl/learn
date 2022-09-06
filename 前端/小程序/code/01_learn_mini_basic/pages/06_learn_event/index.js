@@ -2,7 +2,7 @@
 Page({
   data: {
     tabTitle: ['手机', '电脑', 'ipad'],
-    currentNum: 0
+    currentIndex: 0
   },
   onOuterTap(event) {
     console.log('target: ', event.target)
@@ -21,8 +21,8 @@ Page({
     const data = event.currentTarget.dataset
     console.log('onArgumentsTap: ', data)
   },
-  onTabTap(event) {
-    const currentNum = event.currentTarget.dataset
-    this.setData({ currentNum })
+  onTabTitleTap(event) {
+    const currentIndex = event.currentTarget.dataset.index
+    this.setData({ currentIndex })
   }
 })

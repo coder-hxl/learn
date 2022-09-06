@@ -15,9 +15,9 @@
 </view>
 
 <!-- 4. tab-control 案例 -->
-<view class="tab-control" bindtap="onTabTap">
+<view class="tab-control">
   <block wx:for="{{tabTitle}}" wx:key="*this">
-    <view class="tab-title">
+    <view class="tab-title {{index === currentIndex ? 'activate' : ''}}" bindtap="onTabTitleTap" data-index="{{index}}">
       {{item}}
     </view>
   </block>
