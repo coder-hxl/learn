@@ -1,0 +1,13 @@
+/* components/my-slot/my-slot.wxss */
+
+.my-slot {
+  margin: 40rpx 0;
+}
+
+.default {
+  display: none;
+}
+
+.content:empty + .default {
+  display: block;
+}

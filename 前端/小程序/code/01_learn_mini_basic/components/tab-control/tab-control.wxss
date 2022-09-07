@@ -1,0 +1,16 @@
+/* components/tab-control/tab-control.wxss */
+.tab-control {
+  display: flex;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.tab-control .tab-title {
+  flex: 1;
+}
+
+.tab-control .activate {
+  color: orange;
+  border-bottom: 6rpx solid orange;
+}

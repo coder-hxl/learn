@@ -1,0 +1,5 @@
+<!--components/test-style/test-style.wxml-->
+<view class="test">
+  <view>你好</view>
+  <view>test-style</view>
+</view>

@@ -9,7 +9,10 @@
     "pages/03_learn_wxss/index",
     "pages/04_learn_wxml/index",
     "pages/05_learn_wxs/index",
-    "pages/06_learn_event/index"
+    "pages/06_learn_event/index",
+    "pages/07_learn_cpns/index",
+    "pages/08_learn_slot/index",
+    "components/my-slot/my-slot"
   ],
   "window": {
     "backgroundTextStyle": "dark",
