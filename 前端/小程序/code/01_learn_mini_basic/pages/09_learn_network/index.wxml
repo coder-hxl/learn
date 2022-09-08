@@ -1,0 +1,7 @@
+<!--pages/09_learn_network/index.wxml-->
+<view>
+  <block wx:for="{{houseList}}" wx:key="abc">
+    <image src="{{item.data.image.url}}" mode="widthFix"></image>
+    <view>{{ item.data.houseName }}</view>
+  </block>
+</view>
