@@ -13,7 +13,10 @@
     "pages/07_learn_cpns/index",
     "pages/08_learn_slot/index",
     "pages/09_learn_network/index",
-    "pages/10_learn_api/index"
+    "pages/10_learn_api/index",
+    "pages/11_learn_nav/index",
+    "pages/12_learn_login/index",
+    "page2/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

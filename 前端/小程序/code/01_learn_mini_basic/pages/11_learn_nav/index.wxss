@@ -1,0 +1,9 @@
+/* pages/11_learn_nav/index.wxss */
+
+.nav {
+  margin: 20rpx 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: orange;
+}

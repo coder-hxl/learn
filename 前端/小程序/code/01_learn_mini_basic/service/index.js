@@ -42,3 +42,4 @@ class XlRequest {
 }
 
 export const xlResInstance = new XlRequest('http://codercba.com:1888/api')
+export const xlResLoginInstace = new XlRequest('http://123.207.32.32:3000')
