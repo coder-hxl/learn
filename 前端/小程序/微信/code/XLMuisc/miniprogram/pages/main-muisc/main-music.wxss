@@ -1,1 +1,7 @@
 /* pages/main-muisc/main-music.wxss */
+
+page {
+  --search-background-color: #fff;
+
+  background-color: #fafafa;
+}

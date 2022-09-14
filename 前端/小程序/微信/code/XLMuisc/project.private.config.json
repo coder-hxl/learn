@@ -9,9 +9,16 @@
     "miniprogram": {
       "list": [
         {
-          "name": "",
+          "name": "推荐视频",
           "pathName": "pages/main-video/main-video",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "视频详情",
+          "pathName": "pages/detail-video/detail-video",
+          "query": "id=14544676",
           "launchMode": "default",
           "scene": null
         }

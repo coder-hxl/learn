@@ -1,2 +1,2 @@
 <!--pages/main-muisc/main-music.wxml-->
-<text>pages/main-muisc/main-music.wxml</text>
+<van-search value="{{searchValue}}" placeholder="请输入搜索关键词" background="fafafa" bind:click-input="onClickInput" />

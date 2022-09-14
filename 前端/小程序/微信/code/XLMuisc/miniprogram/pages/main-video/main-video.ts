@@ -3,7 +3,8 @@ import { getTopMV } from '../../services/video'
 // pages/main-video/main-video.ts
 Page({
   data: {
-    topMV: [],
+    topMV: [] as any[],
+    mapTopMV: [] as any[],
     offset: 0,
     hasMore: true
   },
@@ -15,12 +16,24 @@ Page({
   async fetchTopMV() {
     // 1.获取数据
     const res = await getTopMV(this.data.offset)
+    const newMapTopMVList = res.data.map((item: any) => {
+      return {
+        id: item.id,
+        cover: item.cover,
+        playCount: item.playCount,
+        duration: item.mv.videos[0].duration,
+        name: item.name,
+        artistName: item.artistName
+      }
+    })
 
-    // 2.追加数据
-    const newList = [...this.data.topMV, ...res.data]
+    // 2.合并数据
+    const newTopMV = [...this.data.topMV, ...res.data]
+    const mapTopMV = [...this.data.mapTopMV, ...newMapTopMVList]
 
     // 3.设置新数据
-    this.setData({ topMV: newList as [] })
+    this.setData({ mapTopMV })
+    this.data.topMV = newTopMV
     this.data.offset = this.data.topMV.length
     this.data.hasMore = res.hasMore
   },
@@ -35,7 +48,8 @@ Page({
 
   async onPullDownRefresh() {
     // 1.初始化数据
-    this.setData({ topMV: [] })
+    this.data.mapTopMV = []
+    this.data.topMV = []
     this.data.offset = 0
     this.data.hasMore = true
 
