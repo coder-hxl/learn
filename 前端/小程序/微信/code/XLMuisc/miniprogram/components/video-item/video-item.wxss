@@ -8,8 +8,8 @@
 
 .video-item .album {
   position: relative;
-  width: 100%;
   display: flex;
+  width: 100%;
 }
 
 .album .image {
@@ -18,20 +18,20 @@
 }
 
 .album .info {
-  box-sizing: border-box;
   position: absolute;
   bottom: 6rpx;
-  padding: 0 10rpx;
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  width: 100%;
   color: #fff;
   font-size: 26rpx;
 }
 
 .info .count {
-  padding-left: 34rpx;
   position: relative;
+  padding-left: 34rpx;
 }
 
 .info .count::before {
@@ -46,11 +46,11 @@
 }
 
 .content {
-  padding: 10rpx;
-  height: 120rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10rpx;
+  height: 120rpx;
 }
 
 .content .vname {
@@ -66,5 +66,5 @@
 
 .content .aname {
   font-size: 24rpx;
-  color: rgb(99, 99, 99);
+  color: #888;
 }

@@ -1,8 +1,5 @@
 // components/video-item/video-item.ts
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     videoData: {
       type: Object,

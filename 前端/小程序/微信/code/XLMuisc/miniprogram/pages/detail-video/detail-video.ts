@@ -9,7 +9,7 @@ Page({
     simiMV: []
   },
 
-  onLoad(options) {
+  onLoad(options: any) {
     // 1.获取数据
     const id = Number(options.id)
 

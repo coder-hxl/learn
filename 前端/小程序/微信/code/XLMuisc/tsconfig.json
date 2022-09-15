@@ -17,7 +17,11 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "lib": ["ES2020"],
-    "typeRoots": ["./typings"]
+    "types": ["miniprogram-api-typings"],
+    "baseUrl": ".",
+    "paths": {
+      "@vant/weapp/*": ["./node_modules/@vant/weapp/dist/*"]
+    }
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules"]

@@ -13,17 +13,16 @@ page {
 }
 
 .scroll .info {
-  padding: 0 20rpx;
-  margin-bottom: 60rpx;
-  height: 100rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 60rpx;
+  padding: 0 20rpx;
+  height: 100rpx;
 }
 
-.info .vname {
-  font-size: 28rpx;
-
+.info .vname,
+.aname {
   /* 显示两行 */
   overflow: hidden;
   text-overflow: ellipsis;
@@ -32,9 +31,13 @@ page {
   -webkit-box-orient: vertical;
 }
 
+.info .vname {
+  font-size: 28rpx;
+}
+
 .info .aname {
   font-size: 24rpx;
-  color: rgb(99, 99, 99);
+  color: #888;
 }
 
 .scroll .related {
@@ -44,12 +47,17 @@ page {
 
 /* 组件样式 */
 .e-video-item {
+  display: flex;
   margin: 0 !important;
   padding: 20rpx 0;
-  display: flex;
   border: 2rpx solid #e0e0e0;
+  border-top: 2rpx solid transparent;
   border-radius: none !important;
   box-shadow: none !important;
+}
+
+.related .video-item:first-child .e-video-item {
+  border-top: 2rpx solid #e0e0e0;
 }
 
 .e-video-item .e-album {
@@ -60,5 +68,5 @@ page {
 }
 
 .e-video-item .e-content {
-  flex: 1.6;
+  flex: 1.8;
 }

@@ -10,7 +10,7 @@
 
   <view class="related">
     <block wx:for="{{simiMV}}" wx:key="vid">
-      <video-item e-video-item="e-video-item" e-album="e-album" e-content="e-content" videoData="{{item}}" />
+      <video-item class="video-item" e-video-item="e-video-item" e-album="e-album" e-content="e-content" videoData="{{item}}" />
     </block>
   </view>
 </scroll-view>

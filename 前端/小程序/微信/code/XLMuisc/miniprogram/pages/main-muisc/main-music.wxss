@@ -2,6 +2,18 @@
 
 page {
   --search-background-color: #fff;
+  --search-padding: 20rpx 0;
 
+  box-sizing: border-box;
+  padding: 0 30rpx;
   background-color: #fafafa;
+}
+
+.banner {
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.banner .banner-image {
+  width: 100%;
 }
