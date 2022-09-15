@@ -1,8 +1,8 @@
 import { getBanner } from '../../services/music'
-import querySelect from '../../utils/query-select'
+import querySelect, { IQuerySelectRes } from '../../utils/query-select'
 import throttle from '../../utils/throttle'
 
-const querySelectThrottle = throttle(querySelect)
+const querySelectThrottle = throttle<IQuerySelectRes>(querySelect)
 
 Page({
   data: {
@@ -16,7 +16,7 @@ Page({
   },
 
   async onBannerImageLoad() {
-    const res: any = await querySelectThrottle('.banner-image')
+    const res = await querySelectThrottle('.banner-image')
     this.setData({ bannerHeight: res[0].height })
     console.log(res)
   },

@@ -11,11 +11,17 @@ interface IQuerySelectResItem {
   nv_length: number
 }
 
+type IQuerySelectRes =IQuerySelectResItem[]
+
 export default function querySelect(target: string) {
-  return new Promise<IQuerySelectResItem[]>((resolve) => {
+  return new Promise<IQuerySelectRes>((resolve) => {
     const query = wx.createSelectorQuery()
     query.select(target).boundingClientRect()
     query.selectViewport()
     query.exec(resolve)
   })
+}
+
+export {
+  IQuerySelectRes
 }

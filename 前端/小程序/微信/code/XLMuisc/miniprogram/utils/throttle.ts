@@ -1,4 +1,4 @@
-export default function throttle(
+export default function throttle<T = any>(
   fn: Function,
   interval = 200,
   options = { leading: true, trailing: false, resultCallback: Function }
@@ -10,7 +10,7 @@ export default function throttle(
 
   // 2.事件触发时, 真正执行的函数
   function _throttle(this: any, ...args: any[]) {
-    return new Promise((resolve) => {
+    return new Promise<T>((resolve) => {
       // 2.1.获取事件触发时的时间
       const nowTime = new Date().getTime()
       if (!leading && !lastTime) lastTime = nowTime
