@@ -11,7 +11,7 @@ interface IQuerySelectResItem {
   nv_length: number
 }
 
-type IQuerySelectRes =IQuerySelectResItem[]
+type IQuerySelectRes = IQuerySelectResItem[]
 
 export default function querySelect(target: string) {
   return new Promise<IQuerySelectRes>((resolve) => {
@@ -22,6 +22,4 @@ export default function querySelect(target: string) {
   })
 }
 
-export {
-  IQuerySelectRes
-}
+export { IQuerySelectRes }

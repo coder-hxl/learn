@@ -17,3 +17,13 @@ page {
 .banner .banner-image {
   width: 100%;
 }
+
+.new-song {
+  display: flow-root;
+  margin: 30rpx 0;
+}
+
+.new-song .list .song-item-v1 {
+  display: flow-root;
+  margin: 22rpx 0;
+}

@@ -1,8 +1,8 @@
-export default function throttle<T = any>(
-  fn: Function,
+export default function throttle<T extends Function>(
+  fn: T,
   interval = 200,
   options = { leading: true, trailing: false, resultCallback: Function }
-) {
+): T {
   // 1.计算剩余的时间
   const { leading, trailing, resultCallback } = options
   let lastTime = 0
@@ -10,7 +10,7 @@ export default function throttle<T = any>(
 
   // 2.事件触发时, 真正执行的函数
   function _throttle(this: any, ...args: any[]) {
-    return new Promise<T>((resolve) => {
+    return new Promise((resolve) => {
       // 2.1.获取事件触发时的时间
       const nowTime = new Date().getTime()
       if (!leading && !lastTime) lastTime = nowTime
@@ -46,5 +46,5 @@ export default function throttle<T = any>(
     timer = null
   }
 
-  return _throttle
+  return (_throttle as Function) as T
 }

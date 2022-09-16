@@ -66,5 +66,5 @@
 
 .content .aname {
   font-size: 24rpx;
-  color: #888;
+  color: #555;
 }

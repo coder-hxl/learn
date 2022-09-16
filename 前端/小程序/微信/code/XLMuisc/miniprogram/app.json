@@ -3,7 +3,8 @@
     "pages/main-muisc/main-music",
     "pages/main-video/main-video",
     "pages/detail-video/detail-video",
-    "pages/detail-search/detail-search"
+    "pages/detail-search/detail-search",
+    "pages/more-new-song/more-new-song"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -28,5 +29,8 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  }
 }

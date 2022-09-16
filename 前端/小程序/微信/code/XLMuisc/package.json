@@ -7,9 +7,11 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@vant/weapp": "^1.10.5"
+    "@vant/weapp": "^1.10.5",
+    "underscore": "^1.13.4"
   },
   "devDependencies": {
+    "@types/underscore": "^1.11.4",
     "miniprogram-api-typings": "^3.6.0"
   }
 }

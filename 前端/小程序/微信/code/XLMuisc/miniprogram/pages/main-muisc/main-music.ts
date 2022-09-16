@@ -1,32 +1,56 @@
-import { getBanner } from '../../services/music'
-import querySelect, { IQuerySelectRes } from '../../utils/query-select'
-import throttle from '../../utils/throttle'
+import { newSongStore } from '../../stores/newSongStore'
 
-const querySelectThrottle = throttle<IQuerySelectRes>(querySelect)
+import { getBanner, getNewSong } from '../../services/music'
+import querySelect from '../../utils/query-select'
+import throttle from '../../utils/throttle'
+// import { throttle } from 'underscore'
+
+const querySelectThrottle = throttle(querySelect)
 
 Page({
   data: {
     searchValue: '',
-    bannerList: [],
-    bannerHeight: 127.77
+    banners: [],
+    bannerHeight: 0,
+    newSongs: []
   },
 
+  // 加载
   onLoad() {
     this.fetchBanner()
+    // this.fetchNewSong()
+
+    newSongStore.dispatch('getNewSongs')
+    newSongStore.onState('newSongs', (value: any) => {
+      console.log(111)
+
+      const newSongs = value.slice(0, 6)
+      this.setData({ newSongs })
+    })
   },
 
   async onBannerImageLoad() {
     const res = await querySelectThrottle('.banner-image')
     this.setData({ bannerHeight: res[0].height })
-    console.log(res)
   },
 
+  // 页面跳转
   onInputClick() {
     wx.navigateTo({ url: '../detail-search/detail-search' })
   },
 
-  async fetchBanner(type = 0) {
-    const res = await getBanner(type)
-    this.setData({ bannerList: res.banners })
+  onRecommendMoreTap() {
+    wx.navigateTo({ url: '../more-new-song/more-new-song' })
+  },
+
+  // 网络请求
+  async fetchBanner() {
+    const res = await getBanner(0)
+    this.setData({ banners: res.banners })
+  },
+
+  async fetchNewSong() {
+    const res = await getNewSong(6)
+    this.setData({ newSongs: res.result })
   }
 })

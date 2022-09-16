@@ -1,0 +1,6 @@
+<!--pages/more-new-song/more-new-song.wxml-->
+<view>
+  <block wx:for="{{newSongs}}" wx:key="this">
+    <view>{{item.name}}</view>
+  </block>
+</view>

@@ -1,10 +1,27 @@
 <!--pages/main-muisc/main-music.wxml-->
+<!-- 1.搜索 -->
 <van-search value="{{searchValue}}" placeholder="请输入搜索关键词" background="#fafafa" bind:click-input="onInputClick" />
 
+
+<!-- 2.轮播图 -->
 <swiper class="banner" style="height: {{bannerHeight}}px;" indicator-dots autoplay circular>
-  <block wx:for="{{bannerList}}" wx:key="targetId">
+  <block wx:for="{{banners}}" wx:key="targetId">
     <swiper-item>
       <image class="banner-image" src="{{item.imageUrl}}" mode="widthFix" bindload="onBannerImageLoad" />
     </swiper-item>
   </block>
 </swiper>
+
+
+<!-- 3.最新音乐 -->
+<view class="new-song">
+  <area-header class="header" title="最新音乐" more="更多" bind:moretap="onRecommendMoreTap"></area-header>
+  <view class="list">
+    <block wx:for="{{newSongs}}" wx:key="id">
+      <song-item-v1 class="song-item-v1" songData="{{item}}" />
+    </block>
+  </view>
+</view>
+
+
+<!-- <area-header title="巅峰榜" hasMore="{{false}}"></area-header> -->

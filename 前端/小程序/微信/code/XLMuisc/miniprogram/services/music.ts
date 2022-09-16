@@ -6,3 +6,10 @@ export function getBanner(type = 0) {
     data: { type }
   })
 }
+
+export function getNewSong(limit: number) {
+  return xlRequest.get({
+    url: '/personalized/newsong',
+    data: { limit }
+  })
+}
