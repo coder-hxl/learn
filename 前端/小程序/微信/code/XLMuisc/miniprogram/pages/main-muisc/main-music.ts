@@ -1,6 +1,6 @@
 import { newSongStore } from '../../stores/newSongStore'
+import { getBanner } from '../../services/music'
 
-import { getBanner, getNewSong } from '../../services/music'
 import querySelect from '../../utils/query-select'
 import throttle from '../../utils/throttle'
 // import { throttle } from 'underscore'
@@ -12,18 +12,14 @@ Page({
     searchValue: '',
     banners: [],
     bannerHeight: 0,
-    newSongs: []
+    newSongs: [] as any[]
   },
 
   // 加载
   onLoad() {
     this.fetchBanner()
-    // this.fetchNewSong()
-
-    newSongStore.dispatch('getNewSongs')
-    newSongStore.onState('newSongs', (value: any) => {
-      console.log(111)
-
+    newSongStore.getNewSongs()
+    newSongStore.watch('newSongs', (value: any[]) => {
       const newSongs = value.slice(0, 6)
       this.setData({ newSongs })
     })
@@ -47,10 +43,5 @@ Page({
   async fetchBanner() {
     const res = await getBanner(0)
     this.setData({ banners: res.banners })
-  },
-
-  async fetchNewSong() {
-    const res = await getNewSong(6)
-    this.setData({ newSongs: res.result })
   }
 })

@@ -6,11 +6,16 @@ Page({
   },
 
   onLoad() {
-    const newSongs = newSongStore.state.newSongs
+    const newSongs = newSongStore.newSongs
     this.setData({ newSongs })
-    // newSongStore.onState('newSongs', (value: any) => {
-    //   console.log(value)
-    //   this.setData({ newSongs: value })
-    // })
+    newSongStore.watch('newSongs', this.fetchNewSongs)
+  },
+
+  onUnload() {
+    newSongStore.clearWatch('newSongs', this.fetchNewSongs)
+  },
+
+  fetchNewSongs(value: any) {
+    this.setData({ newSongs: value })
   }
 })
