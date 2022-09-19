@@ -12,7 +12,7 @@ Page({
   },
 
   onUnload() {
-    newSongStore.clearWatch('newSongs', this.fetchNewSongs)
+    newSongStore.deleteWatch('newSongs', this.fetchNewSongs)
   },
 
   fetchNewSongs(value: any) {

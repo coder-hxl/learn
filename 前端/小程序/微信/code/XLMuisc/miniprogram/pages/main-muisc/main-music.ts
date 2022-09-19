@@ -21,6 +21,8 @@ Page({
     newSongStore.getNewSongs()
     newSongStore.watch('newSongs', (value: any[]) => {
       const newSongs = value.slice(0, 6)
+      console.log('main')
+
       this.setData({ newSongs })
     })
   },
