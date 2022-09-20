@@ -1,4 +1,4 @@
-import { newSongStore } from '../../stores/newSongStore'
+import { newStore } from '../../stores/newStore'
 import { getBanner } from '../../services/music'
 
 import querySelect from '../../utils/query-select'
@@ -18,8 +18,8 @@ Page({
   // 加载
   onLoad() {
     this.fetchBanner()
-    newSongStore.getNewSongs()
-    newSongStore.watch('newSongs', (value: any[]) => {
+    newStore.getNewSongs()
+    newStore.watch('newSongs', (value: any[]) => {
       const newSongs = value.slice(0, 6)
       console.log('main')
 

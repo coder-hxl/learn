@@ -8,7 +8,8 @@
   "license": "",
   "dependencies": {
     "@vant/weapp": "^1.10.5",
-    "underscore": "^1.13.4"
+    "underscore": "^1.13.4",
+    "xl-store": "^0.0.2"
   },
   "devDependencies": {
     "@types/underscore": "^1.11.4",

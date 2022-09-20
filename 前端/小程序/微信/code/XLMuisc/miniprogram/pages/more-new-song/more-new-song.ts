@@ -1,4 +1,4 @@
-import { newSongStore } from '../../stores/newSongStore'
+import { newStore } from '../../stores/newStore'
 
 Page({
   data: {
@@ -6,16 +6,16 @@ Page({
   },
 
   onLoad() {
-    const newSongs = newSongStore.newSongs
+    const newSongs = newStore.newSongs
     this.setData({ newSongs })
-    newSongStore.watch('newSongs', this.fetchNewSongs)
+    newStore.watch('newSongs', this.handleNewSongs)
   },
 
   onUnload() {
-    newSongStore.deleteWatch('newSongs', this.fetchNewSongs)
+    newStore.deleteWatch('newSongs', this.handleNewSongs)
   },
 
-  fetchNewSongs(value: any) {
+  handleNewSongs(value: any) {
     this.setData({ newSongs: value })
   }
 })
