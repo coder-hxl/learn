@@ -5,7 +5,7 @@ page {
   --search-padding: 20rpx 0;
 
   box-sizing: border-box;
-  padding: 0 30rpx;
+  padding: 0 24rpx;
   background-color: #fafafa;
 }
 
@@ -20,10 +20,34 @@ page {
 
 .new-song {
   display: flow-root;
-  margin: 30rpx 0;
+  margin-top: 30rpx;
 }
 
 .new-song .list .song-item-v1 {
   display: flow-root;
   margin: 22rpx 0;
+}
+
+.choiceness-song-menu {
+  margin: 30rpx -24rpx 0;
+}
+
+.choiceness-song-menu .header {
+  display: flow-root;
+  padding: 0 24rpx;
+  margin-bottom: 22rpx;
+}
+
+.choiceness-song-menu .list {
+  white-space: nowrap;
+}
+
+.choiceness-song-menu .list .list-item {
+  display: inline-block;
+  margin-left: 24rpx;
+  width: 220rpx;
+}
+
+.choiceness-song-menu .list .list-item:last-of-type {
+  margin-right: 24rpx;
 }

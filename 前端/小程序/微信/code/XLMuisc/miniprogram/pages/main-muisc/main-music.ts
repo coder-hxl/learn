@@ -1,4 +1,6 @@
-import { newStore } from '../../stores/newStore'
+import newStore from '../../stores/newStore'
+import songMenuStore from '../../stores/songMenuStore'
+
 import { getBanner } from '../../services/music'
 
 import querySelect from '../../utils/query-select'
@@ -12,19 +14,23 @@ Page({
     searchValue: '',
     banners: [],
     bannerHeight: 0,
-    newSongs: [] as any[]
+    newSongs: [],
+    recommendSongMenu: [],
+    choicenessSongMenu: []
   },
 
   // 加载
   onLoad() {
     this.fetchBanner()
-    newStore.getNewSongs()
-    newStore.watch('newSongs', (value: any[]) => {
-      const newSongs = value.slice(0, 6)
-      console.log('main')
 
-      this.setData({ newSongs })
-    })
+    newStore.watch('newSongs', this.handleNewSongs)
+    newStore.fetchNewSongsActions()
+
+    songMenuStore.watch('recommendSongMenu', this.handleRecommendSongMenu)
+    songMenuStore.fetchRecommendSongMenuAction()
+
+    songMenuStore.watch('choicenessSongMenu', this.handleChoicenessSong)
+    songMenuStore.fetchChoicenessSongMenuAction()
   },
 
   async onBannerImageLoad() {
@@ -45,5 +51,28 @@ Page({
   async fetchBanner() {
     const res = await getBanner(0)
     this.setData({ banners: res.banners })
+  },
+
+  // store 回调函数
+  handleNewSongs(value: any) {
+    const newSongs = value.slice(0, 6)
+    this.setData({ newSongs })
+  },
+
+  handleRecommendSongMenu(value: any) {
+    const recommendSongMenu = value.slice(0, 6)
+    const recommendSongMenuMap = recommendSongMenu.map((item: any) => {
+      return { ...item, coverImgUrl: item.picUrl }
+    })
+    this.setData({ recommendSongMenu: recommendSongMenuMap })
+  },
+
+  handleChoicenessSong(value: any) {
+    const choicenessSongMenu = value.slice(0, 6)
+    this.setData({ choicenessSongMenu })
+  },
+
+  onUnload() {
+    newStore.deleteWatch('newSongs', this.handleNewSongs)
   }
 })

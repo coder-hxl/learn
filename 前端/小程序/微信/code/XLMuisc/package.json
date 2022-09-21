@@ -1,5 +1,5 @@
 {
-  "name": "miniprogram-ts-less-quickstart",
+  "name": "xl-music",
   "version": "1.0.0",
   "description": "",
   "scripts": {},
@@ -9,7 +9,7 @@
   "dependencies": {
     "@vant/weapp": "^1.10.5",
     "underscore": "^1.13.4",
-    "xl-store": "^0.0.2"
+    "xl-store": "^0.0.3"
   },
   "devDependencies": {
     "@types/underscore": "^1.11.4",

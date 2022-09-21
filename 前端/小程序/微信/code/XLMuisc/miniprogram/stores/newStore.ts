@@ -1,14 +1,16 @@
 import xlStore from 'xl-store'
 import { getNewSong } from '../services/music'
 
-export const newStore = xlStore({
+const newStore = xlStore({
   state: {
     newSongs: []
   },
   actions: {
-    async getNewSongs() {
+    async fetchNewSongsActions() {
       const res = await getNewSong(100)
       this.newSongs = res.result
     }
   }
 })
+
+export default newStore

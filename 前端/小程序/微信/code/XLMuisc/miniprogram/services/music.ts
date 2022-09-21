@@ -13,3 +13,17 @@ export function getNewSong(limit: number) {
     data: { limit }
   })
 }
+
+export function getRecommendSongMenu(limit = 6) {
+  return xlRequest.get({
+    url: '/personalized',
+    data: { limit }
+  })
+}
+
+export function getChoicenessSongMenu(cat = '全部', limit = 6) {
+  return xlRequest.get({
+    url: '/top/playlist/highquality',
+    data: { cat, limit }
+  })
+}

@@ -1,4 +1,4 @@
-import { newStore } from '../../stores/newStore'
+import newStore from '../../stores/newStore'
 
 Page({
   data: {

@@ -7,7 +7,7 @@ Component({
     },
     more: {
       type: String,
-      value: '默认更多'
+      value: '更多'
     },
     hasMore: {
       type: Boolean,
