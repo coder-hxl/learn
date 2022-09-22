@@ -1,3 +1,5 @@
+import { baseUrl } from './config'
+
 interface IResult<T = any> {
   code: number
   data: T
@@ -21,7 +23,10 @@ class XlRequest {
         success: (res) => {
           resolve(res.data)
         },
-        fail: reject
+        fail: (err) => {
+          console.log('requestErr: ', err)
+          reject(err)
+        }
       })
     })
   }
@@ -35,4 +40,4 @@ class XlRequest {
   }
 }
 
-export const xlRequest = new XlRequest('http://localhost:9100')
+export const xlRequest = new XlRequest(baseUrl)

@@ -27,3 +27,7 @@ export function getChoicenessSongMenu(cat = '全部', limit = 6) {
     data: { cat, limit }
   })
 }
+
+export function getTopList() {
+  return xlRequest.get({ url: '/toplist/detail' })
+}
