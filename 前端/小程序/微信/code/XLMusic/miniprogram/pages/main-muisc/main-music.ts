@@ -1,5 +1,6 @@
 import newStore from '../../stores/newStore'
 import songMenuStore from '../../stores/songMenuStore'
+import topListStore from '../../stores/topListStore'
 
 import { getBanner } from '../../services/music'
 
@@ -14,9 +15,13 @@ Page({
     searchValue: '',
     banners: [],
     bannerHeight: 0,
+
     newSongs: [],
+
     recommendSongMenu: [],
-    choicenessSongMenu: []
+    choicenessSongMenu: [],
+
+    officialList: []
   },
 
   // 加载
@@ -31,6 +36,9 @@ Page({
 
     songMenuStore.watch('choicenessSongMenu', this.handleChoicenessSong)
     songMenuStore.fetchChoicenessSongMenuAction()
+
+    topListStore.watch('officialList', this.handleOfficialList)
+    topListStore.fetchTopListAction()
   },
 
   async onBannerImageLoad() {
@@ -47,6 +55,10 @@ Page({
     wx.navigateTo({ url: '../more-new-song/more-new-song' })
   },
 
+  onTopListMoreTap() {
+    wx.navigateTo({ url: '../more-top-list/more-top-list' })
+  },
+
   // 网络请求
   async fetchBanner() {
     const res = await getBanner(0)
@@ -60,19 +72,23 @@ Page({
   },
 
   handleRecommendSongMenu(value: any) {
-    const recommendSongMenu = value.slice(0, 6)
-    const recommendSongMenuMap = recommendSongMenu.map((item: any) => {
-      return { ...item, coverImgUrl: item.picUrl }
-    })
-    this.setData({ recommendSongMenu: recommendSongMenuMap })
+    const recommendSongMenu = value.length > 6 ? value.slice(0, 6) : value
+    this.setData({ recommendSongMenu })
   },
 
   handleChoicenessSong(value: any) {
-    const choicenessSongMenu = value.slice(0, 6)
+    const choicenessSongMenu = value.length > 6 ? value.slice(0, 6) : value
     this.setData({ choicenessSongMenu })
+  },
+
+  handleOfficialList(value: any) {
+    this.setData({ officialList: value })
   },
 
   onUnload() {
     newStore.deleteWatch('newSongs', this.handleNewSongs)
+    newStore.deleteWatch('recommendSongMenu', this.handleRecommendSongMenu)
+    newStore.deleteWatch('choicenessSongMenu', this.handleChoicenessSong)
+    newStore.deleteWatch('officialList', this.handleOfficialList)
   }
 })
