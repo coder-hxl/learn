@@ -1,6 +1,8 @@
 /* components/song-item-v1/song-item-v1.wxss */
 .song-item-v1 {
   display: flex;
+  height: 140rpx;
+  overflow: hidden;
 }
 
 .song-item-v1 .image {

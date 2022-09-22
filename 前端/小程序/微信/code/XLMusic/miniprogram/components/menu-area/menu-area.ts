@@ -1,7 +1,7 @@
 // components/menu-area/menu-area.ts
 Component({
   properties: {
-    storeListName: {
+    storeMenuName: {
       type: String,
       value: ''
     },
@@ -17,9 +17,9 @@ Component({
 
   methods: {
     handleMoreTap() {
-      const storeListName = this.properties.storeListName
+      const storeMenuName = this.properties.storeMenuName
       wx.navigateTo({
-        url: `/pages/more-song-menu/more-song-menu?storeListName=${storeListName}`
+        url: `/pages/more-song-menu/more-song-menu?storeMenuName=${storeMenuName}`
       })
     }
   }
