@@ -1,0 +1,9 @@
+<!--components/song-item-v2/song-item-v2.wxml-->
+<view class="song-item-v2">
+  <view class="name">{{itemData.name}}</view>
+  <view class="ars">
+    <block wx:for="{{itemData.ar}}" wx:key="id">
+      <view class="ars-itm">{{item.name}}</view>
+    </block>
+  </view>
+</view>

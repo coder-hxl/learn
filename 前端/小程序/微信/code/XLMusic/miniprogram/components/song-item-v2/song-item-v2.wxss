@@ -1,0 +1,16 @@
+/* components/song-item-item-v2/song-item-item-v2.wxss */
+.song-item-v2 .name {
+  font-size: 34rpx;
+}
+
+.song-item-v2 .ars {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.song-item-v2 .ars .ars-itm {
+  padding-right: 16rpx;
+}

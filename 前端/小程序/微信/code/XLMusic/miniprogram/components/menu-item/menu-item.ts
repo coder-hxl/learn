@@ -5,5 +5,14 @@ Component({
       type: Object,
       value: {}
     }
+  },
+
+  methods: {
+    onMenuItemTap() {
+      const id = this.properties.itemData.id
+      wx.navigateTo({
+        url: `/pages/detail-song-menu/detail-song-menu?id=${id}`
+      })
+    }
   }
 })

@@ -1,5 +1,5 @@
 <!--components/top-list-item/top-list-item.wxml-->
-<view class="top-list-item">
+<view class="top-list-item" bindtap="onTopListItemTap">
   <view class="content">
     <view class="title">{{itemData.name}}</view>
     <view class="tracks">
