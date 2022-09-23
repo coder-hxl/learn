@@ -16,5 +16,12 @@ Page({
     this.setData({ officialList, globalList })
   },
 
+  onGloablItemTap(event: any) {
+    const id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/detail-song-menu/detail-song-menu?id=${id}`
+    })
+  },
+
   onUnload() {}
 })

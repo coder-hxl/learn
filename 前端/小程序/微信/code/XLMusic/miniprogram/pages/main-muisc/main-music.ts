@@ -28,13 +28,19 @@ Page({
   onLoad() {
     this.fetchBanner()
 
-    newStore.watch('newSongs', this.handleNewSongs)
+    newStore.watch('newSongs', this.handleData('newSongs'))
     newStore.fetchNewSongsActions()
 
-    songMenuStore.watch('recommendSongMenu', this.handleRecommendSongMenu)
+    songMenuStore.watch(
+      'recommendSongMenu',
+      this.handleData('recommendSongMenu')
+    )
     songMenuStore.fetchRecommendSongMenuAction()
 
-    songMenuStore.watch('choicenessSongMenu', this.handleChoicenessSong)
+    songMenuStore.watch(
+      'choicenessSongMenu',
+      this.handleData('choicenessSongMenu')
+    )
     songMenuStore.fetchChoicenessSongMenuAction()
 
     topListStore.watch('officialList', this.handleOfficialList)
@@ -66,29 +72,19 @@ Page({
   },
 
   // store 回调函数
-  handleNewSongs(value: any) {
-    const newSongs = value.slice(0, 6)
-    this.setData({ newSongs })
-  },
-
-  handleRecommendSongMenu(value: any) {
-    const recommendSongMenu = value.length > 6 ? value.slice(0, 6) : value
-    this.setData({ recommendSongMenu })
-  },
-
-  handleChoicenessSong(value: any) {
-    const choicenessSongMenu = value.length > 6 ? value.slice(0, 6) : value
-    this.setData({ choicenessSongMenu })
+  handleData(key: string, sliceNum = 6) {
+    return (stateValue: any) => {
+      const res =
+        stateValue.length > sliceNum
+          ? stateValue.slice(0, sliceNum)
+          : stateValue
+      this.setData({ [key]: res })
+    }
   },
 
   handleOfficialList(value: any) {
     this.setData({ officialList: value })
   },
 
-  onUnload() {
-    newStore.deleteWatch('newSongs', this.handleNewSongs)
-    newStore.deleteWatch('recommendSongMenu', this.handleRecommendSongMenu)
-    newStore.deleteWatch('choicenessSongMenu', this.handleChoicenessSong)
-    newStore.deleteWatch('officialList', this.handleOfficialList)
-  }
+  onUnload() {}
 })
