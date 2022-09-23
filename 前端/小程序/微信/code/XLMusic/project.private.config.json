@@ -21,6 +21,13 @@
           "query": "id=14544676",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "歌单详情",
+          "pathName": "pages/detail-song-menu/detail-song-menu",
+          "query": "id=19723756",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

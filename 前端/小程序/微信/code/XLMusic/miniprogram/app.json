@@ -6,7 +6,8 @@
     "pages/detail-search/detail-search",
     "pages/more-new-song/more-new-song",
     "pages/more-song-menu/more-song-menu",
-    "pages/more-top-list/more-top-list"
+    "pages/more-top-list/more-top-list",
+    "pages/detail-song-menu/detail-song-menu"
   ],
   "window": {
     "backgroundTextStyle": "dark",
