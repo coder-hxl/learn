@@ -1,5 +1,7 @@
 function padLeft(time) {
   time = time.toString()
+  if (time.length >= 2) return time
+
   return ('00' + time).slice(time.length)
 }
 
@@ -23,6 +25,7 @@ function formatTime(time) {
 }
 
 module.exports = {
+  padLeft: padLeft,
   formatCount: formatCount,
   formatTime: formatTime
 }

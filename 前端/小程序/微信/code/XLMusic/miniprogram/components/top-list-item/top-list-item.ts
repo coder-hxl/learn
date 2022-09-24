@@ -13,6 +13,7 @@ Component({
       wx.navigateTo({
         url: `/pages/detail-song-menu/detail-song-menu?id=${id}`
       })
+      wx.setNavigationBarTitle({ title: this.properties.itemData.name })
     }
   }
 })

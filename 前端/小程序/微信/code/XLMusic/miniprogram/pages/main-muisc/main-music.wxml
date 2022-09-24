@@ -14,7 +14,7 @@
 
 
 <!-- 3.最新音乐 -->
-<view class="new-song">
+<view class="new-song" wx:if="{{newSongs.length}}">
   <area-header class="header" title="最新音乐" bind:moretap="onRecommendMoreTap"></area-header>
   <view class="list">
     <block wx:for="{{newSongs}}" wx:key="id">
@@ -28,7 +28,7 @@
 <menu-area class="choicenessSongMenu" storeMenuName='choicenessSongMenu' title="精品歌单" menuList="{{choicenessSongMenu}}"></menu-area>
 
 <!-- 5.排行榜 -->
-<view class="top-list">
+<view class="top-list" wx:if="{{officialList.length}}">
   <area-header title="排行榜" bindmoretap="onTopListMoreTap"></area-header>
   <block wx:for="{{officialList}}" wx:key="id">
     <top-list-item class="item" itemData="{{item}}"></top-list-item>

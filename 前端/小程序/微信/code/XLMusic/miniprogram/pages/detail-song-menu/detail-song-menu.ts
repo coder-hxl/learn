@@ -14,6 +14,5 @@ Page({
   async fetchDetailSongMenu(id: number) {
     const res = await getDetailSongMenu(id)
     this.setData({ detailData: res.playlist })
-    console.log(this.data.detailData.tracks[0])
   }
 })

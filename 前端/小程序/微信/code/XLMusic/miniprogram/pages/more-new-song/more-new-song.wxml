@@ -1,6 +1,8 @@
 <!--pages/more-new-song/more-new-song.wxml-->
+<view class="title">最新音乐</view>
+
 <view>
   <block wx:for="{{newSongs}}" wx:key="this">
-    <view>{{item.name}}</view>
+    <song-item-v2 order="{{index + 1}}" itemData="{{item}}"></song-item-v2>
   </block>
 </view>

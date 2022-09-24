@@ -6,9 +6,12 @@ const newStore = xlStore({
     newSongs: []
   },
   actions: {
-    async fetchNewSongsActions() {
-      const res = await getNewSong(100)
-      this.newSongs = res.result
+    async fetchNewSongsActions(limit = 6) {
+      const res = await getNewSong(limit)
+      const resMap = res.result.map((item: any) => {
+        return { ...item, ar: item.song.artists }
+      })
+      this.newSongs = resMap
     }
   }
 })

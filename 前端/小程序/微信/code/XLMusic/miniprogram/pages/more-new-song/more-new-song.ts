@@ -6,8 +6,7 @@ Page({
   },
 
   onLoad() {
-    const newSongs = newStore.newSongs
-    this.setData({ newSongs })
+    newStore.fetchNewSongsActions(100)
     newStore.watch('newSongs', this.handleNewSongs)
   },
 

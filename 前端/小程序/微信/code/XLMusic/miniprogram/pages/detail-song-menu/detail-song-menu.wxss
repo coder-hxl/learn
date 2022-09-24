@@ -3,9 +3,16 @@
   background-color: #f5f5f5;
 }
 
+.image,
+.avatar,
+.count-icon {
+  height: 0;
+}
+
 .cover {
   position: relative;
   padding: 50rpx 40rpx;
+  height: 314rpx;
   color: #fff;
   z-index: -1;
 }
@@ -27,7 +34,7 @@
 }
 
 .header .cover-img {
-  flex: 1;
+  flex: 1.1;
 }
 
 .cover-img .image {
@@ -67,7 +74,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
@@ -75,18 +82,16 @@
   display: flex;
   justify-content: space-around;
   padding: 40rpx 0 0;
+  font-size: 30rpx;
 }
 
-.song-item {
+.footer .subscribed-count,
+.share-count {
   display: flex;
   align-items: center;
-  padding: 30rpx 30rpx;
 }
 
-.song-item .index {
-  flex: 1;
-}
-
-.song-item .song {
-  flex: 8;
+.footer .count-icon {
+  width: 42rpx;
+  margin-right: 6rpx;
 }

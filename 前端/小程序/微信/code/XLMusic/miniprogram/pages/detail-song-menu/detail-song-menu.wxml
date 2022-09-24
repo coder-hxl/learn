@@ -1,6 +1,7 @@
 <!--pages/detail-song-menu/detail-song-menu.wxml-->
 <wxs src="../../utils/format.wxs" module="fmt"></wxs>
 
+
 <view class="cover" style="background: url({{detailData.coverImgUrl}}) no-repeat center/100%">
   <view class="header">
     <view class="cover-img">
@@ -17,16 +18,19 @@
   </view>
 
   <view class="footer">
-    <view class="subscribed-count">收藏({{fmt.formatCount(detailData.subscribedCount)}})</view>
-    <view class="share-count">分享({{fmt.formatCount(detailData.shareCount)}})</view>
+    <view class="subscribed-count">
+      <image class="count-icon" mode="widthFix" src="/assets/images/icons/favor_icon.png"></image>
+      <text class="text">{{fmt.formatCount(detailData.subscribedCount)}}</text>
+    </view>
+    <view class="share-count">
+      <image class="count-icon" mode="widthFix" src="/assets/images/icons/share_icon.png"></image>
+      <text class="text">{{fmt.formatCount(detailData.shareCount)}}</text>
+    </view>
   </view>
 </view>
 
 <view class="song-list">
   <block wx:for="{{detailData.tracks}}" wx:key="id">
-    <view class="song-item {{index % 2 === 0 ? 'bg-gray' : ''}}">
-      <view class="index">{{index + 1}}</view>
-      <song-item-v2 class="song" itemData="{{item}}"></song-item-v2>
-    </view>
+    <song-item-v2 order="{{index + 1}}" itemData="{{item}}"></song-item-v2>
   </block>
 </view>
