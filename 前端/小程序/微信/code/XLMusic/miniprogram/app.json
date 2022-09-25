@@ -7,7 +7,8 @@
     "pages/more-new-song/more-new-song",
     "pages/more-song-menu/more-song-menu",
     "pages/more-top-list/more-top-list",
-    "pages/detail-song-menu/detail-song-menu"
+    "pages/detail-song-menu/detail-song-menu",
+    "pages/music-player/music-player"
   ],
   "window": {
     "backgroundTextStyle": "dark",

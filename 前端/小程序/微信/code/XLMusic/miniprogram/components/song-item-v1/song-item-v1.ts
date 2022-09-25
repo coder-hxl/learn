@@ -5,5 +5,11 @@ Component({
       type: Object,
       value: {}
     }
+  },
+  methods: {
+    onSongItemTap() {
+      const id = this.properties.songData.id
+      wx.navigateTo({ url: `/pages/music-player/music-player?id=${id}` })
+    }
   }
 })

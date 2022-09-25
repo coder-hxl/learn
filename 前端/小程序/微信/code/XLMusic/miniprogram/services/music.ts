@@ -35,3 +35,11 @@ export function getTopList() {
 export function getDetailSongMenu(id: number) {
   return xlRequest.get({ url: '/playlist/detail', data: { id } })
 }
+
+export function getSongDetail(ids: number | string) {
+  return xlRequest.get({ url: '/song/detail', data: { ids } })
+}
+
+export function getLyric(id: number) {
+  return xlRequest.get({ url: '/lyric', data: { id } })
+}
