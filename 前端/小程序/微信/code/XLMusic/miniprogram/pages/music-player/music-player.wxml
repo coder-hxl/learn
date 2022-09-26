@@ -1,4 +1,6 @@
 <!--pages/music-player/music-player.wxml-->
+<wxs src="/utils/format.wxs" module="fmt"></wxs>
+
 <image class="cover" mode="aspectFill" src="{{songData.al.picUrl}}"></image>
 <view class="cover blur"></view>
 
@@ -23,22 +25,28 @@
         <view class="division" wx:if="{{index !== songData.ar.length - 1}}">/</view>
       </block>
     </view>
-    <view class="lyric">歌词</view>
+    <view class="lyric">{{currentLyricText}}</view>
     <view class="progress">
-      <slider class="slider" block-size="10" />
+      <slider class="slider" block-size="10" value="{{sliderValue}}" bindchange="onSliderChange" bindchanging="onSliderChangeing" />
       <view class="time">
-        <view>00:00</view>
-        <view>05:00</view>
+        <view class="current">{{fmt.formatTime(currentTime)}}</view>
+        <view class="duration">{{fmt.formatTime(duration)}}</view>
       </view>
     </view>
     <view class="control">
       <image class="btn order" mode="widthFix" src="/assets/images/player/play_order.png"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_prev.png"></image>
-      <image class="btn pause" mode="widthFix" src="/assets/images/player/play_pause.png"></image>
+      <image class="btn pause" mode="widthFix" src="/assets/images/player/play_{{isPlay ? 'pause' : 'resume' }}.png" bindtap="onPauseTap"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_next.png"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_music.png"></image>
     </view>
   </swiper-item>
 
-  <swiper-item>222</swiper-item>
+  <swiper-item>
+    <scroll-view class="lyric-list" scroll-y>
+      <block wx:for="{{lyricInfo}}" wx:key="time">
+        <view class="item">{{item.text}}</view>
+      </block>
+    </scroll-view>
+  </swiper-item>
 </swiper>
