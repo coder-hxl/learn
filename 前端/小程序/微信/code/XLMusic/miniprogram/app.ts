@@ -15,12 +15,10 @@ App<IMyAppOptions>({
   },
 
   onLaunch() {
-    wx.getSystemInfoAsync({
-      success: (res) => {
-        this.globalData.statusHeight = res.statusBarHeight
-        this.globalData.contentHeight =
-          res.screenHeight - res.statusBarHeight - this.globalData.navHeight
-      }
-    })
+    const res = wx.getSystemInfoSync()
+
+    this.globalData.statusHeight = res.statusBarHeight
+    this.globalData.contentHeight =
+      res.screenHeight - res.statusBarHeight - this.globalData.navHeight
   }
 })

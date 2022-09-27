@@ -4,7 +4,7 @@
 <image class="cover" mode="aspectFill" src="{{songData.al.picUrl}}"></image>
 <view class="cover blur"></view>
 
-<nav-bar>
+<nav-bar bind:lefttap="onNavBackTap">
   <view slot="center" class="tabs">
     <block wx:for="{{pageTitles}}" wx:key="*this">
       <view class="{{currentPage === index ? 'activate' : ''}}" bindtap="onTabTap" data-index="{{index}}">{{item}}</view>
@@ -35,17 +35,19 @@
     </view>
     <view class="control">
       <image class="btn order" mode="widthFix" src="/assets/images/player/play_order.png"></image>
-      <image class="btn" mode="widthFix" src="/assets/images/player/play_prev.png"></image>
+      <image class="btn" mode="widthFix" src="/assets/images/player/play_prev.png" bindtap="onPlayPrevTap"></image>
       <image class="btn pause" mode="widthFix" src="/assets/images/player/play_{{isPlay ? 'pause' : 'resume' }}.png" bindtap="onPauseTap"></image>
-      <image class="btn" mode="widthFix" src="/assets/images/player/play_next.png"></image>
+      <image class="btn" mode="widthFix" src="/assets/images/player/play_next.png" bindtap="onPlayNextTap"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_music.png"></image>
     </view>
   </swiper-item>
 
-  <swiper-item>
-    <scroll-view class="lyric-list" scroll-y>
+  <swiper-item class="lyric-list">
+    <scroll-view class="scroll-view" scroll-y scroll-top="{{lyricScrollTop}}" scroll-with-animation>
       <block wx:for="{{lyricInfo}}" wx:key="time">
-        <view class="item">{{item.text}}</view>
+        <view class="item {{index === currentLyricIndex ? 'activate' : ''}}" style="padding-top: {{index === 0 ? contentHeight / 2 - 60 : 0}}px; padding-bottom: {{index === lyricInfo.length - 1 ? contentHeight / 2 + 60 : 0}}px;">
+          {{item.text}}
+        </view>
       </block>
     </scroll-view>
   </swiper-item>

@@ -9,5 +9,10 @@ Component({
   data: {
     statusHeight: app.globalData.statusHeight,
     navHeight: app.globalData.navHeight
+  },
+  methods: {
+    onLeftTap() {
+      this.triggerEvent('lefttap')
+    }
   }
 })

@@ -1,4 +1,5 @@
 import newStore from '../../stores/newStore'
+import playerStore from '../../stores/playerStore'
 
 Page({
   data: {
@@ -16,5 +17,11 @@ Page({
 
   handleNewSongs(value: any) {
     this.setData({ newSongs: value })
+  },
+
+  onSongItemTap(event: any) {
+    const index = event.currentTarget.dataset.index
+    playerStore.playSongIndex = index
+    playerStore.playSongList = this.data.newSongs
   }
 })

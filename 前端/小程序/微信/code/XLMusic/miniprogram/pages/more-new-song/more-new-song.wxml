@@ -3,6 +3,6 @@
 
 <view>
   <block wx:for="{{newSongs}}" wx:key="this">
-    <song-item-v2 order="{{index + 1}}" itemData="{{item}}"></song-item-v2>
+    <song-item-v2 order="{{index + 1}}" itemData="{{item}}" data-index="{{index}}" bindtap="onSongItemTap"></song-item-v2>
   </block>
 </view>

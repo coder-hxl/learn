@@ -54,7 +54,7 @@
 
 .music .artists {
   display: flex;
-  margin-top: 20rpx;
+  margin: 20rpx 0;
   font-size: 30rpx;
 }
 
@@ -67,13 +67,18 @@
 }
 
 .music .lyric {
+  padding: 0 60rpx;
   height: 40rpx;
   font-size: 30rpx;
   text-align: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .progress {
-  margin-top: 30rpx;
+  margin-top: 16rpx;
 }
 
 .progress .slider {
@@ -101,13 +106,28 @@
   width: 110rpx;
 }
 
-.lyric-list {
+.lyric-list .scroll-view {
+  box-sizing: border-box;
+  padding: 40rpx 0;
   height: 100%;
   text-align: center;
+  font-size: 30rpx;
   color: #aaa;
 }
 
-.lyric-list .item {
-  height: 60rpx;
-  line-height: 60rpx;
+.lyric-list .scroll-view ::-webkit-scrollbar {
+  display: none;
+}
+
+.lyric-list .scroll-view .item {
+  padding: 0 40rpx;
+  height: 30px;
+  line-height: 30px;
+}
+
+.lyric-list .scroll-view .item.activate {
+  height: 40px;
+  line-height: 40px;
+  font-size: 34rpx;
+  color: #4fc4fa;
 }

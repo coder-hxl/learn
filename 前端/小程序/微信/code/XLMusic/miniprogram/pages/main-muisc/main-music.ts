@@ -1,12 +1,12 @@
 import newStore from '../../stores/newStore'
 import songMenuStore from '../../stores/songMenuStore'
 import topListStore from '../../stores/topListStore'
+import playerStore from '../../stores/playerStore'
 
 import { getBanner } from '../../services/music'
 
 import querySelect from '../../utils/query-select'
 import throttle from '../../utils/throttle'
-// import { throttle } from 'underscore'
 
 const querySelectThrottle = throttle(querySelect)
 
@@ -84,6 +84,12 @@ Page({
 
   handleOfficialList(value: any) {
     this.setData({ officialList: value })
+  },
+
+  onSongItemTap(event: any) {
+    const index = event.currentTarget.dataset.index
+    playerStore.playSongIndex = index
+    playerStore.playSongList = this.data.newSongs
   },
 
   onUnload() {}
