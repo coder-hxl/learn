@@ -27,4 +27,15 @@ function parseLyric(lyric: string) {
   return lyricInfo
 }
 
-export { capitalize, parseLyric }
+function getRandomIndex(length: number, notSameIndex?: number): number {
+  const index = Math.floor(Math.random() * length)
+
+  // 结果不能是 notSameIndex
+  if (notSameIndex !== undefined && notSameIndex === index) {
+    return getRandomIndex(length, notSameIndex)
+  }
+
+  return index
+}
+
+export { capitalize, parseLyric, getRandomIndex }

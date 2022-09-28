@@ -15,7 +15,7 @@ Page({
     newStore.deleteWatch('newSongs', this.handleNewSongs)
   },
 
-  handleNewSongs(value: any) {
+  handleNewSongs(stateKey: string, value: any) {
     this.setData({ newSongs: value })
   },
 

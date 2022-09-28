@@ -22,7 +22,7 @@ Page({
     return 'fetch' + name + 'Action'
   },
 
-  fetchSongMenu(value: any) {
+  fetchSongMenu(key: string, value: any) {
     this.setData({ songMenu: value })
   },
 

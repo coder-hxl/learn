@@ -1,7 +1,7 @@
 <!--pages/music-player/music-player.wxml-->
 <wxs src="/utils/format.wxs" module="fmt"></wxs>
 
-<image class="cover" mode="aspectFill" src="{{songData.al.picUrl}}"></image>
+<image class="cover" mode="aspectFill" src="{{currentSong.al.picUrl}}"></image>
 <view class="cover blur"></view>
 
 <nav-bar bind:lefttap="onNavBackTap">
@@ -16,13 +16,13 @@
 <swiper current="{{currentPage}}" bindchange="onSwiperChange" style="height: {{contentHeight}}px;">
   <swiper-item class="music">
     <view class="album">
-      <image class="img" mode="widthFix" src="{{songData.al.picUrl}}" />
+      <image class="img" mode="widthFix" src="{{currentSong.al.picUrl}}" />
     </view>
-    <view class="name">{{songData.name}}</view>
+    <view class="name">{{currentSong.name}}</view>
     <view class="artists">
-      <block wx:for="{{songData.ar}}" wx:key="id">
+      <block wx:for="{{currentSong.ar}}" wx:key="id">
         <view class="ar-name">{{item.name}}</view>
-        <view class="division" wx:if="{{index !== songData.ar.length - 1}}">/</view>
+        <view class="division" wx:if="{{index !== currentSong.ar.length - 1}}">/</view>
       </block>
     </view>
     <view class="lyric">{{currentLyricText}}</view>
@@ -30,13 +30,13 @@
       <slider class="slider" block-size="10" value="{{sliderValue}}" bindchange="onSliderChange" bindchanging="onSliderChangeing" />
       <view class="time">
         <view class="current">{{fmt.formatTime(currentTime)}}</view>
-        <view class="duration">{{fmt.formatTime(duration)}}</view>
+        <view class="durationTime">{{fmt.formatTime(durationTime)}}</view>
       </view>
     </view>
     <view class="control">
-      <image class="btn order" mode="widthFix" src="/assets/images/player/play_order.png"></image>
+      <image class="btn order" mode="widthFix" src="/assets/images/player/play_{{playModeName}}.png" bindtap="onPlayModeTap"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_prev.png" bindtap="onPlayPrevTap"></image>
-      <image class="btn pause" mode="widthFix" src="/assets/images/player/play_{{isPlay ? 'pause' : 'resume' }}.png" bindtap="onPauseTap"></image>
+      <image class="btn pause" mode="widthFix" src="/assets/images/player/play_{{isPlaying ? 'pause' : 'resume' }}.png" bindtap="onPlayOrPauseTap"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_next.png" bindtap="onPlayNextTap"></image>
       <image class="btn" mode="widthFix" src="/assets/images/player/play_music.png"></image>
     </view>

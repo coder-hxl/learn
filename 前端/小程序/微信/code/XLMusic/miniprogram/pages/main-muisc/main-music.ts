@@ -73,7 +73,7 @@ Page({
 
   // store 回调函数
   handleData(key: string, sliceNum = 6) {
-    return (stateValue: any) => {
+    return (stateKey: string, stateValue: any) => {
       const res =
         stateValue.length > sliceNum
           ? stateValue.slice(0, sliceNum)
@@ -82,7 +82,7 @@ Page({
     }
   },
 
-  handleOfficialList(value: any) {
+  handleOfficialList(stateKey: string, value: any) {
     this.setData({ officialList: value })
   },
 
