@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/main-muisc/main-music",
+    "pages/main-music/main-music",
     "pages/main-video/main-video",
     "pages/detail-video/detail-video",
     "pages/detail-search/detail-search",
@@ -19,7 +19,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/main-muisc/main-music",
+        "pagePath": "pages/main-music/main-music",
         "text": "音乐",
         "iconPath": "./assets/images/tabbar/music_normal.png",
         "selectedIconPath": "./assets/images/tabbar/music_active.png"
