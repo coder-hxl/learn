@@ -26,6 +26,7 @@ Page({
 
     id: 0,
     lyricInfo: [],
+    currentSong: {},
     currentLyricText: '',
     currentLyricIndex: -1,
     durationTime: 0,
@@ -44,7 +45,17 @@ Page({
     const id = options.id
 
     // 2.根据 id 播放歌曲
-    playerStore.playMusicWithSongIdAction(id)
+
+    if (id !== undefined) {
+      playerStore.playMusicWithSongIdAction(id)
+    } else {
+      this.setData({
+        currentSong: playerStore.currentSong,
+        lyricInfo: playerStore.lyricInfo,
+        durationTime: playerStore.durationTime,
+        isPlaying: playerStore.isPlaying
+      })
+    }
 
     // 3.监听 store 共享数据
     playerStore.watch(this.data.stateKey, this.onPlayerStore)
@@ -63,7 +74,6 @@ Page({
   ),
 
   // ================== 事件监听 ==================
-
   onNavBackTap() {
     wx.navigateBack()
   },

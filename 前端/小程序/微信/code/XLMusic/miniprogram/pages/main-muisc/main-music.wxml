@@ -34,3 +34,16 @@
     <top-list-item class="item" itemData="{{item}}"></top-list-item>
   </block>
 </view>
+
+<!-- 6.播放工具栏 -->
+<view class="play-bar-placeholder" wx:if="{{currentSong.name}}"></view>
+<view class="play-bar" wx:if="{{currentSong.name || isPlaying}}">
+  <view class="left" bindtap="onPlayBarLeftTap">
+    <image class="album album-anim" mode="widthFix" src="{{currentSong.al.picUrl}}" style="animation-play-state: {{isPlaying ? 'running' : 'paused'}};" />
+    <text class="name">{{currentSong.name}}</text>
+  </view>
+  <view class="right">
+    <image class="pause-or-play" mode="widthFix" src="/assets/images/music/{{isPlaying ? 'pause' : 'play'}}_icon.png" bindtap="onPauseOrPlayTap" />
+    <image class="play-list" mode="widthFix" src="/assets/images/music/playlist_icon.png" />
+  </view>
+</view>

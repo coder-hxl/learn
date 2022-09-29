@@ -24,7 +24,7 @@ const playerStore = xlStore({
     playModeName: 'order',
 
     isFirst: true,
-    isPlaying: true
+    isPlaying: false
   },
 
   actions: {
@@ -36,6 +36,7 @@ const playerStore = xlStore({
       this.currentLyricIndex = -1
       this.durationTime = 0
       this.currentTime = 0
+      this.isPlaying = true
 
       // 1.保存id
       this.id = id

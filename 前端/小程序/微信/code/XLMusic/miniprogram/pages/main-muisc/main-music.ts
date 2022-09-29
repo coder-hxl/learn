@@ -21,7 +21,10 @@ Page({
     recommendSongMenu: [],
     choicenessSongMenu: [],
 
-    officialList: []
+    officialList: [],
+
+    currentSong: {},
+    isPlaying: playerStore.isPlaying
   },
 
   // 加载
@@ -45,6 +48,8 @@ Page({
 
     topListStore.watch('officialList', this.handleOfficialList)
     topListStore.fetchTopListAction()
+
+    playerStore.watch(['currentSong', 'isPlaying'], this.handlePlaySong)
   },
 
   async onBannerImageLoad() {
@@ -86,10 +91,26 @@ Page({
     this.setData({ officialList: value })
   },
 
+  handlePlaySong(key: string, value: any) {
+    if (key === 'currentSong') {
+      this.setData({ currentSong: value })
+    } else if (key === 'isPlaying') {
+      this.setData({ isPlaying: value })
+    }
+  },
+
   onSongItemTap(event: any) {
     const index = event.currentTarget.dataset.index
     playerStore.playSongIndex = index
     playerStore.playSongList = this.data.newSongs
+  },
+
+  onPlayBarLeftTap() {
+    wx.navigateTo({ url: '/pages/music-player/music-player' })
+  },
+
+  onPauseOrPlayTap() {
+    playerStore.changeMusicStateAction()
   },
 
   onUnload() {}
