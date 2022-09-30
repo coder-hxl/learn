@@ -106,7 +106,7 @@ Page({
   },
 
   onPlayBarLeftTap() {
-    wx.navigateTo({ url: '/pages/music-player/music-player' })
+    wx.navigateTo({ url: '/packagePlayer/pages/music-player/music-player' })
   },
 
   onPauseOrPlayTap() {

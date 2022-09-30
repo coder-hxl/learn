@@ -1,4 +1,4 @@
-import { getMVDetail, getMVUrl, getSimiMV } from '../../services/video'
+import { getMVDetail, getMVUrl, getSimiMV } from '../../../services/video'
 
 // pages/detail-video/detail-video.ts
 Page({

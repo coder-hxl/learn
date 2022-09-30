@@ -6,7 +6,7 @@
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "projectname": "ts-demo",
+  "projectname": "xl-music",
   "setting": {
     "useCompilerPlugins": [
       "typescript"

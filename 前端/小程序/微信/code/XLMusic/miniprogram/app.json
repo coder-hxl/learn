@@ -2,14 +2,29 @@
   "pages": [
     "pages/main-music/main-music",
     "pages/main-video/main-video",
-    "pages/detail-video/detail-video",
     "pages/detail-search/detail-search",
     "pages/more-new-song/more-new-song",
     "pages/more-song-menu/more-song-menu",
     "pages/more-top-list/more-top-list",
-    "pages/detail-song-menu/detail-song-menu",
-    "pages/music-player/music-player"
+    "pages/detail-song-menu/detail-song-menu"
   ],
+  "subPackages": [
+    {
+      "root": "packagePlayer",
+      "name": "musicPlayer",
+      "pages": ["pages/music-player/music-player"]
+    },
+    {
+      "root": "packageVideo",
+      "pages": ["pages/detail-video/detail-video"]
+    }
+  ],
+  "preloadRule": {
+    "pages/main-music/main-music": {
+      "network": "all",
+      "packages": ["musicPlayer"]
+    }
+  },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",

@@ -16,7 +16,7 @@ Component({
 
       // 2.跳转到 detail-video 页面并把 id 传过去
       wx.navigateTo({
-        url: `../../pages/detail-video/detail-video?id=${id}`
+        url: `/packageVideo/pages/detail-video/detail-video?id=${id}`
       })
     }
   }
