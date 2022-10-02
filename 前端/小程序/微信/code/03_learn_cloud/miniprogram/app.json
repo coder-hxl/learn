@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/cloud-database/index",
+    "pages/cloud-storage/index",
+    "pages/cloud-function/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/cloud-database/index",
+        "text": "云数据库",
+        "iconPath": "asset/navBarIcon/database.png",
+        "selectedIconPath": "asset/navBarIcon/database-selected.png"
+      },
+      {
+        "pagePath": "pages/cloud-storage/index",
+        "text": "云存储",
+        "iconPath": "asset/navBarIcon/storage.png",
+        "selectedIconPath": "asset/navBarIcon/storage-selected.png"
+      },
+      {
+        "pagePath": "pages/cloud-function/index",
+        "text": "云函数",
+        "iconPath": "asset/navBarIcon/function.png",
+        "selectedIconPath": "asset/navBarIcon/function-selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

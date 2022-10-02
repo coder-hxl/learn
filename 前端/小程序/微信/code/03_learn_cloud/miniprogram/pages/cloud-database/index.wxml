@@ -1,0 +1,9 @@
+<!--pages/cloud-database/index.wxml-->
+<!-- 增删改查 -->
+<button class="btn" type="primary" bindtap="onAddTap">添加数据</button>
+<button class="btn" type="primary" bindtap="onDeleteTap">删除数据</button>
+<button class="btn" type="primary" bindtap="onUpdateTap">更新数据</button>
+<button class="btn" type="primary" bindtap="onQueryTap">查询数据</button>
+
+<!-- 添加 COD手游 数据 -->
+<button class="btn" bindtap="onAddCODTap">添加COD数据</button>
