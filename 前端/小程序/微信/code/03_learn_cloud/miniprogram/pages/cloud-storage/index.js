@@ -1,66 +1,55 @@
-// pages/cloud-storage/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tempFilePath: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  async onUploadTap() {
+    // 1.上传图片
+    const imageRes = await wx.chooseMedia({
+      type: 'image'
+    })
 
+    // 2.获取信息
+    const tempFilePath = imageRes.tempFiles[0].tempFilePath
+    const imageType = tempFilePath.split('.').pop()
+    const data = new Date().getTime()
+    const openId = '_open-xxx'
+
+    // 3.上传到云存储
+    const imageName = openId + data + '.' + imageType
+    const uploadRes = await wx.cloud.uploadFile({
+      filePath: tempFilePath,
+      cloudPath: 'avatar/' + imageName
+    })
+
+    console.log(uploadRes)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+  async onDeleteTap() {
+    const res = await wx.cloud.deleteFile({
+      fileList: [
+        'cloud://cloud1-9gstklhq1dc79e25.636c-cloud1-9gstklhq1dc79e25-1314193309/avatar/_open-xxx1664812884554.jpg'
+      ]
+    })
 
+    console.log(res)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  async onDowloadTap() {
+    const res = await wx.cloud.downloadFile({
+      fileID:
+        'cloud://cloud1-9gstklhq1dc79e25.636c-cloud1-9gstklhq1dc79e25-1314193309/avatar/_open-xxx1664813024826.jpg'
+    })
+    this.setData({ tempFilePath: res.tempFilePath })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  async onGetTempTap() {
+    const res = await wx.cloud.getTempFileURL({
+      fileList: [
+        'cloud://cloud1-9gstklhq1dc79e25.636c-cloud1-9gstklhq1dc79e25-1314193309/_open-xxx1664812783567.jpg'
+      ]
+    })
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    console.log(res)
   }
 })
