@@ -7,3 +7,5 @@
 
 <!-- 添加 COD手游 数据 -->
 <button class="btn" bindtap="onAddCODTap">添加COD数据</button>
+
+<button class="btn" bindtap="onShowCODTap">展示COD直播</button>

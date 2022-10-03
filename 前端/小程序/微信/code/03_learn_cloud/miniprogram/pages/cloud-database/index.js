@@ -68,7 +68,51 @@ Page({
       .then((res) => console.log(res))
   },
 
-  onQueryTap() {},
+  onQueryTap() {
+    // 1.根据id查询某条数据
+    // smzhsyCol
+    //   .doc('f950bb74633a84c6005a04aa75b31d97')
+    //   .get()
+    //   .then((res) => console.log(res.data))
+
+    // 2.根据条件查询
+    // smzhsyCol
+    //   .where({
+    //     nickname: '吕半仙y'
+    //   })
+    //   .get()
+    //   .then((res) => console.log(res.data))
+
+    // 3.根据指令过滤查询
+    // const cmd = db.command
+    // smzhsyCol
+    //   .where({
+    //     rid: cmd.lte(4690341)
+    //   })
+    //   .get()
+    //   .then((res) => console.log(res))
+
+    // 4.根据正则表达式查询
+    // smzhsyCol
+    //   .where({
+    //     roomName: /上/
+    //   })
+    //   .get()
+    //   .then((res) => console.log(res))
+
+    // 5.获取整个集合
+    // smzhsyCol.get().then((res) => console.log(res.data))
+
+    // 6.过滤、分页、排序 查询数据
+    let page = 1
+    smzhsyCol
+      .field({ rid: true, nickname: true, roomName: true })
+      .skip(page * 5)
+      .limit(5)
+      .orderBy('rid', 'asc')
+      .get()
+      .then((res) => console.log(res.data))
+  },
 
   onAddCODTap() {
     // 添加使命召唤手游数据
@@ -86,6 +130,12 @@ Page({
         }
       })
     }
+  },
+
+  onShowCODTap() {
+    wx.navigateTo({
+      url: '/pages/live-cod/index'
+    })
   },
 
   handleCODData(res) {

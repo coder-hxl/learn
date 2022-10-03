@@ -1,0 +1,8 @@
+<!--pages/live-cod/index.wxml-->
+<view class="list">
+  <block wx:for="{{list}}" wx:key="_id">
+    <image src="{{item.roomSrc}}" mode="widthFix" />
+    <view>{{item.nickname}} - {{item.roomName}}</view>
+    <button type="warn" data-item="{{item}}" data-index="{{index}}" bindtap="onItemDeleteTap">移除</button>
+  </block>
+</view>

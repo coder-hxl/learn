@@ -2,7 +2,8 @@
   "pages": [
     "pages/cloud-database/index",
     "pages/cloud-storage/index",
-    "pages/cloud-function/index"
+    "pages/cloud-function/index",
+    "pages/live-cod/index"
   ],
   "tabBar": {
     "list": [
