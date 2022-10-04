@@ -19,6 +19,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "云函数",
+          "pathName": "pages/cloud-function/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

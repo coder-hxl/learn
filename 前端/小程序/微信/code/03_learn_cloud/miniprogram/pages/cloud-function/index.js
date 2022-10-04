@@ -1,66 +1,36 @@
 // pages/cloud-function/index.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    QRCodeUrl: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  async onTestTap() {
+    const res = await wx.cloud.callFunction({ name: 'test' })
+    console.log(res)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  async onGetOpenidTap() {
+    const res = await wx.cloud.callFunction({ name: 'fetchOpenid' })
+    console.log(res)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  async onGetSMZHSYTap() {
+    const res = await wx.cloud.callFunction({
+      name: 'fetchSMZHSY',
+      data: { type: 1 }
+    })
+    console.log(res)
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  async onGetSongMenuTap() {
+    const res = await wx.cloud.callFunction({ name: 'fetchSongMenu' })
+    console.log(res)
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  async onGetQRCode() {
+    const res = await wx.cloud.callFunction({ name: 'fetchQRCode' })
+    console.log(res)
+    this.setData({ QRCodeUrl: res.result.fileID })
   }
 })

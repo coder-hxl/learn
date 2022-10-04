@@ -1,2 +1,8 @@
 <!--pages/cloud-function/index.wxml-->
-<text>pages/cloud-function/index.wxml</text>
+<button class="btn" type="primary" bindtap="onTestTap">测试云函数</button>
+<button class="btn" type="primary" bindtap="onGetOpenidTap">获取 openid</button>
+<button class="btn" type="primary" bindtap="onGetSMZHSYTap">获取使命召唤手游</button>
+<button class="btn" type="primary" bindtap="onGetSongMenuTap">获取歌单</button>
+<button class="btn" type="primary" bindtap="onGetQRCode">获取小程序码</button>
+
+<image src="{{QRCodeUrl}}" mode="widthFix"></image>
