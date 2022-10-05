@@ -1,0 +1,17 @@
+<!--pages/main-profile/main-profile.wxml-->
+<view class="userInfo area" bindtap="onUserInfoTap">
+  <image class="avatar" mode="widthFix" src="{{isLogin ? userInfo.avatarUrl : '/assets/images/icons/user-avatar.png'}}"></image>
+  <view class="name">{{isLogin ? userInfo.nickName : '登录'}}</view>
+</view>
+
+<view class="my-music">
+  <view class="title">我的音乐</view>
+  <view class="list area">
+    <block wx:for="{{myMusicList}}" wx:key="name">
+      <view class="item" data-item="{{item}}" bindtap="onMyMusicItemTap">
+        <image class="icon" mode="widthFix" src="/assets/images/icons/{{item.nickName}}.png" />
+        <view class="name">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
