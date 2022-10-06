@@ -1,7 +1,7 @@
-const db = wx.cloud.database()
+export const db = wx.cloud.database()
 
 class XLCollection {
-  collection: DB.CollectionReference
+  collection: any
 
   constructor(collectionName: string) {
     this.collection = db.collection(collectionName)
@@ -27,16 +27,18 @@ class XLCollection {
     return this.collection.where({ data }).updata()
   }
 
-  get(offset = 0, limit = 20, data?: any, isDoc = true) {
+  get(data: any, options: any, isDoc = true): Promise<DB.IQueryResult> {
     if (isDoc) {
-      return this.collection.doc(data ?? '').get()
+      return this.collection.doc(data).get()
+    } else if (options) {
+      return this.collection
+        .where(data)
+        .skip(options.offset)
+        .limit(options.limit)
+        .get()
     }
 
-    return this.collection
-      .where(data || {})
-      .skip(offset)
-      .limit(limit)
-      .get()
+    return this.collection.get()
   }
 }
 

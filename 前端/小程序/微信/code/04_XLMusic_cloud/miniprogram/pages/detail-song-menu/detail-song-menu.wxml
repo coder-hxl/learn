@@ -13,7 +13,7 @@
         <image class="avatar" src="{{detailData.creator.avatarUrl}}" mode="widthFix"></image>
         <view class="nickname">{{detailData.creator.nickname}}</view>
       </view>
-      <view class="description">简介: {{detailData.description}}</view>
+      <view class="description">{{detailData.description ? '简介:{{detailData.description}} ' : ''}}</view>
     </view>
   </view>
 
@@ -31,6 +31,6 @@
 
 <view class="song-list">
   <block wx:for="{{detailData.tracks}}" wx:key="id">
-    <song-item-v2 order="{{index + 1}}" itemData="{{item}}" data-index="{{index}}" bindtap="onSongItemTap" ></song-item-v2>
+    <song-item-v2 order="{{index + 1}}" itemData="{{item}}" data-index="{{index}}" bindtap="onSongItemTap"></song-item-v2>
   </block>
 </view>

@@ -12,4 +12,5 @@
       </block>
     </view>
   </view>
+  <van-icon class="control" name="weapp-nav" catchtap="onControlTap" />
 </view>

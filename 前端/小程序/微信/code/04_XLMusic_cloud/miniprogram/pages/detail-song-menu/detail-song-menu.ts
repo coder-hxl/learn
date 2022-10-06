@@ -1,15 +1,22 @@
 import { getDetailSongMenu } from '../../services/music'
 import playerStore from '../../stores/playerStore'
+import databaseStore from '../../stores/databaseStore'
 
 Page({
   data: {
-    detailData: [] as any
+    detailData: {} as any
   },
 
-  onLoad(options: any) {
+  async onLoad(options: any) {
     const id = options.id
 
-    this.fetchDetailSongMenu(id)
+    if (id !== undefined) {
+      this.fetchDetailSongMenu(id)
+    } else {
+      const detailData = databaseStore.getLoveRecordAction()
+      this.setData({ detailData })
+      databaseStore.watch('loveRecord', this.handleLoveStore)
+    }
   },
 
   async fetchDetailSongMenu(id: number) {
@@ -22,5 +29,14 @@ Page({
     playerStore.playSongIndex = index
 
     playerStore.playSongList = this.data.detailData.tracks
+  },
+
+  // ================ store ================
+  handleLoveStore(key: string, value: any) {
+    this.setData({ detailData: value })
+  },
+
+  onUnload() {
+    databaseStore.deleteWatch('loveRecord', this.handleLoveStore)
   }
 })

@@ -1,4 +1,6 @@
 // pages/main-profile/main-profile.ts
+import databaseStore from '../../stores/databaseStore'
+
 Page({
   data: {
     userInfo: {},
@@ -31,11 +33,15 @@ Page({
       const userInfo = res.userInfo
       wx.setStorageSync('userInfo', userInfo)
       this.setData({ isLogin: true, userInfo })
+      databaseStore.createRecordAction()
     }
   },
 
   async onMyMusicItemTap(event: any) {
     const { nickName } = event.currentTarget.dataset.item
     console.log(nickName)
+    if (nickName === 'love') {
+      wx.navigateTo({ url: '/pages/detail-song-menu/detail-song-menu' })
+    }
   }
 })

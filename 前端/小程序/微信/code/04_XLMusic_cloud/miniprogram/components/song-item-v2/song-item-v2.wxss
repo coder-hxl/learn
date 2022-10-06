@@ -11,13 +11,13 @@
 }
 
 .order {
-  flex: 1;
+  padding: 0 30rpx;
   text-align: center;
   font-size: 28rpx;
 }
 
 .song {
-  flex: 8;
+  flex: 1;
 }
 
 .name {
@@ -48,4 +48,10 @@
 .ars-itm:first-of-type::before {
   content: '';
   padding: 0;
+}
+
+.control {
+  margin: 0 30rpx;
+  font-size: 36rpx;
+  color: #3b3b3b;
 }
