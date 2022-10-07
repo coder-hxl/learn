@@ -10,6 +10,17 @@ page {
   background-color: #fff;
 }
 
+.my-music,
+.my-song-menu {
+  margin-top: 40rpx;
+}
+
+.my-music .title,
+.my-song-menu .title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
 .userInfo {
   display: flex;
   align-items: center;
@@ -25,15 +36,6 @@ page {
 .userInfo .name {
   margin-left: 20rpx;
   font-size: 30rpx;
-}
-
-.my-music {
-  margin-top: 40rpx;
-}
-
-.my-music .title {
-  font-size: 36rpx;
-  font-weight: 600;
 }
 
 .my-music .list {
@@ -57,4 +59,32 @@ page {
 .my-music .list .item .name {
   margin-top: 10rpx;
   font-size: 26rpx;
+}
+
+.my-song-menu .content {
+  margin-top: 20rpx;
+}
+
+.my-song-menu .content .c-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx 30rpx;
+  font-size: 26rpx;
+  color: #727272;
+}
+
+.dialog .content {
+  padding: 50rpx;
+}
+
+.dialog .content .ipt {
+  margin-top: 40rpx;
+  padding-left: 8rpx;
+  font-size: 26rpx;
+  color: #424242;
+  border-bottom: 1px solid rgb(173, 173, 173);
+}
+
+.dialog .content .ipt:first-of-type {
+  margin-top: 0;
 }

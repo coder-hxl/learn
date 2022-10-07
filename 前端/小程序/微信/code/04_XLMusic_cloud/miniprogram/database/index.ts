@@ -36,6 +36,8 @@ class XLCollection {
         .skip(options.offset)
         .limit(options.limit)
         .get()
+    } else if (Object.keys(data).length) {
+      return this.collection.where(data).get()
     }
 
     return this.collection.get()
@@ -44,3 +46,4 @@ class XLCollection {
 
 export const loveCol = new XLCollection('c_love')
 export const historyCol = new XLCollection('c_history')
+export const mySongMenuCol = new XLCollection('c_my_song_menu')

@@ -54,7 +54,6 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index"

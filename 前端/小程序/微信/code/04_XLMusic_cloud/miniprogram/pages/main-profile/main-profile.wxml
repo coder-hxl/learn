@@ -15,3 +15,23 @@
     </block>
   </view>
 </view>
+
+<view class="my-song-menu">
+  <view class="title">我的歌单</view>
+  <view class="content area">
+    <view class="c-title">
+      <view class="text">创建歌单</view>
+      <van-icon class="icon" name="plus" bindtap="onCreateSongMenuTap" />
+    </view>
+    <view class="list">
+
+    </view>
+  </view>
+</view>
+
+<van-dialog class="dialog" show="{{isShowDialog}}" title="创建歌单" close-on-click-overlay show-cancel-button use-slot bind:confirm="onDialogConfirmTap">
+  <view class="content">
+    <input class="ipt" model:value="{{iptSongMenuName}}" bindinput="onSongMenuIptTap" placeholder="在此输入歌单名" />
+    <input class="ipt" model:value="{{iptSongMenuDes}}" bindinput="onSongMenuDesIptTap" placeholder="再此输入描述" />
+  </view>
+</van-dialog>

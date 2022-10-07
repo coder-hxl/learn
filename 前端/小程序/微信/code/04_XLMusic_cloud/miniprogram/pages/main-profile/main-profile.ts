@@ -1,5 +1,6 @@
 // pages/main-profile/main-profile.ts
 import databaseStore from '../../stores/databaseStore'
+import { verifyLogin } from '../../utils/verify'
 
 Page({
   data: {
@@ -9,23 +10,30 @@ Page({
       { name: '历史记录', nickName: 'history' }
     ],
 
-    isLogin: false
+    iptSongMenuName: '',
+    iptSongMenuDes: '',
+
+    isLogin: false,
+    isShowDialog: false
   },
 
   onLoad() {
-    this.verifyLogin()
+    this.getLoginInfo()
   },
 
-  verifyLogin() {
-    const userInfo = wx.getStorageSync('userInfo')
-    const isLogin = !!userInfo
-    this.setData({ isLogin, userInfo })
-    return !!isLogin
+  getLoginInfo() {
+    const isLogin = verifyLogin()
+    if (isLogin) {
+      const userInfo = wx.getStorageSync('userInfo')
+      this.setData({ isLogin, userInfo })
+    } else {
+      this.setData({ isLogin })
+    }
   },
 
   // ============== 事件处理 ==============
   async onUserInfoTap() {
-    const isLogin = this.verifyLogin()
+    const isLogin = verifyLogin()
     if (isLogin) {
       console.log('您已登录~')
     } else {
@@ -38,10 +46,29 @@ Page({
   },
 
   async onMyMusicItemTap(event: any) {
+    if (!verifyLogin()) {
+      await this.onUserInfoTap()
+      await databaseStore.initLoginData()
+    }
+
     const { nickName } = event.currentTarget.dataset.item
     console.log(nickName)
     if (nickName === 'love') {
       wx.navigateTo({ url: '/pages/detail-song-menu/detail-song-menu' })
     }
-  }
+  },
+
+  async onCreateSongMenuTap() {
+    this.setData({ isShowDialog: true })
+  },
+
+  onDialogConfirmTap() {
+    const { iptSongMenuName, iptSongMenuDes } = this.data
+
+    databaseStore.createMySongMenuRecordAction(iptSongMenuName, iptSongMenuDes)
+  },
+
+  onSongMenuIptTap() {},
+
+  onSongMenuDesIptTap() {}
 })

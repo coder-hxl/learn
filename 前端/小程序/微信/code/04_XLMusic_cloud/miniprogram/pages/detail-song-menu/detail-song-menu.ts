@@ -13,7 +13,7 @@ Page({
     if (id !== undefined) {
       this.fetchDetailSongMenu(id)
     } else {
-      const detailData = databaseStore.getLoveRecordAction()
+      const detailData = databaseStore.loveRecord
       this.setData({ detailData })
       databaseStore.watch('loveRecord', this.handleLoveStore)
     }
