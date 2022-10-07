@@ -1,5 +1,6 @@
 // components/song-item-v2/song-item-v2.ts
 import databaseStore from '../../stores/databaseStore'
+import { verifyLogin } from '../../utils/verify'
 
 const db = wx.cloud.database()
 const cmd = db.command
@@ -25,21 +26,6 @@ Component({
     isInLoveTracks: null as null | boolean
   },
 
-  lifetimes: {
-    async attached() {
-      const itemData = this.data.itemData
-      // 1.判断当前歌曲是否存在于喜欢列表中
-      const upLoveRecordLength = Object.keys(databaseStore.loveRecord).length
-      const loveRecord = upLoveRecordLength
-        ? databaseStore.loveRecord
-        : await databaseStore.getLoveRecordAction()
-      const tracksIds: number[] = loveRecord.tracks.map((item: any) => item.id)
-      const isInTracks = tracksIds.includes(itemData.id)
-
-      this.data.isInLoveTracks = isInTracks
-    }
-  },
-
   methods: {
     onSongItemTap() {
       const id = this.properties.itemData.id
@@ -50,10 +36,19 @@ Component({
 
     async onControlTap() {
       // 1.判断当前歌曲是否存在于喜欢列表中
-      let itemList = null
-      this.data.isInLoveTracks
-        ? (itemList = ['删除喜欢', '添加到歌单'])
-        : (itemList = ['添加喜欢', '添加到歌单'])
+      let isInTracks = this.data.isInLoveTracks
+      if (isInTracks == null) {
+        const itemData = this.data.itemData
+        const loveRecord = databaseStore.loveRecord
+        isInTracks = loveRecord.tracks
+          .map((item: any) => item.id)
+          .includes(itemData.id)
+        this.data.isInLoveTracks = isInTracks
+      }
+
+      const itemList = isInTracks
+        ? ['删除喜欢', '添加到歌单']
+        : ['添加喜欢', '添加到歌单']
 
       // 2.获取用户点击的结果
       let res = null
