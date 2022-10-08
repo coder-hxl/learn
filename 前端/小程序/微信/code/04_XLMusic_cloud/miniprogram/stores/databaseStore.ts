@@ -2,7 +2,9 @@ import xlStore from 'xl-store'
 import { loveCol, mySongMenuCol } from '../database/index'
 import { verifyLogin } from '../utils/verify'
 
-interface ISongRecord {
+export interface ISongMenuRecord {
+  _id?: string
+  _openid?: string
   name: string
   description: null | string
   coverImgUrl: null | string
@@ -16,10 +18,10 @@ interface ISongRecord {
 }
 
 const initData = {
-  songRecord(name: string, description: string | null = null): ISongRecord {
+  songRecord(name: string, description: string | null = null): ISongMenuRecord {
     const userInfo = wx.getStorageSync('userInfo') as WechatMiniprogram.UserInfo
 
-    const res: ISongRecord = {
+    const res: ISongMenuRecord = {
       name,
       description,
       coverImgUrl: null,
@@ -64,7 +66,7 @@ const databaseStore = xlStore({
       if (res.data.length) return
 
       const mySongMenuRecord = initData.songRecord(songMenuName, songMenuDes)
-      mySongMenuRecord.coverImgUrl = '/assets/images/icons/love.png'
+      mySongMenuRecord.coverImgUrl = '/assets/images/icons/music-box.png'
 
       mySongMenuCol.add(mySongMenuRecord)
       this.mySongMenu.push(mySongMenuRecord)

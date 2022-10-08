@@ -24,7 +24,16 @@
       <van-icon class="icon" name="plus" bindtap="onCreateSongMenuTap" />
     </view>
     <view class="list">
-
+      <block wx:for="{{mySongMenu}}" wx:key="name">
+        <view class="item" data-index="{{index}}" bindtap="onMySongMenuItemTap">
+          <image class="cover" src="{{item.coverImgUrl}}" mode="widthFix" />
+          <view class="item-content">
+            <view class="name">{{item.name}}</view>
+            <view class="song-sum">{{item.tracks.length}} 首</view>
+          </view>
+          <van-icon class="icon" name="delete-o" />
+        </view>
+      </block>
     </view>
   </view>
 </view>

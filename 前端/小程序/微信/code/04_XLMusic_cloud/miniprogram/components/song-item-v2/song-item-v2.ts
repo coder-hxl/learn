@@ -1,10 +1,10 @@
 // components/song-item-v2/song-item-v2.ts
-import databaseStore from '../../stores/databaseStore'
-import { verifyLogin } from '../../utils/verify'
+import databaseStore, { ISongMenuRecord } from '../../stores/databaseStore'
 
 const db = wx.cloud.database()
 const cmd = db.command
 const cLove: any = db.collection('c_love')
+const cMySongMenu: any = db.collection('c_my_song_menu')
 
 Component({
   properties: {
@@ -77,10 +77,12 @@ Component({
 
         // 处理添加到歌单
         case 1:
+          handleRes = await this.handleAddMySongMenu()
           break
       }
 
       const msg = handleRes.errMsg.split(':').pop()
+
       if (msg === 'ok') {
         wx.showToast({ title: `操作成功~` })
       } else {
@@ -131,6 +133,34 @@ Component({
       databaseStore.getLoveRecordAction()
 
       return handleRes
+    },
+
+    async handleAddMySongMenu() {
+      // 1.获取创建的歌单
+      const mySongMenu: ISongMenuRecord[] = databaseStore.mySongMenu
+      const itemList = mySongMenu.map((item: ISongMenuRecord) => item.name)
+
+      // 2.获取用户点击的结果
+      let res = null
+      try {
+        res = await wx.showActionSheet({ itemList })
+      } catch (error) {
+        console.log(error)
+      }
+
+      const tapIndex = res?.tapIndex
+
+      if (tapIndex === undefined) return
+
+      const addSongMenu = mySongMenu[tapIndex]
+
+      const addRes = await cMySongMenu.where({ _id: addSongMenu._id }).update({
+        data: {
+          tracks: cmd.push(this.data.itemData)
+        }
+      })
+
+      return addRes
     }
   }
 })

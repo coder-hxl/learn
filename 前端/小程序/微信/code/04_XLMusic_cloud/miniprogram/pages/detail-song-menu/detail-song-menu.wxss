@@ -25,7 +25,7 @@
   left: 0;
   right: 0;
   background: inherit;
-  filter: blur(8rpx);
+  filter: blur(20rpx);
   z-index: -1;
 }
 

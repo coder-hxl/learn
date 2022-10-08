@@ -8,10 +8,13 @@ Page({
   },
 
   async onLoad(options: any) {
-    const id = options.id
+    const { id, mySongMenuIndex } = options
 
     if (id !== undefined) {
       this.fetchDetailSongMenu(id)
+    } else if (mySongMenuIndex !== undefined) {
+      const detailData = databaseStore.mySongMenu[mySongMenuIndex]
+      this.setData({ detailData })
     } else {
       const detailData = databaseStore.loveRecord
       this.setData({ detailData })

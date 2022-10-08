@@ -13,12 +13,18 @@ Page({
     iptSongMenuName: '',
     iptSongMenuDes: '',
 
+    mySongMenu: [],
+
     isLogin: false,
     isShowDialog: false
   },
 
   onLoad() {
     this.getLoginInfo()
+
+    const mySongMenu = databaseStore.mySongMenu
+    this.setData({ mySongMenu })
+    databaseStore.watch('mySongMenu', this.fetchMySongMenu)
   },
 
   getLoginInfo() {
@@ -52,7 +58,6 @@ Page({
     }
 
     const { nickName } = event.currentTarget.dataset.item
-    console.log(nickName)
     if (nickName === 'love') {
       wx.navigateTo({ url: '/pages/detail-song-menu/detail-song-menu' })
     }
@@ -68,7 +73,24 @@ Page({
     databaseStore.createMySongMenuRecordAction(iptSongMenuName, iptSongMenuDes)
   },
 
+  onMySongMenuItemTap(event: any) {
+    const mySongMenuIndex: number = event.currentTarget.dataset.index
+    console.log('onMySongMenuItemTap', mySongMenuIndex)
+    wx.navigateTo({
+      url: `/pages/detail-song-menu/detail-song-menu?mySongMenuIndex=${mySongMenuIndex}`
+    })
+  },
+
   onSongMenuIptTap() {},
 
-  onSongMenuDesIptTap() {}
+  onSongMenuDesIptTap() {},
+
+  // ============== store 处理 ==============
+  fetchMySongMenu(key: string, mySongMenu: any) {
+    this.setData({ mySongMenu })
+  },
+
+  onUnload() {
+    databaseStore.deleteWatch('mySongMenu', this.fetchMySongMenu)
+  }
 })

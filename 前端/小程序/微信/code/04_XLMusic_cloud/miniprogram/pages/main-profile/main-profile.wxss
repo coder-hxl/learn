@@ -73,6 +73,40 @@ page {
   color: #727272;
 }
 
+.my-song-menu .list {
+  padding: 0 40rpx 20rpx 20rpx;
+}
+
+.my-song-menu .list .item {
+  display: flex;
+  align-items: center;
+}
+
+.my-song-menu .list .item .cover {
+  width: 120rpx;
+}
+
+.my-song-menu .list .item .item-content {
+  flex: 1;
+  padding-left: 10rpx;
+}
+
+.my-song-menu .list .item .item-content .name {
+  font-size: 26rpx;
+}
+
+.my-song-menu .list .item .item-content .song-sum {
+  font-size: 22rpx;
+  color: #afafaf;
+}
+
+.my-song-menu .list .item .icon {
+  font-size: 30rpx;
+  color: #9c9c9c;
+}
+
+/* =============== 弹出框 =============== */
+
 .dialog .content {
   padding: 50rpx;
 }

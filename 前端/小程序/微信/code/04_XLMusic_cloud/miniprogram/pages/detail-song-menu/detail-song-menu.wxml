@@ -13,7 +13,7 @@
         <image class="avatar" src="{{detailData.creator.avatarUrl}}" mode="widthFix"></image>
         <view class="nickname">{{detailData.creator.nickname}}</view>
       </view>
-      <view class="description">{{detailData.description ? '简介:{{detailData.description}} ' : ''}}</view>
+      <view class="description">{{detailData.description !== undefined ? '简介:' + detailData.description : ''}}</view>
     </view>
   </view>
 
