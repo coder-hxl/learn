@@ -9,7 +9,7 @@
   <view class="list area">
     <block wx:for="{{myMusicList}}" wx:key="name">
       <view class="item" data-item="{{item}}" bindtap="onMyMusicItemTap">
-        <image class="icon" mode="widthFix" src="/assets/images/icons/{{item.nickName}}.png" />
+        <image class="icon" mode="widthFix" src="/assets/images/icons/{{item.icon}}.png" />
         <view class="name">{{item.name}}</view>
       </view>
     </block>
@@ -31,7 +31,7 @@
             <view class="name">{{item.name}}</view>
             <view class="song-sum">{{item.tracks.length}} 首</view>
           </view>
-          <van-icon class="icon" name="delete-o" />
+          <van-icon class="icon" name="delete-o" data-item="{{item}}" catchtap="onDeleteSongMenu" />
         </view>
       </block>
     </view>

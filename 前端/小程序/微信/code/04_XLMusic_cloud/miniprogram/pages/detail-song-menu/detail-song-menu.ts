@@ -1,10 +1,11 @@
 import { getDetailSongMenu } from '../../services/music'
 import playerStore from '../../stores/playerStore'
-import databaseStore from '../../stores/databaseStore'
+import userInfoStore from '../../stores/userInfoStore'
 
 Page({
   data: {
-    detailData: {} as any
+    detailData: {} as any,
+    mySongMenuIndex: null as number | null
   },
 
   async onLoad(options: any) {
@@ -13,12 +14,13 @@ Page({
     if (id !== undefined) {
       this.fetchDetailSongMenu(id)
     } else if (mySongMenuIndex !== undefined) {
-      const detailData = databaseStore.mySongMenu[mySongMenuIndex]
-      this.setData({ detailData })
+      const detailData = userInfoStore.mySongMenu[mySongMenuIndex]
+      this.setData({ detailData, mySongMenuIndex })
+      userInfoStore.watch('mySongMenu', this.handleMySongMenuStore)
     } else {
-      const detailData = databaseStore.loveRecord
+      const detailData = userInfoStore.loveRecord
       this.setData({ detailData })
-      databaseStore.watch('loveRecord', this.handleLoveStore)
+      userInfoStore.watch('loveRecord', this.handleLoveStore)
     }
   },
 
@@ -39,7 +41,17 @@ Page({
     this.setData({ detailData: value })
   },
 
+  handleMySongMenuStore(key: string, value: any[]) {
+    const index = this.data.mySongMenuIndex
+    if (!index) return
+
+    const detailData = value[index]
+    this.setData({ detailData })
+  },
+
   onUnload() {
-    databaseStore.deleteWatch('loveRecord', this.handleLoveStore)
+    userInfoStore.deleteWatch('loveRecord', this.handleLoveStore)
+
+    userInfoStore.deleteWatch('mySongMenu', this.handleMySongMenuStore)
   }
 })

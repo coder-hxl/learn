@@ -3,6 +3,7 @@
 
 <view class="song-item-v2  {{stripe && order % 2 === 0 ? 'zebra' : ''}}" bindtap="onSongItemTap">
   <view class="order">{{fmt.padLeft(order)}}</view>
+  <image class="love" mode="widthFix" src="/assets/images/icons/love{{isLove ? '-activate' : ''}}.png" catchtap="handleLoveRecord" />
   <view class="song">
     <view class="name">{{itemData.name}}</view>
     <view class="ars">

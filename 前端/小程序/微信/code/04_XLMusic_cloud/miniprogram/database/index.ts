@@ -16,7 +16,7 @@ class XLCollection {
       return this.collection.doc(data).remove()
     }
 
-    return this.collection.where({ data }).reomve()
+    return this.collection.where(data).reomve()
   }
 
   update(data: any, isDoc = true) {

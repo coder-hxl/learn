@@ -11,12 +11,19 @@
 }
 
 .order {
-  padding: 0 30rpx;
+  padding: 0 20rpx;
   text-align: center;
   font-size: 28rpx;
 }
 
+.love {
+  padding: 0 4rpx;
+  width: 38rpx;
+  height: 0;
+}
+
 .song {
+  padding-left: 20rpx;
   flex: 1;
 }
 

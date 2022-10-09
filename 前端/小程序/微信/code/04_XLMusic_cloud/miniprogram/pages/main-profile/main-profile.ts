@@ -1,13 +1,15 @@
 // pages/main-profile/main-profile.ts
-import databaseStore from '../../stores/databaseStore'
+import userInfoStore, { ISongMenuRecord } from '../../stores/userInfoStore'
+import { mySongMenuCol } from '../../database/index'
+
 import { verifyLogin } from '../../utils/verify'
 
 Page({
   data: {
-    userInfo: {},
+    userInfo: {} as WechatMiniprogram.UserInfo,
     myMusicList: [
-      { name: '我的喜欢', nickName: 'love' },
-      { name: '历史记录', nickName: 'history' }
+      { name: '我的喜欢', nickName: 'love', icon: 'love-activate' },
+      { name: '历史记录', nickName: 'history', icon: 'history' }
     ],
 
     iptSongMenuName: '',
@@ -20,17 +22,18 @@ Page({
   },
 
   onLoad() {
-    this.getLoginInfo()
+    this.initLoginInfo()
 
-    const mySongMenu = databaseStore.mySongMenu
+    // 观察数据
+    const mySongMenu = userInfoStore.mySongMenu
     this.setData({ mySongMenu })
-    databaseStore.watch('mySongMenu', this.fetchMySongMenu)
+    userInfoStore.watch('mySongMenu', this.fetchMySongMenu)
   },
 
-  getLoginInfo() {
+  initLoginInfo() {
     const isLogin = verifyLogin()
     if (isLogin) {
-      const userInfo = wx.getStorageSync('userInfo')
+      const userInfo = userInfoStore.userInfo
       this.setData({ isLogin, userInfo })
     } else {
       this.setData({ isLogin })
@@ -43,20 +46,29 @@ Page({
     if (isLogin) {
       console.log('您已登录~')
     } else {
-      const res = await wx.getUserProfile({ desc: '获取您的头像和名称' })
-      const userInfo = res.userInfo
-      wx.setStorageSync('userInfo', userInfo)
-      this.setData({ isLogin: true, userInfo })
-      databaseStore.createRecordAction()
+      this.handleLogin()
     }
   },
 
-  async onMyMusicItemTap(event: any) {
-    if (!verifyLogin()) {
-      await this.onUserInfoTap()
-      await databaseStore.initLoginData()
+  async handleLogin() {
+    const res = await userInfoStore.loginActions()
+    if (!res.state) {
+      wx.showToast({ title: '登录失败~', icon: 'error' })
+      return false
     }
 
+    const userInfo = res.data
+    this.setData({ isLogin: true, userInfo })
+    return true
+  },
+
+  async onMyMusicItemTap(event: any) {
+    // 1.登录, 必须登录才能使用
+    const isLogin = verifyLogin()
+    const loginRes = !isLogin ? await this.handleLogin() : true
+    if (!loginRes) return
+
+    // 2.跳转页面
     const { nickName } = event.currentTarget.dataset.item
     if (nickName === 'love') {
       wx.navigateTo({ url: '/pages/detail-song-menu/detail-song-menu' })
@@ -64,21 +76,47 @@ Page({
   },
 
   async onCreateSongMenuTap() {
+    // 1.登录, 必须登录才能使用
+    const isLogin = verifyLogin()
+    const loginRes = !isLogin ? await this.handleLogin() : true
+    if (!loginRes) return
+
+    // 2.展示框
     this.setData({ isShowDialog: true })
   },
 
   onDialogConfirmTap() {
     const { iptSongMenuName, iptSongMenuDes } = this.data
 
-    databaseStore.createMySongMenuRecordAction(iptSongMenuName, iptSongMenuDes)
+    userInfoStore.createMySongMenuRecordAction(iptSongMenuName, iptSongMenuDes)
   },
 
   onMySongMenuItemTap(event: any) {
     const mySongMenuIndex: number = event.currentTarget.dataset.index
-    console.log('onMySongMenuItemTap', mySongMenuIndex)
     wx.navigateTo({
       url: `/pages/detail-song-menu/detail-song-menu?mySongMenuIndex=${mySongMenuIndex}`
     })
+  },
+
+  async onDeleteSongMenu(event: any) {
+    // 1.获取_id
+    const item: ISongMenuRecord = event.currentTarget.dataset.item
+    const { _id } = item
+
+    // 2.通过云函数删除
+    const res = await wx.cloud.callFunction({
+      name: 'deleteData',
+      data: { colName: 'c_my_song_menu', whereData: { _id }, _id }
+    })
+
+    // 3.判断结果
+    const resMsg = res.errMsg.split(':').pop()
+    if (resMsg == 'ok') {
+      wx.showToast({ title: '删除成功~' })
+      userInfoStore.getMySongMenuAction()
+    } else {
+      wx.showToast({ title: '删除失败~', icon: 'error' })
+    }
   },
 
   onSongMenuIptTap() {},
@@ -87,10 +125,12 @@ Page({
 
   // ============== store 处理 ==============
   fetchMySongMenu(key: string, mySongMenu: any) {
+    console.log(mySongMenu)
+
     this.setData({ mySongMenu })
   },
 
   onUnload() {
-    databaseStore.deleteWatch('mySongMenu', this.fetchMySongMenu)
+    userInfoStore.deleteWatch('mySongMenu', this.fetchMySongMenu)
   }
 })

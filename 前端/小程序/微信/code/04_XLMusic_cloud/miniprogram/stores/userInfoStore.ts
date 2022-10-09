@@ -38,23 +38,51 @@ const initData = {
   }
 }
 
-const databaseStore = xlStore({
+const userInfoStore = xlStore({
   state: {
+    userInfo: {} as WechatMiniprogram.UserInfo,
     loveRecord: {},
     mySongMenu: []
   },
 
   actions: {
-    async createRecordAction() {
+    async loginActions() {
+      // 1.获取用户信息
+      let res: WechatMiniprogram.GetUserProfileSuccessCallbackResult | null = null
+      try {
+        res = await wx.getUserProfile({ desc: '获取您的头像和名称' })
+      } catch (error) {
+        wx.showToast({ title: '登录失败~', icon: 'error' })
+        return {
+          state: false
+        }
+      }
+
+      // 2.保存数据
+      const userInfo = res.userInfo
+      wx.setStorageSync('userInfo', userInfo)
+      await this.initStoreDataAction()
+
+      return {
+        state: true,
+        data: userInfo
+      }
+    },
+
+    async createLoveRecordAction() {
+      // 1.判断是否创建过
       const res = await loveCol.get({}, null, false)
 
-      if (res.data.length) return
+      if (res.data.length) return true
 
+      // 2.生成初始数据
       const loveRecord = initData.songRecord('我的喜欢')
-      loveRecord.coverImgUrl = '/assets/images/icons/love.png'
+      loveRecord.coverImgUrl = '/assets/images/icons/love-activate.png'
 
+      // 3.添加到云数据库
       loveCol.add(loveRecord)
       this.loveRecord = loveRecord
+      return true
     },
 
     async createMySongMenuRecordAction(
@@ -70,12 +98,17 @@ const databaseStore = xlStore({
 
       mySongMenuCol.add(mySongMenuRecord)
       this.mySongMenu.push(mySongMenuRecord)
-      console.log('createMySongMenuRecordAction', this.mySongMenu)
     },
 
-    initLoginData() {
-      databaseStore.getLoveRecordAction()
-      databaseStore.getMySongMenuAction()
+    initStoreDataAction() {
+      const userInfo = wx.getStorageSync('userInfo')
+      this.userInfo = userInfo
+
+      this.createLoveRecordAction().then(() => {
+        this.getLoveRecordAction()
+      })
+
+      this.getMySongMenuAction()
     },
 
     async getLoveRecordAction() {
@@ -87,13 +120,17 @@ const databaseStore = xlStore({
 
     async getMySongMenuAction() {
       const res = await mySongMenuCol.get({}, null, false)
-      console.log('getMySongMenuAction', res.data)
+      const mySongMenus = res.data as ISongMenuRecord[]
+      for (const item of mySongMenus) {
+        item.tracks.reverse()
+      }
+      console.log('getMySongMenuAction', mySongMenus)
 
-      return (this.mySongMenu = res.data)
+      return (this.mySongMenu = mySongMenus)
     }
   }
 })
 
-verifyLogin() && databaseStore.initLoginData()
+verifyLogin() && userInfoStore.initStoreDataAction()
 
-export default databaseStore
+export default userInfoStore
