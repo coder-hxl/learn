@@ -2,7 +2,7 @@
 <wxs src="../../utils/format.wxs" module="fmt"></wxs>
 
 
-<view class="cover" style="background: url({{detailData.coverImgUrl}}) no-repeat center/100%">
+<view wx:if="{{detailData.coverImgUrl}}" class="cover" style="background: url({{detailData.coverImgUrl}}) no-repeat center/100%">
   <view class="header">
     <view class="cover-img">
       <image class="image" src="{{detailData.coverImgUrl}}" mode="widthFix"></image>
@@ -13,7 +13,7 @@
         <image class="avatar" src="{{detailData.creator.avatarUrl}}" mode="widthFix"></image>
         <view class="nickname">{{detailData.creator.nickname}}</view>
       </view>
-      <view class="description">{{detailData.description !== undefined ? '简介:' + detailData.description : ''}}</view>
+      <view class="description">{{detailData.description !== null ? '简介:' + detailData.description : ''}}</view>
     </view>
   </view>
 

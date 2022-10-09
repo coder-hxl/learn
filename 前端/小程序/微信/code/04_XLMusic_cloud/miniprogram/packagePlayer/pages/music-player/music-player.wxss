@@ -112,7 +112,7 @@
   height: 100%;
   text-align: center;
   font-size: 30rpx;
-  color: #aaa;
+  color: #cecece;
 }
 
 .lyric-list .scroll-view ::-webkit-scrollbar {
@@ -129,5 +129,5 @@
   height: 40px;
   line-height: 40px;
   font-size: 34rpx;
-  color: #4fc4fa;
+  color: #00aeff;
 }

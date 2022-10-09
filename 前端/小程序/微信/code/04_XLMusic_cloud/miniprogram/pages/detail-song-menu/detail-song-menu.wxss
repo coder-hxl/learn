@@ -14,18 +14,20 @@
   padding: 50rpx 40rpx;
   height: 314rpx;
   color: #fff;
+  box-shadow: 0 -6rpx 18rpx 2rpx rgba(0, 0, 0, 0.4);
+  overflow: hidden;
   z-index: -1;
 }
 
 .cover::after {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: -50rpx;
+  bottom: -50rpx;
+  left: -50rpx;
+  right: -50rpx;
   background: inherit;
-  filter: blur(20rpx);
+  filter: blur(30rpx);
   z-index: -1;
 }
 
