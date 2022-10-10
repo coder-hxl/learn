@@ -18,8 +18,9 @@ Page({
 
   onGloablItemTap(event: any) {
     const id = event.currentTarget.dataset.id
+    const type = 3
     wx.navigateTo({
-      url: `/pages/detail-song-menu/detail-song-menu?id=${id}`
+      url: `/pages/detail-song-menu/detail-song-menu?type=${type}&id=${id}`
     })
   },
 

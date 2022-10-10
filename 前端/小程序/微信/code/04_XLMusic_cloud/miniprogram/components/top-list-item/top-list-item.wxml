@@ -9,5 +9,5 @@
     </view>
   </view>
 
-  <cover-image-v1 class="cover-image" coverImgUrl="{{itemData.coverImgUrl}}" playCount="{{itemData.playCount}}"></cover-image-v1>
+  <cover-image-v1 class="cover-image" coverImgUrl="{{itemData.coverImgUrl || ''}}" playCount="{{itemData.playCount || 0}}"></cover-image-v1>
 </view>

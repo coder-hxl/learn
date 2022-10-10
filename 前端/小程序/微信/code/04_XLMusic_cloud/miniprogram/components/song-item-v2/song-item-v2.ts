@@ -38,6 +38,10 @@ Component({
     attached() {
       const itemData = this.data.itemData
       const loveRecord = userInfoStore.loveRecord
+
+      // 没登录就获取不到
+      if (!Object.keys(loveRecord).length) return
+
       const isLove = loveRecord.tracks
         .map((item: any) => item.id)
         .includes(itemData.id)
