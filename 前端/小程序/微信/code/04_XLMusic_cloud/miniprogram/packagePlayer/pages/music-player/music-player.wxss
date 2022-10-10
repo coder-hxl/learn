@@ -53,9 +53,14 @@
 }
 
 .music .artists {
-  display: flex;
-  margin: 20rpx 0;
-  font-size: 30rpx;
+  margin: 20rpx 10rpx 20rpx 0;
+  font-size: 28rpx;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .music .artists .ar-name {
@@ -95,11 +100,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50rpx 0 70rpx;
+  margin: 50rpx 0;
 }
 
 .control .btn {
   width: 60rpx;
+  height: 0;
 }
 
 .control .pause {

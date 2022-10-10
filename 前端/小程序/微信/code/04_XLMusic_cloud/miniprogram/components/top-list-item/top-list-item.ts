@@ -10,8 +10,9 @@ Component({
   methods: {
     onTopListItemTap() {
       const id = this.properties.itemData.id
+      const type = 3
       wx.navigateTo({
-        url: `/pages/detail-song-menu/detail-song-menu?id=${id}`
+        url: `/pages/detail-song-menu/detail-song-menu?type=${type}&id=${id}`
       })
       wx.setNavigationBarTitle({ title: this.properties.itemData.name })
     }

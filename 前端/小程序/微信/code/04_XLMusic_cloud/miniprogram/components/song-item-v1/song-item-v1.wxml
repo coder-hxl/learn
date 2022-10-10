@@ -6,7 +6,7 @@
       <view class="song-name">{{songData.name}}</view>
       <view class="artists">
         <block wx:for="{{songData.song.artists}}" wx:key="id">
-          <view class="artist-name">{{item.name}}</view>
+          <text class="artist-name">{{item.name}}</text>
         </block>
       </view>
     </view>

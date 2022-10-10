@@ -6,7 +6,9 @@ import userInfoStore from '../stores/userInfoStore'
 import { parseLyric } from '../utils/transition'
 import { getRandomIndex } from '../utils/transition'
 
-export const audioContext = wx.createInnerAudioContext()
+export const audioContext = wx.createInnerAudioContext({
+  useWebAudioImplement: true
+})
 const playModeList = ['order', 'repeat', 'random']
 
 const playerStore = xlStore({

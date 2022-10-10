@@ -21,8 +21,8 @@
     <view class="name">{{currentSong.name}}</view>
     <view class="artists">
       <block wx:for="{{currentSong.ar}}" wx:key="id">
-        <view class="ar-name">{{item.name}}</view>
-        <view class="division" wx:if="{{index !== currentSong.ar.length - 1}}">/</view>
+        <text class="ar-name">{{item.name}}</text>
+        <text class="division" wx:if="{{index !== currentSong.ar.length - 1}}">/</text>
       </block>
     </view>
     <view class="lyric">{{currentLyricText}}</view>
