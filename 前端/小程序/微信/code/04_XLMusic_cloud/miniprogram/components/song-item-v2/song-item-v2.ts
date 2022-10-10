@@ -8,6 +8,10 @@ const cMySongMenu: any = db.collection('c_my_song_menu')
 
 Component({
   properties: {
+    type: {
+      type: Number,
+      value: -1
+    },
     mySongMenu_id: {
       type: String,
       value: ''
@@ -29,6 +33,7 @@ Component({
   data: {
     isLove: false
   },
+
   lifetimes: {
     attached() {
       const itemData = this.data.itemData
@@ -50,7 +55,9 @@ Component({
     },
 
     async onControlTap() {
-      const itemList = ['添加到歌单', '移除出歌单']
+      const type = this.properties.type
+      const itemList =
+        type === 3 ? ['添加到歌单'] : ['添加到歌单', '移除出歌单']
 
       // 2.获取用户点击的结果
       let res = null
@@ -75,7 +82,11 @@ Component({
 
         // 移除出歌曲
         case 1:
-          handleRes = await this.handleDeleteMySongMenu()
+          if (type === 1) {
+            handleRes = await this.handleLoveRecord()
+          } else if (type === 2) {
+            handleRes = await this.handleDeleteMySongMenu()
+          }
 
           break
       }
@@ -99,9 +110,9 @@ Component({
       if (isLove) {
         // 1.获取追踪的歌曲, 选出要保留的
         const loveRecord = userInfoStore.loveRecord
-        const newTracks: any[] = loveRecord.tracks.filter(
-          (item: any) => item.id !== currentSong.id
-        )
+        const newTracks: any[] = loveRecord.tracks
+          .filter((item: any) => item.id !== currentSong.id)
+          .reverse()
 
         // 2.更新到追踪
         handleRes = await cLove
@@ -109,17 +120,17 @@ Component({
           .update({ data: { tracks: newTracks } })
 
         // 3.更新封面图片
-        const shiftTracks = newTracks.shift()
+        const newCoverData = [...newTracks].pop()
         const coverImgUrl = newTracks.length
-          ? shiftTracks.al?.picUrl ?? shiftTracks.picUrl
-          : '/assets/images/icons/love.png'
+          ? newCoverData.al?.picUrl ?? newCoverData.picUrl
+          : '/assets/images/icons/love-activate.png'
         await cLove.where({}).update({ data: { coverImgUrl } })
 
         this.setData({ isLove: false })
       } else {
         // 1.添加歌曲
         handleRes = await cLove.where({}).update({
-          data: { tracks: cmd.unshift(currentSong) }
+          data: { tracks: cmd.push(currentSong) }
         })
 
         // 2.更新封面图片
@@ -153,23 +164,33 @@ Component({
       if (tapIndex === undefined) return
 
       // 3.更新
-      // 3.1. 添加歌曲
+      // 3.1. 判断歌曲是否存在于歌单
+      const currentSong = this.data.itemData
       const addSongMenu = mySongMenu[tapIndex]
+      const isHasSong = !!addSongMenu.tracks.filter(
+        (item) => item.id === currentSong.id
+      ).length
+
+      if (isHasSong) {
+        wx.showToast({ title: '已有该歌曲~', icon: 'error' })
+        return
+      }
+
+      // 3.2. 添加歌曲
       const addRes = await cMySongMenu.where({ _id: addSongMenu._id }).update({
         data: {
           tracks: cmd.push(this.data.itemData)
         }
       })
 
-      // 3.2. 更新封面图片
-      const currentSong = this.data.itemData
+      // 3.3. 更新封面图片
       const coverImgUrl = currentSong.al?.picUrl ?? currentSong.picUrl
 
       await cMySongMenu
         .where({ _id: addSongMenu._id })
         .update({ data: { coverImgUrl } })
 
-      // 3.3. 获取最新数据
+      // 3.4. 获取最新数据
       userInfoStore.getMySongMenuAction()
 
       return addRes

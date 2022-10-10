@@ -4,23 +4,26 @@ import userInfoStore from '../../stores/userInfoStore'
 
 Page({
   data: {
+    type: null as number | null,
     detailData: {} as any,
     mySongMenuIndex: null as number | null
   },
 
   async onLoad(options: any) {
-    const { id, mySongMenuIndex } = options
+    const { type, id, mySongMenuIndex } = options
+    const typeNum = parseInt(type)
+    this.setData({ type: typeNum })
 
-    if (id !== undefined) {
-      this.fetchDetailSongMenu(id)
-    } else if (mySongMenuIndex !== undefined) {
-      const detailData = userInfoStore.mySongMenu[mySongMenuIndex]
-      this.setData({ detailData, mySongMenuIndex })
-      userInfoStore.watch('mySongMenu', this.handleMySongMenuStore)
-    } else {
+    if (typeNum === 1) {
       const detailData = userInfoStore.loveRecord
       this.setData({ detailData })
       userInfoStore.watch('loveRecord', this.handleLoveStore)
+    } else if (typeNum === 2) {
+      const detailData = userInfoStore.mySongMenu[mySongMenuIndex]
+      this.setData({ detailData, mySongMenuIndex })
+      userInfoStore.watch('mySongMenu', this.handleMySongMenuStore)
+    } else if (typeNum === 3) {
+      this.fetchDetailSongMenu(id)
     }
   },
 

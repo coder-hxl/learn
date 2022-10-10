@@ -1,4 +1,5 @@
 export const db = wx.cloud.database()
+export const cmd = db.command
 
 class XLCollection {
   collection: any
@@ -19,12 +20,12 @@ class XLCollection {
     return this.collection.where(data).reomve()
   }
 
-  update(data: any, isDoc = true) {
+  update(data: any, updateData: any, isDoc = true) {
     if (isDoc) {
-      return this.collection.doc(data).update()
+      return this.collection.doc(data).update({ data: updateData })
     }
 
-    return this.collection.where({ data }).updata()
+    return this.collection.where(data).update({ data: updateData })
   }
 
   get(data: any, options: any, isDoc = true): Promise<DB.IQueryResult> {

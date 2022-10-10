@@ -63,7 +63,10 @@ Page({
   },
 
   onRecommendMoreTap() {
-    wx.navigateTo({ url: '../more-new-song/more-new-song' })
+    const listType = 2
+    wx.navigateTo({
+      url: `../list-song/list-song?listType=${listType}&title=最新音乐`
+    })
   },
 
   onTopListMoreTap() {

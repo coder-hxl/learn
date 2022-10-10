@@ -1,6 +1,5 @@
 // pages/main-profile/main-profile.ts
 import userInfoStore, { ISongMenuRecord } from '../../stores/userInfoStore'
-import { mySongMenuCol } from '../../database/index'
 
 import { verifyLogin } from '../../utils/verify'
 
@@ -71,7 +70,15 @@ Page({
     // 2.跳转页面
     const { nickName } = event.currentTarget.dataset.item
     if (nickName === 'love') {
-      wx.navigateTo({ url: '/pages/detail-song-menu/detail-song-menu' })
+      const type = 1
+      wx.navigateTo({
+        url: `/pages/detail-song-menu/detail-song-menu?type=${type}`
+      })
+    } else if (nickName === 'history') {
+      const listType = 1
+      wx.navigateTo({
+        url: `/pages/list-song/list-song?listType=${listType}&title=历史记录`
+      })
     }
   },
 
@@ -93,8 +100,9 @@ Page({
 
   onMySongMenuItemTap(event: any) {
     const mySongMenuIndex: number = event.currentTarget.dataset.index
+    const type = 2
     wx.navigateTo({
-      url: `/pages/detail-song-menu/detail-song-menu?mySongMenuIndex=${mySongMenuIndex}`
+      url: `/pages/detail-song-menu/detail-song-menu?type=${type}&mySongMenuIndex=${mySongMenuIndex}`
     })
   },
 
@@ -125,8 +133,6 @@ Page({
 
   // ============== store 处理 ==============
   fetchMySongMenu(key: string, mySongMenu: any) {
-    console.log(mySongMenu)
-
     this.setData({ mySongMenu })
   },
 

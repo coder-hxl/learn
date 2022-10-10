@@ -1,5 +1,5 @@
 import xlStore from 'xl-store'
-import { loveCol, mySongMenuCol } from '../database/index'
+import { cmd, loveCol, mySongMenuCol, historyCol } from '../database/index'
 import { verifyLogin } from '../utils/verify'
 
 export interface ISongMenuRecord {
@@ -14,6 +14,12 @@ export interface ISongMenuRecord {
   }
   subscribedCount: number
   shareCount: number
+  tracks: any[]
+}
+
+export interface IHistory {
+  _id?: string
+  _openid?: string
   tracks: any[]
 }
 
@@ -35,6 +41,12 @@ const initData = {
     }
 
     return res
+  },
+  history() {
+    const data: IHistory = {
+      tracks: []
+    }
+    return data
   }
 }
 
@@ -42,7 +54,8 @@ const userInfoStore = xlStore({
   state: {
     userInfo: {} as WechatMiniprogram.UserInfo,
     loveRecord: {},
-    mySongMenu: []
+    mySongMenu: [],
+    history: {}
   },
 
   actions: {
@@ -80,8 +93,8 @@ const userInfoStore = xlStore({
       loveRecord.coverImgUrl = '/assets/images/icons/love-activate.png'
 
       // 3.添加到云数据库
-      loveCol.add(loveRecord)
-      this.loveRecord = loveRecord
+      const addRes = await loveCol.add(loveRecord)
+      this.loveRecord = { ...loveRecord, _id: addRes._id }
       return true
     },
 
@@ -96,8 +109,18 @@ const userInfoStore = xlStore({
       const mySongMenuRecord = initData.songRecord(songMenuName, songMenuDes)
       mySongMenuRecord.coverImgUrl = '/assets/images/icons/music-box.png'
 
-      mySongMenuCol.add(mySongMenuRecord)
-      this.mySongMenu.push(mySongMenuRecord)
+      const addRes = await mySongMenuCol.add(mySongMenuRecord)
+      this.mySongMenu.push({ ...mySongMenuRecord, _id: addRes._id })
+    },
+
+    async createHistoryRecordAction() {
+      const res = await historyCol.get({}, null, false)
+
+      if (res.data.length) return
+
+      const historyRecord = initData.history()
+      const addRes = await historyCol.add(historyRecord)
+      this.history = { ...historyRecord, _id: addRes._id }
     },
 
     initStoreDataAction() {
@@ -109,13 +132,18 @@ const userInfoStore = xlStore({
       })
 
       this.getMySongMenuAction()
+
+      this.createHistoryRecordAction().then(() => {
+        this.getHistoryAction()
+      })
     },
 
     async getLoveRecordAction() {
       const res = await loveCol.get({}, null, false)
       console.log('getLoveRecordAction', res.data)
-
-      return (this.loveRecord = res.data[0])
+      const loveRecord = res.data[0] as ISongMenuRecord
+      loveRecord.tracks = loveRecord.tracks.reverse()
+      return (this.loveRecord = loveRecord)
     },
 
     async getMySongMenuAction() {
@@ -127,6 +155,22 @@ const userInfoStore = xlStore({
       console.log('getMySongMenuAction', mySongMenus)
 
       return (this.mySongMenu = mySongMenus)
+    },
+
+    async getHistoryAction() {
+      const res = await historyCol.get({}, null, false)
+      const data = res.data[0]
+      data.tracks = data.tracks.reverse()
+
+      console.log('getHistoryAction', data)
+
+      return (this.history = data)
+    },
+
+    async addHistoryAction(song: any) {
+      await historyCol.update({}, { tracks: cmd.push(song) }, false)
+
+      this.getHistoryAction()
     }
   }
 })

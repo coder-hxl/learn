@@ -1,8 +1,9 @@
 import xlStore from 'xl-store'
 
 import { getLyric, getSongDetail } from '../services/music'
-import { parseLyric } from '../utils/transition'
+import userInfoStore from '../stores/userInfoStore'
 
+import { parseLyric } from '../utils/transition'
 import { getRandomIndex } from '../utils/transition'
 
 export const audioContext = wx.createInnerAudioContext()
@@ -44,8 +45,12 @@ const playerStore = xlStore({
       // 2.根据 id 获取歌信息
       // 2.1. 获取歌曲信息
       getSongDetail(id).then((res) => {
-        this.currentSong = res.songs[0]
-        this.durationTime = res.songs[0].dt
+        const song = res.songs[0]
+        this.currentSong = song
+        this.durationTime = song.dt
+
+        // 添加到历史记录
+        userInfoStore.addHistoryAction(song)
       })
       // 2.2. 获取详细歌词
       getLyric(id).then((res) => {
