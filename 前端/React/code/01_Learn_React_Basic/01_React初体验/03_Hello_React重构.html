@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      // 类组件和函数式组件
+      class App extends React.Component {
+        // 组件数据
+        constructor() {
+          super()
+
+          this.state = {
+            message: 'Hello World'
+          }
+
+          // 必须绑定this
+          this.btnClick = this.btnClick.bind(this)
+        }
+
+        // 组件方法
+        btnClick() {
+          // 内部: 修改 state 的值, 重新执行 render函数 渲染
+          this.setState({
+            message: 'Hello React'
+          })
+        }
+
+        // 渲染内容
+        render() {
+          return (
+            <div>
+              <h1>{this.state.message}</h1>
+              <button onClick={this.btnClick}>修改文本</button>
+            </div>
+          )
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            count: 100
+          }
+
+          this.increment = this.increment.bind(this)
+          this.decrement = this.decrement.bind(this)
+        }
+
+        render() {
+          const { count } = this.state
+
+          return (
+            <div>
+              <h1>{count}</h1>
+              <button onClick={this.increment}>+1</button>
+              <button onClick={this.decrement}>-1</button>
+            </div>
+          )
+        }
+
+        increment() {
+          this.setState({
+            count: this.state.count + 1
+          })
+        }
+
+        decrement() {
+          this.setState({
+            count: this.state.count - 1
+          })
+        }
+      }
+
+      root.render(<App />)
+    </script>
+  </body>
+</html>
