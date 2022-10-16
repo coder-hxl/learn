@@ -24,6 +24,10 @@ TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干
 
 Vue 渐进式 JavaScript 框架。
 
+#### - React（学习中）
+
+React 用于构建用户界面的 JavaScript 库。
+
 #### - Webpack
 
 Webpack 一个用于现代 JavaScript 应用程序的 静态模块打包工具。
@@ -38,8 +42,6 @@ Vite 下一代前端开发与构建工具。
 
 小程序是一种全新的连接用户与服务的方式，它可以在微信内被便捷地获取和传播，同时具有出色的使用体验。
 
-
-
 ## 后端
 
 #### - Node.js
@@ -53,7 +55,6 @@ Express 用于 Node.js 的快速、无主见、简约的 Web 框架。
 #### - Koa
 
 Koa 是 Node.js 的下一代 Web 框架。
-
 
 #### - MySQL
 
