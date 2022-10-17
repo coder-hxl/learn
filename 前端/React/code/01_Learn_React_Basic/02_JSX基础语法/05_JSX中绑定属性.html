@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            message: 'Hello World',
+            title: '哈哈哈',
+            url: 'https://baidu.com',
+            isActivate: true,
+
+            objStyle: {
+              color: 'red',
+              fontSize: '30px'
+            }
+          }
+        }
+
+        render() {
+          const { message, title, url, isActivate, objStyle } = this.state
+
+          // 绑定class
+          const className = `aaa bbb ${isActivate ? 'activate' : ''}`
+          const classList = ['aaa', 'bbb']
+          if (isActivate) classList.push('activate')
+
+          return (
+            <div>
+              {/* 1.基础属性绑定 */}
+              <h2 title={title}>{message}</h2>
+              <a href={url}>百度一下</a>
+
+              {/* 2.绑定class属性: 绑定给className */}
+              <h2 className={className}>哈哈哈</h2>
+              <h2 className={classList.join(' ')}>哈哈哈</h2>
+
+              {/* 3.绑定style属性: 使用对象类型 */}
+              <h2 style={{ color: 'red', fontSize: '30px' }}>呵呵呵</h2>
+              <h2 style={objStyle}>呵呵呵</h2>
+            </div>
+          )
+        }
+      }
+
+      root.render(<App />)
+    </script>
+  </body>
+</html>
