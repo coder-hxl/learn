@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        margin: 20px 10px;
+        padding: 10px;
+        border: 1px solid #6f6f6f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            students: [
+              { id: 100, name: 'hxl', age: 18 },
+              { id: 101, name: 'why', age: 18 },
+              { id: 102, name: 'pink', age: 22 },
+              { id: 103, name: 'lili', age: 16 }
+            ]
+          }
+        }
+
+        render() {
+          const { students } = this.state
+
+          // 选取>=18
+          const filterStudents = students.filter((item) => item.age >= 18)
+          // 选取前两个
+          const sliceStudents = filterStudents.slice(0, 2)
+
+          return (
+            <div>
+              {students
+                .filter((item) => item.age >= 18)
+                .slice(0, 2)
+                .map((item) => {
+                  return (
+                    <div className="item" key={item.id}>
+                      <h1>id: {item.id}</h1>
+                      <h2>name: {item.name}</h2>
+                      <h2>age: {item.age}</h2>
+                    </div>
+                  )
+                })}
+            </div>
+          )
+        }
+      }
+
+      root.render(<App />)
+    </script>
+  </body>
+</html>

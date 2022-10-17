@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            message: 'Hello World',
+
+            isReady: true,
+
+            info: {
+              name: 'hxl',
+              age: 18
+            }
+          }
+        }
+
+        render() {
+          const { message, isReady, info } = this.state
+
+          let showElement = null
+          if (isReady) {
+            showElement = <h2>准备好了</h2>
+          } else {
+            showElement = <h2>没准备好</h2>
+          }
+
+          return (
+            <div>
+              {/* 1.根据条件赋值给变量 */}
+              <div>{showElement}</div>
+
+              {/* 2.三元运算符 */}
+              <div>{isReady ? <button>开始</button> : <h3>继续准备</h3>}</div>
+
+              {/* 3.&&逻辑与 */}
+              {/* 场景: 当某个值可能为false, 则需要 */}
+              <div>{info && <h2>{info.name}</h2>}</div>
+            </div>
+          )
+        }
+      }
+
+      root.render(<App />)
+    </script>
+  </body>
+</html>

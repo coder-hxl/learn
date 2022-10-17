@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {}
+
+          this.btn1Click = this.btn1Click.bind(this)
+        }
+
+        btn1Click() {
+          console.log('btn1Click', this)
+        }
+
+        btn2Click = () => {
+          console.log('btn2Click', this)
+        }
+
+        btn3Click() {
+          console.log('btn3Click', this)
+        }
+
+        render() {
+          return (
+            <div>
+              {/* 1.bing绑定 */}
+              <button onClick={this.btn1Click}>按钮1</button>
+
+              {/* 2.class fields */}
+              <button onClick={this.btn2Click}>按钮2</button>
+
+              {/* 3.传入箭头函数, 在函数内隐式调用 */}
+              <button onClick={() => this.btn3Click()}>按钮3</button>
+            </div>
+          )
+        }
+      }
+
+      root.render(<App />)
+    </script>
+  </body>
+</html>
