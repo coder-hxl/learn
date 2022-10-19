@@ -1,0 +1,16 @@
+.tab {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 30px;
+}
+
+.tab .item {
+  flex:  1;
+}
+
+.tab .item.activate span {
+  padding: 10px;
+  color: red;
+  border-bottom: 2px solid red;
+}
