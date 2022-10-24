@@ -1,4 +1,4 @@
-# code 开发之路
+# Learn Code
 
 2020.12.15 —— 至今
 
@@ -24,7 +24,7 @@ TypeScript 是拥有类型的 JavaScript 超集，它可以编译成普通、干
 
 Vue 渐进式 JavaScript 框架。
 
-#### - React（学习中）
+#### - React
 
 React 用于构建用户界面的 JavaScript 库。
 
