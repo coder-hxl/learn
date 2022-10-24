@@ -1,0 +1,17 @@
+.hxl-appear, .hxl-enter {
+  opacity: 0;
+}
+
+.hxl-appear-active, .hxl-enter-active {
+  opacity: 1;
+  transition: all 2s ease;
+}
+
+.hxl-exit {
+  opacity: 1;
+}
+
+.hxl-exit-active {
+  opacity: 0;
+  transition: all 2s ease;
+}
