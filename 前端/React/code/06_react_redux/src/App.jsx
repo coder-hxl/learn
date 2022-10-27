@@ -5,6 +5,7 @@ import store from './store'
 import Add from './pages/Add'
 import Sub from './pages/Sub'
 import Home from './pages/Home'
+import Category from './pages/Category'
 
 import './style.css'
 
@@ -13,14 +14,14 @@ export class App extends PureComponent {
     super()
 
     this.state = {
-      counter: store.getState().counter
+      counter: store.getState().counter.counter
     }
   }
 
   componentDidMount() {
     store.subscribe(() => {
       const state = store.getState()
-      this.setState({ counter: state.counter })
+      this.setState({ counter: state.counter.counter })
     })
   }
 
@@ -35,6 +36,7 @@ export class App extends PureComponent {
           <Add />
           <Sub />
           <Home />
+          <Category />
         </div>
       </div>
     )

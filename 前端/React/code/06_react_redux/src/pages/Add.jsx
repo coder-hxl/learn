@@ -1,21 +1,21 @@
 import React, { PureComponent } from 'react'
 
 import store from '../store'
-import { addNumberAction } from '../store/actionCreators'
+import { addNumberAction } from '../store/counter'
 
 export class Add extends PureComponent {
   constructor() {
     super()
 
     this.state = {
-      counter: store.getState().counter
+      counter: store.getState().counter.counter
     }
   }
 
   componentDidMount() {
     store.subscribe(() => {
       const state = store.getState()
-      this.setState({ counter: state.counter })
+      this.setState({ counter: state.counter.counter })
     })
   }
 

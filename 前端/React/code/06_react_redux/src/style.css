@@ -1,9 +1,9 @@
 .pages {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .pages > div {
-  padding: 50px;
+  flex: 1;
+  padding: 25px;
   border: 1px solid black;
 }
