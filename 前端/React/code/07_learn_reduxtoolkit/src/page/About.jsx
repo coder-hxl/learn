@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 // import { connect } from 'react-redux'
-import connect from '../hoc/connect'
+import { connect } from '../hoc'
 import { addNumber } from '../store/features/counter'
 
 export class About extends PureComponent {

@@ -3,7 +3,7 @@ import { StoreContext } from './index'
 
 export default function connect(mapStateToProps, mapDispatchToProps) {
   return function (WrapperComponent) {
-    class newComponent extends PureComponent {
+    class NewComponent extends PureComponent {
       constructor(props, context) {
         super()
 
@@ -30,8 +30,8 @@ export default function connect(mapStateToProps, mapDispatchToProps) {
       }
     }
 
-    newComponent.contextType = StoreContext
+    NewComponent.contextType = StoreContext
 
-    return newComponent
+    return NewComponent
   }
 }
