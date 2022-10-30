@@ -6,9 +6,11 @@ import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <React.Suspense fallback={<h3>Loading...</h3>}>
     <HashRouter>
       <App />
     </HashRouter>
-  </React.StrictMode>
+  </React.Suspense>
+  // </React.StrictMode>
 )
