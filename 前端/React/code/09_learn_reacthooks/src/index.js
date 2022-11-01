@@ -8,7 +8,11 @@ import ReactDOM from 'react-dom/client'
 // import App from './05_useContext的用法/App'
 // import App from './06_useReducer的用法/App'
 // import App from './07_useCallback的用法/App'
-import App from './08_useMenu的用法/App'
+// import App from './08_useMenu的用法/App'
+// import App from './09_useRef的用法/02_useRef绑定值-解决闭包陷阱'
+// import App from './10_useImperativeHandle/App'
+// import App from './11_useLayoutEffect的用法/03_切换数字-useLayoutEffect'
+import App from './12_自定义Hooks/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
