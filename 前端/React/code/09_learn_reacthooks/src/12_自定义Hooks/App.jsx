@@ -1,39 +1,38 @@
 import React, { memo } from 'react'
 
-import { UserContext, TokenContext } from './context'
-import { useUserToken } from './hooks'
+import { useLocalStorage } from './hooks'
 
 const Home = memo(() => {
-  const { user, token } = useUserToken()
+  const [name, setName] = useLocalStorage('name')
 
   return (
-    <h2>
-      Home - {user.name} - {user.age} -{token}
-    </h2>
+    <div>
+      <h2>Home - {name}</h2>
+      <button onClick={(e) => setName('coderhxl')}>修改名字</button>
+    </div>
   )
 })
 
 const About = memo(() => {
-  const { user, token } = useUserToken()
+  const [avatarUrl, setAvatarUrl] = useLocalStorage('avatar')
 
   return (
-    <h2>
-      About - {user.name} - {user.age} -{token}
-    </h2>
+    <div>
+      <h2>About - {avatarUrl}</h2>
+      <button onClick={(e) => setAvatarUrl('afadaihbvhdsviabujvdopjbx')}>
+        修改avatarUrl
+      </button>
+    </div>
   )
 })
 
 const App = memo(() => {
   return (
-    <UserContext.Provider value={{ name: 'hxl', age: 18 }}>
-      <TokenContext.Provider value="coderhxlcccccas">
-        <div>
-          <h2>App</h2>
-          <Home />
-          <About />
-        </div>
-      </TokenContext.Provider>
-    </UserContext.Provider>
+    <div className="App">
+      <h2>App</h2>
+      <Home />
+      <About />
+    </div>
   )
 })
 
