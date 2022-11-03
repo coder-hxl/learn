@@ -16,7 +16,9 @@ import store from './13_redux中的hooks/store'
 // import App from './10_useImperativeHandle/App'
 // import App from './11_useLayoutEffect的用法/03_切换数字-useLayoutEffect'
 // import App from './12_自定义Hooks/App'
-import App from './13_redux中的hooks/App'
+// import App from './13_redux中的hooks/App'
+// import App from './14_useId的用法/App'
+import App from './15_useTransition的用法/02_useDeferredValue的使用'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
