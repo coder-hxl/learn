@@ -6,9 +6,9 @@ import routes from './router'
 const App = memo(() => {
   return (
     <div className="App">
-      <div>Header</div>
-      <div>{useRoutes(routes)}</div>
-      <div>Footer</div>
+      <div className="header">Header</div>
+      <div className="content">{useRoutes(routes)}</div>
+      <div className="footer">Footer</div>
     </div>
   )
 })
