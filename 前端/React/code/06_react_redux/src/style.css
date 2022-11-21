@@ -1,9 +1,0 @@
-.pages {
-  display: flex;
-}
-
-.pages > div {
-  flex: 1;
-  padding: 25px;
-  border: 1px solid black;
-}

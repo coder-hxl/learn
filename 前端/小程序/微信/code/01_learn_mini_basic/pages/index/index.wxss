@@ -1,8 +1,0 @@
-.index .btn {
-  margin-top: 12rpx;
-  background-color: orange;
-}
-
-.index .btn:first-child {
-  margin-top: 0;
-}

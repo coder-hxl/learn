@@ -1,9 +1,0 @@
-import React, { PureComponent } from 'react'
-
-export class App extends PureComponent {
-  render() {
-    return <div style={{ color: 'red', fontSize: '30px' }}>App</div>
-  }
-}
-
-export default App

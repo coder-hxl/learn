@@ -1,5 +1,0 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
-
-<view>name: {{ userInfo.name }}</view>
-<view>age: {{ userInfo.age }}</view>

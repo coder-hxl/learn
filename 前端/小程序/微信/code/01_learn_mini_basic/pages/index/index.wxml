@@ -1,7 +1,0 @@
-<view class="index">
-  <block wx:for="{{ pages }}" wx:key="name">
-    <button class="btn" bindtap="handleBtnClick" data-item="{{ item }}">
-      {{ item.name }}
-    </button>
-  </block>
-</view>

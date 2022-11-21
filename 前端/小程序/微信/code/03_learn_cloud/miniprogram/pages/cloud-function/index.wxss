@@ -1,4 +1,0 @@
-/* pages/cloud-function/index.wxss */
-.btn {
-  margin: 20rpx 0;
-}

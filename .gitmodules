@@ -1,3 +1,9 @@
-[submodule "前端/React/code/airbnb"]
-	path = 前端/React/code/airbnb
-	url = https://github.com/coder-hxl/airbnb
+[submodule "learn-web"]
+	path = learn-web
+	url = https://github.com/coder-hxl/learn-web
+[submodule "learn-nodejs"]
+	path = learn-nodejs
+	url = https://github.com/coder-hxl/learn-nodejs
+[submodule "learn-database"]
+	path = learn-database
+	url = https://github.com/coder-hxl/learn-database
