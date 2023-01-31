@@ -7,3 +7,6 @@
 [submodule "learn-database"]
 	path = learn-database
 	url = https://github.com/coder-hxl/learn-database
+[submodule "learn-data-structures-and-algorithms"]
+	path = learn-data-structures-and-algorithms
+	url = https://github.com/coder-hxl/learn-data-structures-and-algorithms
